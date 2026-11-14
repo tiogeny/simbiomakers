@@ -1,0 +1,656 @@
+/**
+ * SimbioMakers - Red de Innovación y Fabricación Digital Escolar
+ * Base de Datos Central y Configuración del Capítulo Perú (24 Regiones + Callao)
+ * Metodología SimbioCreación & Fab Lab Perú
+ */
+
+export const EDITION_CONFIG = {
+  brand: 'SimbioMakers',
+  chapter: 'Capítulo Perú',
+  countryCode: 'PE',
+  flagEmoji: '🇵🇪',
+  editionSubtitle: 'Red Nacional de Innovación y Fabricación Digital Escolar',
+  tagline: 'Convergencia antes que competencia • De la mente a la materia',
+  year: '2026 - 2027',
+  targetAudience: 'Estudiantes de 4.° y 5.° de secundaria de colegios públicos y privados',
+  organizers: [
+    {
+      name: 'Fab Lab Perú',
+      role: 'Red Nacional de Laboratorios & Fabricación Distribuida',
+      logoDark: 'logos/logo_fablab_blanco.png',
+      logoLight: 'logos/logo_fablab_negro.png',
+      description: 'Pioneros de la fabricación digital en América Latina y gestores de la red global Fab City.'
+    },
+    {
+      name: 'SimbioCreación',
+      role: 'Metodología Propietaria de Innovación & MPI',
+      logo: 'logos/logo_simbiocreacion.png',
+      description: 'Metodología colaborativa de Benito Juárez Vélez orientada al Máximo Producto de Integración.'
+    }
+  ],
+  framework: {
+    totalSedes: 25, // 24 departamentos + Callao
+    totalDepartments: 24,
+    studentsPerTeam: 5,
+    teamsPerRegion: { min: 2, max: 4 },
+    studentsPerRegion: { min: 10, max: 20 },
+    totals: {
+      escenario240: {
+        students: 240,
+        teams: 48,
+        costTotal: 48180,
+        costPerStudent: 200,
+        costPerRegion: 2007,
+        label: 'Piloto Escalar (10 alumnos/región)'
+      },
+      escenario480: {
+        students: 480,
+        teams: 96,
+        costTotal: 85860,
+        costPerStudent: 179,
+        costPerRegion: 3577,
+        label: 'Piloto Nacional Completo (20 alumnos/región)'
+      },
+      escenarioMinimo: {
+        students: 240,
+        teams: 48,
+        costTotal: 14580,
+        costPerStudent: 60,
+        label: 'Costo Marginal en Insumos Puros (Con IEST aportando facilitación)'
+      }
+    },
+    kitDetails: {
+      costPerTeam: 210, // S/ 210 por equipo de 5
+      costPerStudent: 42, // S/ 42 por estudiante
+      items: [
+        '1 kg Filamento PLA biodegradable alta precisión',
+        'Planchas de MDF 3mm y acrílico para corte láser',
+        'Kit electrónico: Placa ESP32 con WiFi/Bluetooth o Arduino + cables jumper',
+        'Sensores de entorno (humedad, temperatura, luz, ultrasónico)',
+        'Actuadores (servomotor, relé o microbomba)',
+        'Ferretería y tornillería métrica para ensamble rápido'
+      ]
+    }
+  },
+  pedagogy: [
+    {
+      week: 'Semanas 1 y 2',
+      title: 'Misiones Virtuales & Reto Local',
+      icon: 'sparkles',
+      summary: 'Sesiones remotas gamificadas de ideación, modelado 2D/3D (Tinkercad / Onshape) y electrónica básica. Definición del reto regional en Agua, Energía, Salud o Cultura.'
+    },
+    {
+      week: 'Semana 3',
+      title: 'Fabricación Distribuida (Región Espejo)',
+      icon: 'share-2',
+      summary: 'Codiseño remoto entre dos regiones complementarias (ej. Loreto y Cusco). Se intercambian archivos digitales (STL, SVG) para auditoría técnica y ensamble modular compartido sin pagar fletes.'
+    },
+    {
+      week: 'Semanas 4 y 5',
+      title: 'Fabricación Física en el IEST Sede',
+      icon: 'cpu',
+      summary: 'Jornadas presenciales intensivas en el Fab Lab del IEST de su región. Corte láser, impresión 3D, soldadura, programación y calibración de prototipos reales.'
+    },
+    {
+      week: 'Semana 6',
+      title: 'Demo Day Nacional & Reporte MPI',
+      icon: 'award',
+      summary: 'Presentación en vivo transmitida a nivel nacional ante directores de PMESUT, aliados corporativos y la red internacional de Fab Labs con entrega del Índice de Máximo Impacto Posible.'
+    }
+  ],
+  selectionCriteria: [
+    {
+      pct: 30,
+      title: 'Arraigo y Observación Local',
+      desc: 'Capacidad de identificar un problema real y tangible en su comunidad, barrio, colegio o ecosistema natural.'
+    },
+    {
+      pct: 30,
+      title: 'Mentalidad Maker y Recursividad',
+      desc: 'Haber construido, arreglado, programado o inventado algo con los materiales que tenía a mano. ¡Cero diplomas teóricos!'
+    },
+    {
+      pct: 20,
+      title: 'Potencial Colaborativo Simbiótico',
+      desc: 'Ganas auténticas de trabajar en equipo con jóvenes de otros colegios y realidades distintas.'
+    },
+    {
+      pct: 20,
+      title: 'Criterio de Equidad y Acceso',
+      desc: 'Priorización de colegios públicos, zonas rurales/periurbanas y fomento de mujeres adolescentes en STEAM (meta 50/50).'
+    }
+  ],
+  sponsorTiers: [
+    {
+      id: 'kit_maker',
+      title: 'Aliado de Insumos (Kit Maker)',
+      badge: 'Aporte en Especie o Efectivo',
+      costSummary: 'S/ 210 por equipo (S/ 42 por estudiante)',
+      description: 'Financia los materiales de prototipado para uno o varios equipos de 5 escolares. El kit incluye PLA, MDF, sensores y microcontroladores.',
+      benefits: [
+        'Mención en la bitácora técnica de prototipado',
+        'Logo del aliado en los prototipos físicos creados',
+        'Certificado de fomento a la educación tecnológica escolar'
+      ]
+    },
+    {
+      id: 'adopta_region',
+      title: 'Sponsor de Sede: Adopta una Región',
+      badge: 'Impacto Regional Completo',
+      costSummary: 'Desde S/ 2,007 a S/ 3,577 por región',
+      featured: true,
+      description: 'Financiamiento directo para operar la totalidad de los equipos de un departamento del Perú en su IEST sede.',
+      benefits: [
+        'Derecho a proponer un reto de innovación vinculado a su sector',
+        'Reporte de auditoría y métricas de impacto MPI (Máximo Impacto Posible)',
+        'Participación destacada en la inauguración y como jurado en el Demo Day Nacional',
+        'Presencia de marca en uniformes, stands y prensa regional'
+      ]
+    },
+    {
+      id: 'fondo_facilitadores',
+      title: 'Fondo Semilla de Instructores',
+      badge: 'Soporte al Talento Técnico Local',
+      costSummary: 'Aporte institucional flexible',
+      description: 'Fondo dedicado a retribuir y capacitar a los instructores y técnicos de laboratorio de los IEST que asesoran a los estudiantes.',
+      benefits: [
+        'Fortalecimiento directo de la capacidad docente técnica del Perú',
+        'Visibilidad como padrino de transferencia tecnológica'
+      ]
+    },
+    {
+      id: 'mentoria_conectividad',
+      title: 'Mentoría & Conectividad STEAM',
+      badge: 'Voluntariado y Telecom',
+      costSummary: 'Horas mentor / Paquetes de datos',
+      description: 'Aporte de paquetes de internet para escolares de zonas rurales y horas de asesoría técnica de ingenieros y diseñadores senior.',
+      benefits: [
+        'Conexión directa entre profesionales de tu empresa y jóvenes promesas',
+        'Reporte de voluntariado corporativo de alto impacto'
+      ]
+    }
+  ],
+  faq: [
+    {
+      q: '¿Por qué no se piden libretas de notas ni certificados de tercio superior?',
+      a: 'Porque la innovación real no depende de memorizar exámenes. Buscamos curiosidad, recursividad (hacer mucho con poco), empatía por los problemas de su entorno y ganas de construir con las manos. Inspirados en la filosofía de inclusión de Perú Champs, democratizamos el acceso al talento creador.'
+    },
+    {
+      q: '¿Qué es la fabricación distribuida y por qué ahorra fletes interregionales?',
+      a: 'En lugar de fabricar todo en Lima y pagar envíos costosos y lentos a provincias, cada equipo diseña digitalmente su prototipo y comparte sus archivos (STL, SVG) con un equipo espejo de otra región. Ambos laboratorios IEST imprimen y cortan localmente los módulos, colaborando a cientos de kilómetros de distancia a costo cero de transporte.'
+    },
+    {
+      q: '¿Pueden postular estudiantes de colegios tanto públicos como privados?',
+      a: 'Sí, la convocatoria es abierta para cualquier adolescente que curse 4.° o 5.° de secundaria. Dentro de cada región buscamos conformar equipos multidisciplinarios donde se mezclen estudiantes de distintos colegios, garantizando un mínimo del 70% de representatividad de colegios públicos y paridad de género (50% mujeres en STEAM).'
+    },
+    {
+      q: '¿Cómo funciona la postulación con video vertical de 60 segundos?',
+      a: 'El estudiante graba un video corto con su celular (estilo Reels/TikTok/Shorts) mostrando un lugar o problema cotidiano de su comunidad que le gustaría resolver y contando qué ha construido o reparado alguna vez. No se evalúa edición ni calidad de cámara, sino autenticidad, claridad y pasión.'
+    },
+    {
+      q: '¿Cómo puede una empresa o institución "Adoptar una Región"?',
+      a: 'Desde el portal web, los sponsors seleccionan el departamento disponible en el mapa interactivo o el tablero. Con una inversión desde S/ 2,007 se garantiza la cobertura de insumos, facilitación y certificación de la región elegida, recibiendo un reporte con métricas MPI.'
+    }
+  ]
+};
+
+export const PERU_MAP_DATA = {
+  "viewBox": [
+    0,
+    0,
+    600,
+    863
+  ],
+  "regions": [
+    {
+      "id": "amazonas",
+      "name": "AMAZONAS",
+      "d": "M177.7,326.4 L173.9,326.9 L172.3,326.3 L170.3,327.4 L167.1,326.7 L166.4,320.1 L164.5,313.6 L162.3,312.1 L161,306.9 L158.7,303.8 L155.8,301.1 L152.3,299.1 L152.2,297.7 L147.7,290.9 L144.1,286.7 L141,286.9 L140,284.3 L137.9,281.5 L135.6,276 L136.8,270.5 L140.3,266.1 L142.4,261.3 L144.3,259.3 L144.2,256.8 L140.3,252.9 L136.8,251 L135.7,247.1 L136.1,243.7 L138,242.1 L139.7,239.1 L138.5,237.5 L140.5,229.1 L138.6,227.4 L138.9,224 L135.9,222.4 L137.9,220.8 L137.8,218.3 L138.9,217 L139,213.1 L138.2,209.5 L139.7,207.8 L141.4,200.8 L143.2,198.1 L142,194.5 L143.9,192 L145.5,191.9 L146,188.5 L148.8,185.6 L149.3,183.1 L148.4,181.1 L149.3,179.4 L149.9,175.1 L150.9,174 L151.2,171.3 L153,168 L156.2,168.3 L157.6,173 L160.5,171.8 L159.5,166.1 L169.2,154.5 L170,152.1 L171.9,150.9 L175.5,149.9 L176.8,158.8 L176.9,168.6 L177.6,170.9 L184,178.6 L184,181.9 L182.4,185 L186.1,189.2 L187.3,192.3 L187.5,196.1 L187,199.7 L185.4,205.9 L186.3,211.3 L185.4,215.8 L182.3,217.8 L181.6,222.7 L177.1,226.6 L176.1,228.6 L176.2,232.5 L177.7,235.1 L177.7,237 L174.8,240.5 L174.9,242.8 L177,243.4 L180.5,246.4 L178.6,248.6 L180.6,251 L181.1,254.1 L180.5,257.4 L178.4,257.2 L177.3,258.6 L177.4,263 L178.7,266 L177.1,269.5 L177.5,275.5 L181.3,277.3 L182.4,280.6 L181.7,282.6 L185,283.9 L187.7,286.3 L190.1,283.6 L192,286.2 L193.8,285.3 L195.9,288.6 L198.8,289.8 L201.4,290 L202.4,293.8 L205.4,297 L203.7,300.5 L201.5,300.5 L199.8,298.1 L198.6,298.2 L199.2,301.6 L196.8,304.3 L196.4,306.7 L193.8,310.3 L192,310.4 L194.4,314.5 L187.2,313.6 L184.2,310.7 L180.6,313.7 L178.3,313.1 L178.2,316.9 L177.6,319.4 L179.3,323.2 L177.7,326.4 Z",
+      "cx": 167.7,
+      "cy": 248.6,
+      "macroregion": "Oriente",
+      "iestName": "IESTP Perú Japón / IESTP Utcubamba",
+      "iestCity": "Chachapoyas / Bagua Grande",
+      "localChallenge": "Agroecología circular y preservación de flora andino-amazónica",
+      "mirrorRegion": "Arequipa",
+      "applicantsCount": 16,
+      "femaleRatio": 50,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "ancash",
+      "name": "ANCASH",
+      "d": "M197.2,396.2 L198.5,398.9 L198.2,400.8 L199.7,401.5 L200.4,403.9 L204,412.3 L205.4,413.5 L206.4,415.9 L209.6,417.2 L212.1,420 L220.6,423.3 L223,426.6 L223.4,428.7 L222,433.4 L219.4,431.8 L218.2,428.9 L214.1,435.1 L213.3,438.3 L214,440.8 L211.5,444.3 L209.1,446.2 L211.8,450.8 L212.6,449.1 L215.6,451.7 L215.9,453.8 L219.5,460.3 L218.9,461.6 L219.7,465.8 L215,467.4 L215.4,474.3 L212.8,475.7 L210.9,474.8 L210.2,476.7 L208.1,477.2 L206.3,480.1 L203.5,482.9 L202.8,486.8 L200.1,486.5 L197.5,487.5 L193.8,491.7 L192.9,494.8 L189.4,495.6 L185.7,494.8 L185.3,491.1 L185.8,488.3 L182.9,488.8 L182.8,485.7 L178.7,487.3 L181,481.4 L184.8,479.1 L180.6,476.4 L178,476.5 L177.7,481.4 L176.1,483.7 L177.1,485 L177.2,487.7 L174.4,487.5 L172.1,489.5 L171.1,486.5 L168.8,484.2 L166.6,478.9 L164.6,477.6 L162.5,471 L159.8,468.6 L159.3,464.1 L156.3,456.4 L157.1,452.9 L155,451.1 L152.8,446.9 L150.9,445 L150.8,442.1 L149.5,438.4 L150.3,437.2 L148.1,435.6 L148.3,432.5 L146.1,432.1 L144.6,429.7 L145.5,426.3 L144.6,425.3 L141.8,424.9 L142.3,422.4 L139.4,420.7 L138.6,415.9 L140.9,414.8 L141.1,410.9 L142.1,408 L144.2,406.2 L147.3,405.5 L151.4,402.6 L156.2,402 L158.5,399.4 L157.5,397.4 L159.4,395 L160.9,391.7 L161,389 L161.9,386.4 L166.2,382.6 L170,381.3 L171.6,375.9 L175.4,375.6 L179.5,375.8 L182.6,374.8 L183.1,377.3 L184.5,379.5 L186.6,381.2 L191,387.5 L191.8,391.3 L193.6,394.1 L197.2,396.2 Z",
+      "cx": 182,
+      "cy": 439.6,
+      "macroregion": "Centro",
+      "iestName": "IESTP Eleazar Guzmán Barrón / IESTP Carlos Salazar Romero",
+      "iestCity": "Huaraz / Chimbote",
+      "localChallenge": "Monitoreo de deshielos glaciares y tecnología limpia para pesca artesanal",
+      "mirrorRegion": "Loreto",
+      "applicantsCount": 19,
+      "femaleRatio": 53,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "apurimac",
+      "name": "APURIMAC",
+      "d": "M411.3,672.9 L406.7,674.1 L403.7,673.2 L400.2,673.6 L397.3,672.4 L395.6,674.8 L394.8,677.4 L393.9,675.2 L390,673.9 L387.6,671.8 L383.3,674.3 L381.2,673.5 L379.6,675 L376.7,675.1 L375.6,676.1 L372.5,674.9 L370.7,675.4 L370.1,677.7 L366.6,681.2 L363,678.2 L362.8,674.1 L365.4,672.4 L364.4,669.3 L365.4,668.5 L364.3,665.2 L362.8,663.7 L365.4,655 L361,646.8 L360.7,644 L359,639.6 L358,639 L357.2,635.8 L354.9,632 L358.4,630.7 L355.1,627.1 L353,626.4 L352,620.4 L350.6,615.4 L352.3,611.1 L351.6,610.3 L352.8,606.4 L354.6,605.1 L355.9,609.5 L359.6,610.9 L362.7,612.8 L366.7,616.9 L370.2,617.5 L372.6,617.1 L377.7,619 L378.6,616.3 L383.4,617.7 L387.3,616.7 L389.2,615 L392.7,615 L393,616.2 L397.1,616.7 L399.2,619.2 L403.2,620.6 L404,621.9 L407.3,622.4 L413.6,624.8 L414.4,627.3 L419,629.3 L422,629.4 L426.2,632.9 L428.7,638.5 L429.7,639.6 L429.9,643.3 L429.2,646.3 L429.7,648.6 L428,650.7 L428.6,652 L423.9,657 L421.6,658.6 L421.1,661.1 L418.2,662.9 L416.4,662.6 L414.8,664.7 L413.3,664.6 L410,667.9 L411.8,670.4 L411.3,672.9 Z",
+      "cx": 387.4,
+      "cy": 645.9,
+      "macroregion": "Sur",
+      "iestName": "IESTP Abancay / IESTP José María Arguedas",
+      "iestCity": "Abancay / Andahuaylas",
+      "localChallenge": "Sensores de humedad para tubérculos andinos y pastos de altura",
+      "mirrorRegion": "La Libertad",
+      "applicantsCount": 14,
+      "femaleRatio": 48,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "arequipa",
+      "name": "AREQUIPA",
+      "d": "M296.4,708.7 L297.4,708.3 L299.4,703.5 L301,702.1 L302.3,697.8 L305.3,695.3 L307.7,694.8 L310.1,692.9 L312,694.6 L317,695.2 L319.4,694.8 L323.9,696.5 L326.2,696.7 L326.7,699.9 L325.7,702.5 L330.1,704.8 L329.3,706.3 L330.5,710.3 L335.2,710.9 L337.1,708 L339.6,706.4 L342.2,709.3 L340,715.5 L340.8,717.3 L346.2,710.9 L349.6,707.9 L349.3,704.7 L350,703.3 L352.3,703.3 L354.5,706 L357.7,708.4 L359.2,707.5 L363.4,707.1 L368.4,704.7 L370.7,706.7 L375,706.4 L375.4,701.9 L377.1,701.5 L380.3,702.4 L382.8,698.6 L383.1,696.9 L385.9,694.6 L387.8,691.3 L388.6,686.4 L386.6,683.8 L387.9,679.9 L390.5,677.7 L394.8,677.4 L395.6,674.8 L397.3,672.4 L400.2,673.6 L403.7,673.2 L406.7,674.1 L411.3,672.9 L410.7,675.3 L411.4,678.1 L414.2,680.5 L418.2,680.8 L421,679.4 L425.8,678.2 L426.5,680.7 L430.1,682.7 L430.7,679.8 L430.3,674.4 L432.7,671.6 L434.8,674 L434,676 L435.5,678.8 L437,678.8 L438.7,683.3 L441.1,683.7 L443.4,685.7 L442.4,688.9 L440.9,691.5 L446.8,692.6 L448.3,694.8 L450.4,694.2 L451.1,691.2 L453.7,692 L454.9,691.1 L454,687.3 L457.3,688.3 L459.9,692 L462.4,693.9 L464.9,691.9 L467.2,691.7 L470,693.9 L468.4,695.9 L469.3,697.9 L467.4,699.6 L469.1,701.6 L469.7,705.1 L468.7,707.8 L473.2,709 L474.6,707 L476.6,709.2 L475.7,710.8 L476,714.2 L480,717.9 L480.8,721 L479.2,724.4 L483.3,730.7 L484.3,733.3 L484.6,736.7 L482.7,736.9 L481.9,738.6 L482.8,745.4 L478.3,748.5 L477,748.5 L477.5,753.2 L478.4,755.5 L476.7,757.1 L472.9,755.4 L470.2,756.1 L465.5,755.7 L465.5,759.6 L464,762.6 L463.6,767.7 L461.9,768.9 L460,767.4 L457.6,768.4 L456.7,771.3 L456.9,774.1 L459.4,781.3 L461.4,781.4 L463,784.7 L456.9,792 L454.7,793.5 L445.9,790.1 L440.5,788.9 L438.5,787.7 L435.6,784.4 L430.5,781.1 L428.8,781.3 L422.8,775.8 L419.4,774.6 L419.1,772.4 L416.3,769.5 L412.4,766.7 L408.2,765.5 L400.8,764.3 L398.1,763.2 L391.7,758.2 L388.6,758.1 L385.6,756.8 L381,753.6 L378,753.3 L374.5,751.7 L374.1,749.8 L368,747.2 L360.6,744.8 L357.1,744.4 L355.8,743.2 L349.6,740.5 L348.7,739.3 L342.3,735.1 L341.4,732.2 L336.4,729.7 L333.1,728.7 L331.6,726.9 L329.3,727.3 L326.4,726.4 L324.4,724.8 L323.4,721.7 L314.6,718.3 L310.7,715.9 L307.1,714.4 L303.6,711.9 L299.3,709.5 L296.4,708.7 Z M468.2,752 L471.8,753.1 L472.1,750.4 L467.6,750.7 L468.2,752 Z",
+      "cx": 404.4,
+      "cy": 719.6,
+      "macroregion": "Sur",
+      "iestName": "IESTP Pedro P. Díaz",
+      "iestCity": "Arequipa",
+      "localChallenge": "Robótica aplicada a zonas volcánicas y secadores solares de ajo",
+      "mirrorRegion": "Amazonas",
+      "applicantsCount": 22,
+      "femaleRatio": 52,
+      "sponsorStatus": "sponsored",
+      "sponsorName": "Aliado Tecnológico del Sur",
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "ayacucho",
+      "name": "AYACUCHO",
+      "d": "M328.5,559.9 L329.6,562.5 L331.8,562.9 L335.5,566.3 L338.4,567.1 L339.5,564.9 L344.7,563 L345.3,567.3 L348.8,570.4 L351.5,576.1 L352.6,579.8 L354.9,581.8 L355.9,581 L360.3,586.7 L361.9,590.3 L364.8,592.8 L364.9,596.9 L366.9,598.8 L368.2,602.2 L369.3,603.3 L372.6,610.9 L375.3,614.2 L378.6,616.3 L377.7,619 L372.6,617.1 L370.2,617.5 L366.7,616.9 L362.7,612.8 L359.6,610.9 L355.9,609.5 L354.6,605.1 L352.8,606.4 L351.6,610.3 L352.3,611.1 L350.6,615.4 L352,620.4 L353,626.4 L355.1,627.1 L358.4,630.7 L354.9,632 L357.2,635.8 L358,639 L359,639.6 L360.7,644 L361,646.8 L365.4,655 L362.8,663.7 L364.3,665.2 L365.4,668.5 L364.4,669.3 L365.4,672.4 L362.8,674.1 L363,678.2 L366.6,681.2 L370.1,677.7 L370.7,675.4 L372.5,674.9 L375.6,676.1 L376.7,675.1 L379.6,675 L381.2,673.5 L383.3,674.3 L387.6,671.8 L390,673.9 L393.9,675.2 L394.8,677.4 L390.5,677.7 L387.9,679.9 L386.6,683.8 L388.6,686.4 L387.8,691.3 L385.9,694.6 L383.1,696.9 L382.8,698.6 L380.3,702.4 L377.1,701.5 L375.4,701.9 L375,706.4 L370.7,706.7 L368.4,704.7 L363.4,707.1 L359.2,707.5 L357.7,708.4 L354.5,706 L352.3,703.3 L350,703.3 L349.3,704.7 L349.6,707.9 L346.2,710.9 L340.8,717.3 L340,715.5 L342.2,709.3 L339.6,706.4 L337.1,708 L335.2,710.9 L330.5,710.3 L329.3,706.3 L330.1,704.8 L325.7,702.5 L326.7,699.9 L326.2,696.7 L323.9,696.5 L319.4,694.8 L317,695.2 L312,694.6 L310.1,692.9 L314.4,690.5 L314.5,684.2 L313.1,681 L310.8,681.3 L310.4,677.9 L308.3,677.1 L306.4,675.1 L306.1,670.7 L304.2,667.6 L301.4,670.4 L297,671.2 L296.6,666.8 L295.3,664.9 L295.1,662.5 L293.5,661.7 L295.5,657 L297.8,655.4 L295.6,652.6 L297,648.7 L298.3,646 L302.2,647.1 L306.6,646.1 L309.8,646.9 L309.2,643.5 L309.9,641.8 L309.1,639.5 L310.2,635.1 L309.6,633.8 L310.5,630.7 L309.3,626.8 L309.7,624.9 L308.5,622.2 L305.7,619.2 L303.9,618.5 L304.1,615.3 L305.4,613.7 L310,612.8 L312.9,613.8 L315.3,609.8 L318.6,605.7 L319.7,606.4 L323.5,605.9 L325.2,604.6 L325.8,600.5 L326.7,598.7 L328.5,598.5 L330.1,600 L331.9,598.5 L330.7,594.4 L329.3,594.1 L329.2,589.9 L330.9,589.4 L331,586.4 L328.4,584.3 L329.3,582.9 L328.7,580.8 L325.5,574.3 L325.1,572.2 L321.6,572.4 L318.1,567.1 L319.4,565.1 L326.8,564.2 L326.6,560.8 L328.5,559.9 Z M355.3,700.6 L355.3,702.5 L357.7,703.7 L359.7,701.8 L355.3,700.6 Z",
+      "cx": 342,
+      "cy": 644.3,
+      "macroregion": "Centro",
+      "iestName": "IESTP Víctor Álvarez Huapaya",
+      "iestCity": "Ayacucho",
+      "localChallenge": "Fabricación digital integrada a la artesanía de retablos y textilería tradicional",
+      "mirrorRegion": "Lambayeque",
+      "applicantsCount": 15,
+      "femaleRatio": 54,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "cajamarca",
+      "name": "CAJAMARCA",
+      "d": "M108.6,329.1 L109.8,328 L109.1,323.6 L111.3,321.7 L117.5,318.1 L116.6,314.7 L113.4,314.4 L112.7,313.4 L109.8,313.6 L106.7,307.9 L105.1,307.6 L103.8,304.8 L104.2,303.6 L102.8,301.2 L104.2,297.3 L107.2,297 L108.7,295.2 L111.7,293.6 L110.8,290 L113,286 L111.2,283.6 L104.4,282.2 L108.1,278.8 L105.6,274.2 L105.2,272.4 L106.3,266 L105.3,263 L110.8,262.2 L109.7,259.5 L108.4,253.1 L107,251.9 L107.5,249.4 L106.1,247.6 L109.9,244 L112,239.2 L113.6,237.6 L119.6,237.8 L122.3,239.7 L124,234.6 L127.5,234.3 L127.7,230.6 L126.7,229.9 L128.1,226.4 L130,223.9 L131.6,223 L135.9,222.4 L138.9,224 L138.6,227.4 L140.5,229.1 L138.5,237.5 L139.7,239.1 L138,242.1 L136.1,243.7 L135.7,247.1 L136.8,251 L140.3,252.9 L144.2,256.8 L144.3,259.3 L142.4,261.3 L140.3,266.1 L136.8,270.5 L135.6,276 L137.9,281.5 L140,284.3 L141,286.9 L144.1,286.7 L147.7,290.9 L152.2,297.7 L152.3,299.1 L155.8,301.1 L158.7,303.8 L161,306.9 L162.3,312.1 L164.5,313.6 L166.4,320.1 L167.1,326.7 L171.6,335.4 L172.3,337.8 L174.5,341.8 L175.3,345.5 L177.1,346.6 L178.5,348.8 L173.9,350.9 L172.8,354.1 L167.1,358.2 L163.5,359 L161.9,357.1 L157.1,361.8 L155,361.6 L153.7,359 L152.5,359.2 L150.1,356.1 L151.3,353.6 L151.1,350.3 L148.7,349.6 L145.3,352.7 L139.5,352.4 L138.4,351.6 L139.2,347.8 L137.8,346.4 L133.5,345.9 L129.9,347.5 L127.9,349.6 L127.5,351.9 L125.3,354.6 L124.6,357.3 L123.2,357.4 L121,354.7 L120,349 L116.1,347.6 L114.6,345.6 L111.5,345 L109.9,343.5 L107.5,343 L110.4,340.2 L111.1,336.6 L109.4,334.5 L108.6,329.1 Z",
+      "cx": 131.4,
+      "cy": 300.8,
+      "macroregion": "Norte",
+      "iestName": "IESTP Cajamarca",
+      "iestCity": "Cajamarca",
+      "localChallenge": "Monitoreo inteligente de calidad de agua y pasteurización láctea artesanal",
+      "mirrorRegion": "Cusco",
+      "applicantsCount": 18,
+      "femaleRatio": 49,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "callao",
+      "name": "CALLAO",
+      "d": "M203,544.3 L205.7,544 L207.3,547.6 L206,550.1 L207.6,553.7 L206.3,555.7 L204.6,555.1 L205.4,551 L204.3,546.4 L203,544.3 Z",
+      "cx": 205.3,
+      "cy": 549.2,
+      "macroregion": "Centro",
+      "iestName": "IESTP Simón Bolívar",
+      "iestCity": "Bellavista - Callao",
+      "localChallenge": "Trampas inteligentes para microplásticos marinos y logística portuaria escolar",
+      "mirrorRegion": "Puno",
+      "applicantsCount": 24,
+      "femaleRatio": 50,
+      "sponsorStatus": "sponsored",
+      "sponsorName": "Red Marítima Sostenible",
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "cusco",
+      "name": "CUSCO",
+      "d": "M411.3,672.9 L411.8,670.4 L410,667.9 L413.3,664.6 L414.8,664.7 L416.4,662.6 L418.2,662.9 L421.1,661.1 L421.6,658.6 L423.9,657 L428.6,652 L428,650.7 L429.7,648.6 L429.2,646.3 L429.9,643.3 L429.7,639.6 L428.7,638.5 L426.2,632.9 L422,629.4 L419,629.3 L414.4,627.3 L413.6,624.8 L407.3,622.4 L404,621.9 L403.2,620.6 L399.2,619.2 L397.1,616.7 L393,616.2 L392.7,615 L389.2,615 L387.3,616.7 L383.4,617.7 L378.6,616.3 L375.3,614.2 L372.6,610.9 L369.3,603.3 L368.2,602.2 L366.9,598.8 L364.9,596.9 L364.8,592.8 L361.9,590.3 L360.3,586.7 L355.9,581 L354.9,581.8 L352.6,579.8 L351.5,576.1 L348.8,570.4 L345.3,567.3 L344.7,563 L347.2,562.2 L350.7,562.9 L352.6,562 L355.4,564.1 L356.7,564.2 L359.8,569.2 L361.9,569.1 L362.6,564.6 L367.2,562 L368.3,559.3 L372,558.2 L370,555 L370.4,553 L368.6,551.6 L368.5,549.5 L366.3,546.6 L362.5,544.7 L362.6,540.1 L361.1,536.7 L363.3,533.7 L368.1,530.9 L366.8,528.2 L369.4,524.3 L373.3,521 L376.6,521.1 L379,520 L381.9,520.2 L386.8,518.9 L388.4,515.9 L389.4,518.9 L390.7,519.7 L390.1,521.9 L392.5,523.1 L397.1,524.3 L399.6,522.6 L401,524.2 L405.2,526.3 L408.5,526.6 L411,524.4 L415.4,522 L418.6,520.8 L421.6,522.5 L421.2,524.3 L419.2,526.5 L418.2,533.8 L413.2,538.9 L415.8,542.4 L414.9,544.2 L417.5,545.5 L416.8,547.2 L417.3,550.6 L419.6,551 L420.7,552.4 L420.3,554.5 L424.5,554.8 L428,555.9 L428.3,558.5 L427.5,562.8 L430.7,564 L433.4,566.6 L433.2,570.1 L429.5,572 L429,575.2 L430.8,575.8 L433,578.3 L434.1,581.7 L433.1,583 L437.4,585.1 L440.5,585.8 L443.4,588.1 L445.7,585.5 L449.8,583.7 L452,584.2 L456.4,589.4 L458,592.5 L460.7,592.1 L463.1,594.6 L465.8,596.1 L468.7,596.6 L468.9,601.6 L471,607.9 L474.6,609.5 L477.5,605 L479.8,602.4 L483.3,600.4 L487,602.2 L491.4,601.3 L494.6,602 L496.3,604.3 L500,604.6 L503.4,606.1 L502,609.1 L503.2,611.6 L502.9,614.2 L501,615.2 L500.5,617.7 L496.9,621.2 L496.6,623.4 L493.3,625 L491.7,627.1 L488.9,627.4 L488.1,630.9 L489.7,633.8 L488.7,635 L486.6,634.3 L483.8,636.3 L483.7,639.9 L482.5,644 L485.4,646.1 L484.8,648.4 L482.2,650.5 L480.8,653.2 L481.6,655.1 L480.2,657.7 L478,659.3 L477,661.3 L478,663 L476.5,665.8 L476.3,668.9 L471.3,673.2 L474,677.2 L475.8,676.5 L477.4,677.6 L476.6,680.6 L477,685.9 L476.2,687.1 L477.4,696.4 L478,698.3 L477,699.8 L478.5,701.7 L475.8,704.1 L474.6,707 L473.2,709 L468.7,707.8 L469.7,705.1 L469.1,701.6 L467.4,699.6 L469.3,697.9 L468.4,695.9 L470,693.9 L467.2,691.7 L464.9,691.9 L462.4,693.9 L459.9,692 L457.3,688.3 L454,687.3 L454.9,691.1 L453.7,692 L451.1,691.2 L450.4,694.2 L448.3,694.8 L446.8,692.6 L440.9,691.5 L442.4,688.9 L443.4,685.7 L441.1,683.7 L438.7,683.3 L437,678.8 L435.5,678.8 L434,676 L434.8,674 L432.7,671.6 L430.3,674.4 L430.7,679.8 L430.1,682.7 L426.5,680.7 L425.8,678.2 L421,679.4 L418.2,680.8 L414.2,680.5 L411.4,678.1 L410.7,675.3 L411.3,672.9 Z M465.6,664.8 L468.9,666.6 L469.4,665.6 L465.4,662.8 L465.6,664.8 Z",
+      "cx": 429.7,
+      "cy": 615.5,
+      "macroregion": "Sur",
+      "iestName": "IESTP Túpac Amaru",
+      "iestCity": "San Sebastián - Cusco",
+      "localChallenge": "Preservación de patrimonio lítico y ecodiseño para turismo comunitario rural",
+      "mirrorRegion": "Cajamarca",
+      "applicantsCount": 21,
+      "femaleRatio": 55,
+      "sponsorStatus": "sponsored",
+      "sponsorName": "Fundación Qente Innovación",
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "huancavelica",
+      "name": "HUANCAVELICA",
+      "d": "M297,648.7 L294.8,644.3 L292.3,646.1 L288.2,644.7 L289.3,643 L284.9,643.5 L280.4,638.8 L275.5,637.7 L274.7,635.5 L276.4,634.5 L275.7,632.8 L276.8,629 L278.2,626.9 L276.9,625.3 L278.5,621.2 L279,616.9 L277.4,613.9 L275.8,615.7 L273.8,615.6 L269.2,617.3 L268.1,616.2 L264,615.5 L264.7,612.9 L268.4,610.4 L268.4,605.8 L269,604 L267.9,602.3 L268.9,600.7 L271.8,599.9 L272.5,595.7 L271.5,593.5 L272.5,591.3 L276.1,589.3 L277.2,587.2 L274.1,584.4 L275.2,582.9 L274,581.1 L275.8,580.2 L277.9,581.4 L281.2,580.5 L283.6,576.5 L287.3,573.2 L290.1,573 L290.1,569.9 L293.4,567.5 L296.5,562.7 L297.5,559.8 L296.3,554.8 L297.5,552.6 L302.7,553.1 L306.8,555.3 L310.7,553.9 L312.1,554.8 L314.7,551.9 L316.2,551.4 L323.7,553.6 L325.3,556.3 L328.2,558.7 L328.5,559.9 L326.6,560.8 L326.8,564.2 L319.4,565.1 L318.1,567.1 L321.6,572.4 L325.1,572.2 L325.5,574.3 L328.7,580.8 L329.3,582.9 L328.4,584.3 L331,586.4 L330.9,589.4 L329.2,589.9 L329.3,594.1 L330.7,594.4 L331.9,598.5 L330.1,600 L328.5,598.5 L326.7,598.7 L325.8,600.5 L325.2,604.6 L323.5,605.9 L319.7,606.4 L318.6,605.7 L315.3,609.8 L312.9,613.8 L310,612.8 L305.4,613.7 L304.1,615.3 L303.9,618.5 L305.7,619.2 L308.5,622.2 L309.7,624.9 L309.3,626.8 L310.5,630.7 L309.6,633.8 L310.2,635.1 L309.1,639.5 L309.9,641.8 L309.2,643.5 L309.8,646.9 L306.6,646.1 L302.2,647.1 L298.3,646 L297,648.7 Z",
+      "cx": 299.5,
+      "cy": 601.1,
+      "macroregion": "Centro",
+      "iestName": "IESTP Huancavelica",
+      "iestCity": "Huancavelica",
+      "localChallenge": "Invernaderos automatizados contra heladas y protección de alpacas neonatas",
+      "mirrorRegion": "Piura",
+      "applicantsCount": 17,
+      "femaleRatio": 53,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "huanuco",
+      "name": "HUANUCO",
+      "d": "M197.2,396.2 L199.6,393.4 L202.2,394.2 L205.3,392.2 L207.3,394.1 L207.2,395.6 L209,397.3 L214.9,398 L218,397 L218.7,395.6 L224.6,396.3 L227.8,395.4 L231.4,395.3 L234.8,398 L235.8,394.4 L237,392.4 L240.7,391.7 L241.1,396 L243.1,398.3 L243.6,401.8 L245.3,408.1 L248.1,406.3 L250.3,401.9 L249.7,393.4 L251.6,387.6 L256.1,386.9 L257.8,390.5 L257,392.7 L256.9,399 L256.3,401 L257.8,404.5 L258.9,407.4 L259.1,411.8 L261,415.9 L260.9,418.2 L264,422.7 L264.5,425.7 L267.3,429.4 L270,435 L274.8,435.1 L277.8,434.1 L279.6,430.5 L285.1,430.5 L287.1,431.1 L288,429.3 L290.3,427.5 L290.3,424.4 L289.1,422 L291.6,420.9 L292.9,419 L293.3,416 L295.4,413.8 L297.6,412.9 L300.5,415.1 L302.5,414.1 L302.2,410.9 L306.2,406.4 L306.4,402.1 L308.6,400.8 L316.5,397.1 L319.6,398.7 L320.6,406 L320.3,407.2 L316.9,409.2 L315.3,413.6 L315,419.4 L313.8,421.4 L315.5,422.5 L315.5,424.4 L317.8,430.8 L314,434.9 L313.9,436.4 L311.6,438.3 L310.6,440.7 L311.3,442.9 L308.1,448 L308.3,449.9 L306.3,450.7 L304.1,450.2 L302.1,451.3 L299.6,454.8 L297,453.9 L294.8,455.1 L292.5,454.9 L289,452.4 L286.2,452.3 L287.4,455.3 L286.9,456.2 L283.3,456.2 L282.1,458.2 L278.6,460.9 L275.4,461.3 L273.5,459.9 L272.7,463.1 L269.8,464.1 L268.5,468 L268.5,471.3 L264.9,473.4 L262.5,473.6 L261.8,475.6 L258.8,478 L258.7,480.3 L256.5,483.6 L252.9,482.9 L251.9,481.5 L249.7,481.3 L245.6,478.9 L243.4,478.7 L241.8,480.2 L240.6,474.9 L234.5,477.2 L233.7,479 L226.8,480.7 L224.6,481.9 L223.4,483.8 L221.4,482.9 L219.7,479.7 L217.6,479 L215.4,474.3 L215,467.4 L219.7,465.8 L218.9,461.6 L219.5,460.3 L215.9,453.8 L215.6,451.7 L212.6,449.1 L211.8,450.8 L209.1,446.2 L211.5,444.3 L214,440.8 L213.3,438.3 L214.1,435.1 L218.2,428.9 L219.4,431.8 L222,433.4 L223.4,428.7 L223,426.6 L220.6,423.3 L212.1,420 L209.6,417.2 L206.4,415.9 L205.4,413.5 L204,412.3 L200.4,403.9 L199.7,401.5 L198.2,400.8 L198.5,398.9 L197.2,396.2 Z",
+      "cx": 257,
+      "cy": 431.7,
+      "macroregion": "Oriente",
+      "iestName": "IESTP Aparicio Pomares",
+      "iestCity": "Huánuco",
+      "localChallenge": "Biofiltros para residuos de café/cacao y valorización de subproductos agrícolas",
+      "mirrorRegion": "Ica",
+      "applicantsCount": 13,
+      "femaleRatio": 50,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "ica",
+      "name": "ICA",
+      "d": "M310.1,692.9 L307.7,694.8 L305.3,695.3 L302.3,697.8 L301,702.1 L299.4,703.5 L297.4,708.3 L296.4,708.7 L296,707.8 L291.4,705.2 L292.2,702.5 L289.4,701.1 L290,699 L287.5,696.1 L283.3,694.9 L280.1,688.4 L277.5,686.9 L277.4,684.7 L274.2,682.4 L269.6,680.1 L265,676.9 L261.8,675.4 L259.1,672.8 L258.4,668.7 L256.6,666.7 L256.7,664.2 L253.7,662.1 L252.5,660.4 L249.6,658.9 L250.6,656.1 L249.1,653.1 L245.2,649.6 L242.6,650.1 L243.7,643.4 L242.9,639 L240.8,639.4 L237.9,638.6 L239,634.1 L242.3,633.4 L242.1,635.4 L243.9,636.6 L246.7,626.4 L247.1,623 L247,616.6 L244.6,612 L246.3,611.2 L248.5,606.1 L254.9,601.2 L258.2,596.9 L264.2,600.1 L265.9,598.2 L267.6,599.1 L270,598.4 L272.5,595.7 L271.8,599.9 L268.9,600.7 L267.9,602.3 L269,604 L268.4,605.8 L268.4,610.4 L264.7,612.9 L264,615.5 L268.1,616.2 L269.2,617.3 L273.8,615.6 L275.8,615.7 L277.4,613.9 L279,616.9 L278.5,621.2 L276.9,625.3 L278.2,626.9 L276.8,629 L275.7,632.8 L276.4,634.5 L274.7,635.5 L275.5,637.7 L280.4,638.8 L284.9,643.5 L289.3,643 L288.2,644.7 L292.3,646.1 L294.8,644.3 L297,648.7 L295.6,652.6 L297.8,655.4 L295.5,657 L293.5,661.7 L295.1,662.5 L295.3,664.9 L296.6,666.8 L297,671.2 L301.4,670.4 L304.2,667.6 L306.1,670.7 L306.4,675.1 L308.3,677.1 L310.4,677.9 L310.8,681.3 L313.1,681 L314.5,684.2 L314.4,690.5 L310.1,692.9 Z",
+      "cx": 276.3,
+      "cy": 650.9,
+      "macroregion": "Centro",
+      "iestName": "IESTP Chincha / IESTP Catalina Buendía de Pecho",
+      "iestCity": "Chincha / Ica",
+      "localChallenge": "Micro-riego por goteo con energía solar y control de salinidad en suelos desérticos",
+      "mirrorRegion": "Huánuco",
+      "applicantsCount": 18,
+      "femaleRatio": 47,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "junin",
+      "name": "JUNIN",
+      "d": "M318.5,503 L321.3,504.7 L321.7,506.8 L324.1,507.2 L327.3,509.5 L332.5,507.8 L334.9,507.9 L339.7,506.4 L343.6,506.7 L344.7,510.1 L344.8,512.4 L349.9,513.5 L349.7,508.7 L350.2,504.9 L351.6,503.4 L352,498 L354.5,495.1 L357.2,496.8 L361,500.1 L363.2,500.7 L362.7,505.1 L364,509.1 L366.7,509.9 L368.1,517.1 L367.7,520.6 L366.6,521.4 L369.4,524.3 L366.8,528.2 L368.1,530.9 L363.3,533.7 L361.1,536.7 L362.6,540.1 L362.5,544.7 L366.3,546.6 L368.5,549.5 L368.6,551.6 L370.4,553 L370,555 L372,558.2 L368.3,559.3 L367.2,562 L362.6,564.6 L361.9,569.1 L359.8,569.2 L356.7,564.2 L355.4,564.1 L352.6,562 L350.7,562.9 L347.2,562.2 L344.7,563 L339.5,564.9 L338.4,567.1 L335.5,566.3 L331.8,562.9 L329.6,562.5 L328.5,559.9 L328.2,558.7 L325.3,556.3 L323.7,553.6 L316.2,551.4 L314.7,551.9 L312.1,554.8 L310.7,553.9 L306.8,555.3 L302.7,553.1 L297.5,552.6 L296.3,554.8 L297.5,559.8 L296.5,562.7 L293.4,567.5 L290.1,569.9 L290.1,573 L287.3,573.2 L283.6,576.5 L281.2,580.5 L277.9,581.4 L275.8,580.2 L274,581.1 L274.3,577.6 L275.9,575.5 L275,572.7 L274.7,567.3 L270.3,560.8 L271.4,557.2 L268.9,554 L265.8,554.8 L263.2,552.8 L258.7,551.4 L254.8,551.4 L253.1,549.7 L253.2,547.2 L249.4,542.2 L246.5,539.8 L246.4,536.7 L247.1,533.7 L245.5,532.3 L242.8,533.6 L239,529.7 L238.7,527 L236.4,522.5 L234.3,520.2 L233.7,515.5 L232.5,512.2 L233.7,511 L237.9,510.4 L241.4,511.1 L241.8,512.9 L243.8,513.7 L244.8,509.7 L243.1,503.5 L243.9,503.4 L244.5,504 L244.5,504.2 L245,505.1 L247.6,509 L250.4,511.9 L254.1,510.9 L254.9,509 L252.3,505.9 L250,505.3 L251.4,502.8 L253.5,501.6 L255.8,498.9 L258.8,501.7 L261.7,501 L262.6,501.9 L264.9,499.1 L267.3,498.4 L269,499.5 L273.6,498.5 L274.3,495.6 L278,496 L279.3,497.3 L278.4,500.2 L279.1,502.5 L281.7,500.5 L285.6,500.8 L288,499.1 L288.8,496.5 L291.2,494.2 L294.3,494.8 L296.3,491.9 L298.9,492.4 L300.5,495.6 L301.5,495 L304.3,496.6 L307.1,497.1 L308.8,499.4 L310.2,499.1 L312.5,500.6 L315.1,501 L316.7,502.7 L318.5,503 Z",
+      "cx": 302.4,
+      "cy": 529,
+      "macroregion": "Centro",
+      "iestName": "IESTP Andrés Avelino Cáceres Dorregaray",
+      "iestCity": "San Agustín de Cajas - Huancayo",
+      "localChallenge": "Sistemas IoT de alerta temprana de heladas en el Valle del Mantaro",
+      "mirrorRegion": "San Martín",
+      "applicantsCount": 20,
+      "femaleRatio": 51,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "la-libertad",
+      "name": "LA LIBERTAD",
+      "d": "M138.6,415.9 L138.3,413.4 L133.4,407.1 L134.5,404.4 L134.2,400.9 L132.7,398 L125.7,392 L127.4,389.5 L124.7,385.7 L123.5,382 L117.8,376.9 L117.6,375.8 L109.3,369.3 L106.3,365.5 L105.5,363.1 L102.3,359.7 L103.6,358.9 L103,356.8 L99,351.2 L96.9,346.4 L97.7,345.4 L95.9,339.9 L92.4,335.9 L100.9,326.7 L102.8,325.6 L105.2,326.1 L108.6,329.1 L109.4,334.5 L111.1,336.6 L110.4,340.2 L107.5,343 L109.9,343.5 L111.5,345 L114.6,345.6 L116.1,347.6 L120,349 L121,354.7 L123.2,357.4 L124.6,357.3 L125.3,354.6 L127.5,351.9 L127.9,349.6 L129.9,347.5 L133.5,345.9 L137.8,346.4 L139.2,347.8 L138.4,351.6 L139.5,352.4 L145.3,352.7 L148.7,349.6 L151.1,350.3 L151.3,353.6 L150.1,356.1 L152.5,359.2 L153.7,359 L155,361.6 L157.1,361.8 L161.9,357.1 L163.5,359 L167.1,358.2 L172.8,354.1 L173.9,350.9 L178.5,348.8 L177.1,346.6 L175.3,345.5 L174.5,341.8 L172.3,337.8 L171.6,335.4 L167.1,326.7 L170.3,327.4 L172.3,326.3 L173.9,326.9 L177.7,326.4 L179.7,332.8 L182.8,334.6 L184.5,337.7 L182.7,338.7 L183.5,342.2 L183.2,343.9 L184.3,347.4 L188,350.5 L187.5,353.9 L189.8,359.2 L187.9,361.7 L190,363.8 L191.7,364.2 L193.3,368.2 L194.6,368.5 L193.3,372.2 L194.2,375 L198.3,375.2 L200.7,373.2 L204.6,374 L206,373.7 L210.4,374.9 L211.8,377.5 L215.4,380.2 L214.5,382.3 L215.6,385.2 L215.1,387.1 L212.3,390.2 L207.5,390.7 L205.3,392.2 L202.2,394.2 L199.6,393.4 L197.2,396.2 L193.6,394.1 L191.8,391.3 L191,387.5 L186.6,381.2 L184.5,379.5 L183.1,377.3 L182.6,374.8 L179.5,375.8 L175.4,375.6 L171.6,375.9 L170,381.3 L166.2,382.6 L161.9,386.4 L161,389 L160.9,391.7 L159.4,395 L157.5,397.4 L158.5,399.4 L156.2,402 L151.4,402.6 L147.3,405.5 L144.2,406.2 L142.1,408 L141.1,410.9 L140.9,414.8 L138.6,415.9 Z",
+      "cx": 155.9,
+      "cy": 365.7,
+      "macroregion": "Norte",
+      "iestName": "IESTP Nueva Esperanza / IESTP Trujillo",
+      "iestCity": "Trujillo",
+      "localChallenge": "Optimización de agua en valles agrícolas y bioempaques a partir de caña",
+      "mirrorRegion": "Apurímac",
+      "applicantsCount": 23,
+      "femaleRatio": 52,
+      "sponsorStatus": "sponsored",
+      "sponsorName": "Consorcio AgroMakers Norte",
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "lambayeque",
+      "name": "LAMBAYEQUE",
+      "d": "M51,300.1 L62.1,283.8 L64.2,281.2 L69.9,278.8 L72.9,278.6 L78.9,272.5 L80.1,265 L81.1,262 L83,260.9 L85.1,262.7 L84.7,264.1 L86.1,267.8 L88.1,267.8 L91.2,271.9 L90.3,276.3 L92.7,276.7 L95,275.9 L95.2,278.5 L96.3,280.8 L100.8,279.7 L104.4,282.2 L111.2,283.6 L113,286 L110.8,290 L111.7,293.6 L108.7,295.2 L107.2,297 L104.2,297.3 L102.8,301.2 L104.2,303.6 L103.8,304.8 L105.1,307.6 L106.7,307.9 L109.8,313.6 L112.7,313.4 L113.4,314.4 L116.6,314.7 L117.5,318.1 L111.3,321.7 L109.1,323.6 L109.8,328 L108.6,329.1 L105.2,326.1 L102.8,325.6 L100.9,326.7 L92.4,335.9 L92.7,333.5 L90.2,330.5 L81.7,322.3 L81.3,320.3 L79.3,316.7 L75.4,313.5 L70.8,310.5 L65.9,307.7 L51,300.1 Z",
+      "cx": 93.5,
+      "cy": 297.8,
+      "macroregion": "Norte",
+      "iestName": "IESTP República Federal de Alemania",
+      "iestCity": "Chiclayo",
+      "localChallenge": "Protección de bosques secos de algarrobo y sensores para apicultura nativa",
+      "mirrorRegion": "Ayacucho",
+      "applicantsCount": 19,
+      "femaleRatio": 49,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "lima",
+      "name": "LIMA",
+      "d": "M215.4,474.3 L217.6,479 L219.7,479.7 L221.4,482.9 L223.4,483.8 L224.4,488.7 L226.5,491.1 L226.3,492.9 L227.4,497.3 L229.8,501 L230.5,505.5 L229.8,507.5 L232,508.6 L233.7,511 L232.5,512.2 L233.7,515.5 L234.3,520.2 L236.4,522.5 L238.7,527 L239,529.7 L242.8,533.6 L245.5,532.3 L247.1,533.7 L246.4,536.7 L246.5,539.8 L249.4,542.2 L253.2,547.2 L253.1,549.7 L254.8,551.4 L258.7,551.4 L263.2,552.8 L265.8,554.8 L268.9,554 L271.4,557.2 L270.3,560.8 L274.7,567.3 L275,572.7 L275.9,575.5 L274.3,577.6 L274,581.1 L275.2,582.9 L274.1,584.4 L277.2,587.2 L276.1,589.3 L272.5,591.3 L271.5,593.5 L272.5,595.7 L270,598.4 L267.6,599.1 L265.9,598.2 L264.2,600.1 L258.2,596.9 L254.9,601.2 L248.5,606.1 L246.3,611.2 L244.6,612 L236.2,601.4 L233.8,598.8 L232.7,595.2 L233.1,594 L232,590.1 L227.3,585.7 L225.7,580.5 L222.4,576.4 L220.1,575.1 L221.2,571.9 L221.1,569.9 L218.5,566.4 L214.1,563.4 L209.6,561.3 L209.9,558.1 L206.3,555.7 L207.6,553.7 L206,550.1 L207.3,547.6 L205.7,544 L203,544.3 L203.8,540.3 L201.7,535.8 L198.9,533.4 L197.8,530.1 L194.8,527.4 L189.2,524 L182.8,520.7 L182.9,516.6 L185.1,515.2 L183.3,509.4 L182,507.5 L182.2,504.6 L178.1,498.8 L178.4,497.7 L175.4,493.5 L172.1,489.5 L174.4,487.5 L177.2,487.7 L177.1,485 L176.1,483.7 L177.7,481.4 L178,476.5 L180.6,476.4 L184.8,479.1 L181,481.4 L178.7,487.3 L182.8,485.7 L182.9,488.8 L185.8,488.3 L185.3,491.1 L185.7,494.8 L189.4,495.6 L192.9,494.8 L193.8,491.7 L197.5,487.5 L200.1,486.5 L202.8,486.8 L203.5,482.9 L206.3,480.1 L208.1,477.2 L210.2,476.7 L210.9,474.8 L212.8,475.7 L215.4,474.3 Z",
+      "cx": 222.8,
+      "cy": 532.5,
+      "macroregion": "Centro",
+      "iestName": "IESTP José Pardo / IESTP Gilda Ballivian",
+      "iestCity": "Lima (Cercado / SJM)",
+      "localChallenge": "Captura de niebla costera (atrapanieblas inteligentes) y movilidad activa segura",
+      "mirrorRegion": "Ucayali",
+      "applicantsCount": 38,
+      "femaleRatio": 51,
+      "sponsorStatus": "sponsored",
+      "sponsorName": "Alianza Capital STEAM",
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "loreto",
+      "name": "LORETO",
+      "d": "M344.6,351.8 L342.3,349.6 L342,347.9 L337.7,345.6 L335.8,344 L332.4,343.3 L329.8,343.6 L323.4,341.3 L321.6,339.8 L320.1,341.1 L318.2,346.2 L316.6,347.4 L315.4,350.3 L315.4,353 L318.6,357.8 L318,359.1 L319.2,361.3 L321,362.6 L318.6,364.3 L316.1,369.9 L311.6,371.7 L309.7,374.2 L304.2,376.2 L300.4,371.2 L298.1,370.3 L293.3,371.6 L291.5,373.3 L290.1,378.2 L288.8,379.5 L286.9,378.2 L283,378.7 L280.6,380 L278.8,383.8 L277.4,385.5 L277.3,388.1 L280.4,390.1 L280.1,392.1 L275.5,393.4 L273.1,390.9 L271,390.8 L268.4,392.2 L268,394.3 L265.2,394.6 L265.2,397 L262.8,401.7 L260.2,402.1 L257.8,404.5 L256.3,401 L256.9,399 L257,392.7 L257.8,390.5 L256.1,386.9 L258.3,386.5 L259.3,383.9 L258,380.9 L257.7,377 L259.1,375.8 L262.3,375.2 L263,371.4 L261.6,369 L256.9,370.8 L253.5,363.3 L250.9,360.2 L251.4,352.9 L248.1,350 L245.9,346 L246.8,342.8 L246,341.8 L248.1,339.9 L249.1,337.1 L252.8,335.2 L255,331.5 L255,327.8 L253.2,325.5 L255,323.3 L253.2,319.6 L257,318.6 L262.3,319 L265.7,321.5 L268.8,322.1 L270.1,320.3 L271.6,321 L277,318.4 L277.5,317.6 L277.5,312 L277.1,305.4 L275.3,299 L278,295.4 L278.1,292.6 L276.4,290.9 L276.1,287.8 L274.4,283.7 L272.5,284.5 L271.8,287.2 L269.6,287.8 L268,289.7 L263.6,288 L262.7,289.7 L258.5,289.6 L257,287.7 L254,287.9 L249.8,291.4 L245.5,290.9 L243.4,288.2 L241.4,287.3 L239,282.3 L237.2,281.3 L231.2,284.5 L227.1,283.6 L222.4,283.7 L222.4,281.5 L219.3,277.4 L218.5,272.2 L216.2,272.3 L213,270.5 L211.4,268.7 L209.4,269.1 L201,265.5 L196.3,265.9 L194.9,264.4 L193.2,265.3 L190.8,265 L188.4,259.8 L186.6,258 L185.5,259.6 L181.6,257.3 L180.5,257.4 L181.1,254.1 L180.6,251 L178.6,248.6 L180.5,246.4 L177,243.4 L174.9,242.8 L174.8,240.5 L177.7,237 L177.7,235.1 L176.2,232.5 L176.1,228.6 L177.1,226.6 L181.6,222.7 L182.3,217.8 L185.4,215.8 L186.3,211.3 L185.4,205.9 L187,199.7 L187.5,196.1 L187.3,192.3 L186.1,189.2 L182.4,185 L184,181.9 L184,178.6 L177.6,170.9 L176.9,168.6 L176.8,158.8 L175.5,149.9 L204.3,140.3 L227.5,132.4 L253.4,112 L273.9,86.2 L275.8,83.5 L281.8,62.1 L282.5,59 L285.4,61 L290.1,60.8 L289.8,56.2 L287.6,50.4 L289.2,46.5 L289.6,42.3 L287.3,39.9 L285.8,39.8 L282.5,37.1 L279.2,32 L278.3,28.4 L276.2,25.9 L272.6,26.4 L272.6,22.9 L274.7,23.7 L277.3,23.1 L281.7,25.4 L286.1,24.8 L288.1,23.6 L291.5,19.6 L296.2,21.6 L298.9,24.3 L300.8,24.7 L302.6,27.5 L306.3,28.2 L307.8,26.4 L310.1,27.8 L311.5,30.9 L311.5,32.9 L314.3,34.4 L318.4,35.4 L320.4,38.5 L325.2,40.2 L327.6,44.9 L327.3,46.8 L332,55.3 L331.5,57.7 L332,61.3 L333.9,62.4 L336.4,62.4 L339.6,64.2 L341.8,64.1 L343.1,65.9 L346.1,67.9 L347.6,67.4 L350.1,72.3 L357.9,72.6 L360.6,73.6 L360.9,76 L364.5,81.3 L364.6,82.6 L366.8,85.2 L365.8,89.5 L364.3,92.5 L365.9,94.4 L367.7,94.6 L369.2,97 L371,96.3 L374.4,96.7 L379,95.9 L381.3,100 L383,100.7 L382.7,107 L383.8,108.2 L382.2,114.4 L380.5,116.2 L382.7,118.9 L385,120.2 L385.1,122 L389.6,121.5 L389.9,123.6 L392.9,125.5 L394.5,125.6 L398.2,123.4 L401.6,124.3 L405.9,122.5 L409.2,125.1 L411.6,124.9 L415.4,126.4 L415.9,127.9 L419.3,127 L420.8,125.4 L423.1,126 L425.6,124.7 L430,121.1 L431.7,122.6 L433.9,122.1 L435.4,119.9 L437.3,120.1 L439.6,114.7 L441,115.3 L443.6,112.6 L445.1,116.4 L447,115.2 L449.7,116.5 L455.9,118.3 L460,123.5 L462.4,122.9 L463,121.5 L466.1,121.2 L468,123.1 L470.5,118.9 L474,118.3 L476.4,115.5 L479.5,117.5 L481.7,116.1 L483.6,119.2 L486.2,119.3 L487.4,120.8 L491.1,121.9 L492.8,123.9 L492.3,126.9 L494.1,127.7 L499.6,126.4 L501.2,129.4 L504.7,127.9 L505.8,131.9 L508.4,130.5 L510.4,131.7 L510.9,134.8 L516,135.4 L517.6,136.6 L517.9,139.9 L514.4,145.7 L498.3,171 L489.1,185.5 L493.2,187.7 L495.2,187.3 L498.6,189.3 L505.2,185.9 L508.3,187.6 L509.7,189.9 L511.8,190.8 L512.8,193.5 L515.9,197.3 L517.9,198.6 L519,200.8 L522.5,204 L522.8,207.2 L521.7,209.5 L519.7,210.5 L517.4,209.1 L517,207.4 L513.6,207.1 L513.7,208.9 L512.6,210.5 L509.7,207.4 L508.2,204.9 L507.6,201.9 L501.4,200.6 L499.9,202.6 L497.3,200.8 L495.9,202.4 L493.3,203.4 L492.1,200.4 L489.9,203.1 L487.5,201.9 L484.5,203.5 L483.9,205.8 L482.3,206.1 L481.8,209.1 L478.6,211.5 L473.1,212.3 L471.7,211.5 L468.2,212.4 L466.9,211.5 L464.8,213.8 L461.3,214.3 L459.2,213.7 L457.9,215.4 L455.2,214.1 L452.7,215.3 L451.2,217.3 L449.1,218.2 L447.7,217.1 L445.1,217.4 L443.7,216.1 L438.1,218.1 L435.8,219.7 L433,222.6 L430.5,223 L427.6,226.1 L424,227.7 L420.3,230.1 L417.8,230.3 L415.4,231.8 L413.8,234.7 L409.2,236.1 L405.4,239.1 L405.4,240.4 L403.3,241.9 L400,241.6 L398.5,243.3 L392.9,246.5 L394,249.5 L393.9,252 L392.6,253.5 L391.3,257.2 L389.8,259.7 L390.2,263.4 L389.1,266.3 L389.8,268.3 L385.5,274.5 L381.3,277.6 L379.8,281.3 L379.7,283.7 L378.2,284.5 L376.9,289.4 L381.1,298 L383.1,303.4 L381.4,306.4 L379.2,308.8 L373.4,310.1 L370.7,312 L365,313.6 L363.2,315.6 L361.3,316.1 L356.6,320.9 L354.3,325.3 L354.3,330.8 L352.7,333 L356.3,338.1 L357.3,341.3 L356.1,343.2 L351.8,343.1 L349.9,345.3 L347.2,344.1 L346.4,345.5 L347.7,349.2 L346.3,351.8 L344.6,351.8 Z",
+      "cx": 344,
+      "cy": 219.2,
+      "macroregion": "Oriente",
+      "iestName": "IESTP Pedro A. Del Águila Hidalgo",
+      "iestCity": "Iquitos",
+      "localChallenge": "Purificación fluvial de agua por luz UV y boyas de alerta comunitaria para crecidas",
+      "mirrorRegion": "Áncash",
+      "applicantsCount": 21,
+      "femaleRatio": 54,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "madre-de-dios",
+      "name": "MADRE DE DIOS",
+      "d": "M503.4,606.1 L500,604.6 L496.3,604.3 L494.6,602 L491.4,601.3 L487,602.2 L483.3,600.4 L479.8,602.4 L477.5,605 L474.6,609.5 L471,607.9 L468.9,601.6 L468.7,596.6 L465.8,596.1 L463.1,594.6 L460.7,592.1 L458,592.5 L456.4,589.4 L452,584.2 L449.8,583.7 L445.7,585.5 L443.4,588.1 L440.5,585.8 L437.4,585.1 L433.1,583 L434.1,581.7 L433,578.3 L430.8,575.8 L429,575.2 L429.5,572 L433.2,570.1 L433.4,566.6 L430.7,564 L427.5,562.8 L428.3,558.5 L428,555.9 L424.5,554.8 L420.3,554.5 L420.7,552.4 L419.6,551 L417.3,550.6 L416.8,547.2 L417.5,545.5 L414.9,544.2 L415.8,542.4 L413.2,538.9 L418.2,533.8 L419.2,526.5 L421.2,524.3 L421.6,522.5 L423.4,518.8 L423.3,516.2 L426.8,511.8 L424,509.9 L424.1,507.4 L426.4,506.5 L429.9,507.5 L431.5,506.5 L439.4,507 L444.5,506.8 L452.9,504.8 L460.6,504.8 L464.3,500.1 L465,497.3 L466.6,496.2 L466.2,493 L467.7,488.1 L470.7,484.7 L475.3,483.5 L477.8,479.2 L477.9,477.3 L479.8,476.7 L481.7,474.8 L484.4,473.6 L489.4,469.2 L489.3,468.1 L491.8,465.6 L490.8,463.6 L491,460.8 L493.4,458.3 L493.4,484.5 L493.4,507 L497.2,504 L500.4,506.8 L501.8,508.7 L506.9,510.1 L509.7,509.2 L511.8,509.4 L514.3,508.3 L516.4,506.5 L519.3,506 L522.6,503.8 L524.9,503.4 L529.9,503.8 L532.1,505.4 L536.7,505.1 L538.4,504.4 L539.9,505.5 L554.6,529.5 L560.2,537.7 L566.1,548.3 L580,574.6 L578.3,578.5 L576.6,579.7 L577.2,582 L576.1,584.9 L572,588.9 L572,590.9 L570.4,592.1 L570.4,597.5 L551,606.2 L536.1,612.8 L521.7,608.4 L519.1,607.5 L502.7,602.5 L503.4,606.1 Z",
+      "cx": 477.7,
+      "cy": 543.9,
+      "macroregion": "Oriente",
+      "iestName": "IESTP Jorge Basadre Grohmann",
+      "iestCity": "Puerto Maldonado",
+      "localChallenge": "Sensores acústicos de bajo costo para detectar deforestación y monitoreo de castañales",
+      "mirrorRegion": "Tacna",
+      "applicantsCount": 12,
+      "femaleRatio": 50,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "moquegua",
+      "name": "MOQUEGUA",
+      "d": "M470.2,818.4 L467.3,815.9 L459.9,811.9 L461.3,809.8 L460.5,807.6 L459.9,802.3 L458.9,798.3 L454.7,793.5 L456.9,792 L463,784.7 L461.4,781.4 L459.4,781.3 L456.9,774.1 L456.7,771.3 L457.6,768.4 L460,767.4 L461.9,768.9 L463.6,767.7 L464,762.6 L465.5,759.6 L465.5,755.7 L470.2,756.1 L472.9,755.4 L476.7,757.1 L478.4,755.5 L477.5,753.2 L477,748.5 L478.3,748.5 L482.8,745.4 L481.9,738.6 L482.7,736.9 L484.6,736.7 L484.3,733.3 L486.6,735 L489.4,735.7 L492.1,733.8 L495.8,733.7 L497.3,735.5 L502.4,737.8 L502.8,741.1 L504.7,743.9 L505.6,749.1 L503.7,752 L505.8,753.2 L507.2,756.3 L510.4,757.6 L512.8,760.1 L513.1,762.3 L516.7,764.4 L518.5,763.2 L520.5,764.5 L520.7,767.9 L518.3,769.4 L516.5,771.7 L516.4,775.3 L514.1,777.5 L509.6,778.2 L509.1,775.8 L511.5,771.5 L507,769.9 L501,773 L500,777.8 L500.7,784.1 L498.8,784.6 L497.2,788.1 L493.6,790.3 L490.3,790.7 L488.9,793 L487.3,798 L488,798.9 L481.7,806 L480.2,812.2 L476.7,811.8 L471.8,815.3 L470.2,818.4 Z",
+      "cx": 486.2,
+      "cy": 771.2,
+      "macroregion": "Sur",
+      "iestName": "IESTP José Carlos Mariátegui / IESTP Luis E. Valcárcel",
+      "iestCity": "Samegua / Ilo",
+      "localChallenge": "Desalinización solar a pequeña escala y automatización para olivares",
+      "mirrorRegion": "Tumbes",
+      "applicantsCount": 15,
+      "femaleRatio": 53,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "pasco",
+      "name": "PASCO",
+      "d": "M243.1,503.5 L244.8,509.7 L243.8,513.7 L241.8,512.9 L241.4,511.1 L237.9,510.4 L233.7,511 L232,508.6 L229.8,507.5 L230.5,505.5 L229.8,501 L227.4,497.3 L226.3,492.9 L226.5,491.1 L224.4,488.7 L223.4,483.8 L224.6,481.9 L226.8,480.7 L233.7,479 L234.5,477.2 L240.6,474.9 L241.8,480.2 L243.4,478.7 L245.6,478.9 L249.7,481.3 L251.9,481.5 L252.9,482.9 L256.5,483.6 L258.7,480.3 L258.8,478 L261.8,475.6 L262.5,473.6 L264.9,473.4 L268.5,471.3 L268.5,468 L269.8,464.1 L272.7,463.1 L273.5,459.9 L275.4,461.3 L278.6,460.9 L282.1,458.2 L283.3,456.2 L286.9,456.2 L287.4,455.3 L286.2,452.3 L289,452.4 L292.5,454.9 L294.8,455.1 L297,453.9 L299.6,454.8 L302.1,451.3 L304.1,450.2 L306.3,450.7 L308.3,449.9 L308.1,448 L311.3,442.9 L310.6,440.7 L311.6,438.3 L313.9,436.4 L318,439.4 L318.4,442.8 L321.9,443.8 L322.3,448.7 L324,452.2 L323.9,456.2 L325.5,457.6 L325.1,461.6 L326.1,465.2 L327.6,467.1 L329.3,467 L330.4,469.4 L333.6,470.3 L333.9,474.6 L331.6,478.8 L332.5,482.4 L334.1,482.3 L335.8,484.7 L337.9,489.2 L336.5,490.7 L333.6,490.6 L331.4,492.3 L329.8,494.7 L327.3,496.1 L326.8,498.5 L322.4,499.6 L321.3,501.6 L318.5,503 L316.7,502.7 L315.1,501 L312.5,500.6 L310.2,499.1 L308.8,499.4 L307.1,497.1 L304.3,496.6 L301.5,495 L300.5,495.6 L298.9,492.4 L296.3,491.9 L294.3,494.8 L291.2,494.2 L288.8,496.5 L288,499.1 L285.6,500.8 L281.7,500.5 L279.1,502.5 L278.4,500.2 L279.3,497.3 L278,496 L274.3,495.6 L273.6,498.5 L269,499.5 L267.3,498.4 L264.9,499.1 L262.6,501.9 L261.7,501 L258.8,501.7 L255.8,498.9 L253.5,501.6 L251.4,502.8 L250,505.3 L247,505.2 L246.2,503.3 L245.5,503.1 L244.4,503.6 L244,503.4 L243.7,503.4 L243.1,503.5 Z",
+      "cx": 281.7,
+      "cy": 482.5,
+      "macroregion": "Centro",
+      "iestName": "IESTP Pasco",
+      "iestCity": "Cerro de Pasco",
+      "localChallenge": "Biorremediación de suelos con plantas nativas y monitoreo de calidad del aire a 4,300 msnm",
+      "mirrorRegion": "Madre de Dios",
+      "applicantsCount": 14,
+      "femaleRatio": 47,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "piura",
+      "name": "PIURA",
+      "d": "M113.6,237.6 L112,239.2 L109.9,244 L106.1,247.6 L107.5,249.4 L107,251.9 L108.4,253.1 L109.7,259.5 L110.8,262.2 L105.3,263 L106.3,266 L105.2,272.4 L105.6,274.2 L108.1,278.8 L104.4,282.2 L100.8,279.7 L96.3,280.8 L95.2,278.5 L95,275.9 L92.7,276.7 L90.3,276.3 L91.2,271.9 L88.1,267.8 L86.1,267.8 L84.7,264.1 L85.1,262.7 L83,260.9 L81.1,262 L80.1,265 L78.9,272.5 L72.9,278.6 L69.9,278.8 L64.2,281.2 L62.1,283.8 L51,300.1 L43.4,296.4 L38.3,292 L30.5,287.2 L27.9,282.7 L27.9,278.6 L30.2,276.3 L31.5,274 L33.5,276 L37,276.7 L39.3,275.1 L40.6,272.4 L41,267.3 L39,261.8 L36.3,257.9 L32.2,253.8 L29.7,253.1 L28.4,250.8 L25.9,248.5 L28.6,242.2 L30.5,242.7 L31.8,240.9 L30.7,237.7 L26.7,232.7 L20,225 L20.8,224.1 L22,218.1 L21.1,216.2 L22.7,214 L23.5,210.5 L23,208.6 L24,205.9 L27,204.1 L30.1,200.5 L32.7,198.7 L35.8,200.4 L36.5,202.5 L39.7,203.3 L43.2,202.6 L47.7,203.1 L51.1,205.1 L53.9,202.5 L55.5,199.6 L57.2,198.5 L58.8,200.3 L59.5,203.5 L62.3,203.6 L64.2,204.7 L62.5,207.3 L59.8,209.7 L58.6,211.9 L59.3,215 L61.5,216.3 L65.9,214.1 L70.1,210.1 L70.8,208.3 L74.1,207.7 L79,211.6 L82.2,211.9 L84.4,213.1 L85.8,215.5 L87.8,216.6 L91.6,215.7 L93.9,214 L95.1,214.3 L98,217.6 L100.9,217.9 L101.7,220.2 L101.3,222.5 L105.5,231.7 L108.7,234.1 L111.2,237.7 L113.6,237.6 Z",
+      "cx": 66.2,
+      "cy": 241.4,
+      "macroregion": "Norte",
+      "iestName": "IESTP Almirante Miguel Grau / IESTP Sullana",
+      "iestCity": "Piura / Sullana",
+      "localChallenge": "Detección temprana de plagas en mango/banano orgánico y gestión ante El Niño",
+      "mirrorRegion": "Huancavelica",
+      "applicantsCount": 22,
+      "femaleRatio": 52,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "puno",
+      "name": "PUNO",
+      "d": "M568.3,752.8 L568.3,745 L572.9,749 L572.9,750.3 L568.3,752.8 Z M536.4,793.6 L534.1,793 L532.4,794 L529.9,791.3 L527.1,791.6 L518.8,786.3 L518.5,783 L516.1,780.6 L514.1,777.5 L516.4,775.3 L516.5,771.7 L518.3,769.4 L520.7,767.9 L520.5,764.5 L518.5,763.2 L516.7,764.4 L513.1,762.3 L512.8,760.1 L510.4,757.6 L507.2,756.3 L505.8,753.2 L503.7,752 L505.6,749.1 L504.7,743.9 L502.8,741.1 L502.4,737.8 L497.3,735.5 L495.8,733.7 L492.1,733.8 L489.4,735.7 L486.6,735 L484.3,733.3 L483.3,730.7 L479.2,724.4 L480.8,721 L480,717.9 L476,714.2 L475.7,710.8 L476.6,709.2 L474.6,707 L475.8,704.1 L478.5,701.7 L477,699.8 L478,698.3 L477.4,696.4 L476.2,687.1 L477,685.9 L476.6,680.6 L477.4,677.6 L475.8,676.5 L474,677.2 L471.3,673.2 L476.3,668.9 L476.5,665.8 L478,663 L477,661.3 L478,659.3 L480.2,657.7 L481.6,655.1 L480.8,653.2 L482.2,650.5 L484.8,648.4 L485.4,646.1 L482.5,644 L483.7,639.9 L483.8,636.3 L486.6,634.3 L488.7,635 L489.7,633.8 L488.1,630.9 L488.9,627.4 L491.7,627.1 L493.3,625 L496.6,623.4 L496.9,621.2 L500.5,617.7 L501,615.2 L502.9,614.2 L503.2,611.6 L502,609.1 L503.4,606.1 L502.7,602.5 L519.1,607.5 L521.7,608.4 L536.1,612.8 L551,606.2 L570.4,597.5 L571.2,600.1 L570.3,602.6 L571.6,608.5 L568.4,619.4 L565,626.8 L562,627.2 L561.8,628.6 L565.7,631.8 L565.6,632.9 L568.4,634.3 L566.9,637.3 L565.5,637.9 L565.7,641.8 L567.5,643.9 L569.3,644.6 L571.1,650.2 L572.3,652.8 L566.4,652.8 L564.1,657.1 L565.4,659.8 L563.4,662.2 L561,663.4 L558.5,666.2 L558.1,669.2 L555,669.3 L554.6,672.7 L553.3,673.9 L554.8,676.6 L551.4,677.7 L549.1,679.3 L549.5,683 L548.8,686.1 L551.5,690.7 L552.1,692.8 L554.3,693.9 L558.9,699.1 L555.2,702.9 L553.7,705.4 L553.5,709.9 L551.9,708.4 L550.1,713 L545.5,710.5 L543.7,708 L539.6,704.6 L538.4,705.3 L536.4,703.1 L536.2,701.4 L533.8,699.1 L532.6,699.4 L530.6,702.6 L528.7,701.6 L525.2,701.9 L524.9,704.7 L523.1,706.6 L524,709.2 L526.7,713.9 L530.7,718.6 L531.6,721.8 L529.7,721.6 L527.4,719.8 L527.4,717.8 L525.3,715.6 L522.2,720.5 L519.8,720.1 L519,721.5 L519.5,724.5 L522.2,727.4 L525.7,729.2 L528.4,724.4 L530.8,726.5 L530.7,729.4 L533.2,730.4 L535.1,732.3 L539.9,732.4 L544.8,734 L546,736.4 L542.5,741.2 L542.9,743.8 L545.9,742.5 L548.9,745.8 L554.1,746.7 L558.3,745.9 L562.3,743.3 L565.8,746.1 L562.5,747.3 L563.8,749.5 L563.7,752.9 L561,755.6 L561,757.1 L563.1,760 L563.3,762.2 L564.9,764.5 L562.7,766 L557.2,767.8 L555,772.8 L551.3,776.5 L549.5,779.7 L547.3,781.5 L548.2,783.7 L544.9,784.9 L542.1,787.1 L540.1,787.7 L536.4,793.6 Z M525.5,697.9 L523.5,695.5 L522.5,696.3 L519.6,695.4 L518.6,693.5 L515.4,696.1 L517.9,697.3 L522.7,698.5 L525.5,697.9 Z",
+      "cx": 526.2,
+      "cy": 702.3,
+      "macroregion": "Sur",
+      "iestName": "IESTP Manuel Núñez Butrón / IESTP Puno",
+      "iestCity": "Juliaca / Puno",
+      "localChallenge": "Monitoreo de totorales y calidad de agua en el Lago Titicaca + módulos térmicos para quinua",
+      "mirrorRegion": "Callao",
+      "applicantsCount": 20,
+      "femaleRatio": 50,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "san-martin",
+      "name": "SAN MARTIN",
+      "d": "M256.1,386.9 L251.6,387.6 L249.7,393.4 L250.3,401.9 L248.1,406.3 L245.3,408.1 L243.6,401.8 L243.1,398.3 L241.1,396 L240.7,391.7 L237,392.4 L235.8,394.4 L234.8,398 L231.4,395.3 L227.8,395.4 L224.6,396.3 L218.7,395.6 L218,397 L214.9,398 L209,397.3 L207.2,395.6 L207.3,394.1 L205.3,392.2 L207.5,390.7 L212.3,390.2 L215.1,387.1 L215.6,385.2 L214.5,382.3 L215.4,380.2 L211.8,377.5 L210.4,374.9 L206,373.7 L204.6,374 L200.7,373.2 L198.3,375.2 L194.2,375 L193.3,372.2 L194.6,368.5 L193.3,368.2 L191.7,364.2 L190,363.8 L187.9,361.7 L189.8,359.2 L187.5,353.9 L188,350.5 L184.3,347.4 L183.2,343.9 L183.5,342.2 L182.7,338.7 L184.5,337.7 L182.8,334.6 L179.7,332.8 L177.7,326.4 L179.3,323.2 L177.6,319.4 L178.2,316.9 L178.3,313.1 L180.6,313.7 L184.2,310.7 L187.2,313.6 L194.4,314.5 L192,310.4 L193.8,310.3 L196.4,306.7 L196.8,304.3 L199.2,301.6 L198.6,298.2 L199.8,298.1 L201.5,300.5 L203.7,300.5 L205.4,297 L202.4,293.8 L201.4,290 L198.8,289.8 L195.9,288.6 L193.8,285.3 L192,286.2 L190.1,283.6 L187.7,286.3 L185,283.9 L181.7,282.6 L182.4,280.6 L181.3,277.3 L177.5,275.5 L177.1,269.5 L178.7,266 L177.4,263 L177.3,258.6 L178.4,257.2 L180.5,257.4 L181.6,257.3 L185.5,259.6 L186.6,258 L188.4,259.8 L190.8,265 L193.2,265.3 L194.9,264.4 L196.3,265.9 L201,265.5 L209.4,269.1 L211.4,268.7 L213,270.5 L216.2,272.3 L218.5,272.2 L219.3,277.4 L222.4,281.5 L222.4,283.7 L227.1,283.6 L231.2,284.5 L237.2,281.3 L239,282.3 L241.4,287.3 L243.4,288.2 L245.5,290.9 L249.8,291.4 L254,287.9 L257,287.7 L258.5,289.6 L262.7,289.7 L263.6,288 L268,289.7 L269.6,287.8 L271.8,287.2 L272.5,284.5 L274.4,283.7 L276.1,287.8 L276.4,290.9 L278.1,292.6 L278,295.4 L275.3,299 L277.1,305.4 L277.5,312 L277.5,317.6 L277,318.4 L271.6,321 L270.1,320.3 L268.8,322.1 L265.7,321.5 L262.3,319 L257,318.6 L253.2,319.6 L255,323.3 L253.2,325.5 L255,327.8 L255,331.5 L252.8,335.2 L249.1,337.1 L248.1,339.9 L246,341.8 L246.8,342.8 L245.9,346 L248.1,350 L251.4,352.9 L250.9,360.2 L253.5,363.3 L256.9,370.8 L261.6,369 L263,371.4 L262.3,375.2 L259.1,375.8 L257.7,377 L258,380.9 L259.3,383.9 L258.3,386.5 L256.1,386.9 Z",
+      "cx": 222.2,
+      "cy": 327.8,
+      "macroregion": "Oriente",
+      "iestName": "IESTP Nor Oriental de la Selva",
+      "iestCity": "Tarapoto",
+      "localChallenge": "Fermentadores controlados por microcontrolador para cacao fino de aroma",
+      "mirrorRegion": "Junín",
+      "applicantsCount": 17,
+      "femaleRatio": 53,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "tacna",
+      "name": "TACNA",
+      "d": "M536.4,793.6 L539.3,793.9 L544.1,797.6 L544,803.7 L535.3,810.9 L529.6,810.3 L528.4,812.1 L529.4,815.6 L529.6,820.3 L531.7,824.1 L531.5,826 L528.8,832 L527,834.4 L522.3,838.9 L518.3,839.2 L513.9,841.5 L507.9,841 L503.9,843 L499.3,839.4 L490.6,834.2 L484.6,828.6 L481.7,827.4 L481,825 L475.9,821 L472.1,820.5 L470.2,818.4 L471.8,815.3 L476.7,811.8 L480.2,812.2 L481.7,806 L488,798.9 L487.3,798 L488.9,793 L490.3,790.7 L493.6,790.3 L497.2,788.1 L498.8,784.6 L500.7,784.1 L500,777.8 L501,773 L507,769.9 L511.5,771.5 L509.1,775.8 L509.6,778.2 L514.1,777.5 L516.1,780.6 L518.5,783 L518.8,786.3 L527.1,791.6 L529.9,791.3 L532.4,794 L534.1,793 L536.4,793.6 Z",
+      "cx": 509,
+      "cy": 805.7,
+      "macroregion": "Sur",
+      "iestName": "IESTP Francisco de Paula Gonzales Vigil",
+      "iestCity": "Tacna",
+      "localChallenge": "Eficiencia extrema de agua en cultivo de orégano y aprovechamiento de energía solar desértica",
+      "mirrorRegion": "Pasco",
+      "applicantsCount": 16,
+      "femaleRatio": 50,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "tumbes",
+      "name": "TUMBES",
+      "d": "M57.2,198.5 L55.5,199.6 L53.9,202.5 L51.1,205.1 L47.7,203.1 L43.2,202.6 L39.7,203.3 L36.5,202.5 L35.8,200.4 L32.7,198.7 L35.1,194.2 L36.4,192.9 L41.8,189.3 L43.6,184.2 L45.4,182.3 L52.9,178.7 L54.6,176.6 L56.4,173.1 L59.5,172.2 L61.9,172.3 L65.8,168.6 L68.9,170.2 L68.1,171.7 L69.6,174.2 L70.3,177 L70.7,183.2 L71.6,186 L71.7,189 L72.5,190.9 L68.1,192.9 L65.5,195.6 L62.7,194.1 L59.7,194.3 L57.2,198.5 Z",
+      "cx": 55.4,
+      "cy": 188.8,
+      "macroregion": "Norte",
+      "iestName": "IESTP José Abelardo Quiñones",
+      "iestCity": "Tumbes",
+      "localChallenge": "Protección de ecosistemas de manglares y sensores para acuicultura sostenible de langostinos",
+      "mirrorRegion": "Moquegua",
+      "applicantsCount": 13,
+      "femaleRatio": 52,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    },
+    {
+      "id": "ucayali",
+      "name": "UCAYALI",
+      "d": "M493.4,458.3 L491,460.8 L490.8,463.6 L491.8,465.6 L489.3,468.1 L489.4,469.2 L484.4,473.6 L481.7,474.8 L479.8,476.7 L477.9,477.3 L477.8,479.2 L475.3,483.5 L470.7,484.7 L467.7,488.1 L466.2,493 L466.6,496.2 L465,497.3 L464.3,500.1 L460.6,504.8 L452.9,504.8 L444.5,506.8 L439.4,507 L431.5,506.5 L429.9,507.5 L426.4,506.5 L424.1,507.4 L424,509.9 L426.8,511.8 L423.3,516.2 L423.4,518.8 L421.6,522.5 L418.6,520.8 L415.4,522 L411,524.4 L408.5,526.6 L405.2,526.3 L401,524.2 L399.6,522.6 L397.1,524.3 L392.5,523.1 L390.1,521.9 L390.7,519.7 L389.4,518.9 L388.4,515.9 L386.8,518.9 L381.9,520.2 L379,520 L376.6,521.1 L373.3,521 L369.4,524.3 L366.6,521.4 L367.7,520.6 L368.1,517.1 L366.7,509.9 L364,509.1 L362.7,505.1 L363.2,500.7 L361,500.1 L357.2,496.8 L354.5,495.1 L352,498 L351.6,503.4 L350.2,504.9 L349.7,508.7 L349.9,513.5 L344.8,512.4 L344.7,510.1 L343.6,506.7 L339.7,506.4 L334.9,507.9 L332.5,507.8 L327.3,509.5 L324.1,507.2 L321.7,506.8 L321.3,504.7 L318.5,503 L321.3,501.6 L322.4,499.6 L326.8,498.5 L327.3,496.1 L329.8,494.7 L331.4,492.3 L333.6,490.6 L336.5,490.7 L337.9,489.2 L335.8,484.7 L334.1,482.3 L332.5,482.4 L331.6,478.8 L333.9,474.6 L333.6,470.3 L330.4,469.4 L329.3,467 L327.6,467.1 L326.1,465.2 L325.1,461.6 L325.5,457.6 L323.9,456.2 L324,452.2 L322.3,448.7 L321.9,443.8 L318.4,442.8 L318,439.4 L313.9,436.4 L314,434.9 L317.8,430.8 L315.5,424.4 L315.5,422.5 L313.8,421.4 L315,419.4 L315.3,413.6 L316.9,409.2 L320.3,407.2 L320.6,406 L319.6,398.7 L316.5,397.1 L308.6,400.8 L306.4,402.1 L306.2,406.4 L302.2,410.9 L302.5,414.1 L300.5,415.1 L297.6,412.9 L295.4,413.8 L293.3,416 L292.9,419 L291.6,420.9 L289.1,422 L290.3,424.4 L290.3,427.5 L288,429.3 L287.1,431.1 L285.1,430.5 L279.6,430.5 L277.8,434.1 L274.8,435.1 L270,435 L267.3,429.4 L264.5,425.7 L264,422.7 L260.9,418.2 L261,415.9 L259.1,411.8 L258.9,407.4 L257.8,404.5 L260.2,402.1 L262.8,401.7 L265.2,397 L265.2,394.6 L268,394.3 L268.4,392.2 L271,390.8 L273.1,390.9 L275.5,393.4 L280.1,392.1 L280.4,390.1 L277.3,388.1 L277.4,385.5 L278.8,383.8 L280.6,380 L283,378.7 L286.9,378.2 L288.8,379.5 L290.1,378.2 L291.5,373.3 L293.3,371.6 L298.1,370.3 L300.4,371.2 L304.2,376.2 L309.7,374.2 L311.6,371.7 L316.1,369.9 L318.6,364.3 L321,362.6 L319.2,361.3 L318,359.1 L318.6,357.8 L315.4,353 L315.4,350.3 L316.6,347.4 L318.2,346.2 L320.1,341.1 L321.6,339.8 L323.4,341.3 L329.8,343.6 L332.4,343.3 L335.8,344 L337.7,345.6 L342,347.9 L342.3,349.6 L344.6,351.8 L348.7,354.9 L348.2,356.5 L351,357.9 L352.5,359.8 L356.4,361.1 L358.1,363.6 L358,366.2 L354.1,368.6 L356.8,370.9 L358.4,373.1 L359.7,372.8 L362.1,378.2 L361.7,380 L363.1,383.5 L364.7,384.8 L364,388.1 L371.5,393.6 L373.4,393.8 L372.8,399.5 L373.9,399.8 L376.9,403.4 L380.6,403.7 L382.9,407.6 L383,409.2 L386.3,413.5 L387.9,413.5 L390.3,418.5 L390.6,421.4 L389.6,423.7 L385.2,427.4 L381.1,433.2 L379.6,433.5 L379.1,435.6 L400.5,435.7 L408.7,438.8 L414.2,438.6 L419.7,441.5 L419.4,444.2 L421.3,446.7 L420.7,449.1 L422.7,452.1 L425.5,452.9 L425,454.5 L425.5,457.8 L424.5,458.9 L424.2,462 L443.8,462 L459.8,462 L461.2,460.5 L463.2,461.7 L467.9,459.4 L469.4,456.3 L474.1,453.8 L476.4,453.9 L477.5,451.3 L479.7,450.4 L482.2,447 L485.2,446 L487.4,442.7 L491.5,440.3 L495.7,436.5 L497.8,439.3 L496.7,441.2 L494.4,441.8 L494.1,444.4 L496.2,447.2 L497.2,449.7 L496.8,451.5 L493.5,453.3 L493.4,458.3 Z",
+      "cx": 364.1,
+      "cy": 441.9,
+      "macroregion": "Oriente",
+      "iestName": "IESTP Suiza",
+      "iestCity": "Pucallpa",
+      "localChallenge": "Aprovechamiento de aserrín y maderas nativas certificadas en diseño 3D paramétrico",
+      "mirrorRegion": "Lima",
+      "applicantsCount": 17,
+      "femaleRatio": 51,
+      "sponsorStatus": "available",
+      "sponsorName": null,
+      "quotaTarget": 20,
+      "teamsTarget": 4
+    }
+  ]
+};
