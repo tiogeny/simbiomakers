@@ -1,195 +1,170 @@
 /**
  * SimbioMakers - Red de Innovación y Fabricación Digital Escolar
- * Base de Datos Central y Configuración del Capítulo Perú (24 Regiones + Callao)
+ * SimbioMakers PE • 24 Regiones del Perú
  * Metodología SimbioCreación & Fab Lab Perú
  */
 
 export const EDITION_CONFIG = {
   brand: 'SimbioMakers',
-  chapter: 'Capítulo Perú',
   countryCode: 'PE',
+  countryBadge: 'PE',
   flagEmoji: '🇵🇪',
+  editionTitle: 'SimbioMakers PE',
   editionSubtitle: 'Red Nacional de Innovación y Fabricación Digital Escolar',
-  tagline: 'Convergencia antes que competencia • De la mente a la materia',
-  year: '2026 - 2027',
-  targetAudience: 'Estudiantes de 4.° y 5.° de secundaria de colegios públicos y privados',
+  tagline: 'Convergencia antes que competencia • De la idea al prototipo real',
+  targetAudience: 'Estudiantes de 4.° y 5.° de secundaria',
   organizers: [
     {
       name: 'Fab Lab Perú',
-      role: 'Red Nacional de Laboratorios & Fabricación Distribuida',
+      role: 'Red de Laboratorios & Fabricación Distribuida',
       logoDark: 'logos/logo_fablab_blanco.png',
       logoLight: 'logos/logo_fablab_negro.png',
-      description: 'Pioneros de la fabricación digital en América Latina y gestores de la red global Fab City.'
+      description: 'Pioneros de la fabricación digital en el Perú y gestores de la red global Fab City.'
     },
     {
       name: 'SimbioCreación',
-      role: 'Metodología Propietaria de Innovación & MPI',
+      role: 'Metodología de Innovación & MIP',
       logo: 'logos/logo_simbiocreacion.png',
-      description: 'Metodología colaborativa de Benito Juárez Vélez orientada al Máximo Producto de Integración.'
+      description: 'Metodología de Benito Juárez Vélez orientada al Máximo Impacto Posible (MIP).'
     }
   ],
   framework: {
-    totalSedes: 25, // 24 departamentos + Callao
+    totalSedes: 25, // 24 regiones + Callao
     totalDepartments: 24,
-    studentsPerTeam: 5,
-    teamsPerRegion: { min: 2, max: 4 },
-    studentsPerRegion: { min: 10, max: 20 },
-    totals: {
-      escenario240: {
-        students: 240,
-        teams: 48,
-        costTotal: 48180,
-        costPerStudent: 200,
-        costPerRegion: 2007,
-        label: 'Piloto Escalar (10 alumnos/región)'
-      },
-      escenario480: {
-        students: 480,
-        teams: 96,
-        costTotal: 85860,
-        costPerStudent: 179,
-        costPerRegion: 3577,
-        label: 'Piloto Nacional Completo (20 alumnos/región)'
-      },
-      escenarioMinimo: {
-        students: 240,
-        teams: 48,
-        costTotal: 14580,
-        costPerStudent: 60,
-        label: 'Costo Marginal en Insumos Puros (Con IEST aportando facilitación)'
-      }
-    },
+    targetStudents: '+500 Escolares',
+    targetTeams: '+100 Equipos',
+    femaleTarget: '50% Mujeres STEAM',
+    diplomaTitle: 'Diploma Oficial de Innovación y Fabricación Digital (Fab Lab Perú & SimbioCreación)',
     kitDetails: {
-      costPerTeam: 210, // S/ 210 por equipo de 5
-      costPerStudent: 42, // S/ 42 por estudiante
       items: [
-        '1 kg Filamento PLA biodegradable alta precisión',
-        'Planchas de MDF 3mm y acrílico para corte láser',
-        'Kit electrónico: Placa ESP32 con WiFi/Bluetooth o Arduino + cables jumper',
-        'Sensores de entorno (humedad, temperatura, luz, ultrasónico)',
-        'Actuadores (servomotor, relé o microbomba)',
-        'Ferretería y tornillería métrica para ensamble rápido'
+        'Filamento PLA ecológico para impresión 3D',
+        'Tableros de corte láser (MDF / acrílico)',
+        'Placas microcontroladoras programables (ESP32 / Arduino)',
+        'Sensores de entorno (humedad, temperatura, luz, distancia)',
+        'Actuadores y componentes mecánicos de ensamble'
       ]
     }
   },
   pedagogy: [
     {
-      week: 'Semanas 1 y 2',
+      step: '01',
       title: 'Misiones Virtuales & Reto Local',
-      icon: 'sparkles',
-      summary: 'Sesiones remotas gamificadas de ideación, modelado 2D/3D (Tinkercad / Onshape) y electrónica básica. Definición del reto regional en Agua, Energía, Salud o Cultura.'
+      period: 'Semanas 1 y 2',
+      summary: 'Sesiones semanales dinámicas de ideación, modelado 2D/3D y electrónica. Cada equipo define un desafío concreto de su comunidad en agua, energía, salud o cultura.'
     },
     {
-      week: 'Semana 3',
-      title: 'Fabricación Distribuida (Región Espejo)',
-      icon: 'share-2',
-      summary: 'Codiseño remoto entre dos regiones complementarias (ej. Loreto y Cusco). Se intercambian archivos digitales (STL, SVG) para auditoría técnica y ensamble modular compartido sin pagar fletes.'
+      step: '02',
+      title: 'Codiseño Interregional',
+      period: 'Semana 3',
+      summary: 'Colaboración a distancia entre regiones aliadas (ej. Loreto y Áncash). Intercambio de planos digitales (STL, SVG) para auditoría técnica y ensamble compartido sin fletes.'
     },
     {
-      week: 'Semanas 4 y 5',
+      step: '03',
       title: 'Fabricación Física en el IEST Sede',
-      icon: 'cpu',
-      summary: 'Jornadas presenciales intensivas en el Fab Lab del IEST de su región. Corte láser, impresión 3D, soldadura, programación y calibración de prototipos reales.'
+      period: 'Semanas 4 y 5',
+      summary: 'Jornadas prácticas en el Fab Lab del Instituto Tecnológico público de su región: corte láser, impresión 3D, programación y ensamblaje de prototipos físicos.'
     },
     {
-      week: 'Semana 6',
-      title: 'Demo Day Nacional & Reporte MPI',
-      icon: 'award',
-      summary: 'Presentación en vivo transmitida a nivel nacional ante directores de PMESUT, aliados corporativos y la red internacional de Fab Labs con entrega del Índice de Máximo Impacto Posible.'
+      step: '04',
+      title: 'Demo Day Nacional & Certificación MIP',
+      period: 'Semana 6',
+      summary: 'Presentación en vivo de los prototipos ante jurado de expertos, entrega de diplomas oficiales y reporte del Índice de Máximo Impacto Posible.'
     }
   ],
-  selectionCriteria: [
+  selectionPillars: [
     {
-      pct: 30,
-      title: 'Arraigo y Observación Local',
-      desc: 'Capacidad de identificar un problema real y tangible en su comunidad, barrio, colegio o ecosistema natural.'
+      pct: 35,
+      title: 'Iniciativa y Diagnóstico Local',
+      desc: 'Claridad para identificar un problema concreto de su entorno y proponer una solución tecnológica factible.'
+    },
+    {
+      pct: 35,
+      title: 'Ingenio Práctico',
+      desc: 'Haber construido, reparado, programado o inventado algo con los materiales y recursos disponibles a su alrededor.'
     },
     {
       pct: 30,
-      title: 'Mentalidad Maker y Recursividad',
-      desc: 'Haber construido, arreglado, programado o inventado algo con los materiales que tenía a mano. ¡Cero diplomas teóricos!'
-    },
-    {
-      pct: 20,
-      title: 'Potencial Colaborativo Simbiótico',
-      desc: 'Ganas auténticas de trabajar en equipo con jóvenes de otros colegios y realidades distintas.'
-    },
-    {
-      pct: 20,
-      title: 'Criterio de Equidad y Acceso',
-      desc: 'Priorización de colegios públicos, zonas rurales/periurbanas y fomento de mujeres adolescentes en STEAM (meta 50/50).'
+      title: 'Vocación de Trabajo en Equipo',
+      desc: 'Entusiasmo por colaborar con jóvenes de distintos colegios e integrar conocimientos en una sola meta compartida.'
     }
   ],
   sponsorTiers: [
     {
       id: 'kit_maker',
-      title: 'Aliado de Insumos (Kit Maker)',
-      badge: 'Aporte en Especie o Efectivo',
-      costSummary: 'S/ 210 por equipo (S/ 42 por estudiante)',
-      description: 'Financia los materiales de prototipado para uno o varios equipos de 5 escolares. El kit incluye PLA, MDF, sensores y microcontroladores.',
+      title: 'Aliado de Insumos (Kits Maker)',
+      badge: 'Aporte de Prototipado',
+      summary: 'Kits para equipos escolares',
+      featured: false,
+      description: 'Financia los materiales de prototipado físico (filamento 3D, corte láser, sensores y microcontroladores) para los equipos de una o varias sedes.',
       benefits: [
-        'Mención en la bitácora técnica de prototipado',
-        'Logo del aliado en los prototipos físicos creados',
-        'Certificado de fomento a la educación tecnológica escolar'
+        'Mención de honor en los reportes técnicos y prototipos físicos',
+        'Diploma institucional de Aliado Maker',
+        'Participación en las sesiones de muestra regional'
       ]
     },
     {
       id: 'adopta_region',
       title: 'Sponsor de Sede: Adopta una Región',
       badge: 'Impacto Regional Completo',
-      costSummary: 'Desde S/ 2,007 a S/ 3,577 por región',
+      summary: 'Cobertura integral de una sede regional',
       featured: true,
-      description: 'Financiamiento directo para operar la totalidad de los equipos de un departamento del Perú en su IEST sede.',
+      description: 'Financia la operación técnica, facilitadores e insumos de una región completa en su IEST sede. Recibe reporte de auditoría MIP.',
       benefits: [
         'Derecho a proponer un reto de innovación vinculado a su sector',
-        'Reporte de auditoría y métricas de impacto MPI (Máximo Impacto Posible)',
-        'Participación destacada en la inauguración y como jurado en el Demo Day Nacional',
-        'Presencia de marca en uniformes, stands y prensa regional'
+        'Reporte de auditoría y métricas de Máximo Impacto Posible (MIP)',
+        'Participación destacada en el jurado del Demo Day Nacional',
+        'Presencia de marca en stands, prototipos y prensa regional'
       ]
     },
     {
       id: 'fondo_facilitadores',
-      title: 'Fondo Semilla de Instructores',
-      badge: 'Soporte al Talento Técnico Local',
-      costSummary: 'Aporte institucional flexible',
-      description: 'Fondo dedicado a retribuir y capacitar a los instructores y técnicos de laboratorio de los IEST que asesoran a los estudiantes.',
+      title: 'Fondo de Instructores Locales',
+      badge: 'Desarrollo de Capacidad Técnica',
+      summary: 'Soporte a instructores de los IEST',
+      featured: false,
+      description: 'Aporte orientado a capacitar y retribuir a los técnicos de laboratorio e instructores de los institutos públicos.',
       benefits: [
-        'Fortalecimiento directo de la capacidad docente técnica del Perú',
-        'Visibilidad como padrino de transferencia tecnológica'
+        'Fortalecimiento directo de la capacidad técnica instalada en las regiones',
+        'Reconocimiento como padrino de transferencia tecnológica'
       ]
     },
     {
       id: 'mentoria_conectividad',
-      title: 'Mentoría & Conectividad STEAM',
-      badge: 'Voluntariado y Telecom',
-      costSummary: 'Horas mentor / Paquetes de datos',
-      description: 'Aporte de paquetes de internet para escolares de zonas rurales y horas de asesoría técnica de ingenieros y diseñadores senior.',
+      title: 'Mentoría & Conectividad',
+      badge: 'Voluntariado y Datos',
+      summary: 'Acompañamiento técnico / Enlaces',
+      featured: false,
+      description: 'Aporte de paquetes de datos de conectividad para escolares y mentorías de profesionales del sector tecnológico.',
       benefits: [
-        'Conexión directa entre profesionales de tu empresa y jóvenes promesas',
+        'Conexión directa entre líderes de tu empresa y jóvenes talentos',
         'Reporte de voluntariado corporativo de alto impacto'
       ]
     }
   ],
   faq: [
     {
-      q: '¿Por qué no se piden libretas de notas ni certificados de tercio superior?',
-      a: 'Porque la innovación real no depende de memorizar exámenes. Buscamos curiosidad, recursividad (hacer mucho con poco), empatía por los problemas de su entorno y ganas de construir con las manos. Inspirados en la filosofía de inclusión de Perú Champs, democratizamos el acceso al talento creador.'
+      q: '¿Por qué no se solicitan libretas ni promedio de notas para postular?',
+      a: 'Porque el talento transformador y la creatividad práctica no se reflejan en un examen memorístico. Buscamos jóvenes con curiosidad, ingenio para resolver problemas reales y compromiso con su comunidad. ¡Todos los estudiantes seleccionados recibirán su Diploma Oficial de Innovación y Fabricación Digital!'
     },
     {
-      q: '¿Qué es la fabricación distribuida y por qué ahorra fletes interregionales?',
-      a: 'En lugar de fabricar todo en Lima y pagar envíos costosos y lentos a provincias, cada equipo diseña digitalmente su prototipo y comparte sus archivos (STL, SVG) con un equipo espejo de otra región. Ambos laboratorios IEST imprimen y cortan localmente los módulos, colaborando a cientos de kilómetros de distancia a costo cero de transporte.'
+      q: '¿Qué significa MIP (Máximo Impacto Posible)?',
+      a: 'Es la métrica central de la metodología SimbioCreación. En lugar de competir para que una sola idea gane y el resto se descarte, todos los saberes convergen en prototipos integrados donde el valor generado multiplica exponencialmente el impacto social y tecnológico.'
     },
     {
-      q: '¿Pueden postular estudiantes de colegios tanto públicos como privados?',
-      a: 'Sí, la convocatoria es abierta para cualquier adolescente que curse 4.° o 5.° de secundaria. Dentro de cada región buscamos conformar equipos multidisciplinarios donde se mezclen estudiantes de distintos colegios, garantizando un mínimo del 70% de representatividad de colegios públicos y paridad de género (50% mujeres en STEAM).'
+      q: '¿Cómo funciona la colaboración entre regiones aliadas sin pagar fletes?',
+      a: 'Cada equipo diseña digitalmente su componente y comparte sus archivos (STL, SVG) por la nube con su región aliada. Los laboratorios de los IEST de ambas regiones imprimen y cortan las piezas localmente, logrando un ensamble coordinado a cientos de kilómetros sin costos de transporte.'
     },
     {
-      q: '¿Cómo funciona la postulación con video vertical de 60 segundos?',
-      a: 'El estudiante graba un video corto con su celular (estilo Reels/TikTok/Shorts) mostrando un lugar o problema cotidiano de su comunidad que le gustaría resolver y contando qué ha construido o reparado alguna vez. No se evalúa edición ni calidad de cámara, sino autenticidad, claridad y pasión.'
+      q: '¿Pueden postular estudiantes de colegios públicos y privados?',
+      a: 'Sí. La convocatoria está abierta para estudiantes de 4.° y 5.° de secundaria. Buscamos conformar equipos diversos mezclando estudiantes de distintos colegios de la misma región, con paridad de género (50% mujeres en STEAM).'
     },
     {
-      q: '¿Cómo puede una empresa o institución "Adoptar una Región"?',
-      a: 'Desde el portal web, los sponsors seleccionan el departamento disponible en el mapa interactivo o el tablero. Con una inversión desde S/ 2,007 se garantiza la cobertura de insumos, facilitación y certificación de la región elegida, recibiendo un reporte con métricas MPI.'
+      q: '¿Cómo funciona el video de 60 segundos?',
+      a: 'Solo debes grabar un video corto con tu celular mostrando el lugar o problema cotidiano de tu comunidad que te gustaría transformar y contando por qué te gustaría participar. No evaluamos edición ni calidad de cámara, solo tu claridad, autenticidad e iniciativa.'
+    },
+    {
+      q: '¿Cómo puede una empresa o institución patrocinar una región?',
+      a: 'Desde el portal web, los aliados pueden seleccionar una región disponible en el mapa interactivo y solicitar el dossier de impacto MIP para apadrinar la sede y definir un reto vinculado a su actividad.'
     }
   ]
 };
@@ -213,12 +188,13 @@ export const PERU_MAP_DATA = {
       "iestCity": "Chachapoyas / Bagua Grande",
       "localChallenge": "Agroecología circular y preservación de flora andino-amazónica",
       "mirrorRegion": "Arequipa",
-      "applicantsCount": 16,
-      "femaleRatio": 50,
+      "applicantsCount": 28,
+      "femaleRatio": 52,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Arequipa"
     },
     {
       "id": "ancash",
@@ -231,12 +207,13 @@ export const PERU_MAP_DATA = {
       "iestCity": "Huaraz / Chimbote",
       "localChallenge": "Monitoreo de deshielos glaciares y tecnología limpia para pesca artesanal",
       "mirrorRegion": "Loreto",
-      "applicantsCount": 19,
-      "femaleRatio": 53,
+      "applicantsCount": 35,
+      "femaleRatio": 54,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Loreto"
     },
     {
       "id": "apurimac",
@@ -249,12 +226,13 @@ export const PERU_MAP_DATA = {
       "iestCity": "Abancay / Andahuaylas",
       "localChallenge": "Sensores de humedad para tubérculos andinos y pastos de altura",
       "mirrorRegion": "La Libertad",
-      "applicantsCount": 14,
-      "femaleRatio": 48,
+      "applicantsCount": 24,
+      "femaleRatio": 50,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "La Libertad"
     },
     {
       "id": "arequipa",
@@ -265,14 +243,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Sur",
       "iestName": "IESTP Pedro P. Díaz",
       "iestCity": "Arequipa",
-      "localChallenge": "Robótica aplicada a zonas volcánicas y secadores solares de ajo",
+      "localChallenge": "Robótica aplicada a zonas volcánicas y secadores solares agrícolas",
       "mirrorRegion": "Amazonas",
-      "applicantsCount": 22,
+      "applicantsCount": 42,
       "femaleRatio": 52,
       "sponsorStatus": "sponsored",
       "sponsorName": "Aliado Tecnológico del Sur",
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Amazonas"
     },
     {
       "id": "ayacucho",
@@ -283,14 +262,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Centro",
       "iestName": "IESTP Víctor Álvarez Huapaya",
       "iestCity": "Ayacucho",
-      "localChallenge": "Fabricación digital integrada a la artesanía de retablos y textilería tradicional",
+      "localChallenge": "Fabricación digital integrada a la artesanía y textilería tradicional",
       "mirrorRegion": "Lambayeque",
-      "applicantsCount": 15,
-      "femaleRatio": 54,
+      "applicantsCount": 31,
+      "femaleRatio": 55,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Lambayeque"
     },
     {
       "id": "cajamarca",
@@ -301,14 +281,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Norte",
       "iestName": "IESTP Cajamarca",
       "iestCity": "Cajamarca",
-      "localChallenge": "Monitoreo inteligente de calidad de agua y pasteurización láctea artesanal",
+      "localChallenge": "Monitoreo inteligente de calidad de agua y pasteurización láctea",
       "mirrorRegion": "Cusco",
-      "applicantsCount": 18,
-      "femaleRatio": 49,
+      "applicantsCount": 38,
+      "femaleRatio": 50,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Cusco"
     },
     {
       "id": "callao",
@@ -319,14 +300,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Centro",
       "iestName": "IESTP Simón Bolívar",
       "iestCity": "Bellavista - Callao",
-      "localChallenge": "Trampas inteligentes para microplásticos marinos y logística portuaria escolar",
+      "localChallenge": "Sensores marítimos para monitoreo costero y soluciones portuarias",
       "mirrorRegion": "Puno",
-      "applicantsCount": 24,
-      "femaleRatio": 50,
+      "applicantsCount": 46,
+      "femaleRatio": 51,
       "sponsorStatus": "sponsored",
       "sponsorName": "Red Marítima Sostenible",
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Puno"
     },
     {
       "id": "cusco",
@@ -337,14 +319,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Sur",
       "iestName": "IESTP Túpac Amaru",
       "iestCity": "San Sebastián - Cusco",
-      "localChallenge": "Preservación de patrimonio lítico y ecodiseño para turismo comunitario rural",
+      "localChallenge": "Preservación de patrimonio y ecodiseño para turismo comunitario rural",
       "mirrorRegion": "Cajamarca",
-      "applicantsCount": 21,
-      "femaleRatio": 55,
+      "applicantsCount": 48,
+      "femaleRatio": 56,
       "sponsorStatus": "sponsored",
       "sponsorName": "Fundación Qente Innovación",
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Cajamarca"
     },
     {
       "id": "huancavelica",
@@ -357,12 +340,13 @@ export const PERU_MAP_DATA = {
       "iestCity": "Huancavelica",
       "localChallenge": "Invernaderos automatizados contra heladas y protección de alpacas neonatas",
       "mirrorRegion": "Piura",
-      "applicantsCount": 17,
+      "applicantsCount": 29,
       "femaleRatio": 53,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Piura"
     },
     {
       "id": "huanuco",
@@ -373,14 +357,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Oriente",
       "iestName": "IESTP Aparicio Pomares",
       "iestCity": "Huánuco",
-      "localChallenge": "Biofiltros para residuos de café/cacao y valorización de subproductos agrícolas",
+      "localChallenge": "Biofiltros para residuos agrícolas y valorización de café y cacao",
       "mirrorRegion": "Ica",
-      "applicantsCount": 13,
+      "applicantsCount": 26,
       "femaleRatio": 50,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Ica"
     },
     {
       "id": "ica",
@@ -391,14 +376,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Centro",
       "iestName": "IESTP Chincha / IESTP Catalina Buendía de Pecho",
       "iestCity": "Chincha / Ica",
-      "localChallenge": "Micro-riego por goteo con energía solar y control de salinidad en suelos desérticos",
+      "localChallenge": "Micro-riego tecnificado con energía solar en valles costeros",
       "mirrorRegion": "Huánuco",
-      "applicantsCount": 18,
-      "femaleRatio": 47,
+      "applicantsCount": 34,
+      "femaleRatio": 49,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Huánuco"
     },
     {
       "id": "junin",
@@ -409,14 +395,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Centro",
       "iestName": "IESTP Andrés Avelino Cáceres Dorregaray",
       "iestCity": "San Agustín de Cajas - Huancayo",
-      "localChallenge": "Sistemas IoT de alerta temprana de heladas en el Valle del Mantaro",
+      "localChallenge": "Sistemas de alerta temprana de heladas en el Valle del Mantaro",
       "mirrorRegion": "San Martín",
-      "applicantsCount": 20,
+      "applicantsCount": 41,
       "femaleRatio": 51,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "San Martín"
     },
     {
       "id": "la-libertad",
@@ -427,14 +414,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Norte",
       "iestName": "IESTP Nueva Esperanza / IESTP Trujillo",
       "iestCity": "Trujillo",
-      "localChallenge": "Optimización de agua en valles agrícolas y bioempaques a partir de caña",
+      "localChallenge": "Optimización de agua en valles agrícolas y bioempaques sostenibles",
       "mirrorRegion": "Apurímac",
-      "applicantsCount": 23,
+      "applicantsCount": 45,
       "femaleRatio": 52,
       "sponsorStatus": "sponsored",
       "sponsorName": "Consorcio AgroMakers Norte",
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Apurímac"
     },
     {
       "id": "lambayeque",
@@ -447,12 +435,13 @@ export const PERU_MAP_DATA = {
       "iestCity": "Chiclayo",
       "localChallenge": "Protección de bosques secos de algarrobo y sensores para apicultura nativa",
       "mirrorRegion": "Ayacucho",
-      "applicantsCount": 19,
-      "femaleRatio": 49,
+      "applicantsCount": 37,
+      "femaleRatio": 50,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Ayacucho"
     },
     {
       "id": "lima",
@@ -463,14 +452,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Centro",
       "iestName": "IESTP José Pardo / IESTP Gilda Ballivian",
       "iestCity": "Lima (Cercado / SJM)",
-      "localChallenge": "Captura de niebla costera (atrapanieblas inteligentes) y movilidad activa segura",
+      "localChallenge": "Captura inteligente de niebla costera y soluciones de movilidad urbana",
       "mirrorRegion": "Ucayali",
-      "applicantsCount": 38,
+      "applicantsCount": 68,
       "femaleRatio": 51,
       "sponsorStatus": "sponsored",
       "sponsorName": "Alianza Capital STEAM",
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Ucayali"
     },
     {
       "id": "loreto",
@@ -481,14 +471,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Oriente",
       "iestName": "IESTP Pedro A. Del Águila Hidalgo",
       "iestCity": "Iquitos",
-      "localChallenge": "Purificación fluvial de agua por luz UV y boyas de alerta comunitaria para crecidas",
+      "localChallenge": "Purificación fluvial de agua por energía solar y boyas de alerta temprana",
       "mirrorRegion": "Áncash",
-      "applicantsCount": 21,
-      "femaleRatio": 54,
+      "applicantsCount": 36,
+      "femaleRatio": 55,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Áncash"
     },
     {
       "id": "madre-de-dios",
@@ -499,14 +490,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Oriente",
       "iestName": "IESTP Jorge Basadre Grohmann",
       "iestCity": "Puerto Maldonado",
-      "localChallenge": "Sensores acústicos de bajo costo para detectar deforestación y monitoreo de castañales",
+      "localChallenge": "Sensores acústicos de monitoreo forestal y protección de castañales",
       "mirrorRegion": "Tacna",
-      "applicantsCount": 12,
+      "applicantsCount": 22,
       "femaleRatio": 50,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Tacna"
     },
     {
       "id": "moquegua",
@@ -519,12 +511,13 @@ export const PERU_MAP_DATA = {
       "iestCity": "Samegua / Ilo",
       "localChallenge": "Desalinización solar a pequeña escala y automatización para olivares",
       "mirrorRegion": "Tumbes",
-      "applicantsCount": 15,
-      "femaleRatio": 53,
+      "applicantsCount": 27,
+      "femaleRatio": 52,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Tumbes"
     },
     {
       "id": "pasco",
@@ -535,14 +528,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Centro",
       "iestName": "IESTP Pasco",
       "iestCity": "Cerro de Pasco",
-      "localChallenge": "Biorremediación de suelos con plantas nativas y monitoreo de calidad del aire a 4,300 msnm",
+      "localChallenge": "Monitoreo ambiental a 4,300 msnm y fitoceldas con plantas nativas",
       "mirrorRegion": "Madre de Dios",
-      "applicantsCount": 14,
-      "femaleRatio": 47,
+      "applicantsCount": 25,
+      "femaleRatio": 48,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Madre de Dios"
     },
     {
       "id": "piura",
@@ -553,14 +547,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Norte",
       "iestName": "IESTP Almirante Miguel Grau / IESTP Sullana",
       "iestCity": "Piura / Sullana",
-      "localChallenge": "Detección temprana de plagas en mango/banano orgánico y gestión ante El Niño",
+      "localChallenge": "Detección temprana de plagas en cultivos y gestión preventiva ante lluvias",
       "mirrorRegion": "Huancavelica",
-      "applicantsCount": 22,
-      "femaleRatio": 52,
+      "applicantsCount": 44,
+      "femaleRatio": 53,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Huancavelica"
     },
     {
       "id": "puno",
@@ -571,14 +566,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Sur",
       "iestName": "IESTP Manuel Núñez Butrón / IESTP Puno",
       "iestCity": "Juliaca / Puno",
-      "localChallenge": "Monitoreo de totorales y calidad de agua en el Lago Titicaca + módulos térmicos para quinua",
+      "localChallenge": "Monitoreo de calidad de agua en el Lago Titicaca y módulos térmicos",
       "mirrorRegion": "Callao",
-      "applicantsCount": 20,
-      "femaleRatio": 50,
+      "applicantsCount": 39,
+      "femaleRatio": 51,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Callao"
     },
     {
       "id": "san-martin",
@@ -589,14 +585,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Oriente",
       "iestName": "IESTP Nor Oriental de la Selva",
       "iestCity": "Tarapoto",
-      "localChallenge": "Fermentadores controlados por microcontrolador para cacao fino de aroma",
+      "localChallenge": "Control microclimático para fermentación de cacao fino de aroma",
       "mirrorRegion": "Junín",
-      "applicantsCount": 17,
-      "femaleRatio": 53,
+      "applicantsCount": 32,
+      "femaleRatio": 54,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Junín"
     },
     {
       "id": "tacna",
@@ -607,14 +604,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Sur",
       "iestName": "IESTP Francisco de Paula Gonzales Vigil",
       "iestCity": "Tacna",
-      "localChallenge": "Eficiencia extrema de agua en cultivo de orégano y aprovechamiento de energía solar desértica",
+      "localChallenge": "Eficiencia hídrica en agricultura desértica y energía solar",
       "mirrorRegion": "Pasco",
-      "applicantsCount": 16,
-      "femaleRatio": 50,
+      "applicantsCount": 30,
+      "femaleRatio": 51,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Pasco"
     },
     {
       "id": "tumbes",
@@ -625,14 +623,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Norte",
       "iestName": "IESTP José Abelardo Quiñones",
       "iestCity": "Tumbes",
-      "localChallenge": "Protección de ecosistemas de manglares y sensores para acuicultura sostenible de langostinos",
+      "localChallenge": "Protección de ecosistemas de manglares y sensores para acuicultura sostenible",
       "mirrorRegion": "Moquegua",
-      "applicantsCount": 13,
+      "applicantsCount": 23,
       "femaleRatio": 52,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Moquegua"
     },
     {
       "id": "ucayali",
@@ -643,14 +642,15 @@ export const PERU_MAP_DATA = {
       "macroregion": "Oriente",
       "iestName": "IESTP Suiza",
       "iestCity": "Pucallpa",
-      "localChallenge": "Aprovechamiento de aserrín y maderas nativas certificadas en diseño 3D paramétrico",
+      "localChallenge": "Aprovechamiento de maderas nativas certificadas y diseño paramétrico",
       "mirrorRegion": "Lima",
-      "applicantsCount": 17,
-      "femaleRatio": 51,
+      "applicantsCount": 33,
+      "femaleRatio": 52,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 20,
-      "teamsTarget": 4
+      "quotaTarget": 25,
+      "teamsTarget": 5,
+      "regionAliada": "Lima"
     }
   ]
 };
