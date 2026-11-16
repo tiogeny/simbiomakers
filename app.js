@@ -132,9 +132,11 @@ function renderGlobalStats() {
   if (elFemale) elFemale.textContent = `${avgFemale}%`;
 }
 
-// Render Minimalist Animated Network Map in Hero (Zero text clutter, pure visual impact)
+// Render Minimalist 3D Holographic Network Map in Hero (Zero popups, pure visual + hover connections)
 function renderHeroNetworkMap() {
   const container = document.getElementById('hero-peru-network');
+  const card = document.getElementById('hero-peru-card');
+  const badge = document.getElementById('hero-network-badge');
   if (!container) return;
 
   const { viewBox, regions } = PERU_MAP_DATA;
@@ -149,76 +151,173 @@ function renderHeroNetworkMap() {
       const key = [r.id, ally.id].sort().join('--');
       if (!seen.has(key)) {
         seen.add(key);
-        pairs.push([r, ally]);
+        pairs.push({ a: r, b: ally, key });
       }
     }
   });
 
   let svg = `
-    <svg viewBox="${minX} ${minY} ${width} ${height}" class="w-full h-auto max-h-[430px] mx-auto select-none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="arc-grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#0D9488" stop-opacity="0.85" />
-          <stop offset="100%" stop-color="#00BBF9" stop-opacity="0.85" />
-        </linearGradient>
-        <linearGradient id="arc-grad-magenta" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#e60066" stop-opacity="0.75" />
-          <stop offset="100%" stop-color="#00BBF9" stop-opacity="0.75" />
-        </linearGradient>
-      </defs>
-      <g>
+    <div class="hero-3d-stage w-full flex items-center justify-center" id="hero-3d-stage">
+      <svg viewBox="${minX - 20} ${minY - 55} ${width + 40} ${height + 75}" class="w-full h-auto max-h-[395px] mx-auto select-none overflow-visible" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <linearGradient id="arc-grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00F5D4" />
+            <stop offset="100%" stop-color="#00BBF9" />
+          </linearGradient>
+          <linearGradient id="arc-grad-magenta" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff2a85" />
+            <stop offset="100%" stop-color="#00BBF9" />
+          </linearGradient>
+        </defs>
+
+        <!-- 3D Extruded Base Shadow Plate -->
+        <g transform="translate(10, 16)" opacity="0.65">
+          ${regions.map(r => `<path d="${r.d}" fill="#020617" stroke="#020617" stroke-width="1.5" />`).join('')}
+        </g>
+
+        <!-- Main Crisp Peru Map Layer -->
+        <g id="hero-map-regions">
+          ${regions.map(r => `
+            <path
+              d="${r.d}"
+              fill="#162238"
+              stroke="#334155"
+              stroke-width="1.1"
+              class="hero-region-shape transition-colors duration-200 cursor-pointer"
+              data-hero-id="${r.id}"
+            />
+          `).join('')}
+        </g>
+
+        <!-- Ground Shadows of Elevated Arcs (creates 3D height illusion) -->
+        <g id="hero-arc-shadows" pointer-events="none">
+          ${pairs.map(({ a, b, key }) => {
+            const mx = (a.cx + b.cx) / 2;
+            const my = (a.cy + b.cy) / 2 + 8;
+            return `<path d="M ${a.cx} ${a.cy} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${b.cx} ${b.cy}" fill="none" stroke="#020617" stroke-width="2.2" opacity="0.45" data-arc-shadow="${key}" />`;
+          }).join('')}
+        </g>
+
+        <!-- Elevated 3D Glowing Interconnection Arcs -->
+        <g id="hero-arcs" pointer-events="none" filter="url(#neon-glow)">
+          ${pairs.map(({ a, b, key }, idx) => {
+            const dist = Math.hypot(b.cx - a.cx, b.cy - a.cy);
+            const lift = Math.min(115, Math.max(42, dist * 0.44));
+            const mx = (a.cx + b.cx) / 2 - (b.cy - a.cy) * 0.08;
+            const my = (a.cy + b.cy) / 2 - lift;
+            const grad = idx % 3 === 0 ? 'url(#arc-grad-magenta)' : 'url(#arc-grad-teal)';
+            const delay = (idx * 0.28).toFixed(2);
+            const dPath = `M ${a.cx} ${a.cy} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${b.cx} ${b.cy}`;
+            return `
+              <g class="hero-arc-group transition-opacity duration-200" data-arc-key="${key}" data-a="${a.id}" data-b="${b.id}">
+                <path d="${dPath}" fill="none" stroke="${grad}" stroke-width="1.3" stroke-opacity="0.32" />
+                <path d="${dPath}" fill="none" stroke="${grad}" stroke-width="2.2" stroke-linecap="round" class="hero-network-flow" style="animation-delay: ${delay}s;" />
+              </g>
+            `;
+          }).join('')}
+        </g>
+
+        <!-- Glowing 25 Regional Nodes -->
+        <g id="hero-nodes">
+          ${regions.map((r, idx) => {
+            const isSponsored = r.sponsorStatus === 'sponsored';
+            const color = isSponsored ? '#ff2a85' : '#00F5D4';
+            const delay = (idx * 0.14).toFixed(2);
+            return `
+              <g transform="translate(${r.cx}, ${r.cy})" class="cursor-pointer hero-node-group" data-hero-id="${r.id}">
+                <circle r="7.5" fill="${color}" opacity="0.22" class="animate-ping" style="animation-duration: 3s; animation-delay: ${delay}s;" />
+                <circle r="4" fill="${color}" stroke="#0B1324" stroke-width="1.4" />
+              </g>
+            `;
+          }).join('')}
+        </g>
+      </svg>
+    </div>
   `;
 
-  // Subtle Peru silhouette
-  regions.forEach(r => {
-    svg += `<path d="${r.d}" class="fill-slate-100/90 dark:fill-slate-800/70 stroke-slate-200/90 dark:stroke-slate-700/60 stroke-[0.9] transition-colors hover:fill-teal-50 dark:hover:fill-slate-700 cursor-pointer" data-hero-region="${r.id}" />`;
-  });
-
-  // Curved Bezier interconnection arcs
-  pairs.forEach(([a, b], idx) => {
-    const mx = (a.cx + b.cx) / 2;
-    const my = (a.cy + b.cy) / 2;
-    const dx = b.cx - a.cx;
-    const dy = b.cy - a.cy;
-    // Offset control point perpendicular to chord for graceful arc
-    const cx = mx - dy * 0.22;
-    const cy = my + dx * 0.22;
-    const grad = idx % 3 === 0 ? 'url(#arc-grad-magenta)' : 'url(#arc-grad-teal)';
-    const delay = (idx * 0.35).toFixed(2);
-
-    svg += `
-      <path d="M ${a.cx} ${a.cy} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${b.cx} ${b.cy}"
-        fill="none" stroke="${grad}" stroke-width="1.4" stroke-opacity="0.25" />
-      <path d="M ${a.cx} ${a.cy} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${b.cx} ${b.cy}"
-        fill="none" stroke="${grad}" stroke-width="1.8"
-        class="hero-network-flow" style="animation-delay: ${delay}s;" />
-    `;
-  });
-
-  // Glowing 25 regional nodes
-  regions.forEach((r, idx) => {
-    const isSponsored = r.sponsorStatus === 'sponsored';
-    const color = isSponsored ? '#e60066' : '#0D9488';
-    const delay = (idx * 0.12).toFixed(2);
-    svg += `
-      <g transform="translate(${r.cx}, ${r.cy})" class="cursor-pointer" data-hero-region="${r.id}">
-        <circle r="6" fill="${color}" opacity="0.22" class="animate-ping" style="animation-duration: 3s; animation-delay: ${delay}s;" />
-        <circle r="3.2" fill="${color}" stroke="#ffffff" stroke-width="1.2" />
-      </g>
-    `;
-  });
-
-  svg += `</g></svg>`;
   container.innerHTML = svg;
 
-  // Clicking any region in hero map smoothly scrolls to #mapa and opens that region's drawer
-  container.querySelectorAll('[data-hero-region]').forEach(el => {
-    el.addEventListener('click', () => {
-      const id = el.getAttribute('data-hero-region');
-      document.getElementById('mapa')?.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => selectRegion(id), 450);
+  // Hover interactivity: highlight region + its ally + connecting 3D arc (NO click popups!)
+  const stage = document.getElementById('hero-3d-stage');
+  const arcGroups = container.querySelectorAll('.hero-arc-group');
+  const regionShapes = container.querySelectorAll('.hero-region-shape');
+
+  function highlightConnection(regionId) {
+    const region = regions.find(r => r.id === regionId);
+    if (!region) return;
+    const ally = regions.find(x => x.name.toLowerCase() === (region.regionAliada || '').toLowerCase());
+
+    regionShapes.forEach(shape => {
+      const id = shape.getAttribute('data-hero-id');
+      if (id === region.id) {
+        shape.setAttribute('fill', '#0D9488');
+        shape.setAttribute('stroke', '#00F5D4');
+      } else if (ally && id === ally.id) {
+        shape.setAttribute('fill', '#1e3a5f');
+        shape.setAttribute('stroke', '#00BBF9');
+      } else {
+        shape.setAttribute('fill', '#162238');
+        shape.setAttribute('stroke', '#334155');
+      }
     });
+
+    arcGroups.forEach(group => {
+      const aId = group.getAttribute('data-a');
+      const bId = group.getAttribute('data-b');
+      if (aId === region.id || bId === region.id) {
+        group.style.opacity = '1';
+      } else {
+        group.style.opacity = '0.15';
+      }
+    });
+
+    if (badge) {
+      badge.innerHTML = ally
+        ? `<span class="w-2 h-2 rounded-full bg-[#ff2a85] animate-pulse"></span><span><strong>${region.name}</strong> ↔ <strong>${ally.name}</strong> · Codiseño 3D</span>`
+        : `<span class="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse"></span><span><strong>${region.name}</strong> · Fab Lab IEST</span>`;
+    }
+  }
+
+  function resetHighlight() {
+    regionShapes.forEach(shape => {
+      shape.setAttribute('fill', '#162238');
+      shape.setAttribute('stroke', '#334155');
+    });
+    arcGroups.forEach(group => {
+      group.style.opacity = '1';
+    });
+    if (badge) {
+      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse"></span><span>Red Nacional · 24 Regiones Conectadas</span>`;
+    }
+  }
+
+  container.querySelectorAll('[data-hero-id]').forEach(el => {
+    el.addEventListener('mouseenter', () => highlightConnection(el.getAttribute('data-hero-id')));
+    el.addEventListener('mouseleave', resetHighlight);
   });
+
+  // Mouse-tracking 3D parallax tilt
+  if (card && stage) {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const nx = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
+      const ny = (e.clientY - rect.top) / rect.height - 0.5;
+      const rotX = (44 - ny * 12).toFixed(1);
+      const rotZ = (-14 + nx * 12).toFixed(1);
+      stage.style.transform = `perspective(950px) rotateX(${rotX}deg) rotateZ(${rotZ}deg) scale(1.06)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      stage.style.transform = 'perspective(950px) rotateX(44deg) rotateZ(-14deg) scale(1.06)';
+    });
+  }
 }
 
 // Render SVG Map of Peru

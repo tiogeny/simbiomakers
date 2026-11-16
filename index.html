@@ -113,12 +113,18 @@
     }
 
     @keyframes flowArc {
-      0% { stroke-dashoffset: 40; }
+      0% { stroke-dashoffset: 52; }
       100% { stroke-dashoffset: 0; }
     }
     .hero-network-flow {
-      stroke-dasharray: 5 15;
-      animation: flowArc 2.8s linear infinite;
+      stroke-dasharray: 8 18;
+      animation: flowArc 2.2s linear infinite;
+    }
+    .hero-3d-stage {
+      transform: perspective(950px) rotateX(44deg) rotateZ(-14deg) scale(1.06);
+      transform-style: preserve-3d;
+      transition: transform 0.22s ease-out;
+      will-change: transform;
     }
   </style>
 </head>
@@ -232,12 +238,22 @@
           </div>
         </div>
 
-        <!-- Right Column: Pure Visual Interconnected Peru Network Map -->
+        <!-- Right Column: Dark Holographic 3D Interconnected Peru Network -->
         <div class="lg:col-span-5">
-          <div class="relative rounded-3xl bg-slate-50/70 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800 p-6 flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:18px_18px] opacity-40 pointer-events-none"></div>
-            <div id="hero-peru-network" class="relative z-10 w-full min-h-[360px] flex items-center justify-center">
-              <!-- Populated by JS: Minimalist interconnected 24-region SVG network -->
+          <div id="hero-peru-card" class="relative rounded-3xl bg-[#0B1324] border border-slate-800/90 shadow-2xl p-6 min-h-[420px] flex items-center justify-center overflow-hidden">
+            <!-- Subtle dot grid & ambient holographic glow -->
+            <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:18px_18px] opacity-60 pointer-events-none"></div>
+            <div class="absolute -top-16 -right-16 w-64 h-64 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div id="hero-peru-network" class="relative z-10 w-full flex items-center justify-center">
+              <!-- Populated by JS: 3D tilted Peru SVG with elevated glowing arcs -->
+            </div>
+
+            <!-- Minimalist floating connection indicator -->
+            <div id="hero-network-badge" class="absolute bottom-4 left-4 z-20 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/85 backdrop-blur-md border border-slate-700/80 text-[11px] font-medium text-slate-200 pointer-events-none transition-all duration-200">
+              <span class="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse"></span>
+              <span>Red Nacional · 24 Regiones Conectadas</span>
             </div>
           </div>
         </div>
