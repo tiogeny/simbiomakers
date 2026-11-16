@@ -132,6 +132,95 @@ function renderGlobalStats() {
   if (elFemale) elFemale.textContent = `${avgFemale}%`;
 }
 
+// Render Minimalist Animated Network Map in Hero (Zero text clutter, pure visual impact)
+function renderHeroNetworkMap() {
+  const container = document.getElementById('hero-peru-network');
+  if (!container) return;
+
+  const { viewBox, regions } = PERU_MAP_DATA;
+  const [minX, minY, width, height] = viewBox;
+
+  // Build unique pairs of connected regions (region <-> regionAliada)
+  const pairs = [];
+  const seen = new Set();
+  regions.forEach(r => {
+    const ally = regions.find(x => x.name.toLowerCase() === (r.regionAliada || '').toLowerCase());
+    if (ally) {
+      const key = [r.id, ally.id].sort().join('--');
+      if (!seen.has(key)) {
+        seen.add(key);
+        pairs.push([r, ally]);
+      }
+    }
+  });
+
+  let svg = `
+    <svg viewBox="${minX} ${minY} ${width} ${height}" class="w-full h-auto max-h-[430px] mx-auto select-none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="arc-grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#0D9488" stop-opacity="0.85" />
+          <stop offset="100%" stop-color="#00BBF9" stop-opacity="0.85" />
+        </linearGradient>
+        <linearGradient id="arc-grad-magenta" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#e60066" stop-opacity="0.75" />
+          <stop offset="100%" stop-color="#00BBF9" stop-opacity="0.75" />
+        </linearGradient>
+      </defs>
+      <g>
+  `;
+
+  // Subtle Peru silhouette
+  regions.forEach(r => {
+    svg += `<path d="${r.d}" class="fill-slate-100/90 dark:fill-slate-800/70 stroke-slate-200/90 dark:stroke-slate-700/60 stroke-[0.9] transition-colors hover:fill-teal-50 dark:hover:fill-slate-700 cursor-pointer" data-hero-region="${r.id}" />`;
+  });
+
+  // Curved Bezier interconnection arcs
+  pairs.forEach(([a, b], idx) => {
+    const mx = (a.cx + b.cx) / 2;
+    const my = (a.cy + b.cy) / 2;
+    const dx = b.cx - a.cx;
+    const dy = b.cy - a.cy;
+    // Offset control point perpendicular to chord for graceful arc
+    const cx = mx - dy * 0.22;
+    const cy = my + dx * 0.22;
+    const grad = idx % 3 === 0 ? 'url(#arc-grad-magenta)' : 'url(#arc-grad-teal)';
+    const delay = (idx * 0.35).toFixed(2);
+
+    svg += `
+      <path d="M ${a.cx} ${a.cy} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${b.cx} ${b.cy}"
+        fill="none" stroke="${grad}" stroke-width="1.4" stroke-opacity="0.25" />
+      <path d="M ${a.cx} ${a.cy} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${b.cx} ${b.cy}"
+        fill="none" stroke="${grad}" stroke-width="1.8"
+        class="hero-network-flow" style="animation-delay: ${delay}s;" />
+    `;
+  });
+
+  // Glowing 25 regional nodes
+  regions.forEach((r, idx) => {
+    const isSponsored = r.sponsorStatus === 'sponsored';
+    const color = isSponsored ? '#e60066' : '#0D9488';
+    const delay = (idx * 0.12).toFixed(2);
+    svg += `
+      <g transform="translate(${r.cx}, ${r.cy})" class="cursor-pointer" data-hero-region="${r.id}">
+        <circle r="6" fill="${color}" opacity="0.22" class="animate-ping" style="animation-duration: 3s; animation-delay: ${delay}s;" />
+        <circle r="3.2" fill="${color}" stroke="#ffffff" stroke-width="1.2" />
+      </g>
+    `;
+  });
+
+  svg += `</g></svg>`;
+  container.innerHTML = svg;
+
+  // Clicking any region in hero map smoothly scrolls to #mapa and opens that region's drawer
+  container.querySelectorAll('[data-hero-region]').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.getAttribute('data-hero-region');
+      document.getElementById('mapa')?.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => selectRegion(id), 450);
+    });
+  });
+}
+
 // Render SVG Map of Peru
 function renderPeruMap() {
   const container = document.getElementById('peru-map-svg-container');
@@ -833,6 +922,7 @@ window.closeRegionDrawer = closeRegionDrawer;
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   renderGlobalStats();
+  renderHeroNetworkMap();
   renderPeruMap();
   renderRegionsGrid();
   renderPedagogy();
