@@ -4,7 +4,7 @@
  * Metodología SimbioCreación & Fab Lab Perú
  */
 
-export const EDITION_CONFIG = {
+window.EDITION_CONFIG = {
   brand: 'SimbioMakers',
   countryCode: 'PE',
   countryBadge: 'PE',
@@ -169,7 +169,7 @@ export const EDITION_CONFIG = {
   ]
 };
 
-export const PERU_MAP_DATA = {
+window.PERU_MAP_DATA = {
   "viewBox": [
     0,
     0,

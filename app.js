@@ -1,4 +1,4 @@
-import { EDITION_CONFIG, PERU_MAP_DATA } from './data.js';
+const { EDITION_CONFIG, PERU_MAP_DATA } = window;
 
 // Global App State
 const state = {
@@ -50,7 +50,7 @@ function updateThemeToggleUI() {
 }
 
 // Toast Notifications
-export function showToast(message, type = 'success') {
+function showToast(message, type = 'success') {
   const container = document.getElementById('toast-container');
   if (!container) return;
   const toast = document.createElement('div');
@@ -80,7 +80,7 @@ export function showToast(message, type = 'success') {
 }
 
 // Modal Management
-export function openModal(modalId) {
+function openModal(modalId) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
   modal.classList.remove('hidden');
@@ -97,7 +97,7 @@ export function openModal(modalId) {
   }
 }
 
-export function closeModal(modalId) {
+function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   if (!modal) return;
   const backdrop = modal.querySelector('.modal-backdrop');
@@ -438,7 +438,7 @@ function renderRegionsGrid() {
 }
 
 // Select Region & Open Slide Drawer
-export function selectRegion(regionId) {
+function selectRegion(regionId) {
   state.selectedRegionId = regionId;
   renderPeruMap();
 
@@ -487,7 +487,7 @@ export function selectRegion(regionId) {
   });
 }
 
-export function closeRegionDrawer() {
+function closeRegionDrawer() {
   const drawer = document.getElementById('region-drawer');
   if (!drawer) return;
   const panel = drawer.querySelector('.drawer-panel');
