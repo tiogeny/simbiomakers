@@ -132,7 +132,7 @@ function renderGlobalStats() {
   if (elFemale) elFemale.textContent = `${avgFemale}%`;
 }
 
-// Render Minimalist 3D Holographic Network Map in Hero (Zero popups, pure visual + hover connections)
+// Render Minimalist 3D Maquette Network Map in Hero (Bright, multi-color arcs, zero popups)
 function renderHeroNetworkMap() {
   const container = document.getElementById('hero-peru-network');
   const card = document.getElementById('hero-peru-card');
@@ -142,11 +142,14 @@ function renderHeroNetworkMap() {
   const { viewBox, regions } = PERU_MAP_DATA;
   const [minX, minY, width, height] = viewBox;
 
+  const normalizeName = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+
   // Build unique pairs of connected regions (region <-> regionAliada)
   const pairs = [];
   const seen = new Set();
   regions.forEach(r => {
-    const ally = regions.find(x => x.name.toLowerCase() === (r.regionAliada || '').toLowerCase());
+    const target = normalizeName(r.regionAliada);
+    const ally = regions.find(x => normalizeName(x.name) === target);
     if (ally) {
       const key = [r.id, ally.id].sort().join('--');
       if (!seen.has(key)) {
@@ -156,41 +159,66 @@ function renderHeroNetworkMap() {
     }
   });
 
+  const arcGradients = [
+    'url(#arc-grad-teal)',
+    'url(#arc-grad-magenta)',
+    'url(#arc-grad-blue)',
+    'url(#arc-grad-emerald)',
+    'url(#arc-grad-violet)',
+    'url(#arc-grad-amber)'
+  ];
+
+  const nodeColors = ['#0D9488', '#e60066', '#2563eb', '#059669', '#7c3aed', '#d97706'];
+
   let svg = `
     <div class="hero-3d-stage w-full flex items-center justify-center" id="hero-3d-stage">
       <svg viewBox="${minX - 20} ${minY - 55} ${width + 40} ${height + 75}" class="w-full h-auto max-h-[395px] mx-auto select-none overflow-visible" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="2.5" result="blur" />
+          <filter id="arc-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2" result="blur" />
             <feMerge>
               <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
           <linearGradient id="arc-grad-teal" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00F5D4" />
-            <stop offset="100%" stop-color="#00BBF9" />
+            <stop offset="0%" stop-color="#0D9488" />
+            <stop offset="100%" stop-color="#06B6D4" />
           </linearGradient>
           <linearGradient id="arc-grad-magenta" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#ff2a85" />
+            <stop offset="0%" stop-color="#e60066" />
+            <stop offset="100%" stop-color="#f97316" />
+          </linearGradient>
+          <linearGradient id="arc-grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#2563eb" />
             <stop offset="100%" stop-color="#00BBF9" />
+          </linearGradient>
+          <linearGradient id="arc-grad-emerald" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#059669" />
+            <stop offset="100%" stop-color="#84cc16" />
+          </linearGradient>
+          <linearGradient id="arc-grad-violet" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7c3aed" />
+            <stop offset="100%" stop-color="#ec4899" />
+          </linearGradient>
+          <linearGradient id="arc-grad-amber" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#d97706" />
+            <stop offset="100%" stop-color="#eab308" />
           </linearGradient>
         </defs>
 
         <!-- 3D Extruded Base Shadow Plate -->
-        <g transform="translate(10, 16)" opacity="0.65">
-          ${regions.map(r => `<path d="${r.d}" fill="#020617" stroke="#020617" stroke-width="1.5" />`).join('')}
+        <g transform="translate(10, 16)">
+          ${regions.map(r => `<path d="${r.d}" class="fill-slate-300/75 dark:fill-slate-950/85 stroke-slate-300/75 dark:stroke-slate-950/85" stroke-width="1.4" />`).join('')}
         </g>
 
-        <!-- Main Crisp Peru Map Layer -->
+        <!-- Main Crisp Bright Peru Map Layer -->
         <g id="hero-map-regions">
           ${regions.map(r => `
             <path
               d="${r.d}"
-              fill="#162238"
-              stroke="#334155"
-              stroke-width="1.1"
-              class="hero-region-shape transition-colors duration-200 cursor-pointer"
+              stroke-width="1.15"
+              class="hero-region-shape fill-white dark:fill-slate-800 stroke-slate-300 dark:stroke-slate-600 transition-colors duration-200 cursor-pointer"
               data-hero-id="${r.id}"
             />
           `).join('')}
@@ -201,39 +229,38 @@ function renderHeroNetworkMap() {
           ${pairs.map(({ a, b, key }) => {
             const mx = (a.cx + b.cx) / 2;
             const my = (a.cy + b.cy) / 2 + 8;
-            return `<path d="M ${a.cx} ${a.cy} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${b.cx} ${b.cy}" fill="none" stroke="#020617" stroke-width="2.2" opacity="0.45" data-arc-shadow="${key}" />`;
+            return `<path d="M ${a.cx} ${a.cy} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${b.cx} ${b.cy}" fill="none" class="stroke-slate-400/35 dark:stroke-slate-950/60" stroke-width="2.2" data-arc-shadow="${key}" />`;
           }).join('')}
         </g>
 
-        <!-- Elevated 3D Glowing Interconnection Arcs -->
-        <g id="hero-arcs" pointer-events="none" filter="url(#neon-glow)">
+        <!-- Elevated 3D Multi-Color Interconnection Arcs -->
+        <g id="hero-arcs" pointer-events="none" filter="url(#arc-glow)">
           ${pairs.map(({ a, b, key }, idx) => {
             const dist = Math.hypot(b.cx - a.cx, b.cy - a.cy);
-            const lift = Math.min(115, Math.max(42, dist * 0.44));
+            const lift = Math.min(120, Math.max(46, dist * 0.45));
             const mx = (a.cx + b.cx) / 2 - (b.cy - a.cy) * 0.08;
             const my = (a.cy + b.cy) / 2 - lift;
-            const grad = idx % 3 === 0 ? 'url(#arc-grad-magenta)' : 'url(#arc-grad-teal)';
-            const delay = (idx * 0.28).toFixed(2);
+            const grad = arcGradients[idx % arcGradients.length];
+            const delay = (idx * 0.25).toFixed(2);
             const dPath = `M ${a.cx} ${a.cy} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${b.cx} ${b.cy}`;
             return `
               <g class="hero-arc-group transition-opacity duration-200" data-arc-key="${key}" data-a="${a.id}" data-b="${b.id}">
-                <path d="${dPath}" fill="none" stroke="${grad}" stroke-width="1.3" stroke-opacity="0.32" />
-                <path d="${dPath}" fill="none" stroke="${grad}" stroke-width="2.2" stroke-linecap="round" class="hero-network-flow" style="animation-delay: ${delay}s;" />
+                <path d="${dPath}" fill="none" stroke="${grad}" stroke-width="1.6" stroke-opacity="0.45" />
+                <path d="${dPath}" fill="none" stroke="${grad}" stroke-width="2.6" stroke-linecap="round" class="hero-network-flow" style="animation-delay: ${delay}s;" />
               </g>
             `;
           }).join('')}
         </g>
 
-        <!-- Glowing 25 Regional Nodes -->
+        <!-- Multi-Color 25 Regional Nodes -->
         <g id="hero-nodes">
           ${regions.map((r, idx) => {
-            const isSponsored = r.sponsorStatus === 'sponsored';
-            const color = isSponsored ? '#ff2a85' : '#00F5D4';
+            const color = nodeColors[idx % nodeColors.length];
             const delay = (idx * 0.14).toFixed(2);
             return `
               <g transform="translate(${r.cx}, ${r.cy})" class="cursor-pointer hero-node-group" data-hero-id="${r.id}">
                 <circle r="7.5" fill="${color}" opacity="0.22" class="animate-ping" style="animation-duration: 3s; animation-delay: ${delay}s;" />
-                <circle r="4" fill="${color}" stroke="#0B1324" stroke-width="1.4" />
+                <circle r="4.2" fill="${color}" stroke="#ffffff" stroke-width="1.5" />
               </g>
             `;
           }).join('')}
@@ -252,49 +279,49 @@ function renderHeroNetworkMap() {
   function highlightConnection(regionId) {
     const region = regions.find(r => r.id === regionId);
     if (!region) return;
-    const ally = regions.find(x => x.name.toLowerCase() === (region.regionAliada || '').toLowerCase());
+    const ally = regions.find(x => normalizeName(x.name) === normalizeName(region.regionAliada));
 
     regionShapes.forEach(shape => {
       const id = shape.getAttribute('data-hero-id');
       if (id === region.id) {
-        shape.setAttribute('fill', '#0D9488');
-        shape.setAttribute('stroke', '#00F5D4');
+        shape.classList.remove('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
+        shape.style.fill = '#0D9488';
+        shape.style.stroke = '#0F766E';
       } else if (ally && id === ally.id) {
-        shape.setAttribute('fill', '#1e3a5f');
-        shape.setAttribute('stroke', '#00BBF9');
+        shape.classList.remove('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
+        shape.style.fill = '#e60066';
+        shape.style.stroke = '#be185d';
       } else {
-        shape.setAttribute('fill', '#162238');
-        shape.setAttribute('stroke', '#334155');
+        shape.style.fill = '';
+        shape.style.stroke = '';
+        shape.classList.add('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
       }
     });
 
     arcGroups.forEach(group => {
       const aId = group.getAttribute('data-a');
       const bId = group.getAttribute('data-b');
-      if (aId === region.id || bId === region.id) {
-        group.style.opacity = '1';
-      } else {
-        group.style.opacity = '0.15';
-      }
+      group.style.opacity = (aId === region.id || bId === region.id) ? '1' : '0.15';
     });
 
     if (badge) {
       badge.innerHTML = ally
-        ? `<span class="w-2 h-2 rounded-full bg-[#ff2a85] animate-pulse"></span><span><strong>${region.name}</strong> ↔ <strong>${ally.name}</strong> · Codiseño 3D</span>`
-        : `<span class="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse"></span><span><strong>${region.name}</strong> · Fab Lab IEST</span>`;
+        ? `<span class="w-2 h-2 rounded-full bg-[#e60066] animate-pulse"></span><span><strong>${region.name}</strong> ↔ <strong>${ally.name}</strong> · Codiseño 3D</span>`
+        : `<span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span><span><strong>${region.name}</strong> · Fab Lab IEST</span>`;
     }
   }
 
   function resetHighlight() {
     regionShapes.forEach(shape => {
-      shape.setAttribute('fill', '#162238');
-      shape.setAttribute('stroke', '#334155');
+      shape.style.fill = '';
+      shape.style.stroke = '';
+      shape.classList.add('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
     });
     arcGroups.forEach(group => {
       group.style.opacity = '1';
     });
     if (badge) {
-      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-[#00F5D4] animate-pulse"></span><span>Red Nacional · 24 Regiones Conectadas</span>`;
+      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span><span>Red Nacional · 24 Regiones Conectadas</span>`;
     }
   }
 
@@ -307,7 +334,7 @@ function renderHeroNetworkMap() {
   if (card && stage) {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
-      const nx = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 to 0.5
+      const nx = (e.clientX - rect.left) / rect.width - 0.5;
       const ny = (e.clientY - rect.top) / rect.height - 0.5;
       const rotX = (44 - ny * 12).toFixed(1);
       const rotZ = (-14 + nx * 12).toFixed(1);
