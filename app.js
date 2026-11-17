@@ -209,19 +209,22 @@ function renderHeroNetworkMap() {
 
         <!-- 3D Extruded Base Shadow Plate -->
         <g transform="translate(10, 16)">
-          ${regions.map(r => `<path d="${r.d}" class="fill-slate-300/75 dark:fill-slate-950/85 stroke-slate-300/75 dark:stroke-slate-950/85" stroke-width="1.4" />`).join('')}
+          ${regions.map(r => `<path d="${r.d}" class="fill-slate-400/50 dark:fill-slate-950/90 stroke-slate-400/50 dark:stroke-slate-950/90" stroke-width="1.4" />`).join('')}
         </g>
 
-        <!-- Main Crisp Bright Peru Map Layer -->
+        <!-- Main High-Contrast Slate 3D Peru Map Layer (pops sharply over light card) -->
         <g id="hero-map-regions">
-          ${regions.map(r => `
-            <path
-              d="${r.d}"
-              stroke-width="1.15"
-              class="hero-region-shape fill-white dark:fill-slate-800 stroke-slate-300 dark:stroke-slate-600 transition-colors duration-200 cursor-pointer"
-              data-hero-id="${r.id}"
-            />
-          `).join('')}
+          ${regions.map((r, i) => {
+            const shade = i % 2 === 0 ? 'fill-slate-800 dark:fill-slate-700' : 'fill-slate-700/95 dark:fill-slate-800';
+            return `
+              <path
+                d="${r.d}"
+                stroke-width="1"
+                class="hero-region-shape ${shade} stroke-slate-500/70 dark:stroke-slate-500/80 transition-colors duration-200 cursor-pointer"
+                data-hero-id="${r.id}"
+              />
+            `;
+          }).join('')}
         </g>
 
         <!-- Ground Shadows of Elevated Arcs (creates 3D height illusion) -->
@@ -229,7 +232,7 @@ function renderHeroNetworkMap() {
           ${pairs.map(({ a, b, key }) => {
             const mx = (a.cx + b.cx) / 2;
             const my = (a.cy + b.cy) / 2 + 8;
-            return `<path d="M ${a.cx} ${a.cy} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${b.cx} ${b.cy}" fill="none" class="stroke-slate-400/35 dark:stroke-slate-950/60" stroke-width="2.2" data-arc-shadow="${key}" />`;
+            return `<path d="M ${a.cx} ${a.cy} Q ${mx.toFixed(1)} ${my.toFixed(1)} ${b.cx} ${b.cy}" fill="none" class="stroke-slate-950/55" stroke-width="2.4" data-arc-shadow="${key}" />`;
           }).join('')}
         </g>
 
@@ -281,20 +284,17 @@ function renderHeroNetworkMap() {
     if (!region) return;
     const ally = regions.find(x => normalizeName(x.name) === normalizeName(region.regionAliada));
 
-    regionShapes.forEach(shape => {
+    regionShapes.forEach((shape, i) => {
       const id = shape.getAttribute('data-hero-id');
       if (id === region.id) {
-        shape.classList.remove('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
         shape.style.fill = '#0D9488';
-        shape.style.stroke = '#0F766E';
+        shape.style.stroke = '#00F5D4';
       } else if (ally && id === ally.id) {
-        shape.classList.remove('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
         shape.style.fill = '#e60066';
-        shape.style.stroke = '#be185d';
+        shape.style.stroke = '#ff6b9d';
       } else {
         shape.style.fill = '';
         shape.style.stroke = '';
-        shape.classList.add('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
       }
     });
 
@@ -315,7 +315,6 @@ function renderHeroNetworkMap() {
     regionShapes.forEach(shape => {
       shape.style.fill = '';
       shape.style.stroke = '';
-      shape.classList.add('fill-white', 'dark:fill-slate-800', 'stroke-slate-300', 'dark:stroke-slate-600');
     });
     arcGroups.forEach(group => {
       group.style.opacity = '1';
