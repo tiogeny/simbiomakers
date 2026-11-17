@@ -117,18 +117,22 @@ function closeModal(modalId) {
 // Global Stats Calculation
 function renderGlobalStats() {
   const regions = PERU_MAP_DATA.regions;
-  const totalApplicants = regions.reduce((acc, r) => acc + (r.applicantsCount || 0), 0);
+  const totalQuota = regions.reduce((acc, r) => acc + (r.quotaTarget || 20), 0);
   const sponsoredCount = regions.filter(r => r.sponsorStatus === 'sponsored').length;
-  const availableCount = regions.filter(r => r.sponsorStatus === 'available').length;
-  const avgFemale = Math.round(regions.reduce((acc, r) => acc + (r.femaleRatio || 50), 0) / regions.length);
+  const availableFabLabs = regions.filter(r => r.sponsorStatus === 'available' && !r.isPendingSede).length;
+  const pendingSedes = regions.filter(r => r.isPendingSede).length;
 
   const elApplicants = document.getElementById('stat-total-applicants');
   const elSponsored = document.getElementById('stat-sponsored-regions');
   const elFemale = document.getElementById('stat-female-ratio');
 
-  if (elApplicants) elApplicants.textContent = `+${totalApplicants}`;
-  if (elSponsored) elSponsored.textContent = `${sponsoredCount} patrocinadas / ${availableCount} disponibles`;
-  if (elFemale) elFemale.textContent = `${avgFemale}%`;
+  if (elApplicants) elApplicants.textContent = `${totalQuota}`;
+  if (elSponsored) {
+    elSponsored.textContent = sponsoredCount > 0
+      ? `${sponsoredCount} patrocinadas / ${availableFabLabs} Fab Labs disponibles`
+      : `${availableFabLabs} Fab Labs disponibles · ${pendingSedes} sedes híbridas`;
+  }
+  if (elFemale) elFemale.textContent = '50%';
 }
 
 // Render Minimalist 3D Maquette Network Map in Hero (Bright, multi-color arcs, zero popups)
@@ -845,16 +849,16 @@ const SCALE500_META = [
   {
     step: 0,
     pill: 'Etapa 0 · Semana 1 (Virtual)',
-    title: '480 saberes individuales (1)',
+    title: '500 saberes individuales (1)',
     desc: '20 jóvenes por cada Fab Lab inician identificando un desafío concreto de su comunidad y planteando su propia propuesta tecnológica.',
-    status: '480 ideas activas en todo el país'
+    status: '500 ideas activas en todo el país'
   },
   {
     step: 1,
     pill: 'Etapa 1 · Semana 2 (Virtual)',
-    title: '240 duplas intercolegios (2)',
+    title: '250 duplas intercolegios (2)',
     desc: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en conceptos híbridos más potentes.',
-    status: '240 duplas co-diseñando en vivo'
+    status: '250 duplas co-diseñando en vivo'
   },
   {
     step: 2,
@@ -1796,7 +1800,51 @@ window.closeModal = closeModal;
 window.selectRegion = selectRegion;
 window.closeRegionDrawer = closeRegionDrawer;
 
+
+// ==========================================
+// Language Switcher (ES / EN) & Escape Key
+// ==========================================
+let currentLang = localStorage.getItem('simbiomakers_lang') || 'es';
+
+const I18N_DICT = {
+  es: {
+    nav_program: 'Programa',
+    nav_join: 'Participa',
+    nav_method: 'Metodología',
+    nav_allies: 'Aliados'
+  },
+  en: {
+    nav_program: 'Program',
+    nav_join: 'Join',
+    nav_method: 'Methodology',
+    nav_allies: 'Partners'
+  }
+};
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('simbiomakers_lang', lang);
+  const btn = document.getElementById('lang-toggle-btn');
+  if (btn) btn.textContent = lang === 'es' ? 'EN' : 'ES';
+
+  const dict = I18N_DICT[lang] || I18N_DICT.es;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) el.textContent = dict[key];
+  });
+}
+
+function initLanguageToggle() {
+  const btn = document.getElementById('lang-toggle-btn');
+  if (!btn) return;
+  applyLanguage(currentLang);
+  btn.addEventListener('click', () => {
+    applyLanguage(currentLang === 'es' ? 'en' : 'es');
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguageToggle();
   initTheme();
   renderGlobalStats();
   renderHeroNetworkMap();
@@ -1819,6 +1867,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.ctrlKey || e.metaKey || e.altKey) return;
     const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
     if (tag === 'input' || tag === 'textarea' || tag === 'select' || (e.target && e.target.isContentEditable)) return;
+
+    if (e.key === 'Escape') {
+      ['modal-estudiante', 'modal-iest', 'modal-mentor', 'modal-celebration'].forEach(id => {
+        const m = document.getElementById(id);
+        if (m && !m.classList.contains('hidden')) closeModal(id);
+      });
+      const drawer = document.getElementById('region-drawer');
+      if (drawer && !drawer.classList.contains('hidden')) closeRegionDrawer();
+      return;
+    }
 
     if (e.key === 'f' || e.key === 'F') {
       e.preventDefault();

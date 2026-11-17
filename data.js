@@ -32,7 +32,7 @@ window.EDITION_CONFIG = {
   framework: {
     totalSedes: 24,
     totalDepartments: 24,
-    targetStudents: '480 escolares (20 por Fab Lab)',
+    targetStudents: '500 escolares (24 Fab Labs + 2 sedes híbridas)',
     targetTeams: '48 núcleos de 10 · 24 sistemas de 20',
     femaleTarget: '50% mujeres en STEAM',
     diplomaTitle: 'Diploma oficial de innovación y fabricación digital (Fab Lab Perú y SimbioCreación)',
@@ -228,8 +228,8 @@ window.PERU_MAP_DATA = {
       "mirrorRegion": "Amazonas",
       "applicantsCount": 42,
       "femaleRatio": 52,
-      "sponsorStatus": "sponsored",
-      "sponsorName": "Aliado Tecnológico del Sur",
+      "sponsorStatus": "available",
+      "sponsorName": null,
       "quotaTarget": 25,
       "teamsTarget": 5,
       "regionAliada": "Amazonas"
@@ -268,7 +268,7 @@ window.PERU_MAP_DATA = {
       "femaleRatio": 50,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 25,
+      "quotaTarget": 10,
       "teamsTarget": 5,
       "regionAliada": "Cusco",
       "isPendingSede": true
@@ -286,8 +286,8 @@ window.PERU_MAP_DATA = {
       "mirrorRegion": "Puno",
       "applicantsCount": 46,
       "femaleRatio": 51,
-      "sponsorStatus": "sponsored",
-      "sponsorName": "Red Marítima Sostenible",
+      "sponsorStatus": "available",
+      "sponsorName": null,
       "quotaTarget": 25,
       "teamsTarget": 5,
       "regionAliada": "Puno"
@@ -305,8 +305,8 @@ window.PERU_MAP_DATA = {
       "mirrorRegion": "Cajamarca",
       "applicantsCount": 48,
       "femaleRatio": 56,
-      "sponsorStatus": "sponsored",
-      "sponsorName": "Fundación Qente Innovación",
+      "sponsorStatus": "available",
+      "sponsorName": null,
       "quotaTarget": 25,
       "teamsTarget": 5,
       "regionAliada": "Cajamarca"
@@ -383,7 +383,7 @@ window.PERU_MAP_DATA = {
       "femaleRatio": 51,
       "sponsorStatus": "available",
       "sponsorName": null,
-      "quotaTarget": 25,
+      "quotaTarget": 10,
       "teamsTarget": 5,
       "regionAliada": "San Martín",
       "isPendingSede": true
@@ -401,8 +401,8 @@ window.PERU_MAP_DATA = {
       "mirrorRegion": "Apurímac",
       "applicantsCount": 45,
       "femaleRatio": 52,
-      "sponsorStatus": "sponsored",
-      "sponsorName": "Consorcio AgroMakers Norte",
+      "sponsorStatus": "available",
+      "sponsorName": null,
       "quotaTarget": 25,
       "teamsTarget": 5,
       "regionAliada": "Apurímac"
@@ -439,8 +439,8 @@ window.PERU_MAP_DATA = {
       "mirrorRegion": "Ucayali",
       "applicantsCount": 68,
       "femaleRatio": 51,
-      "sponsorStatus": "sponsored",
-      "sponsorName": "Alianza Capital STEAM",
+      "sponsorStatus": "available",
+      "sponsorName": null,
       "quotaTarget": 25,
       "teamsTarget": 5,
       "regionAliada": "Ucayali"

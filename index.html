@@ -244,19 +244,22 @@
 
       <!-- Compact Single-Line Nav Links -->
       <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300 whitespace-nowrap">
-        <a href="#programa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Programa</a>
+        <a href="#programa" data-i18n="nav_program" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Programa</a>
         <a href="#mapa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
           Mapa 24 Fab Labs
         </a>
-        <a href="#participa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Participa</a>
-        <a href="#impacto" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Metodología</a>
-        <a href="#aliados" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Aliados</a>
+        <a href="#participa" data-i18n="nav_join" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Participa</a>
+        <a href="#impacto" data-i18n="nav_method" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Metodología</a>
+        <a href="#aliados" data-i18n="nav_allies" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Aliados</a>
         <a href="#faq" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">FAQ</a>
       </nav>
 
       <!-- Header CTAs -->
       <div class="flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
+        <button id="lang-toggle-btn" aria-label="Switch language ES/EN" title="Cambiar idioma (ES / EN)" class="px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-[11px] font-extrabold text-slate-700 dark:text-slate-200 transition-colors">
+          EN
+        </button>
         <button id="theme-toggle-btn" aria-label="Cambiar tema" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <!-- Populated by JS -->
         </button>
@@ -519,13 +522,13 @@
           </p>
           <div class="mt-4 flex flex-wrap items-center gap-3 text-xs">
             <span class="px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
-              <strong id="stat-total-applicants" class="text-teal-600 dark:text-teal-400">+500</strong> postulaciones
+              <strong id="stat-total-applicants" class="text-teal-600 dark:text-teal-400">500</strong> cupos nacionales
             </span>
             <span class="px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
-              <strong id="stat-female-ratio" class="text-teal-600 dark:text-teal-400">52%</strong> mujeres en STEAM
+              <strong id="stat-female-ratio" class="text-teal-600 dark:text-teal-400">50%</strong> meta mujeres STEAM
             </span>
             <span id="stat-sponsored-regions" class="px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
-              4 patrocinadas / 21 disponibles
+              24 Fab Labs disponibles · 2 sedes híbridas
             </span>
           </div>
         </div>
@@ -621,7 +624,7 @@
             <span id="drawer-region-macro" class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-1 rounded-full">
               Macrorregión
             </span>
-            <button class="drawer-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
+            <button aria-label="Cerrar panel" class="drawer-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
           </div>
@@ -766,7 +769,7 @@
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Articulación con los 4 equipos escolares de tu región.</span>
+                <span>Articulación con los 2 núcleos de 10 y 1 sistema de 20 en tu sede.</span>
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
@@ -857,7 +860,32 @@
         </div>
       </div>
 
-      <!-- Visualizador Interactivo SimbioCreación a Escala 500 (Grafo Radial Animado) -->
+      <!-- 3 Principios de SimbioCreación (De MVP a MIP) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+        <div class="bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-600 dark:text-teal-400">Principio 01</span>
+          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">Convergencia exponencial</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
+            La secuencia <strong>1 → 2 → 10 → 20</strong> transforma ideas individuales en sistemas integrados cada vez más robustos.
+          </p>
+        </div>
+        <div class="bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Principio 02</span>
+          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">100% coautoría colectiva</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
+            Cada participante aporta sus saberes desde la primera semana hasta la integración final del sistema en su Fab Lab.
+          </p>
+        </div>
+        <div class="bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+          <span class="text-[10px] font-extrabold uppercase tracking-wider text-pink-600 dark:text-pink-400">Principio 03</span>
+          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">De MVP a MIP</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
+            Superamos el Mínimo Producto Viable (MVP) aislado para construir soluciones de <strong>Máximo Impacto Posible (MIP)</strong> en red intercolegios.
+          </p>
+        </div>
+      </div>
+
+            <!-- Visualizador Interactivo SimbioCreación a Escala 500 (Grafo Radial Animado) -->
       <div id="scale500-card" class="mb-14 bg-slate-50/90 dark:bg-slate-900/70 rounded-3xl p-5 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-lg">
         
         <!-- Header con Controles y Título -->
@@ -871,7 +899,7 @@
               SimbioCreación a escala: 1 → 2 → 10 → 20 → Red
             </h3>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              Visualiza en tiempo real cómo 480 escolares (20 por cada Fab Lab) transforman sus ideas en 24 sistemas integrados.
+              Visualiza en tiempo real cómo 500 escolares (24 Fab Labs públicos + 2 sedes híbridas) convergen en una red nacional.
             </p>
           </div>
 
@@ -921,11 +949,11 @@
               <div class="mt-4 flex flex-col gap-1.5" id="scale500StepsList">
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent bg-teal-50 dark:bg-teal-950/60 border-teal-300 dark:border-teal-700 text-teal-900 dark:text-teal-200 font-bold" data-step="0">
                   <span>0. Ideas individuales (1)</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-teal-200/60 dark:bg-teal-900 text-teal-800 dark:text-teal-200">480 jóvenes</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-teal-200/60 dark:bg-teal-900 text-teal-800 dark:text-teal-200">500 jóvenes</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="1">
                   <span>1. Duplas intercolegios (2)</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">240 duplas</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">250 duplas</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="2">
                   <span>2. Núcleos en Fab Labs (10)</span>
@@ -1008,6 +1036,14 @@
           <span>Escribir a Delia Barriga</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
+      </div>
+
+      <!-- Founding Allies Invitation (No fake logos) -->
+      <div class="max-w-4xl mx-auto mb-6 bg-white dark:bg-slate-900/50 rounded-2xl p-6 border border-dashed border-slate-300 dark:border-slate-700 text-center">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Espacio abierto para organizaciones pioneras</span>
+        <p class="text-xs text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+          Los logos de los <strong>Aliados Fundadores</strong> que adopten un Fab Lab o impulsen la red aparecerán aquí junto a Fab Lab Perú y SimbioCreación.
+        </p>
       </div>
 
       <!-- Volunteer Mentors Callout (Separate from Sponsors) -->
@@ -1133,7 +1169,7 @@
             <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Edición vacacional · Enero – febrero 2027 · Modalidad híbrida</span>
             <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Postulación de estudiante</h3>
           </div>
-          <button data-modal-id="modal-estudiante" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
+          <button data-modal-id="modal-estudiante" aria-label="Cerrar ventana" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
@@ -1245,7 +1281,7 @@
             <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Red nacional de laboratorios</span>
             <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Registrar sede IEST / Fab Lab</h3>
           </div>
-          <button data-modal-id="modal-iest" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
+          <button data-modal-id="modal-iest" aria-label="Cerrar ventana" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
@@ -1305,7 +1341,7 @@
           </div>
 
           <div class="pt-4 flex items-center justify-end gap-3">
-            <button type="button" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-iest">Cancelar</button>
+            <button type="button" aria-label="Cerrar ventana" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-iest">Cancelar</button>
             <button type="submit" class="px-6 py-2.5 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900">
               Registrar sede IEST
             </button>
@@ -1327,7 +1363,7 @@
             <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Voluntariado técnico · Enero – febrero 2027</span>
             <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Sumarse como mentor</h3>
           </div>
-          <button data-modal-id="modal-mentor" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
+          <button data-modal-id="modal-mentor" aria-label="Cerrar ventana" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
@@ -1371,7 +1407,7 @@
           </div>
 
           <div class="pt-4 flex items-center justify-end gap-3">
-            <button type="button" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-mentor">Cancelar</button>
+            <button type="button" aria-label="Cerrar ventana" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-mentor">Cancelar</button>
             <button type="submit" class="px-6 py-2.5 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white shadow-sm">
               Registrarme como mentor
             </button>
@@ -1404,7 +1440,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=20261117d"></script>
-  <script src="app.js?v=20261117d"></script>
+  <script src="data.js?v=20261117e"></script>
+  <script src="app.js?v=20261117e"></script>
 </body>
 </html>
