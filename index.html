@@ -537,11 +537,11 @@
         <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
           <button id="view-map-btn" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white dark:bg-slate-700 text-teal-600 dark:text-teal-400 flex items-center gap-1.5 shadow-sm">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-            <span>Mapa</span>
+            <span data-i18n="view_map">Mapa</span>
           </button>
           <button id="view-grid-btn" class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
-            <span>Tablero</span>
+            <span data-i18n="view_grid">Tablero</span>
           </button>
         </div>
       </div>
@@ -719,8 +719,8 @@
             <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Para escolares · Enero – febrero 2027 (híbrido)</span>
-            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Estudiantes (4.° y 5.°)</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400"><span data-i18n="p_stu_badge">Para escolares · Enero – febrero 2027 (híbrido)</span></span>
+            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1"><span data-i18n="p_stu_title">Estudiantes (4.° y 5.°)</span></h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed font-medium">
               ¿Tienes una idea para cambiar la realidad de tu comunidad? Transforma tu visión en un prototipo físico tangible y conéctate con jóvenes líderes de todo el país.
             </p>
@@ -746,7 +746,7 @@
           </div>
 
           <button onclick="window.openModal('modal-estudiante')" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-teal-500 dark:hover:bg-teal-600 dark:text-slate-900 transition-all shadow-sm">
-            Postular como estudiante &rarr;
+            <span data-i18n="p_stu_btn">Postular como estudiante →</span>
           </button>
         </div>
 
@@ -756,8 +756,8 @@
             <div class="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Capacidad instalada</span>
-            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Sedes IEST (Fab Labs)</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400"><span data-i18n="p_iest_badge">Capacidad instalada</span></span>
+            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1"><span data-i18n="p_iest_title">Sedes IEST (Fab Labs)</span></h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
               Para directores y coordinadores de laboratorio de los IEST públicos: registra y valida el equipamiento disponible en tu sede regional.
             </p>
@@ -779,7 +779,7 @@
           </div>
 
           <button onclick="window.openModal('modal-iest')" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white transition-all">
-            Registrar laboratorio IEST &rarr;
+            <span data-i18n="p_iest_btn">Registrar laboratorio IEST →</span>
           </button>
         </div>
 
@@ -789,7 +789,7 @@
             <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Alianzas de impacto</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400"><span data-i18n="p_spon_badge">Alianzas de impacto</span></span>
             <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Sponsors y aliados</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
               Apadrina una región completa o aporta kits electrónicos y materiales para impulsar un <strong>Máximo Impacto Posible (MIP)</strong> medible.
@@ -812,7 +812,7 @@
           </div>
 
           <button onclick="window.openDeliaWhatsApp()" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
-            Coordinar alianza por WhatsApp &rarr;
+            <span data-i18n="p_spon_btn">Coordinar alianza por WhatsApp →</span>
           </button>
         </div>
 
@@ -1004,39 +1004,6 @@
         <div id="criteria-container" class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto"></div>
       </div>
 
-      <!-- Competencias CNEB (Minedu) & Indicadores de Transformación (Cuantitativos y Cualitativos) -->
-      <div class="mt-20 pt-16 border-t border-slate-200/80 dark:border-slate-800">
-        <div class="text-center max-w-3xl mx-auto mb-12">
-          <span data-i18n="comp_badge" class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-            Alineamiento curricular e impacto
-          </span>
-          <h3 data-i18n="comp_title" class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white mt-4">
-            Competencias CNEB (Minedu) e Indicadores de Transformación
-          </h3>
-          <p data-i18n="comp_desc" class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-2">
-            Cada etapa del programa desarrolla competencias oficiales del Currículo Nacional y genera evidencia medible de transformación.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div class="bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700">
-            <h4 data-i18n="comp_col_title" class="font-display font-bold text-base text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-              <span>Competencias que desarrollan (CNEB)</span>
-            </h4>
-            <div id="competencies-container" class="space-y-3"></div>
-          </div>
-
-          <div class="bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-6 sm:p-7 border border-slate-200 dark:border-slate-700">
-            <h4 data-i18n="ind_col_title" class="font-display font-bold text-base text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
-              <span>Indicadores de Transformación (Cuantitativos y Cualitativos)</span>
-            </h4>
-            <div id="indicators-container" class="space-y-3"></div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -1183,7 +1150,7 @@
 
       <div class="pt-8 border-t border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
         <p>© 2026 - 2027 SimbioMakers PE. Todos los derechos reservados.</p>
-        <p class="text-teal-600 dark:text-teal-400 font-semibold">Convergencia antes que competencia.</p>
+        <p class="text-teal-600 dark:text-teal-400 font-semibold"><span data-i18n="footer_tagline">Convergencia antes que competencia.</span></p>
       </div>
 
     </div>
@@ -1473,8 +1440,8 @@
     </div>
   </div>
 
-  <script src="data.js?v=20261117i"></script>
-  <script src="i18n.js?v=20261117i"></script>
-  <script src="app.js?v=20261117i"></script>
+  <script src="data.js?v=20261117j"></script>
+  <script src="i18n.js?v=20261117j"></script>
+  <script src="app.js?v=20261117j"></script>
 </body>
 </html>

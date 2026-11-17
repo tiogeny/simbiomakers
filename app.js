@@ -813,42 +813,686 @@ function renderSelectionCriteria() {
   `).join('');
 }
 
-// Render CNEB Competencies & Transformation Indicators
-function renderCompetenciesAndIndicators() {
-  const compContainer = document.getElementById('competencies-container');
-  const indContainer = document.getElementById('indicators-container');
-  const langData = (window.SIMBIO_I18N && window.SIMBIO_I18N[currentLang]) || (window.SIMBIO_I18N && window.SIMBIO_I18N.es);
-  if (!langData) return;
+// ==========================================
+// Rotating Hero Words (Inspired by FabLab SCZ)
+// ==========================================
+function initHeroRotatingWords() {
+  const container = document.getElementById('hero-rot-words');
+  if (!container) return;
+  const span = container.querySelector('span');
+  if (!span) return;
 
-  if (compContainer && langData.competencies) {
-    compContainer.innerHTML = langData.competencies.map(c => `
-      <div class="bg-white dark:bg-slate-900/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80">
-        <div class="flex items-center gap-2 mb-1">
-          <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-teal-50 text-teal-700 dark:bg-teal-950 dark:text-teal-300">${c.code}</span>
-          <h5 class="font-bold text-xs text-slate-900 dark:text-white">${c.title}</h5>
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  const words = [
+    'soluciones reales',
+    'prototipos físicos',
+    'redes de talento',
+    'innovación local',
+    'co-creación viva'
+  ];
+  let currentIndex = 0;
+
+  setInterval(() => {
+    span.classList.add('out');
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % words.length;
+      span.textContent = words[currentIndex];
+      span.classList.remove('out');
+    }, 350);
+  }, 2700);
+}
+
+
+// ==========================================
+// SimbioCreación a Escala 500 (Grafo Radial Animado)
+// ==========================================
+const SCALE500_META = [
+  {
+    step: 0,
+    pill: 'Etapa 0 · Semana 1 (Virtual)',
+    title: '500 saberes individuales (1)',
+    desc: '20 jóvenes por cada Fab Lab inician identificando un desafío concreto de su comunidad y planteando su propia propuesta tecnológica.',
+    status: '500 ideas activas en todo el país'
+  },
+  {
+    step: 1,
+    pill: 'Etapa 1 · Semana 2 (Virtual)',
+    title: '250 duplas intercolegios (2)',
+    desc: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en conceptos híbridos más potentes.',
+    status: '250 duplas co-diseñando en vivo'
+  },
+  {
+    step: 2,
+    pill: 'Etapa 2 · Semanas 3 y 4 (Fab Lab IEST)',
+    title: '48 núcleos de 10 jóvenes (10)',
+    desc: '5 duplas convergen en 2 núcleos de 10 jóvenes por sede y acuden al Fab Lab del IEST para fabricar sus módulos físicos en 3D, láser y electrónica.',
+    status: '★ 48 módulos fabricándose en 24 Fab Labs ★'
+  },
+  {
+    step: 3,
+    pill: 'Etapa 3 · Semana 5 (Fab Lab IEST)',
+    title: '24 sistemas integrados de 20 (20)',
+    desc: 'Los 2 núcleos de 10 se ensamblan en 1 sistema funcional de 20 jóvenes por cada uno de los 24 Fab Labs públicos (pasa el cursor sobre cada burbuja para ver su IEST).',
+    status: '24 sistemas funcionales en los 24 Fab Labs'
+  },
+  {
+    step: 4,
+    pill: 'Etapa 4 · Semana 6 (Demo Day)',
+    title: '1 sola Red Nacional interconectada',
+    desc: 'Convergencia total: los 24 sistemas construidos en los Fab Labs públicos se presentan en vivo conectados en una sola red nacional.',
+    status: 'Red Nacional en vivo · Máximo Impacto Posible'
+  }
+];
+
+let scale500Graph = null;
+let scale500Step = 0;
+let scale500LastStepChange = 0;
+let scale500Raf = null;
+let scale500AutoTimer = null;
+let scale500UserPaused = false;
+
+function buildScale500Graph() {
+  const nodes = [];
+  const edges = [];
+  
+  // Lista oficial de los 24 Fab Labs Públicos en IEST del Perú
+  const FAB_LABS_24 = [
+    { name: 'IEST José A. Quiñones (Tumbes)', code: 'TUM', macro: 'Norte' },
+    { name: 'IEST Catalina Buendía (Ica)', code: 'ICA', macro: 'Sur' },
+    { name: 'IEST Aparicio Pomares (Huánuco)', code: 'HCO', macro: 'Centro' },
+    { name: 'IEST Abancay (Apurímac)', code: 'APU', macro: 'Sur' },
+    { name: 'IEST Pedro P. Díaz (Arequipa)', code: 'AQP', macro: 'Sur' },
+    { name: 'IEST J. C. Mariátegui (Moquegua)', code: 'MOQ', macro: 'Sur' },
+    { name: 'IEST J. A. Encinas (Puno)', code: 'PUN', macro: 'Sur' },
+    { name: 'IEST Gilda Ballivián (Lima SJM)', code: 'LIM', macro: 'Centro' },
+    { name: 'IEST Sullana (Piura)', code: 'PIU', macro: 'Norte' },
+    { name: 'IEST C. Salazar Romero (Áncash)', code: 'ANC', macro: 'Centro' },
+    { name: 'IEST F. Gonzales Vigil (Tacna)', code: 'TAC', macro: 'Sur' },
+    { name: 'IEST Huancavelica', code: 'HUV', macro: 'Centro' },
+    { name: 'IEST Huando (Huaral, Lima)', code: 'HRL', macro: 'Centro' },
+    { name: 'IEST Jorge Basadre (Madre de Dios)', code: 'MDD', macro: 'Oriente' },
+    { name: 'IEST M. Hierro Pozo (Ayacucho)', code: 'AYA', macro: 'Centro' },
+    { name: 'IEST Nor Oriental (San Martín)', code: 'SAM', macro: 'Oriente' },
+    { name: 'IEST Nueva Esperanza (La Libertad)', code: 'LAL', macro: 'Norte' },
+    { name: 'IEST Pasco', code: 'PAS', macro: 'Centro' },
+    { name: 'IEST P. Del Águila (Loreto)', code: 'LOR', macro: 'Oriente' },
+    { name: 'IEST Perú Japón (Amazonas)', code: 'AMZ', macro: 'Oriente' },
+    { name: 'IEST Rep. Fed. Alemania (Lambayeque)', code: 'LAM', macro: 'Norte' },
+    { name: 'IEST Simón Bolívar (Callao)', code: 'CAL', macro: 'Centro' },
+    { name: 'IEST Suiza (Ucayali)', code: 'UCY', macro: 'Oriente' },
+    { name: 'IEST Túpac Amaru (Cusco)', code: 'CUS', macro: 'Sur' }
+  ];
+
+  const palette = ['#00F5D4', '#00BBF9', '#7928CA', '#FF007F', '#FFBE0B', '#10B981', '#3B82F6', '#F43F5E', '#8B5CF6', '#14B8A6'];
+
+  const buildSlicesFromMap = (map) => {
+    const arr = Object.entries(map).map(([color, weight]) => ({ color, weight }));
+    return arr.length ? arr : [{ color: '#00F5D4', weight: 1 }];
+  };
+
+  // Nivel 4 (Centro): Red Nacional Única
+  const centerIdx = 0;
+  const centerWeights = {};
+  const centerNode = {
+    level: 4,
+    x: 0,
+    y: 0,
+    r: 34,
+    color: '#FF007F',
+    label: 'RED NACIONAL',
+    slices: []
+  };
+  nodes.push(centerNode);
+
+  // Nivel 3 (Penúltimo Nivel): Exactamente las 24 BURBUJAS de los 24 Fab Labs IEST
+  // Distribuidas de forma concéntrica a dist3 = 0.172
+  const dist3 = 0.172;
+  const dist2 = 0.280;
+  const dist1 = 0.380;
+  const dist0 = 0.466;
+
+  const numRegiones = FAB_LABS_24.length; // 24 Fab Labs públicos
+  const pairSplits = [[60, 40], [55, 45], [65, 35], [50, 50], [70, 30]];
+
+  for (let r = 0; r < numRegiones; r++) {
+    const regData = FAB_LABS_24[r];
+    const rAng = -Math.PI / 2 + (r * 2 * Math.PI) / numRegiones;
+    const rIdx = nodes.length;
+    const regionWeights = {};
+    const regColor = palette[r % palette.length];
+
+    const rNode = {
+      level: 3,
+      regionIdx: r,
+      name: regData.name,
+      code: regData.code,
+      macro: regData.macro,
+      x: Math.cos(rAng) * dist3,
+      y: Math.sin(rAng) * dist3,
+      r: 10.5,
+      color: regColor,
+      slices: []
+    };
+    nodes.push(rNode);
+
+    // Cada región tiene 2 núcleos/módulos de prototipado en Nivel 2
+    const sectorSpan = (2 * Math.PI / numRegiones) * 0.90;
+    for (let g = 0; g < 2; g++) {
+      const gOffset = (g - 0.5) * sectorSpan * 0.55;
+      const gAng = rAng + gOffset;
+      const gIdx = nodes.length;
+      const groupWeights = {};
+      const gNode = {
+        level: 2,
+        regionIdx: r,
+        x: Math.cos(gAng) * dist2,
+        y: Math.sin(gAng) * dist2,
+        r: 6.2,
+        color: palette[(r + g * 3) % palette.length],
+        slices: []
+      };
+      nodes.push(gNode);
+
+      // Cada núcleo tiene 5 duplas en Nivel 1 (10 duplas por región = ~240-250 duplas en total)
+      const groupSpan = sectorSpan * 0.5;
+      for (let p = 0; p < 5; p++) {
+        const pOffset = (p - 2) * (groupSpan / 4) * 0.82;
+        const pAng = gAng + pOffset;
+        const pIdx = nodes.length;
+
+        const c1 = palette[(r + p) % palette.length];
+        const c2 = palette[(r + g + p + 2) % palette.length];
+        const [w1, w2] = pairSplits[(g + p) % pairSplits.length];
+
+        const pairSlices = (c1 === c2)
+          ? [{ color: c1, weight: w1 + w2 }]
+          : [{ color: c1, weight: w1 }, { color: c2, weight: w2 }];
+
+        groupWeights[c1] = (groupWeights[c1] || 0) + w1;
+        groupWeights[c2] = (groupWeights[c2] || 0) + w2;
+        regionWeights[c1] = (regionWeights[c1] || 0) + w1;
+        regionWeights[c2] = (regionWeights[c2] || 0) + w2;
+        centerWeights[c1] = (centerWeights[c1] || 0) + w1;
+        centerWeights[c2] = (centerWeights[c2] || 0) + w2;
+
+        nodes.push({
+          level: 1,
+          regionIdx: r,
+          x: Math.cos(pAng) * dist1,
+          y: Math.sin(pAng) * dist1,
+          r: 4.2,
+          color: c1,
+          slices: pairSlices
+        });
+        edges.push({ from: pIdx, to: gIdx, level: 2, color: c1, travelColors: c1 === c2 ? [c1] : [c1, c2] });
+
+        // En Nivel 0: 2 saberes individuales por dupla (20 jóvenes por región * 24 regiones = 480-500 jóvenes)
+        // Agregamos pequeños offsets para distribuir exactamente los ~500 saberes
+        for (let i = 0; i < 2; i++) {
+          const iOffset = (i === 0 ? -0.42 : 0.42) * (groupSpan / 5) * 0.75;
+          const iAng = pAng + iOffset;
+          const iColor = i === 0 ? c1 : c2;
+          const iIdx = nodes.length;
+          nodes.push({
+            level: 0,
+            regionIdx: r,
+            orderIdx: r * 20 + g * 10 + p * 2 + i,
+            x: Math.cos(iAng) * dist0,
+            y: Math.sin(iAng) * dist0,
+            r: 2.8,
+            color: iColor
+          });
+          edges.push({ from: iIdx, to: pIdx, level: 1, color: iColor, travelColors: [iColor] });
+        }
+      }
+
+      gNode.slices = buildSlicesFromMap(groupWeights);
+      const gCols = gNode.slices.map(sl => sl.color);
+      edges.push({ from: gIdx, to: rIdx, level: 3, color: gCols[0], travelColors: gCols });
+    }
+
+    rNode.slices = buildSlicesFromMap(regionWeights);
+    const rCols = rNode.slices.map(sl => sl.color);
+    // Cada una de las 24 burbujas regionales se conecta al Centro Único en Nivel 4
+    edges.push({ from: rIdx, to: centerIdx, level: 4, color: rCols[0], travelColors: rCols });
+  }
+
+  centerNode.slices = buildSlicesFromMap(centerWeights);
+  return { nodes, edges };
+}
+
+function drawMulticolorCircle(ctx, x, y, r, slices) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.clip();
+  if (!slices || slices.length <= 1) {
+    ctx.fillStyle = (slices && slices[0] && slices[0].color) || '#FF007F';
+    ctx.fillRect(x - r, y - r, r * 2, r * 2);
+  } else {
+    ctx.translate(x, y);
+    ctx.rotate(-Math.PI / 4);
+    const totalW = slices.reduce((acc, sl) => acc + sl.weight, 0);
+    let curY = -r;
+    slices.forEach((sl) => {
+      const span = (r * 2) * (sl.weight / totalW);
+      ctx.fillStyle = sl.color;
+      ctx.fillRect(-r - 1, curY, r * 2 + 2, span + 0.8);
+      curY += span;
+    });
+  }
+  ctx.restore();
+}
+
+function updateScale500UI() {
+  const langData = (window.SIMBIO_I18N && window.SIMBIO_I18N[currentLang]) || null;
+  const metaList = (langData && langData.scaleMeta) ? langData.scaleMeta : SCALE500_META;
+  const meta = metaList[scale500Step] || SCALE500_META[scale500Step];
+  const pill = document.getElementById('scale500Pill');
+  const title = document.getElementById('scale500Title');
+  const desc = document.getElementById('scale500Desc');
+  const liveStatus = document.getElementById('scale500LiveStatus');
+
+  if (pill) pill.textContent = meta.pill;
+  if (title) title.textContent = meta.title;
+  if (desc) desc.textContent = meta.desc;
+  if (liveStatus) liveStatus.textContent = meta.status;
+
+  document.querySelectorAll('.scale500-step-btn').forEach(btn => {
+    const s = parseInt(btn.dataset.step, 10);
+    const isActive = s === scale500Step;
+    if (isActive) {
+      btn.className = 'scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-all border bg-teal-50 dark:bg-teal-950/60 border-teal-300 dark:border-teal-700 text-teal-900 dark:text-teal-200 font-bold shadow-sm';
+    } else {
+      btn.className = 'scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50';
+    }
+  });
+}
+
+function setScale500Step(step) {
+  scale500Step = Math.max(0, Math.min(4, step));
+  scale500LastStepChange = performance.now();
+  updateScale500UI();
+}
+
+function advanceScale500Step() {
+  if (scale500Step < 4) {
+    setScale500Step(scale500Step + 1);
+  } else {
+    setScale500Step(0);
+  }
+}
+
+function toggleScale500Play() {
+  const btn = document.getElementById('btnScale500Play');
+  if (scale500AutoTimer) {
+    clearInterval(scale500AutoTimer);
+    scale500AutoTimer = null;
+    scale500UserPaused = true;
+    if (btn) btn.innerHTML = '<span>▶ Reproducir</span>';
+    return;
+  }
+  scale500UserPaused = false;
+  if (scale500Step >= 4) setScale500Step(0);
+  if (btn) btn.innerHTML = '<span>⏸ Pausar</span>';
+  scale500AutoTimer = setInterval(() => {
+    if (scale500Step < 4) {
+      setScale500Step(scale500Step + 1);
+    } else {
+      clearInterval(scale500AutoTimer);
+      scale500AutoTimer = null;
+      if (btn) btn.innerHTML = '<span>▶ Reproducir</span>';
+    }
+  }, 2400);
+}
+
+function renderScale500Frame(now) {
+  const canvas = document.getElementById('scale500Canvas');
+  if (!canvas || !scale500Graph) {
+    scale500Raf = requestAnimationFrame(renderScale500Frame);
+    return;
+  }
+
+  const rect = canvas.parentElement.getBoundingClientRect();
+  if (rect.width < 10 || rect.height < 10) {
+    scale500Raf = requestAnimationFrame(renderScale500Frame);
+    return;
+  }
+
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const cssW = Math.round(rect.width);
+  const cssH = Math.round(rect.height);
+
+  if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
+    canvas.width = Math.round(cssW * dpr);
+    canvas.height = Math.round(cssH * dpr);
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  const ctx = canvas.getContext('2d');
+  ctx.save();
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssW, cssH);
+
+  const cx = cssW / 2;
+  const cy = cssH / 2;
+  const dim = Math.min(cssW, cssH);
+  const isDark = document.documentElement.classList.contains('dark');
+
+  const elapsed = now - scale500LastStepChange;
+  const animP = Math.min(1, Math.max(0, elapsed / 750));
+  const easeP = 1 - Math.pow(1 - animP, 3);
+
+  // Anillos concéntricos de referencia didáctica
+  [0.466, 0.380, 0.280, 0.172].forEach((rf) => {
+    ctx.beginPath();
+    ctx.arc(cx, cy, dim * rf, 0, Math.PI * 2);
+    ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(15,23,42,0.05)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 6]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  });
+
+  const { nodes, edges } = scale500Graph;
+
+  // Renderizado de aristas y partículas vivas
+  edges.forEach((e, idx) => {
+    if (e.level > scale500Step) return;
+    const n1 = nodes[e.from];
+    const n2 = nodes[e.to];
+    const x1 = cx + n1.x * dim;
+    const y1 = cy + n1.y * dim;
+    const x2 = cx + n2.x * dim;
+    const y2 = cy + n2.y * dim;
+
+    const p = (e.level === scale500Step) ? easeP : 1;
+    const curX = x1 + (x2 - x1) * p;
+    const curY = y1 + (y2 - y1) * p;
+
+    let strokeStyle = e.color;
+    if (e.travelColors && e.travelColors.length > 1 && (Math.abs(curX - x1) > 0.5 || Math.abs(curY - y1) > 0.5)) {
+      const grad = ctx.createLinearGradient(x1, y1, curX, curY);
+      const len = e.travelColors.length;
+      e.travelColors.forEach((col, cIdx) => {
+        grad.addColorStop(cIdx / (len - 1), col);
+      });
+      strokeStyle = grad;
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(curX, curY);
+    ctx.strokeStyle = strokeStyle;
+    ctx.globalAlpha = e.level === 4 ? 0.75 : (e.level === 3 ? 0.55 : (e.level === 2 ? 0.42 : 0.32));
+    ctx.lineWidth = e.level === 4 ? 4.2 : (e.level === 3 ? 2.4 : (e.level === 2 ? 1.4 : 1.1));
+    ctx.stroke();
+
+    // Partículas luminosas vivas viajando continuamente
+    if (p > 0.92 && e.travelColors && e.travelColors.length > 0) {
+      const tcLen = e.travelColors.length;
+      const speed = e.level === 4 ? 0.00045 : (e.level === 3 ? 0.0005 : 0.00055);
+      const pr = e.level === 4 ? 3.4 : (e.level === 3 ? 2.4 : (e.level === 2 ? 1.8 : 1.4));
+      e.travelColors.forEach((tc, tIdx) => {
+        const t = ((now * speed + idx * 0.11 + tIdx / tcLen) % 1);
+        const px = x1 + (x2 - x1) * t;
+        const py = y1 + (y2 - y1) * t;
+        ctx.beginPath();
+        ctx.arc(px, py, pr, 0, Math.PI * 2);
+        ctx.fillStyle = tc;
+        ctx.globalAlpha = 0.95;
+        ctx.fill();
+      });
+    }
+  });
+
+  ctx.globalAlpha = 1;
+
+  // Renderizado de nodos
+  nodes.forEach(n => {
+    if (n.level > scale500Step) return;
+    const x = cx + n.x * dim;
+    const y = cy + n.y * dim;
+
+    let scaleFactor = 1;
+    if (n.level === 0 && scale500Step === 0) {
+      const delay = (n.orderIdx || 0) * 1.2;
+      const localP = Math.min(1, Math.max(0, (elapsed - delay) / 200));
+      scaleFactor = 0.1 + 0.9 * (1 - Math.pow(1 - localP, 2));
+    } else if (n.level === scale500Step && scale500Step > 0) {
+      scaleFactor = 0.3 + 0.7 * easeP;
+    }
+
+    const r = n.r * scaleFactor * (dim / 650);
+    const drawR = n.level === 0 ? Math.max(2.8, r) : Math.max(3.5, r);
+
+    // Halo palpitante para niveles superiores (centro y sedes)
+    const isHovered = (scale500HoverNode === n);
+    if (n.level >= 3 || isHovered) {
+      const pulse = 1 + 0.09 * Math.sin(now * 0.004);
+      ctx.beginPath();
+      ctx.arc(x, y, drawR * (isHovered ? 1.65 : 1.34) * pulse, 0, Math.PI * 2);
+      ctx.fillStyle = n.level === 4 ? 'rgba(255, 0, 127, 0.22)' : 'rgba(0, 245, 212, 0.12)';
+      ctx.fill();
+    }
+
+    if (n.slices && n.slices.length > 1) {
+      drawMulticolorCircle(ctx, x, y, drawR, n.slices);
+    } else {
+      ctx.beginPath();
+      ctx.arc(x, y, drawR, 0, Math.PI * 2);
+      ctx.fillStyle = n.color;
+      ctx.fill();
+    }
+
+    ctx.beginPath();
+    ctx.arc(x, y, drawR, 0, Math.PI * 2);
+    ctx.lineWidth = n.level === 4 ? 3 : (n.level >= 2 ? 1.6 : 0.6);
+    ctx.strokeStyle = isDark ? '#0B0F19' : '#ffffff';
+    ctx.stroke();
+
+    // Etiqueta legible para las 24 burbujas regionales en Nivel 3
+    if (n.level === 3 && scale500Step >= 3 && n.code) {
+      ctx.save();
+      ctx.font = 'bold 7.5px Plus Jakarta Sans, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
+      // Posicionar la sigla ligeramente radial hacia afuera para máxima legibilidad
+      const distFromCenter = Math.sqrt(n.x * n.x + n.y * n.y);
+      const textOffsetX = distFromCenter > 0 ? (n.x / distFromCenter) * (drawR + 9) : 0;
+      const textOffsetY = distFromCenter > 0 ? (n.y / distFromCenter) * (drawR + 9) : 0;
+      ctx.fillText(n.code, x + textOffsetX, y + textOffsetY);
+      ctx.restore();
+    }
+  });
+
+  ctx.restore();
+  scale500Raf = requestAnimationFrame(renderScale500Frame);
+}
+
+// Tooltip interactivo para las 24 burbujas de Fab Labs
+let scale500HoverNode = null;
+
+function setupScale500Tooltip(canvas) {
+  let tooltip = document.getElementById('scale500-tooltip');
+  if (!tooltip) {
+    tooltip = document.createElement('div');
+    tooltip.id = 'scale500-tooltip';
+    tooltip.className = 'hidden pointer-events-none absolute z-30 px-3 py-1.5 rounded-xl bg-slate-900/95 dark:bg-white/95 text-white dark:text-slate-900 text-[11px] font-bold shadow-lg whitespace-nowrap transform -translate-x-1/2 -translate-y-full transition-opacity duration-150';
+    canvas.parentElement.appendChild(tooltip);
+  }
+
+  const handlePointer = (clientX, clientY) => {
+    if (!scale500Graph || scale500Step < 3) {
+      tooltip.classList.add('hidden');
+      scale500HoverNode = null;
+      return;
+    }
+    const rect = canvas.getBoundingClientRect();
+    const mx = clientX - rect.left;
+    const my = clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const dim = Math.min(rect.width, rect.height);
+
+    let found = null;
+    let minDist = 24;
+    scale500Graph.nodes.forEach(n => {
+      if (n.level !== 3) return;
+      const nx = cx + n.x * dim;
+      const ny = cy + n.y * dim;
+      const d = Math.hypot(mx - nx, my - ny);
+      if (d < minDist) {
+        minDist = d;
+        found = { node: n, nx, ny };
+      }
+    });
+
+    if (found) {
+      scale500HoverNode = found.node;
+      tooltip.innerHTML = `<span class="text-teal-400 dark:text-teal-600">${found.node.code}</span> · ${found.node.name}`;
+      tooltip.style.left = found.nx + 'px';
+      tooltip.style.top = (found.ny - 16) + 'px';
+      tooltip.classList.remove('hidden');
+      canvas.style.cursor = 'pointer';
+    } else {
+      scale500HoverNode = null;
+      tooltip.classList.add('hidden');
+      canvas.style.cursor = 'default';
+    }
+  };
+
+  canvas.addEventListener('mousemove', (e) => handlePointer(e.clientX, e.clientY));
+  canvas.addEventListener('mouseleave', () => {
+    scale500HoverNode = null;
+    tooltip.classList.add('hidden');
+    canvas.style.cursor = 'default';
+  });
+  canvas.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      handlePointer(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+}
+
+function initScale500Canvas() {
+  const canvas = document.getElementById('scale500Canvas');
+  if (!canvas) return;
+
+  if (!scale500Graph) {
+    scale500Graph = buildScale500Graph();
+  }
+
+  scale500LastStepChange = performance.now();
+  setupScale500Tooltip(canvas);
+  updateScale500UI();
+
+  if (!scale500Raf) {
+    scale500Raf = requestAnimationFrame(renderScale500Frame);
+  }
+
+  // Event Listeners para controles
+  const btnPlay = document.getElementById('btnScale500Play');
+  if (btnPlay) {
+    btnPlay.onclick = toggleScale500Play;
+  }
+
+  const btnNext = document.getElementById('btnScale500Next');
+  if (btnNext) {
+    btnNext.onclick = () => {
+      if (scale500AutoTimer) toggleScale500Play();
+      advanceScale500Step();
+    };
+  }
+
+  const btnFs = document.getElementById('btnScale500Fullscreen');
+  if (btnFs) {
+    btnFs.onclick = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    };
+  }
+
+  const btnReset = document.getElementById('btnScale500Reset');
+  if (btnReset) {
+    btnReset.onclick = () => {
+      if (scale500AutoTimer) toggleScale500Play();
+      setScale500Step(0);
+    };
+  }
+
+  document.querySelectorAll('.scale500-step-btn').forEach(btn => {
+    btn.onclick = () => {
+      if (scale500AutoTimer) toggleScale500Play();
+      const step = parseInt(btn.dataset.step, 10);
+      setScale500Step(step);
+    };
+  });
+
+  // Autoplay activado por Scroll (IntersectionObserver)
+  initScale500ScrollObserver();
+}
+
+function initScale500ScrollObserver() {
+  const card = document.getElementById('scale500-card');
+  if (!card || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !scale500AutoTimer && !scale500UserPaused) {
+        toggleScale500Play();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(card);
+}
+
+// Render Sponsor Tiers (Direct WhatsApp to Delia Barriga)
+function renderSponsorTiers() {
+  const container = document.getElementById('sponsor-tiers-container');
+  if (!container) return;
+
+  const tiers = EDITION_CONFIG.sponsorTiers;
+  container.innerHTML = tiers.map(tier => `
+    <div class="relative bg-white dark:bg-slate-800/90 rounded-3xl p-7 border ${tier.featured ? 'border-teal-500 ring-2 ring-teal-500/20 shadow-xl' : 'border-slate-200 dark:border-slate-700 shadow-sm'} flex flex-col justify-between">
+      ${tier.featured ? '<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-teal-600 text-white shadow">Modalidad principal</div>' : ''}
+      <div>
+        <div class="flex items-center justify-between gap-2 mb-2">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-1 rounded-md">${tier.badge}</span>
         </div>
-        <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">${c.desc}</p>
+        <h4 class="font-bold text-lg text-slate-900 dark:text-white mt-2">${tier.title}</h4>
+        <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-1">${tier.summary}</p>
+        <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">${tier.description}</p>
+        
+        <ul class="mt-5 space-y-2 text-xs text-slate-600 dark:text-slate-300">
+          ${tier.benefits.map(b => `
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-teal-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span>${b}</span>
+            </li>
+          `).join('')}
+        </ul>
       </div>
-    `).join('');
-  }
 
-  if (indContainer && langData.indicators) {
-    indContainer.innerHTML = langData.indicators.map(ind => {
-      const isQual = ind.type.toLowerCase().includes('cual') || ind.type.toLowerCase().includes('qual');
-      const badgeCls = isQual
-        ? 'bg-pink-50 text-pink-700 dark:bg-pink-950/60 dark:text-pink-300'
-        : 'bg-cyan-50 text-cyan-700 dark:bg-cyan-950/60 dark:text-cyan-300';
-      return `
-        <div class="bg-white dark:bg-slate-900/70 rounded-xl p-3.5 border border-slate-200/80 dark:border-slate-700/80">
-          <div class="flex items-center gap-2 mb-1">
-            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded ${badgeCls}">${ind.type}</span>
-            <h5 class="font-bold text-xs text-slate-900 dark:text-white">${ind.metric}</h5>
-          </div>
-          <p class="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">${ind.desc}</p>
-        </div>
-      `;
-    }).join('');
-  }
+      <div class="mt-7">
+        <button 
+          onclick="window.openDeliaWhatsApp('${tier.title}')"
+          class="w-full py-3 px-4 rounded-xl font-bold text-xs tracking-wide transition-all flex items-center justify-center gap-2 ${tier.featured ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-md' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white'}"
+        >
+          <span>Conversar con Delia Barriga (WhatsApp)</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+    </div>
+  `).join('');
 }
 
 // Render FAQ Accordion
@@ -1250,7 +1894,6 @@ function applyLanguage(lang) {
 
   if (typeof renderPedagogy === 'function') renderPedagogy();
   if (typeof renderSelectionCriteria === 'function') renderSelectionCriteria();
-  if (typeof renderCompetenciesAndIndicators === 'function') renderCompetenciesAndIndicators();
   if (typeof updateScale500UI === 'function') updateScale500UI();
 }
 
@@ -1274,7 +1917,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScale500Canvas();
   renderPedagogy();
   renderSelectionCriteria();
-  renderCompetenciesAndIndicators();
   renderSponsorTiers();
   renderFaq();
   initStudentForm();
