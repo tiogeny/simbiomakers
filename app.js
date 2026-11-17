@@ -329,19 +329,107 @@ function renderHeroNetworkMap() {
     el.addEventListener('mouseleave', resetHighlight);
   });
 
-  // Mouse-tracking 3D parallax tilt
+  // Mouse-tracking 3D parallax tilt + Zoom & Pan
+  const zoomInBtn = document.getElementById('hero-zoom-in');
+  const zoomOutBtn = document.getElementById('hero-zoom-out');
+  const zoomResetBtn = document.getElementById('hero-zoom-reset');
+
+  let heroZoom = 1.06;
+  let panX = 0;
+  let panY = 0;
+  let rotX = 44;
+  let rotZ = -14;
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartY = 0;
+
+  function applyStageTransform() {
+    if (!stage) return;
+    stage.style.transform = `perspective(950px) translate(${panX.toFixed(1)}px, ${panY.toFixed(1)}px) rotateX(${rotX.toFixed(1)}deg) rotateZ(${rotZ.toFixed(1)}deg) scale(${heroZoom.toFixed(2)})`;
+    if (zoomResetBtn) {
+      if (heroZoom > 1.15 || panX !== 0 || panY !== 0) {
+        zoomResetBtn.classList.remove('hidden');
+        zoomResetBtn.classList.add('flex');
+      } else {
+        zoomResetBtn.classList.add('hidden');
+        zoomResetBtn.classList.remove('flex');
+      }
+    }
+    if (card) {
+      card.style.cursor = heroZoom > 1.15 ? (isDragging ? 'grabbing' : 'grab') : 'default';
+    }
+  }
+
+  function setZoom(newZoom) {
+    heroZoom = Math.min(2.6, Math.max(0.85, newZoom));
+    if (heroZoom <= 1.1) {
+      panX = 0;
+      panY = 0;
+    }
+    applyStageTransform();
+  }
+
+  if (zoomInBtn) zoomInBtn.addEventListener('click', (e) => { e.stopPropagation(); setZoom(heroZoom + 0.35); });
+  if (zoomOutBtn) zoomOutBtn.addEventListener('click', (e) => { e.stopPropagation(); setZoom(heroZoom - 0.35); });
+  if (zoomResetBtn) {
+    zoomResetBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      heroZoom = 1.06;
+      panX = 0;
+      panY = 0;
+      rotX = 44;
+      rotZ = -14;
+      applyStageTransform();
+    });
+  }
+
   if (card && stage) {
+    // Double click toggles zoom
+    card.addEventListener('dblclick', (e) => {
+      if (e.target.closest('button')) return;
+      setZoom(heroZoom > 1.4 ? 1.06 : 1.9);
+    });
+
+    // Drag to pan when zoomed in
+    card.addEventListener('mousedown', (e) => {
+      if (heroZoom <= 1.15 || e.target.closest('button')) return;
+      isDragging = true;
+      dragStartX = e.clientX - panX;
+      dragStartY = e.clientY - panY;
+      stage.style.transition = 'none';
+      applyStageTransform();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      panX = Math.max(-140, Math.min(140, e.clientX - dragStartX));
+      panY = Math.max(-140, Math.min(140, e.clientY - dragStartY));
+      applyStageTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      stage.style.transition = 'transform 0.22s ease-out';
+      applyStageTransform();
+    });
+
+    // Parallax tilt
     card.addEventListener('mousemove', (e) => {
+      if (isDragging) return;
       const rect = card.getBoundingClientRect();
       const nx = (e.clientX - rect.left) / rect.width - 0.5;
       const ny = (e.clientY - rect.top) / rect.height - 0.5;
-      const rotX = (44 - ny * 12).toFixed(1);
-      const rotZ = (-14 + nx * 12).toFixed(1);
-      stage.style.transform = `perspective(950px) rotateX(${rotX}deg) rotateZ(${rotZ}deg) scale(1.06)`;
+      rotX = 44 - ny * 12;
+      rotZ = -14 + nx * 12;
+      applyStageTransform();
     });
 
     card.addEventListener('mouseleave', () => {
-      stage.style.transform = 'perspective(950px) rotateX(44deg) rotateZ(-14deg) scale(1.06)';
+      if (isDragging) return;
+      rotX = 44;
+      rotZ = -14;
+      applyStageTransform();
     });
   }
 }
