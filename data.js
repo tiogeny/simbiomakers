@@ -80,17 +80,17 @@ window.EDITION_CONFIG = {
     {
       pct: 35,
       title: 'Iniciativa y diagnóstico local',
-      desc: 'Claridad para identificar un problema concreto de su entorno y proponer una solución tecnológica factible.'
+      desc: 'Identifica un reto concreto de su comunidad y propone una idea tecnológica factible para abordarlo.'
     },
     {
       pct: 35,
-      title: 'Ingenio práctico',
-      desc: 'Haber construido, reparado, programado o inventado algo con los materiales y recursos disponibles a su alrededor.'
+      title: 'Curiosidad autodidacta (DIY)',
+      desc: 'Disposición para explorar, desarmar y aprender haciendo con los recursos disponibles en su entorno.'
     },
     {
       pct: 30,
       title: 'Vocación de trabajo en equipo',
-      desc: 'Entusiasmo por colaborar con jóvenes de distintos colegios e integrar conocimientos en una meta compartida.'
+      desc: 'Entusiasmo por colaborar con jóvenes de distintos colegios e integrar saberes en una meta común.'
     }
   ],
   sponsorTiers: [
