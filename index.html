@@ -265,11 +265,11 @@
         </button>
 
         <button onclick="window.openModal('modal-estudiante')" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-all shadow-sm">
-          <span>Postular</span>
+          <span data-i18n="cta_apply">Postular</span>
         </button>
 
         <button onclick="window.openDeliaWhatsApp()" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
-          <span>Adopta una región</span>
+          <span data-i18n="cta_adopt">Adopta una región</span>
         </button>
 
         <!-- Mobile Menu Toggle -->
@@ -306,10 +306,10 @@
         
         <!-- Left Column: Crisp Message + 3 Role Entry Points -->
         <div class="lg:col-span-7">
-          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] text-slate-900 dark:text-white tracking-tight leading-[1.08]">
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] text-slate-900 dark:text-white tracking-tight leading-[1.22]">
             24 regiones creando <br>
             <span class="rot" id="hero-rot-words"><span class="gradient-text-teal">soluciones reales</span></span> <br>
-            desde 24 Fab Labs públicos.
+            desde sus Fab Labs públicos.
           </h1>
 
           <p class="mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
@@ -319,16 +319,16 @@
           <!-- 3 Role-Based Entry Actions -->
           <div class="mt-9 flex flex-wrap items-center gap-3">
             <button onclick="window.openModal('modal-estudiante')" class="px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-600/20 transition-all flex items-center gap-2">
-              <span>🎓 Soy estudiante</span>
+              <span data-i18n="hero_student">🎓 Soy estudiante</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
 
             <button onclick="window.openModal('modal-iest')" class="px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 transition-all flex items-center gap-2">
-              <span>🏛️ Soy sede IEST</span>
+              <span data-i18n="hero_iest">🏛️ Soy sede IEST</span>
             </button>
 
             <button onclick="window.openDeliaWhatsApp()" class="px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-white dark:bg-slate-900 hover:bg-teal-50 dark:hover:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 transition-all flex items-center gap-2">
-              <span>🤝 Soy aliado / sponsor</span>
+              <span data-i18n="hero_sponsor">🤝 Soy aliado / sponsor</span>
             </button>
           </div>
         </div>
@@ -515,7 +515,7 @@
             Mapeo nacional
           </span>
           <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-3">
-            24 Fab Labs públicos y vocaciones territoriales
+            <span data-i18n="sec_map_title">24 Fab Labs públicos y vocaciones territoriales</span>
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-1 max-w-2xl">
             Toca cualquier región del mapa para conocer su Fab Lab público sede, las temáticas de su territorio y su conexión con la red nacional.
@@ -687,7 +687,7 @@
             Postular desde esta región
           </button>
           <button id="drawer-sponsor-btn" onclick="window.closeRegionDrawer(); window.openDeliaWhatsApp()" class="w-full py-3 px-4 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all text-center">
-            Conversar con Delia Barriga por esta sede (WhatsApp)
+            Adoptar o patrocinar esta sede (WhatsApp)
           </button>
         </div>
 
@@ -704,7 +704,7 @@
           Cómo participar
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-4">
-          Tres puertas de acción transformadora
+          <span data-i18n="sec_part_title">Tres puertas de acción transformadora</span>
         </h2>
         <p class="text-slate-600 dark:text-slate-300 mt-2 text-base">
           Estudiantes creadores, Institutos Tecnológicos (IEST) y aliados de impacto en una sola red colaborativa.
@@ -812,7 +812,7 @@
           </div>
 
           <button onclick="window.openDeliaWhatsApp()" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
-            Conversar con Delia Barriga (WhatsApp) &rarr;
+            Coordinar alianza por WhatsApp &rarr;
           </button>
         </div>
 
@@ -827,10 +827,10 @@
       
       <div class="text-center max-w-3xl mx-auto mb-12">
         <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-          Metodología SimbioCreación
+          <span data-i18n="sec_method_badge">Metodología SimbioCreación</span>
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-4">
-          De ideas individuales a una red nacional de co-creación
+          <span data-i18n="sec_method_title">De ideas individuales a una red nacional de co-creación</span>
         </h2>
         <p class="text-slate-600 dark:text-slate-300 mt-3 text-base">
           Con la metodología <strong>SimbioCreación</strong> el 100% de los saberes se integran, evolucionan y multiplican en equipo (<span class="font-bold text-teal-600 dark:text-teal-400">1 → 2 → 10 → 20</span>) hasta lograr el <strong>Máximo Impacto Posible (MIP)</strong>.
@@ -862,25 +862,25 @@
 
       <!-- 3 Principios de SimbioCreación (De MVP a MIP) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-        <div class="bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
           <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-600 dark:text-teal-400">Principio 01</span>
           <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">Convergencia exponencial</h4>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
             La secuencia <strong>1 → 2 → 10 → 20</strong> transforma ideas individuales en sistemas integrados cada vez más robustos.
           </p>
         </div>
-        <div class="bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
           <span class="text-[10px] font-extrabold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Principio 02</span>
           <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">100% coautoría colectiva</h4>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
             Cada participante aporta sus saberes desde la primera semana hasta la integración final del sistema en su Fab Lab.
           </p>
         </div>
-        <div class="bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
           <span class="text-[10px] font-extrabold uppercase tracking-wider text-pink-600 dark:text-pink-400">Principio 03</span>
-          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">De MVP a MIP</h4>
+          <h4 data-i18n="p3_title" class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">De MPV a MIP</h4>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
-            Superamos el Mínimo Producto Viable (MVP) aislado para construir soluciones de <strong>Máximo Impacto Posible (MIP)</strong> en red intercolegios.
+            Superamos el Mínimo Producto Viable (MPV) para cocrear soluciones de <strong>Máximo Impacto Posible (MIP)</strong>.
           </p>
         </div>
       </div>
@@ -1013,7 +1013,7 @@
           Alianzas institucionales
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-4">
-          Invierte en el talento creador de una región
+          <span data-i18n="sec_allies_title">Invierte en el talento creador de una región</span>
         </h2>
         <p class="text-slate-600 dark:text-slate-300 mt-2 text-base">
           Súmate como organización aliada para habilitar el equipamiento y la operación de los equipos escolares hacia un <strong>Máximo Impacto Posible (MIP)</strong>.
@@ -1022,21 +1022,6 @@
 
       <!-- Tiers Grid (2 Clear Options) -->
       <div id="sponsor-tiers-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12"></div>
-
-      <!-- Direct Executive Contact Banner (Delia Barriga) -->
-      <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800/90 rounded-3xl p-7 sm:p-8 border border-teal-200 dark:border-teal-800 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Trato directo institucional</span>
-          <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-1">Conversa directamente con nuestra dirección ejecutiva</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-            Coordina la adopción de una región o alianza corporativa directamente por WhatsApp con <strong>Delia Barriga</strong>, directora ejecutiva de Fab Lab Perú (<strong>+51 946 037 105</strong>).
-          </p>
-        </div>
-        <button onclick="window.openDeliaWhatsApp()" class="px-6 py-3.5 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-md whitespace-nowrap flex items-center gap-2 flex-shrink-0">
-          <span>Escribir a Delia Barriga</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </button>
-      </div>
 
       <!-- Founding Allies Invitation (No fake logos) -->
       <div class="max-w-4xl mx-auto mb-6 bg-white dark:bg-slate-900/50 rounded-2xl p-6 border border-dashed border-slate-300 dark:border-slate-700 text-center">
@@ -1070,7 +1055,7 @@
           Preguntas frecuentes
         </span>
         <h2 class="font-display font-extrabold text-3xl text-slate-900 dark:text-white mt-4">
-          Claridad para estudiantes, sedes IEST y aliados
+          <span data-i18n="sec_faq_title">Claridad para estudiantes, sedes IEST y aliados</span>
         </h2>
       </div>
 
@@ -1452,7 +1437,7 @@
     </div>
   </div>
 
-  <script src="data.js?v=20261117g"></script>
-  <script src="app.js?v=20261117g"></script>
+  <script src="data.js?v=20261117h"></script>
+  <script src="app.js?v=20261117h"></script>
 </body>
 </html>

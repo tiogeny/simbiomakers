@@ -1811,13 +1811,47 @@ const I18N_DICT = {
     nav_program: 'Programa',
     nav_join: 'Participa',
     nav_method: 'Metodología',
-    nav_allies: 'Aliados'
+    nav_allies: 'Aliados',
+    cta_apply: 'Postular',
+    cta_adopt: 'Adopta una región',
+    hero_student: '🎓 Soy estudiante',
+    hero_iest: '🏛️ Soy sede IEST',
+    hero_sponsor: '🤝 Soy aliado / sponsor',
+    sec_prog_badge: 'El programa',
+    sec_map_badge: 'Mapeo nacional',
+    sec_map_title: '24 Fab Labs públicos y vocaciones territoriales',
+    sec_part_badge: 'Cómo participar',
+    sec_part_title: 'Tres puertas de acción transformadora',
+    sec_method_badge: 'Metodología SimbioCreación',
+    sec_method_title: 'De ideas individuales a una red nacional de co-creación',
+    sec_allies_badge: 'Alianzas institucionales',
+    sec_allies_title: 'Invierte en el talento creador de una región',
+    sec_faq_badge: 'Preguntas frecuentes',
+    sec_faq_title: 'Claridad para estudiantes, sedes IEST y aliados',
+    p3_title: 'De MPV a MIP'
   },
   en: {
     nav_program: 'Program',
     nav_join: 'Join',
     nav_method: 'Methodology',
-    nav_allies: 'Partners'
+    nav_allies: 'Partners',
+    cta_apply: 'Apply',
+    cta_adopt: 'Adopt a region',
+    hero_student: '🎓 I am a student',
+    hero_iest: '🏛️ IEST Fab Lab',
+    hero_sponsor: '🤝 Partner / Sponsor',
+    sec_prog_badge: 'The Program',
+    sec_map_badge: 'National Mapping',
+    sec_map_title: '24 Public Fab Labs & Territorial Focus',
+    sec_part_badge: 'How to Join',
+    sec_part_title: 'Three Pathways for Action',
+    sec_method_badge: 'SimbioCreación Methodology',
+    sec_method_title: 'From individual ideas to a national co-creation network',
+    sec_allies_badge: 'Institutional Partnerships',
+    sec_allies_title: 'Invest in regional creative talent',
+    sec_faq_badge: 'FAQ',
+    sec_faq_title: 'Clarity for students, IEST labs & partners',
+    p3_title: 'From MVP to MIP'
   }
 };
 
@@ -1832,6 +1866,19 @@ function applyLanguage(lang) {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) el.textContent = dict[key];
   });
+
+  // Traducir Hero H1 y bajada principal
+  const heroH1 = document.querySelector('h1');
+  const heroLead = heroH1 ? heroH1.nextElementSibling : null;
+  if (heroH1 && heroLead) {
+    if (lang === 'en') {
+      heroH1.innerHTML = '24 regions creating <br><span class="rot" id="hero-rot-words"><span class="gradient-text-teal">real solutions</span></span> <br>from public Fab Labs.';
+      heroLead.textContent = 'We connect 500 high school students across Peru with 24 public IEST Fab Labs (plus hybrid regional hubs), turning local challenges into real prototypes through SimbioCreación.';
+    } else {
+      heroH1.innerHTML = '24 regiones creando <br><span class="rot" id="hero-rot-words"><span class="gradient-text-teal">soluciones reales</span></span> <br>desde sus Fab Labs públicos.';
+      heroLead.textContent = 'Conectamos a 500 jóvenes de 4.° y 5.° de secundaria de todo el país con los 24 Fab Labs públicos de los Institutos Tecnológicos (IEST) —y sedes en modalidad híbrida—, transformando desafíos locales en soluciones reales con metodología SimbioCreación.';
+    }
+  }
 }
 
 function initLanguageToggle() {
