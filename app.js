@@ -1297,14 +1297,15 @@ function renderScale500Frame(now) {
     // Etiqueta legible para las 24 burbujas regionales en Nivel 3
     if (n.level === 3 && scale500Step >= 3 && n.code) {
       ctx.save();
-      ctx.font = 'bold 7.5px Plus Jakarta Sans, sans-serif';
+      ctx.font = (dim < 380 ? 'bold 6px' : 'bold 7.5px') + ' Plus Jakarta Sans, sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
       // Posicionar la sigla ligeramente radial hacia afuera para máxima legibilidad
       const distFromCenter = Math.sqrt(n.x * n.x + n.y * n.y);
-      const textOffsetX = distFromCenter > 0 ? (n.x / distFromCenter) * (drawR + 9) : 0;
-      const textOffsetY = distFromCenter > 0 ? (n.y / distFromCenter) * (drawR + 9) : 0;
+      const pad = dim < 380 ? 7 : 9;
+      const textOffsetX = distFromCenter > 0 ? (n.x / distFromCenter) * (drawR + pad) : 0;
+      const textOffsetY = distFromCenter > 0 ? (n.y / distFromCenter) * (drawR + pad) : 0;
       ctx.fillText(n.code, x + textOffsetX, y + textOffsetY);
       ctx.restore();
     }

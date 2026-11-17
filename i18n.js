@@ -1,10 +1,8 @@
 /**
- * SimbioMakers PE - Bilingual Dictionary (ES / EN)
- * Single source of truth for static & dynamic UI translations
+ * SimbioMakers PE - Complete Bilingual Dictionary (ES / EN)
  */
 window.SIMBIO_I18N = {
   es: {
-    // Nav & CTAs
     nav_program: 'Programa',
     nav_map: 'Mapa 24 Fab Labs',
     nav_join: 'Participa',
@@ -13,7 +11,6 @@ window.SIMBIO_I18N = {
     cta_apply: 'Postular',
     cta_adopt: 'Adopta una región',
 
-    // Hero
     hero_h1: '24 regiones creando <br><span class="rot" id="hero-rot-words"><span class="gradient-text-teal">soluciones reales</span></span> <br>desde sus Fab Labs públicos.',
     hero_rot_words: ['soluciones reales', 'prototipos físicos', 'redes de talento', 'innovación local', 'co-creación viva'],
     hero_lead: 'Conectamos a 500 jóvenes de 4.° y 5.° de secundaria de todo el país con los 24 Fab Labs públicos de los Institutos Tecnológicos (IEST) —y sedes en modalidad híbrida—, transformando desafíos locales en soluciones reales con metodología SimbioCreación.',
@@ -22,7 +19,6 @@ window.SIMBIO_I18N = {
     hero_sponsor: '🤝 Soy aliado / sponsor',
     hero_badge: 'Red nacional · 24 Fab Labs públicos conectados',
 
-    // Section 2: Programa
     sec_prog_badge: 'El programa',
     sec_prog_title: 'El talento está en todo el Perú. <br class="hidden sm:inline"><span class="text-teal-600 dark:text-teal-400">Los laboratorios también.</span>',
     sec_prog_desc: 'El Estado ya equipó 24 Fab Labs públicos en Institutos Tecnológicos de todo el país. SimbioMakers tiende el puente para que adolescentes curiosos e ingeniosos los conviertan en motores de solución para sus propias comunidades.',
@@ -46,8 +42,13 @@ window.SIMBIO_I18N = {
     spot_eyebrow: 'Desafíos reales por territorio',
     spot_title: '¿Qué problemáticas inspiran a nuestros jóvenes?',
     spot_link: 'Explorar los 24 Fab Labs públicos',
+    spot_1_title: 'Agua segura en ríos amazónicos',
+    spot_1_desc: 'Módulos de purificación solar y boyas comunitarias con sensores de crecida diseñadas desde Iquitos.',
+    spot_2_title: 'Escudo inteligente contra heladas',
+    spot_2_desc: 'Invernaderos automatizados y sensores térmicos de bajo costo para proteger cultivos andinos y alpacas neonatas.',
+    spot_3_title: 'Agro eficiente y monitoreo marino',
+    spot_3_desc: 'Sensores de humedad para riego inteligente y dispositivos de monitoreo ambiental para ecosistemas costeros.',
 
-    // Section 3: Mapa
     sec_map_badge: 'Mapeo nacional',
     sec_map_title: '24 Fab Labs públicos y vocaciones territoriales',
     sec_map_desc: 'Toca cualquier región del mapa para conocer su Fab Lab público sede, las temáticas de su territorio y su conexión con la red nacional.',
@@ -55,29 +56,53 @@ window.SIMBIO_I18N = {
     stat_women_lbl: 'meta mujeres STEAM',
     view_map: 'Mapa',
     view_grid: 'Tablero',
+    filter_all: 'Todas (25)',
+    filter_spon_all: 'Todos',
+    filter_spon_avail: 'Disponibles',
+    filter_spon_spon: 'Patrocinadas',
+    map_legend_title: 'Estado de sedes',
+    map_legend_spon: 'Sede patrocinada',
+    map_legend_avail: 'Fab Lab disponible',
+    map_legend_pend: 'Híbrida · Por activar',
+    map_hint: '💡 Toca cualquier región para desplegar su ficha técnica y opciones de postulación o patrocinio.',
 
-    // Section 4: Participa
     sec_part_badge: 'Cómo participar',
     sec_part_title: 'Tres puertas de acción transformadora',
     sec_part_desc: 'Estudiantes creadores, Institutos Tecnológicos (IEST) y aliados de impacto en una sola red colaborativa.',
     p_stu_badge: 'Para escolares · Enero – febrero 2027 (híbrido)',
     p_stu_title: 'Estudiantes (4.° y 5.°)',
     p_stu_desc: '¿Tienes una idea para cambiar la realidad de tu comunidad? Transforma tu visión en un prototipo físico tangible y conéctate con jóvenes líderes de todo el país.',
+    p_stu_s1: '<strong>Tu diagnóstico local:</strong> Cuéntanos qué desafío concreto de tu entorno quieres solucionar.',
+    p_stu_s2: '<strong>Tu video de 60 segundos:</strong> Grábate con tu celular mostrando el lugar que quieres transformar.',
+    p_stu_s3: '<strong>Fabricación en equipo:</strong> Materializa tu creación junto a jóvenes de otros colegios en el Fab Lab de tu región.',
+    p_stu_diploma: '📜 Recibe diploma oficial de innovación y fabricación digital.',
     p_stu_btn: 'Postular como estudiante →',
+
     p_iest_badge: 'Capacidad instalada',
     p_iest_title: 'Sedes IEST (Fab Labs)',
     p_iest_desc: 'Para directores y coordinadores de laboratorio de los IEST públicos: registra y valida el equipamiento disponible en tu sede regional.',
+    p_iest_c1: 'Activación de laboratorios públicos equipados.',
+    p_iest_c2: 'Articulación con los 2 núcleos de 10 y 1 sistema de 20 en tu sede.',
+    p_iest_c3: 'Reconocimiento institucional en la red nacional.',
     p_iest_btn: 'Registrar laboratorio IEST →',
+
     p_spon_badge: 'Alianzas de impacto',
     p_spon_title: 'Sponsors & Aliados',
     p_spon_desc: 'Adopta un Fab Lab público o impulsa toda la red nacional para habilitar kits electrónicos, insumos de fabricación y mentoría.',
+    p_spon_c1: 'Visibilidad institucional en sede regional.',
+    p_spon_c2: 'Participación en el Demo Day Nacional.',
+    p_spon_c3: 'Reporte de impacto y métricas abiertas.',
     p_spon_btn: 'Coordinar alianza por WhatsApp →',
-    footer_tagline: 'Convergencia antes que competencia.',
 
-    // Section 5: Metodología
     sec_method_badge: 'Metodología SimbioCreación',
     sec_method_title: 'De ideas individuales a una red nacional de co-creación',
     sec_method_desc: 'Con la metodología <strong>SimbioCreación</strong> el 100% de los saberes se integran, evolucionan y multiplican en equipo (<span class="font-bold text-teal-600 dark:text-teal-400">1 → 2 → 10 → 20</span>) hasta lograr el <strong>Máximo Impacto Posible (MIP)</strong>.',
+    comp_silo_badge: '🔹 Trabajo en silos aislados',
+    comp_silo_title: 'Esfuerzos individuales desconectados',
+    comp_silo_desc: 'Cuando las iniciativas avanzan por separado, cada grupo resuelve problemas de forma aislada y limita el alcance que podría lograr al combinar distintas habilidades.',
+    comp_simbio_badge: '✨ Metodología SimbioCreación',
+    comp_simbio_title: '100% de convergencia y coautoría',
+    comp_simbio_desc: 'Las ideas individuales (1) se potencian en duplas (2), convergen en 2 núcleos de 10 jóvenes para fabricar físicamente en el Fab Lab del IEST y se integran en 24 sistemas de 20 conectados en red.',
     p1_eyebrow: 'Principio 01',
     p1_title: 'Convergencia exponencial',
     p1_desc: 'La secuencia <strong>1 → 2 → 10 → 20</strong> transforma ideas individuales en sistemas integrados cada vez más robustos.',
@@ -90,124 +115,61 @@ window.SIMBIO_I18N = {
     scale_eyebrow: 'Grafo radial dinámico en vivo',
     scale_title: 'SimbioCreación a escala: 1 → 2 → 10 → 20 → Red',
     scale_desc: 'Visualiza en tiempo real cómo 500 escolares (24 Fab Labs públicos + 2 sedes híbridas) convergen en una red nacional.',
+    scale_btn_next: 'Siguiente etapa →',
+    scale_mip_title: '⭐ Máximo Impacto Posible (MIP)',
+    scale_mip_desc: 'Cada idea suma, evoluciona y potencia a las demás. Cada fase multiplica el valor de las anteriores, transformando cientos de inquietudes comunitarias en 24 sistemas funcionales listos para implementarse.',
+    scale_s0_lbl: '0. Ideas individuales (1)',
+    scale_s0_badge: '500 jóvenes',
+    scale_s1_lbl: '1. Duplas intercolegios (2)',
+    scale_s1_badge: '250 duplas',
+    scale_s2_lbl: '2. Núcleos en Fab Labs (10)',
+    scale_s2_badge: '48 módulos',
+    scale_s3_lbl: '3. Sistemas de 20 en IEST (20)',
+    scale_s3_badge: '24 Fab Labs',
+    scale_s4_lbl: '4. Red Nacional (Demo Day)',
+    scale_s4_badge: '1 Red',
     sel_title: 'Buscamos iniciativa, actitud autodidacta y compromiso',
     sel_desc: 'Valoramos tu creatividad, curiosidad e ingenio práctico por encima de cualquier libreta de notas. Abierto a cualquier estudiante con ganas de aprender haciendo.',
 
-    // Competencias & Indicadores
-    comp_badge: 'Alineamiento curricular e impacto',
-    comp_title: 'Competencias CNEB (Minedu) e Indicadores de Transformación',
-    comp_desc: 'Cada etapa del programa desarrolla competencias oficiales del Currículo Nacional y genera evidencia medible de transformación.',
-    comp_col_title: 'Competencias que desarrollan (CNEB)',
-    ind_col_title: 'Indicadores de Transformación (Cuantitativos y Cualitativos)',
-
-    // Section 6: Aliados & FAQ
     sec_allies_badge: 'Alianzas institucionales',
     sec_allies_title: 'Invierte en el talento creador de una región',
     sec_allies_desc: 'Súmate como organización aliada para habilitar el equipamiento y la operación de los equipos escolares hacia un <strong>Máximo Impacto Posible (MIP)</strong>.',
+    allies_open_eyebrow: 'Espacio abierto para organizaciones pioneras',
+    allies_open_desc: 'Los logos de los <strong>Aliados Fundadores</strong> que adopten un Fab Lab o impulsen la red aparecerán aquí junto a Fab Lab Perú y SimbioCreación.',
+    mentor_eyebrow: 'Red de mentores voluntarios',
+    mentor_title: '¿Eres ingeniero, diseñador, maker o educador?',
+    mentor_desc: 'Acompaña con tu experiencia técnica a un equipo regional durante enero y febrero de 2027.',
+    mentor_btn: 'Postular como mentor voluntario →',
+
     sec_faq_badge: 'Preguntas frecuentes',
     sec_faq_title: 'Claridad para estudiantes, sedes IEST y aliados',
 
-    // Dynamic arrays
+    footer_desc: 'Red de innovación y fabricación digital escolar. Conectando las 24 regiones del Perú mediante la capacidad instalada de los Fab Labs públicos de los IEST bajo la metodología SimbioCreación.',
+    footer_links_title: 'Enlaces',
+    footer_org_title: 'Organización',
+    footer_tagline: 'Convergencia antes que competencia.',
+
     pedagogy: [
-      {
-        step: '01',
-        title: 'Ideas individuales (1)',
-        period: 'Semana 1',
-        modality: 'Virtual en vivo',
-        summary: 'Cada joven identifica un desafío real de su entorno y plantea su propia propuesta inicial de solución.'
-      },
-      {
-        step: '02',
-        title: 'Duplas intercolegios (2)',
-        period: 'Semana 2',
-        modality: 'Virtual en vivo',
-        summary: 'Los participantes forman parejas de distintos colegios para fusionar sus ideas en conceptos más potentes.'
-      },
-      {
-        step: '03',
-        title: 'Núcleos en el Fab Lab (10)',
-        period: 'Semanas 3 y 4',
-        modality: 'Fabricación en IEST',
-        summary: '5 duplas convergen en 2 núcleos de 10 jóvenes y acuden al Fab Lab IEST a fabricar sus módulos físicos.'
-      },
-      {
-        step: '04',
-        title: 'Sistema de 20 y Red (20)',
-        period: 'Semanas 5 y 6',
-        modality: 'Integración y Demo Day',
-        summary: 'Los 2 núcleos se integran en 1 sistema de 20 por sede y conectan todo el país en el Demo Day Nacional.'
-      }
+      { step: '01', title: 'Ideas individuales (1)', period: 'Semana 1', modality: 'Virtual en vivo', summary: 'Cada joven identifica un desafío real de su entorno y plantea su propia propuesta inicial de solución.' },
+      { step: '02', title: 'Duplas intercolegios (2)', period: 'Semana 2', modality: 'Virtual en vivo', summary: 'Los participantes forman parejas de distintos colegios para fusionar sus ideas en conceptos más potentes.' },
+      { step: '03', title: 'Núcleos en el Fab Lab (10)', period: 'Semanas 3 y 4', modality: 'Fabricación en IEST', summary: '5 duplas convergen en 2 núcleos de 10 jóvenes y acuden al Fab Lab IEST a fabricar sus módulos físicos.' },
+      { step: '04', title: 'Sistema de 20 y Red (20)', period: 'Semanas 5 y 6', modality: 'Integración y Demo Day', summary: 'Los 2 núcleos se integran en 1 sistema de 20 por sede y conectan todo el país en el Demo Day Nacional.' }
     ],
     selectionPillars: [
-      {
-        pct: 35,
-        title: 'Iniciativa y diagnóstico local',
-        desc: 'Identifica un reto concreto de su comunidad y propone una idea tecnológica factible para abordarlo.'
-      },
-      {
-        pct: 35,
-        title: 'Curiosidad autodidacta (DIY)',
-        desc: 'Disposición para explorar, desarmar y aprender haciendo con los recursos disponibles en su entorno.'
-      },
-      {
-        pct: 30,
-        title: 'Vocación de trabajo en equipo',
-        desc: 'Entusiasmo por colaborar con jóvenes de distintos colegios e integrar saberes en una meta común.'
-      }
-    ],
-    competencies: [
-      { code: 'CNEB 27', title: 'Diseña y construye soluciones tecnológicas', desc: 'Para resolver problemas de su entorno mediante CAD, impresión 3D, corte láser y electrónica.' },
-      { code: 'CNEB 29', title: 'Gestiona su aprendizaje de manera autónoma', desc: 'Cultura autodidacta (DIY): investigar, experimentar y superar retos técnicos aprendiendo haciendo.' },
-      { code: 'CNEB 28', title: 'Se desenvuelve en entornos virtuales TIC', desc: 'Co-diseño digital en la nube, uso de software de fabricación y documentación en acceso abierto.' },
-      { code: 'CNEB 16', title: 'Convive y participa por el bien común', desc: 'Co-creación simbiótica (1 → 2 → 10 → 20), escucha activa y liderazgo distribuido intercolegios.' }
-    ],
-    indicators: [
-      { type: 'Cuantitativo', metric: '50%+ mujeres STEAM & descentralización', desc: 'Equidad de género y participación activa en las 24 regiones fuera de la capital.' },
-      { type: 'Cuantitativo', metric: 'Puente Secundaria → IEST', desc: '% de escolares que deciden seguir carreras STEM o técnicas en su región (encuesta Pre/Post).' },
-      { type: 'Cuantitativo', metric: '24 sistemas Open-Source + horas IEST', desc: 'Horas de laboratorio público activadas y planos digitales (STL/SVG/código) libres para replicar.' },
-      { type: 'Cualitativo', metric: 'Agencia juvenil y capital social', desc: 'Transformación medida Pre/Post: de espectador local a creador capaz de articular redes interregionales.' }
+      { pct: 35, title: 'Iniciativa y diagnóstico local', desc: 'Identifica un reto concreto de su comunidad y propone una idea tecnológica factible para abordarlo.' },
+      { pct: 35, title: 'Curiosidad autodidacta (DIY)', desc: 'Disposición para explorar, desarmar y aprender haciendo con los recursos disponibles en su entorno.' },
+      { pct: 30, title: 'Vocación de trabajo en equipo', desc: 'Entusiasmo por colaborar con jóvenes de distintos colegios e integrar saberes en una meta común.' }
     ],
     scaleMeta: [
-      {
-        step: 0,
-        pill: 'Etapa 0 · Semana 1 (Virtual)',
-        title: '500 saberes individuales (1)',
-        desc: 'Los participantes inician identificando un desafío concreto de su comunidad y planteando su propia propuesta tecnológica.',
-        status: '500 ideas activas en todo el país'
-      },
-      {
-        step: 1,
-        pill: 'Etapa 1 · Semana 2 (Virtual)',
-        title: '250 duplas intercolegios (2)',
-        desc: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en conceptos híbridos más potentes.',
-        status: '250 duplas co-diseñando en vivo'
-      },
-      {
-        step: 2,
-        pill: 'Etapa 2 · Semanas 3 y 4 (Fab Lab IEST)',
-        title: 'Núcleos de 10 jóvenes (10)',
-        desc: '5 duplas convergen en 2 núcleos de 10 jóvenes por sede y acuden al Fab Lab del IEST para fabricar sus módulos físicos en 3D, láser y electrónica.',
-        status: '★ Módulos fabricándose en 24 Fab Labs ★'
-      },
-      {
-        step: 3,
-        pill: 'Etapa 3 · Semana 5 (Fab Lab IEST)',
-        title: '24 sistemas integrados de 20 (20)',
-        desc: 'Los 2 núcleos de 10 se ensamblan en 1 sistema funcional de 20 jóvenes por cada uno de los 24 Fab Labs públicos (pasa el cursor sobre cada burbuja para ver su IEST).',
-        status: '24 sistemas funcionales en los 24 Fab Labs'
-      },
-      {
-        step: 4,
-        pill: 'Etapa 4 · Semana 6 (Demo Day)',
-        title: '1 sola Red Nacional interconectada',
-        desc: 'Convergencia total: los 24 sistemas construidos en los Fab Labs públicos (y sedes híbridas) se presentan en vivo conectados en una sola red nacional.',
-        status: 'Red Nacional en vivo · Máximo Impacto Posible'
-      }
+      { step: 0, pill: 'Etapa 0 · Semana 1 (Virtual)', title: '500 saberes individuales (1)', desc: 'Los participantes inician identificando un desafío concreto de su comunidad y planteando su propia propuesta tecnológica.', status: '500 ideas activas en todo el país' },
+      { step: 1, pill: 'Etapa 1 · Semana 2 (Virtual)', title: '250 duplas intercolegios (2)', desc: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en conceptos híbridos más potentes.', status: '250 duplas co-diseñando en vivo' },
+      { step: 2, pill: 'Etapa 2 · Semanas 3 y 4 (Fab Lab IEST)', title: 'Núcleos de 10 jóvenes (10)', desc: '5 duplas convergen en 2 núcleos de 10 jóvenes por sede y acuden al Fab Lab del IEST para fabricar sus módulos físicos en 3D, láser y electrónica.', status: '★ Módulos fabricándose en 24 Fab Labs ★' },
+      { step: 3, pill: 'Etapa 3 · Semana 5 (Fab Lab IEST)', title: '24 sistemas integrados de 20 (20)', desc: 'Los 2 núcleos de 10 se ensamblan en 1 sistema funcional de 20 jóvenes por cada uno de los 24 Fab Labs públicos (pasa el cursor sobre cada burbuja para ver su IEST).', status: '24 sistemas funcionales en los 24 Fab Labs' },
+      { step: 4, pill: 'Etapa 4 · Semana 6 (Demo Day)', title: '1 sola Red Nacional interconectada', desc: 'Convergencia total: los 24 sistemas construidos en los Fab Labs públicos (y sedes híbridas) se presentan en vivo conectados en una sola red nacional.', status: 'Red Nacional en vivo · Máximo Impacto Posible' }
     ]
   },
 
   en: {
-    // Nav & CTAs
     nav_program: 'Program',
     nav_map: '24 Fab Labs Map',
     nav_join: 'Join',
@@ -216,7 +178,6 @@ window.SIMBIO_I18N = {
     cta_apply: 'Apply',
     cta_adopt: 'Adopt a region',
 
-    // Hero
     hero_h1: '24 regions creating <br><span class="rot" id="hero-rot-words"><span class="gradient-text-teal">real solutions</span></span> <br>from public Fab Labs.',
     hero_rot_words: ['real solutions', 'physical prototypes', 'talent networks', 'local innovation', 'live co-creation'],
     hero_lead: 'We connect 500 high school students across Peru with 24 public IEST Fab Labs (plus hybrid regional hubs), turning local challenges into real solutions through SimbioCreación.',
@@ -225,7 +186,6 @@ window.SIMBIO_I18N = {
     hero_sponsor: '🤝 Partner / Sponsor',
     hero_badge: 'National network · 24 public Fab Labs connected',
 
-    // Section 2: Programa
     sec_prog_badge: 'The Program',
     sec_prog_title: 'Talent is everywhere in Peru. <br class="hidden sm:inline"><span class="text-teal-600 dark:text-teal-400">So are the labs.</span>',
     sec_prog_desc: 'The State has already equipped 24 public Fab Labs in Technological Institutes across the country. SimbioMakers builds the bridge so curious teens turn them into innovation engines for their communities.',
@@ -249,8 +209,13 @@ window.SIMBIO_I18N = {
     spot_eyebrow: 'Real territorial challenges',
     spot_title: 'What local challenges inspire our youth?',
     spot_link: 'Explore the 24 public Fab Labs',
+    spot_1_title: 'Safe water on Amazon rivers',
+    spot_1_desc: 'Solar purification modules and community flood-monitoring buoys designed from Iquitos.',
+    spot_2_title: 'Smart shield against Andean frost',
+    spot_2_desc: 'Automated greenhouses and low-cost thermal sensors protecting Andean crops and newborn alpacas.',
+    spot_3_title: 'Smart irrigation & coastal monitoring',
+    spot_3_desc: 'Soil moisture sensors for efficient agriculture and environmental monitoring devices for coastal ecosystems.',
 
-    // Section 3: Mapa
     sec_map_badge: 'National Mapping',
     sec_map_title: '24 Public Fab Labs & Territorial Focus',
     sec_map_desc: 'Click any region on the map to inspect its host public Fab Lab, local focus areas, and connection to the national network.',
@@ -258,29 +223,53 @@ window.SIMBIO_I18N = {
     stat_women_lbl: 'STEAM female goal',
     view_map: 'Map',
     view_grid: 'Grid',
+    filter_all: 'All (25)',
+    filter_spon_all: 'All',
+    filter_spon_avail: 'Available',
+    filter_spon_spon: 'Sponsored',
+    map_legend_title: 'Lab Status',
+    map_legend_spon: 'Sponsored lab',
+    map_legend_avail: 'Fab Lab available',
+    map_legend_pend: 'Hybrid · To activate',
+    map_hint: '💡 Click any region to view its technical profile and application or sponsorship options.',
 
-    // Section 4: Participa
     sec_part_badge: 'How to Join',
     sec_part_title: 'Three Pathways for Action',
     sec_part_desc: 'Creative students, public Technological Institutes (IEST), and impact partners in one collaborative network.',
     p_stu_badge: 'For high schoolers · Jan – Feb 2027 (hybrid)',
     p_stu_title: 'Students (4th & 5th yr)',
     p_stu_desc: 'Have an idea to transform your community? Turn your vision into a tangible physical prototype and connect with young leaders across the country.',
+    p_stu_s1: '<strong>Your local diagnosis:</strong> Tell us which concrete neighborhood or school challenge you want to solve.',
+    p_stu_s2: '<strong>Your 60-second video:</strong> Record yourself on your phone showing the place you want to transform.',
+    p_stu_s3: '<strong>Team fabrication:</strong> Build your creation alongside peers from other schools at your regional Fab Lab.',
+    p_stu_diploma: '📜 Receive an official diploma in innovation & digital fabrication.',
     p_stu_btn: 'Apply as a student →',
+
     p_iest_badge: 'Installed capacity',
     p_iest_title: 'IEST Sites (Fab Labs)',
     p_iest_desc: 'For directors and lab coordinators of public IESTs: register and validate available digital fabrication equipment at your regional site.',
+    p_iest_c1: 'Activation of equipped public laboratories.',
+    p_iest_c2: 'Coordination with 2 hubs of 10 and 1 integrated 20-student system.',
+    p_iest_c3: 'Institutional recognition across the national network.',
     p_iest_btn: 'Register IEST Lab →',
+
     p_spon_badge: 'Impact partnerships',
     p_spon_title: 'Sponsors & Partners',
     p_spon_desc: 'Adopt a public Fab Lab or support the entire national network to provide electronics kits, fabrication supplies, and mentorship.',
+    p_spon_c1: 'Institutional visibility at the regional site.',
+    p_spon_c2: 'Participation in the National Demo Day.',
+    p_spon_c3: 'Open impact reporting and metrics.',
     p_spon_btn: 'Coordinate partnership (WhatsApp) →',
-    footer_tagline: 'Convergence over competition.',
 
-    // Section 5: Metodología
     sec_method_badge: 'SimbioCreación Methodology',
     sec_method_title: 'From individual ideas to a national co-creation network',
     sec_method_desc: 'Through <strong>SimbioCreación</strong>, 100% of knowledge integrates, evolves, and multiplies together (<span class="font-bold text-teal-600 dark:text-teal-400">1 → 2 → 10 → 20</span>) toward the <strong>Maximum Possible Impact (MIP)</strong>.',
+    comp_silo_badge: '🔹 Working in isolated silos',
+    comp_silo_title: 'Disconnected individual efforts',
+    comp_silo_desc: 'When initiatives move forward separately, each group solves problems in isolation and limits the reach achievable by combining diverse skills.',
+    comp_simbio_badge: '✨ SimbioCreación Methodology',
+    comp_simbio_title: '100% convergence & co-authorship',
+    comp_simbio_desc: 'Individual ideas (1) grow in pairs (2), converge into 2 hubs of 10 students to fabricate physically at the IEST Fab Lab, and integrate into 24 connected 20-student systems.',
     p1_eyebrow: 'Principle 01',
     p1_title: 'Exponential convergence',
     p1_desc: 'The <strong>1 → 2 → 10 → 20</strong> sequence transforms individual ideas into increasingly robust integrated systems.',
@@ -293,119 +282,57 @@ window.SIMBIO_I18N = {
     scale_eyebrow: 'Live dynamic radial graph',
     scale_title: 'SimbioCreación at scale: 1 → 2 → 10 → 20 → Network',
     scale_desc: 'Watch in real time how 500 students (24 public Fab Labs + 2 hybrid hubs) converge into one national network.',
+    scale_btn_next: 'Next stage →',
+    scale_mip_title: '⭐ Maximum Possible Impact (MIP)',
+    scale_mip_desc: 'Every idea adds up, evolves, and empowers the rest. Each stage multiplies prior value, turning hundreds of community questions into 24 working systems ready to deploy.',
+    scale_s0_lbl: '0. Individual ideas (1)',
+    scale_s0_badge: '500 students',
+    scale_s1_lbl: '1. Cross-school pairs (2)',
+    scale_s1_badge: '250 pairs',
+    scale_s2_lbl: '2. Fab Lab hubs (10)',
+    scale_s2_badge: '48 modules',
+    scale_s3_lbl: '3. 20-student IEST systems (20)',
+    scale_s3_badge: '24 Fab Labs',
+    scale_s4_lbl: '4. National Network (Demo Day)',
+    scale_s4_badge: '1 Network',
     sel_title: 'We value initiative, self-learning & commitment',
     sel_desc: 'We prioritize creativity, curiosity, and practical ingenuity over school grades. Open to any student eager to learn by doing.',
 
-    // Competencias & Indicadores
-    comp_badge: 'Curriculum alignment & impact',
-    comp_title: 'National Competencies (Minedu) & Transformation KPIs',
-    comp_desc: 'Every stage builds official National Curriculum competencies while generating measurable transformation evidence.',
-    comp_col_title: 'Core Competencies Developed (CNEB)',
-    ind_col_title: 'Transformation Indicators (Quantitative & Qualitative)',
-
-    // Section 6: Aliados & FAQ
     sec_allies_badge: 'Institutional Partnerships',
     sec_allies_title: 'Invest in regional creative talent',
     sec_allies_desc: 'Join as a partner organization to power lab operations and materials toward <strong>Maximum Possible Impact (MIP)</strong>.',
+    allies_open_eyebrow: 'Open space for pioneering organizations',
+    allies_open_desc: 'Logos of <strong>Founding Partners</strong> who adopt a Fab Lab or support the network will appear here alongside Fab Lab Peru and SimbioCreación.',
+    mentor_eyebrow: 'Volunteer mentor network',
+    mentor_title: 'Are you an engineer, designer, maker, or educator?',
+    mentor_desc: 'Support a regional student team with your technical experience during January and February 2027.',
+    mentor_btn: 'Apply as a volunteer mentor →',
+
     sec_faq_badge: 'FAQ',
     sec_faq_title: 'Clarity for students, IEST labs & partners',
 
-    // Dynamic arrays
+    footer_desc: 'School innovation and digital fabrication network. Connecting all 24 regions of Peru through public IEST Fab Labs under the SimbioCreación methodology.',
+    footer_links_title: 'Links',
+    footer_org_title: 'Organization',
+    footer_tagline: 'Convergence over competition.',
+
     pedagogy: [
-      {
-        step: '01',
-        title: 'Individual ideas (1)',
-        period: 'Week 1',
-        modality: 'Live virtual',
-        summary: 'Each student identifies a real community challenge and drafts their own initial solution concept.'
-      },
-      {
-        step: '02',
-        title: 'Cross-school pairs (2)',
-        period: 'Week 2',
-        modality: 'Live virtual',
-        summary: 'Students pair up across different schools to merge their ideas into stronger hybrid concepts.'
-      },
-      {
-        step: '03',
-        title: 'Fab Lab hubs (10)',
-        period: 'Weeks 3 & 4',
-        modality: 'IEST Fabrication',
-        summary: '5 pairs converge into 2 hubs of 10 students and visit the IEST Fab Lab to build physical modules.'
-      },
-      {
-        step: '04',
-        title: '20-Student System & Network',
-        period: 'Weeks 5 & 6',
-        modality: 'Integration & Demo Day',
-        summary: 'Both hubs merge into 1 system of 20 per lab and connect all 24 systems at the National Demo Day.'
-      }
+      { step: '01', title: 'Individual ideas (1)', period: 'Week 1', modality: 'Live virtual', summary: 'Each student identifies a real community challenge and drafts their own initial solution concept.' },
+      { step: '02', title: 'Cross-school pairs (2)', period: 'Week 2', modality: 'Live virtual', summary: 'Students pair up across different schools to merge their ideas into stronger hybrid concepts.' },
+      { step: '03', title: 'Fab Lab hubs (10)', period: 'Weeks 3 & 4', modality: 'IEST Fabrication', summary: '5 pairs converge into 2 hubs of 10 students and visit the IEST Fab Lab to build physical modules.' },
+      { step: '04', title: '20-Student System & Network', period: 'Weeks 5 & 6', modality: 'Integration & Demo Day', summary: 'Both hubs merge into 1 system of 20 per lab and connect all 24 systems at the National Demo Day.' }
     ],
     selectionPillars: [
-      {
-        pct: 35,
-        title: 'Local initiative & diagnosis',
-        desc: 'Identifies a concrete community challenge and proposes a feasible technological idea to address it.'
-      },
-      {
-        pct: 35,
-        title: 'Self-taught curiosity (DIY)',
-        desc: 'Eagerness to explore, tinker, and learn by doing using everyday resources available around them.'
-      },
-      {
-        pct: 30,
-        title: 'Teamwork vocation',
-        desc: 'Enthusiasm to collaborate with peers from other schools and integrate knowledge toward a shared goal.'
-      }
-    ],
-    competencies: [
-      { code: 'CNEB 27', title: 'Designs & builds technological solutions', desc: 'Solves real community challenges using CAD, 3D printing, laser cutting, and electronics.' },
-      { code: 'CNEB 29', title: 'Manages learning autonomously', desc: 'DIY self-taught mindset: researching, experimenting, and overcoming technical hurdles by doing.' },
-      { code: 'CNEB 28', title: 'Operates in digital ICT environments', desc: 'Cloud co-design, digital fabrication software, and open-access documentation.' },
-      { code: 'CNEB 16', title: 'Coexists & participates for common good', desc: 'Symbiotic co-creation (1 → 2 → 10 → 20), active listening, and distributed cross-school leadership.' }
-    ],
-    indicators: [
-      { type: 'Quantitative', metric: '50%+ female in STEAM & decentralization', desc: 'Gender equity and active participation across all 24 regions beyond the capital city.' },
-      { type: 'Quantitative', metric: 'High School → IEST bridge', desc: '% of students choosing STEM or technical higher-ed careers after the program (Pre/Post survey).' },
-      { type: 'Quantitative', metric: '24 Open-Source systems + lab hours', desc: 'Public Fab Lab hours activated and open blueprints (STL/SVG/code) free to replicate.' },
-      { type: 'Qualitative', metric: 'Youth agency & social capital', desc: 'Pre/Post shift: from passive observer to creator building cross-regional collaboration networks.' }
+      { pct: 35, title: 'Local initiative & diagnosis', desc: 'Identifies a concrete community challenge and proposes a feasible technological idea to address it.' },
+      { pct: 35, title: 'Self-taught curiosity (DIY)', desc: 'Eagerness to explore, tinker, and learn by doing using everyday resources available around them.' },
+      { pct: 30, title: 'Teamwork vocation', desc: 'Enthusiasm to collaborate with peers from other schools and integrate knowledge toward a shared goal.' }
     ],
     scaleMeta: [
-      {
-        step: 0,
-        pill: 'Stage 0 · Week 1 (Virtual)',
-        title: '500 individual ideas (1)',
-        desc: 'Participants start by identifying a concrete community challenge and proposing their own tech solution.',
-        status: '500 active ideas nationwide'
-      },
-      {
-        step: 1,
-        pill: 'Stage 1 · Week 2 (Virtual)',
-        title: '250 cross-school pairs (2)',
-        desc: 'Students pair up across different schools to merge their concepts into stronger hybrid proposals.',
-        status: '250 pairs co-designing live'
-      },
-      {
-        step: 2,
-        pill: 'Stage 2 · Weeks 3 & 4 (IEST Fab Lab)',
-        title: '10-student Fab Lab hubs (10)',
-        desc: '5 pairs converge into 2 hubs of 10 students per lab to fabricate physical modules using 3D printing, laser & electronics.',
-        status: '★ Modules fabricated across 24 Fab Labs ★'
-      },
-      {
-        step: 3,
-        pill: 'Stage 3 · Week 5 (IEST Fab Lab)',
-        title: '24 integrated 20-student systems (20)',
-        desc: 'Both 10-student hubs assemble into 1 working system per public Fab Lab (hover any bubble to inspect its IEST).',
-        status: '24 working systems across 24 Fab Labs'
-      },
-      {
-        step: 4,
-        pill: 'Stage 4 · Week 6 (Demo Day)',
-        title: '1 interconnected National Network',
-        desc: 'Full convergence: all 24 Fab Lab systems (plus hybrid hubs) showcase live as one national innovation network.',
-        status: 'National Network Live · Maximum Possible Impact'
-      }
+      { step: 0, pill: 'Stage 0 · Week 1 (Virtual)', title: '500 individual ideas (1)', desc: 'Participants start by identifying a concrete community challenge and proposing their own tech solution.', status: '500 active ideas nationwide' },
+      { step: 1, pill: 'Stage 1 · Week 2 (Virtual)', title: '250 cross-school pairs (2)', desc: 'Students pair up across different schools to merge their concepts into stronger hybrid proposals.', status: '250 pairs co-designing live' },
+      { step: 2, pill: 'Stage 2 · Weeks 3 & 4 (IEST Fab Lab)', title: '10-student Fab Lab hubs (10)', desc: '5 pairs converge into 2 hubs of 10 students per lab to fabricate physical modules using 3D printing, laser & electronics.', status: '★ Modules fabricated across 24 Fab Labs ★' },
+      { step: 3, pill: 'Stage 3 · Week 5 (IEST Fab Lab)', title: '24 integrated 20-student systems (20)', desc: 'Both 10-student hubs assemble into 1 working system per public Fab Lab (hover any bubble to inspect its IEST).', status: '24 working systems across 24 Fab Labs' },
+      { step: 4, pill: 'Stage 4 · Week 6 (Demo Day)', title: '1 interconnected National Network', desc: 'Full convergence: all 24 Fab Lab systems (plus hybrid hubs) showcase live as one national innovation network.', status: 'National Network Live · Maximum Possible Impact' }
     ]
   }
 };

@@ -335,7 +335,7 @@
 
         <!-- Right Column: Bright 3D Maquette Interconnected Peru Network -->
         <div class="lg:col-span-5">
-          <div id="hero-peru-card" class="relative rounded-3xl bg-gradient-to-br from-slate-50 via-white to-teal-50/40 dark:from-[#0B1324] dark:via-[#0F172A] dark:to-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-6 min-h-[420px] flex items-center justify-center overflow-hidden">
+          <div id="hero-peru-card" class="relative rounded-3xl bg-gradient-to-br from-slate-50 via-white to-teal-50/40 dark:from-[#0B1324] dark:via-[#0F172A] dark:to-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-6 min-h-[320px] sm:min-h-[420px] flex items-center justify-center overflow-hidden">
             <!-- Subtle dot grid & ambient glow -->
             <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:18px_18px] opacity-50 pointer-events-none"></div>
             <div class="absolute -top-16 -right-16 w-64 h-64 bg-teal-400/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -387,25 +387,25 @@
         <div class="flex items-center gap-3 px-3 py-1">
           <span class="text-xl">📅</span>
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Cuándo</span>
-            <span class="text-xs font-bold text-slate-900 dark:text-white">Enero – febrero 2027</span>
-            <span class="text-[11px] text-slate-500 block">Edición vacacional · 6 semanas</span>
+            <span data-i18n="bar_when_lbl" class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Cuándo</span>
+            <span data-i18n="bar_when_val" class="text-xs font-bold text-slate-900 dark:text-white">Enero – febrero 2027</span>
+            <span data-i18n="bar_when_sub" class="text-[11px] text-slate-500 block">Edición vacacional · 6 semanas</span>
           </div>
         </div>
         <div class="flex items-center gap-3 px-3 py-1 sm:border-l border-slate-200 dark:border-slate-700">
           <span class="text-xl">🔄</span>
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Modalidad</span>
-            <span class="text-xs font-bold text-teal-700 dark:text-teal-300">Formato híbrido</span>
-            <span class="text-[11px] text-slate-500 block">Sesiones virtuales + fabricación en IEST</span>
+            <span data-i18n="bar_mod_lbl" class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Modalidad</span>
+            <span data-i18n="bar_mod_val" class="text-xs font-bold text-teal-700 dark:text-teal-300">Formato híbrido</span>
+            <span data-i18n="bar_mod_sub" class="text-[11px] text-slate-500 block">Sesiones virtuales + fabricación en IEST</span>
           </div>
         </div>
         <div class="flex items-center gap-3 px-3 py-1 sm:border-l border-slate-200 dark:border-slate-700">
           <span class="text-xl">🎓</span>
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Participantes</span>
-            <span class="text-xs font-bold text-slate-900 dark:text-white">4.° y 5.° de secundaria</span>
-            <span class="text-[11px] text-slate-500 block">Verano 2027 · Todo el Perú</span>
+            <span data-i18n="bar_part_lbl" class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Participantes</span>
+            <span data-i18n="bar_part_val" class="text-xs font-bold text-slate-900 dark:text-white">4.° y 5.° de secundaria</span>
+            <span data-i18n="bar_part_sub" class="text-[11px] text-slate-500 block">Verano 2027 · 500 escolares</span>
           </div>
         </div>
       </div>
@@ -416,7 +416,7 @@
           <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">Fabricación en tu Fab Lab IEST</h3>
+          <h3 data-i18n="prog_p1_title" class="font-bold text-base text-slate-900 dark:text-white">Fabricación en tu Fab Lab IEST</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             Acude al laboratorio público de tu región para imprimir en 3D, cortar con láser y ensamblar físicamente las creaciones de tu equipo.
           </p>
@@ -426,7 +426,7 @@
           <div class="w-10 h-10 rounded-xl bg-cyan-600 text-white flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">Impresoras 3D, láser y kits</h3>
+          <h3 data-i18n="prog_p2_title" class="font-bold text-base text-slate-900 dark:text-white">Impresoras 3D, láser y kits</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             Usa máquinas de fabricación digital, placas programables (Arduino/ESP32) y sensores para construir prototipos funcionales.
           </p>
@@ -436,7 +436,7 @@
           <div class="w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">De tu idea al equipo regional</h3>
+          <h3 data-i18n="prog_p3_title" class="font-bold text-base text-slate-900 dark:text-white">De tu idea al sistema regional</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             Inicias con tu idea individual (1), formas dupla (2), prototipas en un núcleo de 10 en el Fab Lab y te integras en un sistema de 20 conectado a todo el país.
           </p>
@@ -446,7 +446,7 @@
           <div class="w-10 h-10 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">Diploma oficial y Demo Day</h3>
+          <h3 data-i18n="prog_p4_title" class="font-bold text-base text-slate-900 dark:text-white">Diploma oficial y Demo Day</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             Presentación nacional en vivo de cada prototipo y diploma oficial otorgado por Fab Lab Perú y SimbioCreación.
           </p>
@@ -457,11 +457,11 @@
       <div class="bg-white dark:bg-slate-800/60 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-700 shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <span class="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Desafíos reales por territorio</span>
-            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-0.5">¿Qué problemáticas inspiran a nuestros jóvenes?</h3>
+            <span data-i18n="spot_eyebrow" class="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Desafíos reales por territorio</span>
+            <h3 data-i18n="spot_title" class="font-display font-bold text-xl text-slate-900 dark:text-white mt-0.5">¿Qué problemáticas inspiran a nuestros jóvenes?</h3>
           </div>
           <a href="#mapa" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1 whitespace-nowrap">
-            <span>Explorar los 24 Fab Labs públicos</span>
+            <span data-i18n="spot_link">Explorar los 24 Fab Labs públicos</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </a>
         </div>
@@ -472,7 +472,7 @@
               <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Amazonía · Loreto</span>
               <span class="text-xs text-slate-400">IESTP P. Del Águila</span>
             </div>
-            <h4 class="font-bold text-sm text-slate-900 dark:text-white">Agua segura en ríos amazónicos</h4>
+            <h4 data-i18n="spot_1_title" class="font-bold text-sm text-slate-900 dark:text-white">Agua segura en ríos amazónicos</h4>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
               Módulos de purificación solar y boyas comunitarias con sensores de crecida diseñadas desde Iquitos.
             </p>
@@ -483,7 +483,7 @@
               <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 dark:bg-cyan-950/60 dark:text-cyan-300">Andes · Huancavelica y Puno</span>
               <span class="text-xs text-slate-400">IESTP locales</span>
             </div>
-            <h4 class="font-bold text-sm text-slate-900 dark:text-white">Escudo inteligente contra heladas</h4>
+            <h4 data-i18n="spot_2_title" class="font-bold text-sm text-slate-900 dark:text-white">Escudo inteligente contra heladas</h4>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
               Invernaderos automatizados y sensores térmicos de bajo costo para proteger cultivos andinos y alpacas neonatas.
             </p>
@@ -494,7 +494,7 @@
               <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-pink-700 dark:bg-pink-950/60 dark:text-pink-300">Costa · Piura y Callao</span>
               <span class="text-xs text-slate-400">IESTP Grau / S. Bolívar</span>
             </div>
-            <h4 class="font-bold text-sm text-slate-900 dark:text-white">Agro eficiente y monitoreo marino</h4>
+            <h4 data-i18n="spot_3_title" class="font-bold text-sm text-slate-900 dark:text-white">Agro eficiente y monitoreo marino</h4>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
               Sensores de humedad para riego inteligente y dispositivos de monitoreo ambiental para ecosistemas costeros.
             </p>
@@ -551,7 +551,7 @@
         
         <!-- Macrorregión Pills -->
         <div class="flex items-center gap-1.5 flex-wrap w-full lg:w-auto">
-          <button data-filter="all" class="filter-macro-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-teal-600 text-white shadow-sm">Todas (25)</button>
+          <button data-filter="all" class="filter-macro-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-teal-600 text-white shadow-sm"><span data-i18n="filter_all">Todas (25)</span></button>
           <button data-filter="Norte" class="filter-macro-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Norte</button>
           <button data-filter="Centro" class="filter-macro-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Centro</button>
           <button data-filter="Sur" class="filter-macro-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Sur</button>
@@ -583,10 +583,10 @@
       <div id="peru-map-view-section" class="relative bg-slate-50/60 dark:bg-slate-900/60 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm">
         
         <div class="absolute top-6 left-6 z-10 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs space-y-1.5 hidden sm:block">
-          <div class="font-bold text-slate-900 dark:text-white">Estado de sedes</div>
+          <div data-i18n="map_legend_title" class="font-bold text-slate-900 dark:text-white">Estado de sedes</div>
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-teal-600"></span>
-            <span class="text-slate-600 dark:text-slate-300">Sede patrocinada</span>
+            <span data-i18n="map_legend_spon" class="text-slate-600 dark:text-slate-300">Sede patrocinada</span>
           </div>
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700"></span>
@@ -598,7 +598,7 @@
         <div id="map-tooltip" class="hidden absolute z-30 pointer-events-none bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-3 rounded-xl border border-teal-500/30 shadow-xl max-w-xs transition-opacity duration-150"></div>
 
         <!-- SVG Map of Peru -->
-        <div id="peru-map-svg-container" class="w-full flex items-center justify-center min-h-[480px]"></div>
+        <div id="peru-map-svg-container" class="w-full flex items-center justify-center min-h-[360px] sm:min-h-[480px]"></div>
 
         <div class="mt-4 text-center text-xs text-slate-400">
           💡 <em>Toca cualquier región para desplegar su ficha técnica y opciones de postulación o patrocinio.</em>
@@ -841,9 +841,9 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div class="bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-7 border border-slate-200 dark:border-slate-700">
           <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 font-bold text-xs uppercase tracking-wider mb-2">
-            <span>🔹 Trabajo en silos aislados</span>
+            <span data-i18n="comp_silo_badge">🔹 Trabajo en silos aislados</span>
           </div>
-          <h3 class="font-bold text-xl text-slate-900 dark:text-white">Esfuerzos individuales desconectados</h3>
+          <h3 data-i18n="comp_silo_title" class="font-bold text-xl text-slate-900 dark:text-white">Esfuerzos individuales desconectados</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             Cuando las iniciativas avanzan por separado, cada grupo resuelve problemas de forma aislada y limita el alcance que podría lograr al combinar distintas habilidades.
           </p>
@@ -851,9 +851,9 @@
 
         <div class="bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-7 border-2 border-teal-500 shadow-sm">
           <div class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold text-xs uppercase tracking-wider mb-2">
-            <span>✨ Metodología SimbioCreación</span>
+            <span data-i18n="comp_simbio_badge">✨ Metodología SimbioCreación</span>
           </div>
-          <h3 class="font-bold text-xl text-slate-900 dark:text-white">100% de convergencia y coautoría</h3>
+          <h3 data-i18n="comp_simbio_title" class="font-bold text-xl text-slate-900 dark:text-white">100% de convergencia y coautoría</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             Las ideas individuales (1) se potencian en duplas (2), convergen en 2 núcleos de 10 jóvenes para fabricar físicamente en el Fab Lab del IEST y se integran en 24 sistemas de 20 conectados en red.
           </p>
@@ -863,21 +863,21 @@
       <!-- 3 Principios de SimbioCreación (De MVP a MIP) -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
         <div class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-          <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-600 dark:text-teal-400">Principio 01</span>
-          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">Convergencia exponencial</h4>
+          <span data-i18n="p1_eyebrow" class="text-[10px] font-extrabold uppercase tracking-wider text-teal-600 dark:text-teal-400">Principio 01</span>
+          <h4 data-i18n="p1_title" class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">Convergencia exponencial</h4>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
             La secuencia <strong>1 → 2 → 10 → 20</strong> transforma ideas individuales en sistemas integrados cada vez más robustos.
           </p>
         </div>
         <div class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-          <span class="text-[10px] font-extrabold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Principio 02</span>
-          <h4 class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">100% coautoría colectiva</h4>
+          <span data-i18n="p2_eyebrow" class="text-[10px] font-extrabold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Principio 02</span>
+          <h4 data-i18n="p2_title" class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">100% coautoría colectiva</h4>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
             Cada participante aporta sus saberes desde la primera semana hasta la integración final del sistema en su Fab Lab.
           </p>
         </div>
         <div class="bg-slate-50 dark:bg-slate-800/80 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-          <span class="text-[10px] font-extrabold uppercase tracking-wider text-pink-600 dark:text-pink-400">Principio 03</span>
+          <span data-i18n="p3_eyebrow" class="text-[10px] font-extrabold uppercase tracking-wider text-pink-600 dark:text-pink-400">Principio 03</span>
           <h4 data-i18n="p3_title" class="font-display font-bold text-base text-slate-900 dark:text-white mt-1">De MPV a MIP</h4>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
             Superamos el Mínimo Producto Viable (MPV) para cocrear soluciones de <strong>Máximo Impacto Posible (MIP)</strong>.
@@ -909,7 +909,7 @@
               <span>▶ Reproducir</span>
             </button>
             <button id="btnScale500Next" type="button" class="px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-all">
-              Siguiente etapa →
+              <span data-i18n="scale_btn_next">Siguiente etapa →</span>
             </button>
             <button id="btnScale500Fullscreen" type="button" title="Pantalla completa (Tecla F)" aria-label="Pantalla completa" class="p-2 rounded-xl text-slate-500 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
@@ -951,23 +951,23 @@
               <!-- Lista de Etapas Clickables -->
               <div class="mt-4 flex flex-col gap-1.5" id="scale500StepsList">
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent bg-teal-50 dark:bg-teal-950/60 border-teal-300 dark:border-teal-700 text-teal-900 dark:text-teal-200 font-bold" data-step="0">
-                  <span>0. Ideas individuales (1)</span>
+                  <span data-i18n="scale_s0_lbl">0. Ideas individuales (1)</span>
                   <span class="text-[10px] px-2 py-0.5 rounded-full bg-teal-200/60 dark:bg-teal-900 text-teal-800 dark:text-teal-200">500 jóvenes</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="1">
-                  <span>1. Duplas intercolegios (2)</span>
+                  <span data-i18n="scale_s1_lbl">1. Duplas intercolegios (2)</span>
                   <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">250 duplas</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="2">
-                  <span>2. Núcleos en Fab Labs (10)</span>
+                  <span data-i18n="scale_s2_lbl">2. Núcleos en Fab Labs (10)</span>
                   <span class="text-[10px] px-2 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300">48 módulos</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="3">
-                  <span>3. Sistemas de 20 en IEST (20)</span>
+                  <span data-i18n="scale_s3_lbl">3. Sistemas de 20 en IEST (20)</span>
                   <span class="text-[10px] px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-300">24 Fab Labs</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="4">
-                  <span>4. Red Nacional (Demo Day)</span>
+                  <span data-i18n="scale_s4_lbl">4. Red Nacional (Demo Day)</span>
                   <span class="text-[10px] px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300">1 Red</span>
                 </button>
               </div>
@@ -1037,12 +1037,12 @@
       <!-- Volunteer Mentors Callout (Separate from Sponsors) -->
       <div class="max-w-4xl mx-auto mt-6 bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Red de mentores voluntarios</span>
-          <h4 class="font-bold text-base text-slate-900 dark:text-white mt-0.5">¿Eres ingeniero, diseñador, maker o educador?</h4>
+          <span data-i18n="mentor_eyebrow" class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Red de mentores voluntarios</span>
+          <h4 data-i18n="mentor_title" class="font-bold text-base text-slate-900 dark:text-white mt-0.5">¿Eres ingeniero, diseñador, maker o educador?</h4>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Acompaña con tu experiencia técnica a un equipo regional durante enero y febrero de 2027.</p>
         </div>
         <button onclick="window.openModal('modal-mentor')" class="px-5 py-3 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 transition-all whitespace-nowrap flex-shrink-0">
-          Postular como mentor voluntario &rarr;
+          <span data-i18n="mentor_btn">Postular como mentor voluntario →</span>
         </button>
       </div>
 
@@ -1106,18 +1106,28 @@
             <span class="w-px h-6 bg-slate-200 dark:bg-slate-800"></span>
 
             <!-- Official Fab Lab Perú PNG logo (exact original proportions) -->
-                        <!-- Unified Vector SVG Logo: Fab Lab Perú (consistent across Light/Dark) -->
+                        <!-- Refined Vector SVG Logo: Fab Lab Perú (from original design, clean transparent bg) -->
             <a href="https://fab.pe" target="_blank" rel="noopener noreferrer" title="Fab Lab Perú" class="inline-flex items-center">
-              <svg class="brand-fablab-svg" style="height: 28px;" viewBox="0 0 185 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Fab Lab Perú">
-                <!-- Isotipo clásico Fab Lab (3 lóbulos simétricos) -->
-                <g transform="translate(2, 2)">
-                  <path d="M16 2 C19 2, 21.5 4.5, 21.5 7.5 C21.5 10.5, 19 13, 16 13 C13 13, 10.5 10.5, 10.5 7.5 C10.5 4.5, 13 2, 16 2 Z" stroke="#16a34a" stroke-width="2.6" fill="none"/>
-                  <path d="M7.5 16.5 C10.5 16.5, 13 19, 13 22 C13 25, 10.5 27.5, 7.5 27.5 C4.5 27.5, 2 25, 2 22 C2 19, 4.5 16.5, 7.5 16.5 Z" stroke="#e11d48" stroke-width="2.6" fill="none"/>
-                  <path d="M24.5 16.5 C27.5 16.5, 30 19, 30 22 C30 25, 27.5 27.5, 24.5 27.5 C21.5 27.5, 19 25, 19 22 C19 19, 21.5 16.5, 24.5 16.5 Z" stroke="#0284c7" stroke-width="2.6" fill="none"/>
-                  <circle cx="16" cy="17" r="2.2" class="fl-text"/>
+              <svg class="brand-fablab-svg" style="height: 26px;" viewBox="0 0 188 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Fab Lab Perú">
+                <g transform="translate(16,16)">
+                  <!-- Azul (arriba) -->
+                  <path d="M -10.4 -8.1 A 13.2 13.2 0 0 1 10.4 -8.1 L 8.2 -5.8 L 0 -10.2 L -8.2 -5.8 Z" fill="#234fa2" />
+                  <rect x="-1.2" y="-10.2" width="2.4" height="3.2" fill="#234fa2" />
+                  <ellipse cx="0" cy="-5.6" rx="3.1" ry="2.3" fill="#234fa2" />
+                  <!-- Verde (abajo derecha) -->
+                  <g transform="rotate(120)">
+                    <path d="M -10.4 -8.1 A 13.2 13.2 0 0 1 10.4 -8.1 L 8.2 -5.8 L 0 -10.2 L -8.2 -5.8 Z" fill="#008c45" />
+                    <rect x="-1.2" y="-10.2" width="2.4" height="3.2" fill="#008c45" />
+                    <ellipse cx="0" cy="-5.6" rx="3.1" ry="2.3" fill="#008c45" />
+                  </g>
+                  <!-- Rojo (abajo izquierda) -->
+                  <g transform="rotate(240)">
+                    <path d="M -10.4 -8.1 A 13.2 13.2 0 0 1 10.4 -8.1 L 8.2 -5.8 L 0 -10.2 L -8.2 -5.8 Z" fill="#e31b23" />
+                    <rect x="-1.2" y="-10.2" width="2.4" height="3.2" fill="#e31b23" />
+                    <ellipse cx="0" cy="-5.6" rx="3.1" ry="2.3" fill="#e31b23" />
+                  </g>
                 </g>
-                <!-- Texto FAB LAB PERÚ -->
-                <text x="42" y="23.5" font-family="'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif" font-size="15.5" font-weight="800" letter-spacing="0.4" class="fl-text">FAB LAB <tspan font-weight="500" opacity="0.82">PERÚ</tspan></text>
+                <text x="36" y="22.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18.5" letter-spacing="0.4" class="fl-text"><tspan font-weight="900">FABLAB</tspan><tspan font-weight="300"> PERÚ</tspan></text>
               </svg>
             </a>
           </div>
@@ -1440,8 +1450,8 @@
     </div>
   </div>
 
-  <script src="data.js?v=20261117j"></script>
-  <script src="i18n.js?v=20261117j"></script>
-  <script src="app.js?v=20261117j"></script>
+  <script src="data.js?v=20261117k"></script>
+  <script src="i18n.js?v=20261117k"></script>
+  <script src="app.js?v=20261117k"></script>
 </body>
 </html>
