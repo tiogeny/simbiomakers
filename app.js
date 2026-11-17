@@ -1488,7 +1488,7 @@ function renderSponsorTiers() {
           onclick="window.openDeliaWhatsApp('${tier.title}')"
           class="w-full py-3 px-4 rounded-xl font-bold text-xs tracking-wide transition-all flex items-center justify-center gap-2 ${tier.featured ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-md' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white'}"
         >
-          <span>Conversar con Delia Barriga (WhatsApp)</span>
+          <span>Coordinar alianza por WhatsApp</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
       </div>

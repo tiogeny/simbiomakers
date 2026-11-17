@@ -98,7 +98,7 @@ window.EDITION_CONFIG = {
       id: 'adopta_region',
       title: 'Sponsor de sede: adopta una región',
       badge: 'Impacto regional completo',
-      summary: 'Impulsa los 4 equipos (20 jóvenes) de una sede regional',
+      summary: 'Impulsa los 2 núcleos de 10 y 1 sistema integrado de 20 jóvenes de una sede',
       featured: true,
       description: 'Habilita la operación y fabricación de los prototipos de toda una región en su IEST sede, generando un Máximo Impacto Posible (MIP) medible en el territorio.',
       benefits: [
@@ -114,7 +114,7 @@ window.EDITION_CONFIG = {
       badge: 'Herramientas y electrónica',
       summary: 'Kits electrónicos, filamento 3D y materiales de fabricación',
       featured: false,
-      description: 'Aporta kits de electrónica (Arduino/ESP32, sensores) y materiales para que los equipos de 4 a 5 escolares fabriquen sus prototipos en los Fab Labs.',
+      description: 'Aporta kits de electrónica (Arduino/ESP32, sensores) y materiales para que los núcleos de 10 escolares fabriquen sus módulos y sistemas en los Fab Labs.',
       benefits: [
         'Reconocimiento en la bitácora técnica y en los prototipos físicos',
         'Certificado institucional como aliado tecnológico',
@@ -145,7 +145,7 @@ window.EDITION_CONFIG = {
     },
     {
       q: '¿Cómo puede una empresa o institución adoptar una región?',
-      a: 'Puedes escribir directamente por WhatsApp a nuestra directora ejecutiva, Delia Barriga (+51 946 037 105), desde cualquiera de los botones de aliados en esta web para elegir la región de tu interés y coordinar los detalles de participación.'
+      a: 'Puedes escribir directamente por WhatsApp desde cualquiera de los botones de aliados en esta web para elegir el Fab Lab o región de tu interés y coordinar los detalles de participación.'
     }
   ]
 };
