@@ -50,24 +50,28 @@ window.EDITION_CONFIG = {
       step: '01',
       title: 'Misiones Virtuales & Reto Local',
       period: 'Semanas 1 y 2',
+      modality: 'Virtual en vivo',
       summary: 'Sesiones semanales dinámicas de ideación, modelado 2D/3D y electrónica. Cada equipo define un desafío concreto de su comunidad en agua, energía, salud o cultura.'
     },
     {
       step: '02',
       title: 'Codiseño Interregional',
       period: 'Semana 3',
+      modality: 'Virtual · Codiseño',
       summary: 'Colaboración a distancia entre regiones aliadas (ej. Loreto y Áncash). Intercambio de planos digitales (STL, SVG) para auditoría técnica y ensamble compartido sin fletes.'
     },
     {
       step: '03',
       title: 'Fabricación Física en el IEST Sede',
       period: 'Semanas 4 y 5',
+      modality: 'Presencial en IEST',
       summary: 'Jornadas prácticas en el Fab Lab del Instituto Tecnológico público de su región: corte láser, impresión 3D, programación y ensamblaje de prototipos físicos.'
     },
     {
       step: '04',
       title: 'Demo Day Nacional & Certificación MIP',
       period: 'Semana 6',
+      modality: 'Virtual en vivo',
       summary: 'Presentación en vivo de los prototipos ante jurado de expertos, entrega de diplomas oficiales y reporte del Índice de Máximo Impacto Posible.'
     }
   ],

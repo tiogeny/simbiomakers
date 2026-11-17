@@ -761,18 +761,27 @@ function renderPedagogy() {
   if (!container) return;
 
   const phases = EDITION_CONFIG.pedagogy;
-  container.innerHTML = phases.map(phase => `
-    <div class="relative bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700/80 shadow-sm hover:shadow-md transition-shadow">
-      <div class="flex items-center justify-between mb-4">
-        <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full">
-          Fase ${phase.step}
-        </span>
-        <span class="text-xs font-medium text-slate-400">${phase.period}</span>
+  container.innerHTML = phases.map(phase => {
+    const isPresencial = (phase.modality || '').toLowerCase().includes('presencial');
+    const modClass = isPresencial
+      ? 'bg-pink-50 text-pink-700 dark:bg-pink-950/60 dark:text-pink-300 border-pink-200 dark:border-pink-800'
+      : 'bg-cyan-50 text-cyan-700 dark:bg-cyan-950/60 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800';
+    return `
+      <div class="relative bg-white dark:bg-slate-800/90 rounded-2xl p-6 border border-slate-200 dark:border-slate-700/80 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full">
+              Fase ${phase.step}
+            </span>
+            <span class="text-xs font-medium text-slate-400">${phase.period}</span>
+          </div>
+          <h4 class="font-bold text-base text-slate-900 dark:text-white mb-2">${phase.title}</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${phase.summary}</p>
+        </div>
+        ${phase.modality ? `<div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700/60"><span class="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${modClass}">${phase.modality}</span></div>` : ''}
       </div>
-      <h4 class="font-bold text-base text-slate-900 dark:text-white mb-2">${phase.title}</h4>
-      <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${phase.summary}</p>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 }
 
 // Render Selection Pillars
