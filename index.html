@@ -4,7 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SimbioMakers PE | Red Nacional de Innovación y Fabricación Digital Escolar</title>
-  <meta name="description" content="24 Regiones, 24 Fab Labs Públicos, 1 Sola Red. Convocatoria escolar para estudiantes de 4.° y 5.° de secundaria. Metodología SimbioCreación y Fab Lab Perú.">
+  <meta name="description" content="24 Regiones, 24 Fab Labs Públicos, 1 Sola Red. Edición Vacacional Enero – Febrero 2027 para estudiantes de 4.° y 5.° de secundaria. Metodología SimbioCreación y Fab Lab Perú.">
+  <!-- Open Graph / WhatsApp / LinkedIn Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fab.pe/simbiomakers/">
+  <meta property="og:title" content="SimbioMakers PE | 24 Regiones Creando Soluciones Reales">
+  <meta property="og:description" content="Conectamos a estudiantes de 4.° y 5.° de secundaria con los 24 Fab Labs públicos del Perú. Edición Vacacional Enero – Febrero 2027 (Modalidad Híbrida).">
+  <meta property="og:image" content="https://fab.pe/simbiomakers/logos/logo_simbiocreacion.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SimbioMakers PE | 24 Regiones Creando Soluciones Reales">
+  <meta name="twitter:description" content="Red Nacional de Innovación y Fabricación Digital Escolar. Edición Vacacional Enero – Febrero 2027.">
+  <meta name="twitter:image" content="https://fab.pe/simbiomakers/logos/logo_simbiocreacion.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -177,7 +187,8 @@
       </a>
 
       <!-- Compact Single-Line Nav Links -->
-      <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold text-slate-600 dark:text-slate-300 whitespace-nowrap">
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300 whitespace-nowrap">
+        <a href="#programa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Programa</a>
         <a href="#mapa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
           Mapa 24 Regiones
@@ -189,7 +200,7 @@
       </nav>
 
       <!-- Header CTAs -->
-      <div class="flex items-center gap-2.5 flex-shrink-0 whitespace-nowrap">
+      <div class="flex items-center gap-2 flex-shrink-0 whitespace-nowrap">
         <button id="theme-toggle-btn" aria-label="Cambiar tema" class="p-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <!-- Populated by JS -->
         </button>
@@ -198,11 +209,34 @@
           <span>Postular</span>
         </button>
 
-        <button onclick="window.openModal('modal-sponsor')" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
+        <button onclick="window.openModal('modal-sponsor')" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
           <span>Adopta una Región</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" aria-label="Abrir menú" class="lg:hidden p-2 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
 
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-[#0B0F19] px-4 py-4 space-y-3 text-xs font-semibold">
+      <div class="grid grid-cols-2 gap-2">
+        <a href="#programa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">El Programa</a>
+        <a href="#mapa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-teal-500"></span>Mapa 24 Regiones
+        </a>
+        <a href="#participa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Cómo Participar</a>
+        <a href="#impacto" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Metodología</a>
+        <a href="#aliados" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Aliados</a>
+        <a href="#faq" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">FAQ</a>
+      </div>
+      <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-2">
+        <button onclick="window.openModal('modal-estudiante')" class="mobile-nav-link w-full py-2.5 px-4 rounded-xl font-bold bg-slate-900 text-white dark:bg-white dark:text-slate-900">🎓 Postular como Estudiante</button>
+        <button onclick="window.openModal('modal-sponsor')" class="mobile-nav-link w-full py-2.5 px-4 rounded-xl font-bold bg-teal-600 text-white">🤝 Adopta una Región</button>
+      </div>
     </div>
   </header>
 
@@ -803,23 +837,23 @@
       <!-- Tiers Grid -->
       <div id="sponsor-tiers-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"></div>
 
-      <!-- Impact Calculator -->
-      <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden">
+      <!-- Impact Calculator (Harmonized with Light Editorial Aesthetic) -->
+      <div class="bg-gradient-to-br from-slate-50 via-white to-teal-50/50 dark:from-slate-900 dark:via-slate-900 dark:to-teal-950/50 rounded-3xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800 shadow-lg relative overflow-hidden">
         <div class="max-w-3xl">
-          <span class="text-xs font-bold uppercase tracking-wider text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800">
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
             Simulador de Impacto
           </span>
-          <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white mt-4">
+          <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white mt-4">
             ¿Cuántas regiones deseas impulsar?
           </h3>
-          <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
-            Ajusta la cantidad de regiones para proyectar los jóvenes formados, los equipos creadores y los prototipos tangibles que cobrarán vida.
+          <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+            Ajusta la cantidad de regiones para proyectar los jóvenes formados, los equipos multicolegio, los prototipos tangibles y los colegios conectados.
           </p>
 
           <div class="mt-8">
             <div class="flex items-center justify-between text-xs font-bold mb-2">
-              <span class="text-slate-400">Regiones Seleccionadas:</span>
-              <span class="text-teal-400 font-extrabold text-lg"><span id="calc-region-count">3</span> / 24 Regiones</span>
+              <span class="text-slate-500 dark:text-slate-400">Regiones Seleccionadas:</span>
+              <span class="text-teal-600 dark:text-teal-400 font-extrabold text-lg"><span id="calc-region-count">3</span> / 24 Regiones</span>
             </div>
             <input 
               id="calc-region-slider" 
@@ -827,37 +861,49 @@
               min="1" 
               max="24" 
               value="3" 
-              class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-400"
+              class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600 dark:accent-teal-400"
             >
           </div>
 
           <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
-              <span class="text-[10px] text-slate-400 block">Jóvenes Beneficiados</span>
-              <span id="calc-total-students" class="font-extrabold text-xl text-teal-300 mt-1 block">+60</span>
+            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Jóvenes Beneficiados</span>
+              <span id="calc-total-students" class="font-extrabold text-xl text-teal-600 dark:text-teal-300 mt-1 block">+60</span>
             </div>
-            <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
-              <span class="text-[10px] text-slate-400 block">Equipos Multicolegio</span>
-              <span id="calc-total-teams" class="font-extrabold text-xl text-white mt-1 block">12</span>
+            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Equipos Multicolegio</span>
+              <span id="calc-total-teams" class="font-extrabold text-xl text-slate-900 dark:text-white mt-1 block">12</span>
             </div>
-            <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
-              <span class="text-[10px] text-slate-400 block">Prototipos Físicos</span>
-              <span id="calc-prototypes" class="font-extrabold text-xl text-white mt-1 block">12</span>
+            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Prototipos Físicos</span>
+              <span id="calc-prototypes" class="font-extrabold text-xl text-slate-900 dark:text-white mt-1 block">12</span>
             </div>
-            <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
-              <span class="text-[10px] text-slate-400 block">Ahorro en Fletes 3D</span>
-              <span id="calc-freight-saved" class="font-extrabold text-xl text-cyan-400 mt-1 block">S/ 1,800</span>
+            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Colegios Conectados</span>
+              <span id="calc-schools-count" class="font-extrabold text-xl text-cyan-600 dark:text-cyan-400 mt-1 block">+60</span>
             </div>
           </div>
 
           <div class="mt-8 flex flex-wrap items-center gap-4">
-            <button onclick="window.openModal('modal-sponsor')" class="px-6 py-3 rounded-xl font-bold text-xs bg-teal-500 hover:bg-teal-400 text-slate-950 transition-all shadow-md">
+            <button onclick="window.openModal('modal-sponsor')" class="px-6 py-3 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-md">
               Solicitar Dossier Institucional &rarr;
             </button>
-            <span class="text-xs text-slate-400">Incluye auditoría y reporte MIP entregable.</span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">Incluye auditoría y reporte MIP entregable.</span>
           </div>
 
         </div>
+      </div>
+
+      <!-- Volunteer Mentors Callout -->
+      <div class="mt-8 bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Talento Voluntario</span>
+          <h4 class="font-bold text-base text-slate-900 dark:text-white mt-0.5">¿Eres ingeniero, diseñador, maker o educador?</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Dona 2 horas a la semana en enero y febrero de 2027 para mentorear a un equipo regional de forma virtual.</p>
+        </div>
+        <button onclick="window.openModal('modal-mentor')" class="px-5 py-3 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 transition-all whitespace-nowrap flex-shrink-0">
+          Sumarme como Mentor Voluntario &rarr;
+        </button>
       </div>
 
     </div>
@@ -935,8 +981,8 @@
         <div>
           <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px] mb-3">Organización</h4>
           <ul class="space-y-2">
-            <li>Fab Lab Perú</li>
-            <li>Metodología SimbioCreación</li>
+            <li><a href="https://fab.pe" target="_blank" rel="noopener noreferrer" class="hover:text-teal-600">Fab Lab Perú</a></li>
+            <li><a href="https://fab.pe/simbio" target="_blank" rel="noopener noreferrer" class="hover:text-teal-600">Metodología SimbioCreación &rarr;</a></li>
             <li>Red Fab City Global</li>
             <li>IEST Públicos PMESUT / Minedu</li>
           </ul>
@@ -1048,6 +1094,9 @@
               Grábate con tu celular mostrando el lugar o desafío que quieres transformar. <strong>No evaluamos edición ni cámara, solo tu autenticidad e iniciativa.</strong>
             </p>
             <input type="url" name="video_url" required placeholder="https://www.tiktok.com/@tu_usuario/... o enlace público de Google Drive" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+            <p class="text-[10px] text-teal-700 dark:text-teal-400 mt-1.5 font-medium">
+              💡 Si subes tu video a Google Drive, asegúrate de compartirlo como <strong>"Cualquier persona con el enlace"</strong>.
+            </p>
           </div>
 
           <div class="pt-4 flex items-center justify-between gap-4">
@@ -1192,6 +1241,72 @@
             <button type="button" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-iest">Cancelar</button>
             <button type="submit" class="px-6 py-2.5 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900">
               Registrar Institución
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4: VOLUNTEER MENTOR -->
+  <div id="modal-mentor" class="hidden fixed inset-0 z-50 overflow-y-auto">
+    <div class="modal-backdrop fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity opacity-0" onclick="window.closeModal('modal-mentor')"></div>
+    <div class="min-h-full flex items-center justify-center p-4">
+      <div class="modal-panel relative bg-white dark:bg-slate-900 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 transform scale-95 opacity-0 transition-all duration-200 text-xs">
+        
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Voluntariado Técnico · Enero – Febrero 2027</span>
+            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Sumarse como Mentor</h3>
+          </div>
+          <button data-modal-id="modal-mentor" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <form id="mentor-application-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombre y Apellidos *</label>
+              <input type="text" name="nombre" required placeholder="Ej: Carlos Mendoza" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Celular / WhatsApp *</label>
+              <input type="tel" name="telefono" required placeholder="+51 999 999 999" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Correo Electrónico *</label>
+              <input type="email" name="email" required placeholder="carlos@ejemplo.pe" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Especialidad Principal *</label>
+              <select name="especialidad" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+                <option value="diseno_3d">Diseño 3D / CAD / Corte Láser</option>
+                <option value="electronica_iot">Electrónica / Arduino / ESP32 / IoT</option>
+                <option value="diseno_producto">Diseño Industrial / Prototipado</option>
+                <option value="impacto_comunicacion">Metodología / Pitch / Impacto Social</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">LinkedIn o Portafolio (Opcional)</label>
+            <input type="url" name="perfil_url" placeholder="https://linkedin.com/in/..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">¿Cómo te gustaría apoyar a los equipos?</label>
+            <textarea name="mensaje" rows="2" placeholder="Ej: Puedo dar 2h semanales de mentoría virtual en diseño 3D para equipos de la Amazonía o Andes..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none"></textarea>
+          </div>
+
+          <div class="pt-4 flex items-center justify-end gap-3">
+            <button type="button" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-mentor">Cancelar</button>
+            <button type="submit" class="px-6 py-2.5 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white shadow-sm">
+              Registrarme como Mentor
             </button>
           </div>
         </form>

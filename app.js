@@ -887,7 +887,7 @@ function initBudgetCalculator() {
   const totalStudentsVal = document.getElementById('calc-total-students');
   const totalTeamsVal = document.getElementById('calc-total-teams');
   const prototypesVal = document.getElementById('calc-prototypes');
-  const freightSavedVal = document.getElementById('calc-freight-saved');
+  const schoolsCountVal = document.getElementById('calc-schools-count');
 
   if (!slider) return;
 
@@ -896,15 +896,16 @@ function initBudgetCalculator() {
     state.calcRegions = regions;
     const studentsPerRegion = 20;
     const teamsPerRegion = 4;
+    const schoolsPerRegion = 18;
     const totalStudents = regions * studentsPerRegion;
     const totalTeams = regions * teamsPerRegion;
-    const freightSaved = totalTeams * 150; // Ahorro logístico por fabricación local
+    const totalSchools = regions * schoolsPerRegion;
 
     if (regionCountVal) regionCountVal.textContent = regions;
     if (totalStudentsVal) totalStudentsVal.textContent = `+${totalStudents}`;
     if (totalTeamsVal) totalTeamsVal.textContent = totalTeams;
     if (prototypesVal) prototypesVal.textContent = totalTeams;
-    if (freightSavedVal) freightSavedVal.textContent = `S/ ${freightSaved.toLocaleString('es-PE')}`;
+    if (schoolsCountVal) schoolsCountVal.textContent = `+${totalSchools}`;
   }
 
   slider.addEventListener('input', updateCalc);
@@ -1040,6 +1041,77 @@ function initIestForm() {
   });
 }
 
+// Volunteer Mentor Form Handling
+function initMentorForm() {
+  const form = document.getElementById('mentor-application-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    payload.timestamp = new Date().toISOString();
+    payload.tipo = 'registro_mentor';
+
+    try {
+      if (CONFIG.FORM_WEBHOOK_URL) {
+        await fetch(CONFIG.FORM_WEBHOOK_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      }
+      form.reset();
+      closeModal('modal-mentor');
+      showToast('¡Gracias por sumarte como Mentor! Te contactaremos antes del inicio en enero 2027.', 'success');
+    } catch (err) {
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+}
+
+// Live Google Sheet CSV Sync (runs automatically if LIVE_SHEET_CSV_URL is configured)
+async function syncLiveSheetData() {
+  if (!CONFIG.LIVE_SHEET_CSV_URL) return;
+  try {
+    const res = await fetch(CONFIG.LIVE_SHEET_CSV_URL);
+    if (!res.ok) return;
+    const csv = await res.text();
+    const lines = csv.split(/\r?\n/).filter(Boolean);
+    if (lines.length < 2) return;
+
+    const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+    const normalize = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+
+    for (let i = 1; i < lines.length; i++) {
+      const cols = lines[i].split(',').map(c => c.trim().replace(/^"|"$/g, ''));
+      const row = {};
+      headers.forEach((h, idx) => { row[h] = cols[idx] || ''; });
+
+      const region = PERU_MAP_DATA.regions.find(r => normalize(r.name) === normalize(row.region || row.departamento));
+      if (region) {
+        if (row.postulantes) region.applicantsCount = parseInt(row.postulantes, 10) || region.applicantsCount;
+        if (row.mujeres_pct) region.femaleRatio = parseInt(row.mujeres_pct, 10) || region.femaleRatio;
+        if (row.estado) region.sponsorStatus = row.estado.toLowerCase().includes('patrocin') ? 'sponsored' : 'available';
+        if (row.sponsor) region.sponsorName = row.sponsor || null;
+      }
+    }
+
+    renderGlobalStats();
+    renderHeroNetworkMap();
+    renderPeruMap();
+    renderRegionsGrid();
+  } catch (err) {
+    console.warn('No se pudo sincronizar Google Sheet en vivo:', err);
+  }
+}
+
 function showSuccessCelebration(nombre = 'Maker') {
   const celebrationModal = document.getElementById('modal-celebration');
   if (!celebrationModal) return;
@@ -1052,6 +1124,18 @@ function showSuccessCelebration(nombre = 'Maker') {
 function setupEventListeners() {
   const themeBtn = document.getElementById('theme-toggle-btn');
   if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  }
 
   // View switch (Map vs Grid)
   const viewMapBtn = document.getElementById('view-map-btn');
@@ -1135,6 +1219,10 @@ function setupEventListeners() {
 }
 
 window.selectSponsorTier = function(tierId) {
+  if (tierId === 'mentoria_conectividad') {
+    openModal('modal-mentor');
+    return;
+  }
   const tier = EDITION_CONFIG.sponsorTiers.find(t => t.id === tierId);
   const selectEl = document.getElementById('sponsor-form-tier');
   if (selectEl && tier) {
@@ -1162,5 +1250,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStudentForm();
   initSponsorForm();
   initIestForm();
+  initMentorForm();
   setupEventListeners();
+  syncLiveSheetData();
 });
