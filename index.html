@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SimbioMakers PE | Red Nacional de Innovación y Fabricación Digital Escolar</title>
+  <title>SimbioMakers PE | 24 Fab Labs Públicos · Red Nacional de Innovación Escolar</title>
   <meta name="description" content="24 Regiones, 24 Fab Labs Públicos, 1 Sola Red. Edición Vacacional Enero – Febrero 2027 para estudiantes de 4.° y 5.° de secundaria. Metodología SimbioCreación y Fab Lab Perú.">
   <!-- Open Graph / WhatsApp / LinkedIn Preview -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SimbioMakers PE">
   <meta property="og:url" content="https://fab.pe/simbiomakers/">
-  <meta property="og:title" content="SimbioMakers PE | 24 Regiones + Callao Creando Soluciones Reales">
-  <meta property="og:description" content="Conectamos a 500 estudiantes de 4.° y 5.° de secundaria con los 25 Fab Labs públicos del Perú (24 regiones + Callao). Edición Vacacional Enero – Febrero 2027 (Modalidad Híbrida).">
+  <meta property="og:title" content="SimbioMakers PE | 24 Fab Labs Públicos Creando Soluciones Reales">
+  <meta property="og:description" content="Conectamos a 500 estudiantes de 4.° y 5.° de secundaria con los 24 Fab Labs públicos del Perú. Edición Vacacional Enero – Febrero 2027 (Modalidad Híbrida).">
   <meta property="og:image" content="https://fab.pe/simbiomakers/og-image.jpg">
   <meta property="og:image:secure_url" content="https://fab.pe/simbiomakers/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -18,8 +18,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="SimbioMakers PE - 500 escolares creando soluciones reales en 25 Fab Labs públicos del Perú">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SimbioMakers PE | 24 Regiones + Callao Creando Soluciones Reales">
-  <meta name="twitter:description" content="Red Nacional de Innovación y Fabricación Digital Escolar. 25 Fab Labs Públicos · Edición Vacacional Enero – Febrero 2027.">
+  <meta name="twitter:title" content="SimbioMakers PE | 24 Fab Labs Públicos Creando Soluciones Reales">
+  <meta name="twitter:description" content="Red Nacional de Innovación y Fabricación Digital Escolar. 24 Fab Labs Públicos · Edición Vacacional Enero – Febrero 2027.">
   <meta name="twitter:image" content="https://fab.pe/simbiomakers/og-image.jpg">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -107,6 +107,20 @@
     }
     .dark .brand-logo-svg-full .sc-iso-inner {
       fill: #0f172a;
+    }
+        .brand-logo-svg-full .sc-makers-text {
+      fill: #0284c7;
+      transition: fill 0.2s ease;
+    }
+    .brand-logo-svg-full .sc-makers-stroke {
+      stroke: #00BBF9;
+      transition: stroke 0.2s ease;
+    }
+    .dark .brand-logo-svg-full .sc-makers-text {
+      fill: #00F5D4;
+    }
+    .dark .brand-logo-svg-full .sc-makers-stroke {
+      stroke: #00F5D4;
     }
     .dark .brand-logo-svg-full .sc-iso-dot {
       fill: rgba(255, 255, 255, 0.22);
@@ -219,9 +233,9 @@
           </g>
           <!-- Texto SIMBI + O bicolor centrada + MAKERS -->
           <text x="80" y="39.5" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" class="sc-text-dark">SIMBI</text>
-          <circle cx="92" cy="32" r="8.2" stroke="#e60066" stroke-width="4.4" fill="none" />
+          <circle cx="92" cy="32" r="8.2" class="sc-makers-stroke" stroke-width="4.4" fill="none" />
           <path d="M 94.6 24.2 A 8.2 8.2 0 0 1 94.6 39.8" class="sc-o-dark" stroke-width="4.4" fill="none" stroke-linecap="round" />
-          <text x="104" y="39.5" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" fill="#e60066">MAKERS</text>
+          <text x="104" y="39.5" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" class="sc-makers-text">MAKERS</text>
         </svg>
         <span class="text-[10px] font-extrabold tracking-wider px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 dark:bg-teal-950 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
           PE
@@ -233,7 +247,7 @@
         <a href="#programa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Programa</a>
         <a href="#mapa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-          Mapa 24 regiones
+          Mapa 24 Fab Labs
         </a>
         <a href="#participa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Participa</a>
         <a href="#impacto" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Metodología</a>
@@ -268,7 +282,7 @@
       <div class="grid grid-cols-2 gap-2">
         <a href="#programa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">El programa</a>
         <a href="#mapa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-teal-500"></span>Mapa 24 regiones
+          <span class="w-2 h-2 rounded-full bg-teal-500"></span>Mapa 24 Fab Labs
         </a>
         <a href="#participa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Cómo participar</a>
         <a href="#impacto" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Metodología</a>
@@ -290,9 +304,9 @@
         <!-- Left Column: Crisp Message + 3 Role Entry Points -->
         <div class="lg:col-span-7">
           <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] text-slate-900 dark:text-white tracking-tight leading-[1.08]">
-            24 regiones creando <br>
+            Todo el Perú creando <br>
             <span class="rot" id="hero-rot-words"><span class="gradient-text-teal">soluciones reales</span></span> <br>
-            desde sus propios Fab Labs.
+            desde 24 Fab Labs públicos.
           </h1>
 
           <p class="mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
@@ -338,7 +352,7 @@
             <!-- Minimalist floating connection indicator -->
             <div id="hero-network-badge" class="absolute bottom-4 left-4 z-20 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-700/80 shadow-sm text-[11px] font-medium text-slate-700 dark:text-slate-200 pointer-events-none transition-all duration-200">
               <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-              <span>Red nacional · 24 regiones conectadas</span>
+              <span>Red nacional · 24 Fab Labs públicos conectados</span>
             </div>
           </div>
         </div>
@@ -444,7 +458,7 @@
             <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-0.5">¿Qué problemáticas inspiran a nuestros jóvenes?</h3>
           </div>
           <a href="#mapa" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1 whitespace-nowrap">
-            <span>Explorar las 24 sedes regionales</span>
+            <span>Explorar los 24 Fab Labs públicos</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </a>
         </div>
@@ -498,7 +512,7 @@
             Mapeo nacional
           </span>
           <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-3">
-            Sedes y vocaciones en las 24 regiones del Perú
+            24 Fab Labs públicos y vocaciones territoriales
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-1 max-w-2xl">
             Toca cualquier región del mapa para conocer su Fab Lab público sede, las temáticas de su territorio y su conexión con la red nacional.
@@ -918,8 +932,8 @@
                   <span class="text-[10px] px-2 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300">Fabricación IEST</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="3">
-                  <span>3. 24 Regiones + Callao</span>
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-300">25 sedes</span>
+                  <span>3. 24 Fab Labs IEST</span>
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-300">24 sedes</span>
                 </button>
                 <button type="button" class="scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50" data-step="4">
                   <span>4. Red Nacional (Demo Day)</span>
@@ -1058,9 +1072,9 @@
                   <circle cx="79.09" cy="31.94" r="1.5" class="sc-iso-dot" /><circle cx="75.98" cy="35.05" r="1.5" class="sc-iso-dot" /><circle cx="71.73" cy="33.91" r="1.5" class="sc-iso-dot" /><circle cx="70.59" cy="29.66" r="1.5" class="sc-iso-dot" /><circle cx="73.7" cy="26.55" r="1.5" class="sc-iso-dot" /><circle cx="77.95" cy="27.69" r="1.5" class="sc-iso-dot" />
                 </g>
                 <text x="80" y="39.5" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" class="sc-text-dark">SIMBI</text>
-                <circle cx="92" cy="32" r="8.2" stroke="#e60066" stroke-width="4.4" fill="none" />
+                <circle cx="92" cy="32" r="8.2" class="sc-makers-stroke" stroke-width="4.4" fill="none" />
                 <path d="M 94.6 24.2 A 8.2 8.2 0 0 1 94.6 39.8" class="sc-o-dark" stroke-width="4.4" fill="none" stroke-linecap="round" />
-                <text x="104" y="39.5" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" fill="#e60066">MAKERS</text>
+                <text x="104" y="39.5" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" class="sc-makers-text">MAKERS</text>
               </svg>
               <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 dark:bg-slate-800 dark:text-teal-300 border border-teal-200 dark:border-slate-700">PE</span>
             </div>
@@ -1390,7 +1404,7 @@
     </div>
   </div>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js?v=20261117b"></script>
+  <script src="app.js?v=20261117b"></script>
 </body>
 </html>

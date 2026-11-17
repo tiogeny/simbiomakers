@@ -866,16 +866,16 @@ const SCALE500_META = [
   },
   {
     step: 3,
-    pill: 'Etapa 3 · 25 Sedes Territoriales',
-    title: '24 regiones y Callao conectadas',
-    desc: 'Cada una de las 25 sedes consolida su sistema tecnológico regional en su Fab Lab público IEST (Amazonas, Cusco, Loreto, Piura, Callao, Ucayali, etc.), listo para la red nacional.',
-    status: '25 sedes articulando sus soluciones'
+    pill: 'Etapa 3 · 24 Fab Labs Públicos',
+    title: '24 sedes IEST articuladas en red',
+    desc: 'Cada uno de los 24 Fab Labs públicos IEST del país (de Tumbes a Tacna, incluyendo 2 sedes en Lima y 1 en Callao) consolida las soluciones de su territorio.',
+    status: '24 Fab Labs IEST articulando soluciones'
   },
   {
     step: 4,
     pill: 'Etapa 4 · Demo Day Nacional',
     title: '1 sola Red Nacional interconectada',
-    desc: 'Convergencia total: las 24 regiones del Perú integradas en una sola red nacional de innovación y fabricación digital escolar para el Máximo Impacto Posible (MIP).',
+    desc: 'Convergencia total: los 24 Fab Labs públicos del Perú integrados en una sola red nacional de innovación y fabricación digital escolar para el Máximo Impacto Posible (MIP).',
     status: 'Red Nacional en vivo · Máximo Impacto Posible'
   }
 ];
@@ -891,33 +891,32 @@ function buildScale500Graph() {
   const nodes = [];
   const edges = [];
   
-  // Nombres de las 24 regiones del Perú
-  const REGIONES_24 = [
-    { name: 'Amazonas', code: 'AMZ', macro: 'Oriente' },
-    { name: 'Áncash', code: 'ANC', macro: 'Centro' },
-    { name: 'Apurímac', code: 'APU', macro: 'Sur' },
-    { name: 'Arequipa', code: 'AQP', macro: 'Sur' },
-    { name: 'Ayacucho', code: 'AYA', macro: 'Centro' },
-    { name: 'Cajamarca', code: 'CAJ', macro: 'Norte' },
-    { name: 'Callao', code: 'CAL', macro: 'Centro' },
-    { name: 'Cusco', code: 'CUS', macro: 'Sur' },
-    { name: 'Huancavelica', code: 'HUV', macro: 'Centro' },
-    { name: 'Huánuco', code: 'HCO', macro: 'Centro' },
-    { name: 'Ica', code: 'ICA', macro: 'Sur' },
-    { name: 'Junín', code: 'JUN', macro: 'Centro' },
-    { name: 'La Libertad', code: 'LAL', macro: 'Norte' },
-    { name: 'Lambayeque', code: 'LAM', macro: 'Norte' },
-    { name: 'Lima', code: 'LIM', macro: 'Centro' },
-    { name: 'Loreto', code: 'LOR', macro: 'Oriente' },
-    { name: 'Madre de Dios', code: 'MDD', macro: 'Oriente' },
-    { name: 'Moquegua', code: 'MOQ', macro: 'Sur' },
-    { name: 'Pasco', code: 'PAS', macro: 'Centro' },
-    { name: 'Piura', code: 'PIU', macro: 'Norte' },
-    { name: 'Puno', code: 'PUN', macro: 'Sur' },
-    { name: 'San Martín', code: 'SAM', macro: 'Oriente' },
-    { name: 'Tacna', code: 'TAC', macro: 'Sur' },
-    { name: 'Tumbes', code: 'TUM', macro: 'Norte' },
-    { name: 'Ucayali', code: 'UCY', macro: 'Oriente' }
+  // Lista oficial de los 24 Fab Labs Públicos en IEST del Perú
+  const FAB_LABS_24 = [
+    { name: 'IEST José A. Quiñones (Tumbes)', code: 'TUM', macro: 'Norte' },
+    { name: 'IEST Catalina Buendía (Ica)', code: 'ICA', macro: 'Sur' },
+    { name: 'IEST Aparicio Pomares (Huánuco)', code: 'HCO', macro: 'Centro' },
+    { name: 'IEST Abancay (Apurímac)', code: 'APU', macro: 'Sur' },
+    { name: 'IEST Pedro P. Díaz (Arequipa)', code: 'AQP', macro: 'Sur' },
+    { name: 'IEST J. C. Mariátegui (Moquegua)', code: 'MOQ', macro: 'Sur' },
+    { name: 'IEST J. A. Encinas (Puno)', code: 'PUN', macro: 'Sur' },
+    { name: 'IEST Gilda Ballivián (Lima SJM)', code: 'LIM', macro: 'Centro' },
+    { name: 'IEST Sullana (Piura)', code: 'PIU', macro: 'Norte' },
+    { name: 'IEST C. Salazar Romero (Áncash)', code: 'ANC', macro: 'Centro' },
+    { name: 'IEST F. Gonzales Vigil (Tacna)', code: 'TAC', macro: 'Sur' },
+    { name: 'IEST Huancavelica', code: 'HUV', macro: 'Centro' },
+    { name: 'IEST Huando (Huaral, Lima)', code: 'HRL', macro: 'Centro' },
+    { name: 'IEST Jorge Basadre (Madre de Dios)', code: 'MDD', macro: 'Oriente' },
+    { name: 'IEST M. Hierro Pozo (Ayacucho)', code: 'AYA', macro: 'Centro' },
+    { name: 'IEST Nor Oriental (San Martín)', code: 'SAM', macro: 'Oriente' },
+    { name: 'IEST Nueva Esperanza (La Libertad)', code: 'LAL', macro: 'Norte' },
+    { name: 'IEST Pasco', code: 'PAS', macro: 'Centro' },
+    { name: 'IEST P. Del Águila (Loreto)', code: 'LOR', macro: 'Oriente' },
+    { name: 'IEST Perú Japón (Amazonas)', code: 'AMZ', macro: 'Oriente' },
+    { name: 'IEST Rep. Fed. Alemania (Lambayeque)', code: 'LAM', macro: 'Norte' },
+    { name: 'IEST Simón Bolívar (Callao)', code: 'CAL', macro: 'Centro' },
+    { name: 'IEST Suiza (Ucayali)', code: 'UCY', macro: 'Oriente' },
+    { name: 'IEST Túpac Amaru (Cusco)', code: 'CUS', macro: 'Sur' }
   ];
 
   const palette = ['#00F5D4', '#00BBF9', '#7928CA', '#FF007F', '#FFBE0B', '#10B981', '#3B82F6', '#F43F5E', '#8B5CF6', '#14B8A6'];
@@ -941,18 +940,18 @@ function buildScale500Graph() {
   };
   nodes.push(centerNode);
 
-  // Nivel 3 (Penúltimo Nivel): Exactamente las 25 BURBUJAS (24 Departamentos + Callao)
+  // Nivel 3 (Penúltimo Nivel): Exactamente las 24 BURBUJAS de los 24 Fab Labs IEST
   // Distribuidas de forma concéntrica a dist3 = 0.172
   const dist3 = 0.172;
   const dist2 = 0.280;
   const dist1 = 0.380;
   const dist0 = 0.466;
 
-  const numRegiones = REGIONES_24.length; // 25 sedes territoriales
+  const numRegiones = FAB_LABS_24.length; // 24 Fab Labs públicos
   const pairSplits = [[60, 40], [55, 45], [65, 35], [50, 50], [70, 30]];
 
   for (let r = 0; r < numRegiones; r++) {
-    const regData = REGIONES_24[r];
+    const regData = FAB_LABS_24[r];
     const rAng = -Math.PI / 2 + (r * 2 * Math.PI) / numRegiones;
     const rIdx = nodes.length;
     const regionWeights = {};
