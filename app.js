@@ -8,7 +8,6 @@ const state = {
   sponsorFilter: 'all', // 'all' | 'available' | 'sponsored'
   searchQuery: '',
   selectedRegionId: null,
-  calcRegions: 3,
   forms: {
     studentDraft: JSON.parse(localStorage.getItem('simbiomakers_student_draft') || '{}'),
     sponsorDraft: JSON.parse(localStorage.getItem('simbiomakers_sponsor_draft') || '{}')
@@ -845,37 +844,37 @@ function initHeroRotatingWords() {
 const SCALE500_META = [
   {
     step: 0,
-    pill: 'Etapa 0 · Punto de partida',
-    title: '500 saberes individuales',
-    desc: '20 jóvenes por región inician identificando un desafío concreto de su comunidad y planteando su propuesta de solución tecnológica.',
-    status: '500 ideas activas en todo el país'
+    pill: 'Etapa 0 · Semana 1 (Virtual)',
+    title: '480 saberes individuales (1)',
+    desc: '20 jóvenes por cada Fab Lab inician identificando un desafío concreto de su comunidad y planteando su propia propuesta tecnológica.',
+    status: '480 ideas activas en todo el país'
   },
   {
     step: 1,
-    pill: 'Etapa 1 · Diálogo intercolegios',
-    title: '250 duplas colaborativas',
-    desc: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en 250 conceptos híbridos más potentes.',
-    status: '250 duplas co-diseñando en vivo'
+    pill: 'Etapa 1 · Semana 2 (Virtual)',
+    title: '240 duplas intercolegios (2)',
+    desc: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en conceptos híbridos más potentes.',
+    status: '240 duplas co-diseñando en vivo'
   },
   {
     step: 2,
-    pill: 'Etapa 2 · Prototipado físico en IEST',
-    title: 'Fabricación digital en los Fab Labs',
-    desc: 'Las duplas acuden al Fab Lab del IEST de su región para fabricar físicamente sus componentes y prototipos con impresoras 3D, corte láser y electrónica.',
-    status: '★ Prototipado y fabricación física en IEST ★'
+    pill: 'Etapa 2 · Semanas 3 y 4 (Fab Lab IEST)',
+    title: '48 núcleos de 10 jóvenes (10)',
+    desc: '5 duplas convergen en 2 núcleos de 10 jóvenes por sede y acuden al Fab Lab del IEST para fabricar sus módulos físicos en 3D, láser y electrónica.',
+    status: '★ 48 módulos fabricándose en 24 Fab Labs ★'
   },
   {
     step: 3,
-    pill: 'Etapa 3 · 24 Fab Labs Públicos',
-    title: '24 sedes IEST articuladas en red',
-    desc: 'Cada uno de los 24 Fab Labs públicos IEST del país (de Tumbes a Tacna, incluyendo 2 sedes en Lima y 1 en Callao) consolida las soluciones de su territorio.',
-    status: '24 Fab Labs IEST articulando soluciones'
+    pill: 'Etapa 3 · Semana 5 (Fab Lab IEST)',
+    title: '24 sistemas integrados de 20 (20)',
+    desc: 'Los 2 núcleos de 10 se ensamblan en 1 sistema funcional de 20 jóvenes por cada uno de los 24 Fab Labs públicos (pasa el cursor sobre cada burbuja para ver su IEST).',
+    status: '24 sistemas funcionales en los 24 Fab Labs'
   },
   {
     step: 4,
-    pill: 'Etapa 4 · Demo Day Nacional',
+    pill: 'Etapa 4 · Semana 6 (Demo Day)',
     title: '1 sola Red Nacional interconectada',
-    desc: 'Convergencia total: los 24 Fab Labs públicos del Perú integrados en una sola red nacional de innovación y fabricación digital escolar para el Máximo Impacto Posible (MIP).',
+    desc: 'Convergencia total: los 24 sistemas construidos en los Fab Labs públicos se presentan en vivo conectados en una sola red nacional.',
     status: 'Red Nacional en vivo · Máximo Impacto Posible'
   }
 ];
@@ -1105,6 +1104,7 @@ function updateScale500UI() {
 
 function setScale500Step(step) {
   scale500Step = Math.max(0, Math.min(4, step));
+  setupScale500Tooltip(canvas);
   scale500LastStepChange = performance.now();
   updateScale500UI();
 }
@@ -1262,10 +1262,11 @@ function renderScale500Frame(now) {
     const drawR = n.level === 0 ? Math.max(2.8, r) : Math.max(3.5, r);
 
     // Halo palpitante para niveles superiores (centro y sedes)
-    if (n.level >= 3) {
+    const isHovered = (scale500HoverNode === n);
+    if (n.level >= 3 || isHovered) {
       const pulse = 1 + 0.09 * Math.sin(now * 0.004);
       ctx.beginPath();
-      ctx.arc(x, y, drawR * 1.34 * pulse, 0, Math.PI * 2);
+      ctx.arc(x, y, drawR * (isHovered ? 1.65 : 1.34) * pulse, 0, Math.PI * 2);
       ctx.fillStyle = n.level === 4 ? 'rgba(255, 0, 127, 0.22)' : 'rgba(0, 245, 212, 0.12)';
       ctx.fill();
     }
@@ -1303,6 +1304,71 @@ function renderScale500Frame(now) {
 
   ctx.restore();
   scale500Raf = requestAnimationFrame(renderScale500Frame);
+}
+
+// Tooltip interactivo para las 24 burbujas de Fab Labs
+let scale500HoverNode = null;
+
+function setupScale500Tooltip(canvas) {
+  let tooltip = document.getElementById('scale500-tooltip');
+  if (!tooltip) {
+    tooltip = document.createElement('div');
+    tooltip.id = 'scale500-tooltip';
+    tooltip.className = 'hidden pointer-events-none absolute z-30 px-3 py-1.5 rounded-xl bg-slate-900/95 dark:bg-white/95 text-white dark:text-slate-900 text-[11px] font-bold shadow-lg whitespace-nowrap transform -translate-x-1/2 -translate-y-full transition-opacity duration-150';
+    canvas.parentElement.appendChild(tooltip);
+  }
+
+  const handlePointer = (clientX, clientY) => {
+    if (!scale500Graph || scale500Step < 3) {
+      tooltip.classList.add('hidden');
+      scale500HoverNode = null;
+      return;
+    }
+    const rect = canvas.getBoundingClientRect();
+    const mx = clientX - rect.left;
+    const my = clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const dim = Math.min(rect.width, rect.height);
+
+    let found = null;
+    let minDist = 24;
+    scale500Graph.nodes.forEach(n => {
+      if (n.level !== 3) return;
+      const nx = cx + n.x * dim;
+      const ny = cy + n.y * dim;
+      const d = Math.hypot(mx - nx, my - ny);
+      if (d < minDist) {
+        minDist = d;
+        found = { node: n, nx, ny };
+      }
+    });
+
+    if (found) {
+      scale500HoverNode = found.node;
+      tooltip.innerHTML = `<span class="text-teal-400 dark:text-teal-600">${found.node.code}</span> · ${found.node.name}`;
+      tooltip.style.left = found.nx + 'px';
+      tooltip.style.top = (found.ny - 16) + 'px';
+      tooltip.classList.remove('hidden');
+      canvas.style.cursor = 'pointer';
+    } else {
+      scale500HoverNode = null;
+      tooltip.classList.add('hidden');
+      canvas.style.cursor = 'default';
+    }
+  };
+
+  canvas.addEventListener('mousemove', (e) => handlePointer(e.clientX, e.clientY));
+  canvas.addEventListener('mouseleave', () => {
+    scale500HoverNode = null;
+    tooltip.classList.add('hidden');
+    canvas.style.cursor = 'default';
+  });
+  canvas.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      handlePointer(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
 }
 
 function initScale500Canvas() {

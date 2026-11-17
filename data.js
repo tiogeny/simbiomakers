@@ -32,8 +32,8 @@ window.EDITION_CONFIG = {
   framework: {
     totalSedes: 24,
     totalDepartments: 24,
-    targetStudents: '500 escolares',
-    targetTeams: 'Equipos regionales de prototipado',
+    targetStudents: '480 escolares (20 por Fab Lab)',
+    targetTeams: '48 núcleos de 10 · 24 sistemas de 20',
     femaleTarget: '50% mujeres en STEAM',
     diplomaTitle: 'Diploma oficial de innovación y fabricación digital (Fab Lab Perú y SimbioCreación)',
     kitDetails: {
@@ -49,31 +49,31 @@ window.EDITION_CONFIG = {
   pedagogy: [
     {
       step: '01',
-      title: '500 ideas individuales',
+      title: 'Ideas individuales (1)',
       period: 'Semana 1',
       modality: 'Virtual en vivo',
-      summary: '20 jóvenes por sede inician identificando un desafío real de su entorno comunitario y planteando su propia idea de solución.'
+      summary: '20 jóvenes por Fab Lab inician identificando un desafío real de su entorno comunitario y planteando su propia propuesta de solución.'
     },
     {
       step: '02',
-      title: '250 duplas intercolegios',
+      title: 'Duplas intercolegios (2)',
       period: 'Semana 2',
       modality: 'Virtual en vivo',
-      summary: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en 250 conceptos híbridos más potentes.'
+      summary: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en conceptos híbridos más potentes.'
     },
     {
       step: '03',
-      title: 'Prototipado en el Fab Lab del IEST',
+      title: 'Núcleos en el Fab Lab (10)',
       period: 'Semanas 3 y 4',
       modality: 'Fabricación en IEST',
-      summary: 'Las duplas se articulan y acuden al Fab Lab del IEST de su región para fabricar físicamente sus componentes y prototipos con impresoras 3D, corte láser y electrónica.'
+      summary: '5 duplas convergen en 2 núcleos de 10 jóvenes por sede y acuden al Fab Lab del IEST para fabricar físicamente sus módulos con impresión 3D, corte láser y electrónica.'
     },
     {
       step: '04',
-      title: '24 sistemas regionales y Red Nacional',
+      title: 'Sistema de 20 y Red Nacional',
       period: 'Semanas 5 y 6',
       modality: 'Integración y Demo Day',
-      summary: 'Los 4 prototipos de cada región se articulan como módulos de un solo sistema regional (20 jóvenes por región) y se conectan con todo el país en el Demo Day Nacional.'
+      summary: 'Los 2 núcleos de 10 se integran en 1 sistema funcional de 20 jóvenes por sede y conectan los 24 sistemas del país en el Demo Day Nacional.'
     }
   ],
   selectionPillars: [
@@ -124,12 +124,12 @@ window.EDITION_CONFIG = {
   ],
   faq: [
     {
-      q: '¿Por qué no se solicitan libretas ni promedio de notas para postular?',
-      a: 'Porque el talento creador y la capacidad de resolver problemas reales no dependen de un examen memorístico. Buscamos jóvenes con curiosidad, ingenio práctico y ganas de transformar su comunidad. Todos los participantes seleccionados que completen el programa recibirán su diploma oficial.'
+      q: '¿Qué valoramos en tu postulación para ingresar al programa?',
+      a: 'Valoramos tu talento creador, tu curiosidad, tu ingenio práctico y tus ganas de transformar tu comunidad por encima de cualquier libreta de notas. Todos los participantes seleccionados que completen el programa recibirán su diploma oficial.'
     },
     {
       q: '¿Cómo funciona la metodología SimbioCreación y en qué etapa se fabrica el prototipo?',
-      a: 'A diferencia de los modelos competitivos donde solo un proyecto avanza, con SimbioCreación todas las ideas evolucionan: empezamos con 500 ideas individuales (20 por sede), luego se unen en 250 duplas colaborativas, y en la siguiente etapa acuden al Fab Lab del IEST de su región a fabricar físicamente sus componentes y prototipos, para luego integrar las soluciones en su sistema regional.'
+      a: 'Con SimbioCreación todas las ideas evolucionan en red: en cada sede iniciamos con 20 ideas individuales (Semana 1), luego se unen en 10 duplas intercolegios (Semana 2) y en las semanas 3 y 4 convergen en 2 núcleos de 10 jóvenes que acuden al Fab Lab del IEST a fabricar físicamente sus módulos, para finalmente integrarlos en 1 sistema de 20 participantes y conectar los 24 sistemas en la Red Nacional.'
     },
     {
       q: '¿Los retos regionales están impuestos de antemano?',
@@ -141,7 +141,7 @@ window.EDITION_CONFIG = {
     },
     {
       q: '¿Cómo funciona el video de 60 segundos para postular?',
-      a: 'Solo debes grabar un video corto con tu celular mostrando el lugar o desafío cotidiano de tu comunidad que te gustaría transformar y contando por qué quieres ser parte. No evaluamos edición ni calidad de cámara, solo autenticidad e iniciativa.'
+      a: 'Solo debes grabar un video corto con tu celular mostrando el lugar o desafío cotidiano de tu comunidad que te gustaría transformar y contando por qué quieres ser parte. Valoramos únicamente tu autenticidad, tus ideas y tu iniciativa.'
     },
     {
       q: '¿Cómo puede una empresa o institución adoptar una región?',
@@ -270,7 +270,8 @@ window.PERU_MAP_DATA = {
       "sponsorName": null,
       "quotaTarget": 25,
       "teamsTarget": 5,
-      "regionAliada": "Cusco"
+      "regionAliada": "Cusco",
+      "isPendingSede": true
     },
     {
       "id": "callao",
@@ -384,7 +385,8 @@ window.PERU_MAP_DATA = {
       "sponsorName": null,
       "quotaTarget": 25,
       "teamsTarget": 5,
-      "regionAliada": "San Martín"
+      "regionAliada": "San Martín",
+      "isPendingSede": true
     },
     {
       "id": "la-libertad",
