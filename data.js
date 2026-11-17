@@ -10,165 +10,142 @@ window.EDITION_CONFIG = {
   countryBadge: 'PE',
   flagEmoji: '🇵🇪',
   editionTitle: 'SimbioMakers PE',
-  editionSubtitle: 'Red Nacional de Innovación y Fabricación Digital Escolar',
+  editionSubtitle: 'Red nacional de innovación y fabricación digital escolar',
   tagline: 'Convergencia antes que competencia • De la idea al prototipo real',
   targetAudience: 'Estudiantes de 4.° y 5.° de secundaria',
+  whatsappDelia: '51946037105',
   organizers: [
     {
       name: 'Fab Lab Perú',
-      role: 'Red de Laboratorios & Fabricación Distribuida',
+      role: 'Red de laboratorios y fabricación distribuida',
       logoDark: 'logos/logo_fablab_blanco.png',
       logoLight: 'logos/logo_fablab_negro.png',
       description: 'Pioneros de la fabricación digital en el Perú y gestores de la red global Fab City.'
     },
     {
       name: 'SimbioCreación',
-      role: 'Metodología de Innovación & MIP',
+      role: 'Metodología de convergencia exponencial de saberes',
       logo: 'logos/logo_simbiocreacion.png',
-      description: 'Metodología de Benito Juárez Vélez orientada al Máximo Impacto Posible (MIP).'
+      description: 'Metodología creada por Benito Juárez Vélez donde el 100% de los participantes convergen sin descartar talentos.'
     }
   ],
   framework: {
-    totalSedes: 25, // 24 regiones + Callao
+    totalSedes: 25,
     totalDepartments: 24,
-    targetStudents: '+500 Escolares',
-    targetTeams: '+100 Equipos',
-    femaleTarget: '50% Mujeres STEAM',
-    diplomaTitle: 'Diploma Oficial de Innovación y Fabricación Digital (Fab Lab Perú & SimbioCreación)',
+    targetStudents: '500 escolares',
+    targetTeams: '100 equipos',
+    femaleTarget: '50% mujeres en STEAM',
+    diplomaTitle: 'Diploma oficial de innovación y fabricación digital (Fab Lab Perú y SimbioCreación)',
     kitDetails: {
       items: [
-        'Filamento PLA ecológico para impresión 3D',
-        'Tableros de corte láser (MDF / acrílico)',
-        'Placas microcontroladoras programables (ESP32 / Arduino)',
+        'Impresoras 3D y filamento PLA biodegradable',
+        'Cortadoras láser para estructuras en MDF y acrílico',
+        'Kits electrónicos con placas programables (ESP32 / Arduino)',
         'Sensores de entorno (humedad, temperatura, luz, distancia)',
-        'Actuadores y componentes mecánicos de ensamble'
+        'Actuadores y componentes para ensamble de prototipos'
       ]
     }
   },
   pedagogy: [
     {
       step: '01',
-      title: 'Misiones Virtuales & Reto Local',
-      period: 'Semanas 1 y 2',
+      title: '500 ideas individuales',
+      period: 'Semana 1',
       modality: 'Virtual en vivo',
-      summary: 'Sesiones semanales dinámicas de ideación, modelado 2D/3D y electrónica. Cada equipo define un desafío concreto de su comunidad en agua, energía, salud o cultura.'
+      summary: '20 jóvenes por sede inician identificando un desafío real de su entorno comunitario y planteando su propia idea de solución.'
     },
     {
       step: '02',
-      title: 'Codiseño Interregional',
-      period: 'Semana 3',
-      modality: 'Virtual · Codiseño',
-      summary: 'Colaboración a distancia entre regiones aliadas (ej. Loreto y Áncash). Intercambio de planos digitales (STL, SVG) para auditoría técnica y ensamble compartido sin fletes.'
+      title: '250 duplas intercolegios',
+      period: 'Semana 2',
+      modality: 'Virtual en vivo',
+      summary: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en 250 conceptos híbridos más potentes.'
     },
     {
       step: '03',
-      title: 'Fabricación Física en el IEST Sede',
-      period: 'Semanas 4 y 5',
-      modality: 'Presencial en IEST',
-      summary: 'Jornadas prácticas en el Fab Lab del Instituto Tecnológico público de su región: corte láser, impresión 3D, programación y ensamblaje de prototipos físicos.'
+      title: '100 equipos en el Fab Lab (4 a 5 jóvenes)',
+      period: 'Semanas 3 y 4',
+      modality: 'Fabricación en IEST',
+      summary: 'Dos duplas se unen (4 a 5 integrantes por equipo, 4 equipos por región) y acuden al Fab Lab del IEST de su región para fabricar su prototipo físico con impresoras 3D, corte láser y electrónica.'
     },
     {
       step: '04',
-      title: 'Demo Day Nacional & Certificación MIP',
-      period: 'Semana 6',
-      modality: 'Virtual en vivo',
-      summary: 'Presentación en vivo de los prototipos ante jurado de expertos, entrega de diplomas oficiales y reporte del Índice de Máximo Impacto Posible.'
+      title: '24 sistemas regionales y Red Nacional',
+      period: 'Semanas 5 y 6',
+      modality: 'Integración y Demo Day',
+      summary: 'Los 4 prototipos de cada región se articulan como módulos de un solo sistema regional (20 jóvenes por región) y se conectan con todo el país en el Demo Day Nacional.'
     }
   ],
   selectionPillars: [
     {
       pct: 35,
-      title: 'Iniciativa y Diagnóstico Local',
+      title: 'Iniciativa y diagnóstico local',
       desc: 'Claridad para identificar un problema concreto de su entorno y proponer una solución tecnológica factible.'
     },
     {
       pct: 35,
-      title: 'Ingenio Práctico',
+      title: 'Ingenio práctico',
       desc: 'Haber construido, reparado, programado o inventado algo con los materiales y recursos disponibles a su alrededor.'
     },
     {
       pct: 30,
-      title: 'Vocación de Trabajo en Equipo',
-      desc: 'Entusiasmo por colaborar con jóvenes de distintos colegios e integrar conocimientos en una sola meta compartida.'
+      title: 'Vocación de trabajo en equipo',
+      desc: 'Entusiasmo por colaborar con jóvenes de distintos colegios e integrar conocimientos en una meta compartida.'
     }
   ],
   sponsorTiers: [
     {
-      id: 'kit_maker',
-      title: 'Aliado de Insumos (Kits Maker)',
-      badge: 'Aporte de Prototipado',
-      summary: 'Kits para equipos escolares',
-      featured: false,
-      description: 'Financia los materiales de prototipado físico (filamento 3D, corte láser, sensores y microcontroladores) para los equipos de una o varias sedes.',
-      benefits: [
-        'Mención de honor en los reportes técnicos y prototipos físicos',
-        'Diploma institucional de Aliado Maker',
-        'Participación en las sesiones de muestra regional'
-      ]
-    },
-    {
       id: 'adopta_region',
-      title: 'Sponsor de Sede: Adopta una Región',
-      badge: 'Impacto Regional Completo',
-      summary: 'Cobertura integral de una sede regional',
+      title: 'Sponsor de sede: adopta una región',
+      badge: 'Impacto regional completo',
+      summary: 'Impulsa los 4 equipos (20 jóvenes) de una sede regional',
       featured: true,
-      description: 'Financia la operación técnica, facilitadores e insumos de una región completa en su IEST sede. Recibe reporte de auditoría MIP.',
+      description: 'Habilita la operación y fabricación de los prototipos de toda una región en su IEST sede, generando un Máximo Impacto Posible (MIP) medible en el territorio.',
       benefits: [
-        'Derecho a proponer un reto de innovación vinculado a su sector',
-        'Reporte de auditoría y métricas de Máximo Impacto Posible (MIP)',
-        'Participación destacada en el jurado del Demo Day Nacional',
-        'Presencia de marca en stands, prototipos y prensa regional'
+        'Vinculación con los desafíos socioambientales o productivos de la región elegida',
+        'Reporte de impacto y trazabilidad de los prototipos desarrollados',
+        'Participación destacada en el Demo Day Nacional',
+        'Presencia institucional en prototipos, certificados y difusión regional'
       ]
     },
     {
-      id: 'fondo_facilitadores',
-      title: 'Fondo de Instructores Locales',
-      badge: 'Desarrollo de Capacidad Técnica',
-      summary: 'Soporte a instructores de los IEST',
+      id: 'kit_maker',
+      title: 'Aliado de equipamiento y kits',
+      badge: 'Herramientas y electrónica',
+      summary: 'Kits electrónicos, filamento 3D y materiales de fabricación',
       featured: false,
-      description: 'Aporte orientado a capacitar y retribuir a los técnicos de laboratorio e instructores de los institutos públicos.',
+      description: 'Aporta kits de electrónica (Arduino/ESP32, sensores) y materiales para que los equipos de 4 a 5 escolares fabriquen sus prototipos en los Fab Labs.',
       benefits: [
-        'Fortalecimiento directo de la capacidad técnica instalada en las regiones',
-        'Reconocimiento como padrino de transferencia tecnológica'
-      ]
-    },
-    {
-      id: 'mentoria_conectividad',
-      title: 'Mentoría & Conectividad',
-      badge: 'Voluntariado y Datos',
-      summary: 'Acompañamiento técnico / Enlaces',
-      featured: false,
-      description: 'Aporte de paquetes de datos de conectividad para escolares y mentorías de profesionales del sector tecnológico.',
-      benefits: [
-        'Conexión directa entre líderes de tu empresa y jóvenes talentos',
-        'Reporte de voluntariado corporativo de alto impacto'
+        'Reconocimiento en la bitácora técnica y en los prototipos físicos',
+        'Certificado institucional como aliado tecnológico',
+        'Participación en la presentación de resultados regionales'
       ]
     }
   ],
   faq: [
     {
       q: '¿Por qué no se solicitan libretas ni promedio de notas para postular?',
-      a: 'Porque el talento transformador y la creatividad práctica no se reflejan en un examen memorístico. Buscamos jóvenes con curiosidad, ingenio para resolver problemas reales y compromiso con su comunidad. ¡Todos los estudiantes seleccionados recibirán su Diploma Oficial de Innovación y Fabricación Digital!'
+      a: 'Porque el talento creador y la capacidad de resolver problemas reales no dependen de un examen memorístico. Buscamos jóvenes con curiosidad, ingenio práctico y ganas de transformar su comunidad. Todos los participantes seleccionados que completen el programa recibirán su diploma oficial.'
     },
     {
-      q: '¿Qué significa MIP (Máximo Impacto Posible)?',
-      a: 'Es la métrica central de la metodología SimbioCreación. En lugar de competir para que una sola idea gane y el resto se descarte, todos los saberes convergen en prototipos integrados donde el valor generado multiplica exponencialmente el impacto social y tecnológico.'
+      q: '¿Cómo funciona la metodología SimbioCreación y en qué etapa se fabrica el prototipo?',
+      a: 'En un concurso tradicional más del 80% de las ideas se descartan. Con SimbioCreación nadie pierde: empezamos con 500 ideas individuales (20 por sede), luego se unen en 250 duplas, y en la tercera etapa forman 100 equipos de 4 a 5 jóvenes (4 equipos por región). Es en esa etapa de 4 a 5 integrantes donde acuden al Fab Lab del IEST a fabricar físicamente su prototipo, para luego integrar los 4 módulos en un sistema regional.'
     },
     {
-      q: '¿Cómo funciona la colaboración entre regiones aliadas sin pagar fletes?',
-      a: 'Cada equipo diseña digitalmente su componente y comparte sus archivos (STL, SVG) por la nube con su región aliada. Los laboratorios de los IEST de ambas regiones imprimen y cortan las piezas localmente, logrando un ensamble coordinado a cientos de kilómetros sin costos de transporte.'
+      q: '¿Los retos regionales están impuestos de antemano?',
+      a: 'No. Cada región tiene vocaciones y problemáticas propias (agua, agro, heladas, biodiversidad, energía), pero los retos concretos nacen de las observaciones de los propios estudiantes y de las necesidades reales de su territorio.'
     },
     {
-      q: '¿Pueden postular estudiantes de colegios públicos y privados?',
-      a: 'Sí. La convocatoria está abierta para estudiantes de 4.° y 5.° de secundaria. Buscamos conformar equipos diversos mezclando estudiantes de distintos colegios de la misma región, con paridad de género (50% mujeres en STEAM).'
+      q: '¿Cómo colaboran los equipos entre distintas regiones del país?',
+      a: 'Durante las sesiones de codiseño, los equipos que abordan desafíos afines en distintas regiones comparten sus archivos digitales (STL para impresión 3D, SVG para corte láser y código electrónico) por la nube, permitiendo replicar y mejorar piezas localmente sin costos de transporte.'
     },
     {
-      q: '¿Cómo funciona el video de 60 segundos?',
-      a: 'Solo debes grabar un video corto con tu celular mostrando el lugar o problema cotidiano de tu comunidad que te gustaría transformar y contando por qué te gustaría participar. No evaluamos edición ni calidad de cámara, solo tu claridad, autenticidad e iniciativa.'
+      q: '¿Cómo funciona el video de 60 segundos para postular?',
+      a: 'Solo debes grabar un video corto con tu celular mostrando el lugar o desafío cotidiano de tu comunidad que te gustaría transformar y contando por qué quieres ser parte. No evaluamos edición ni calidad de cámara, solo autenticidad e iniciativa.'
     },
     {
-      q: '¿Cómo puede una empresa o institución patrocinar una región?',
-      a: 'Desde el portal web, los aliados pueden seleccionar una región disponible en el mapa interactivo y solicitar el dossier de impacto MIP para apadrinar la sede y definir un reto vinculado a su actividad.'
+      q: '¿Cómo puede una empresa o institución adoptar una región?',
+      a: 'Puedes escribir directamente por WhatsApp a nuestra directora ejecutiva, Delia Barriga (+51 946 037 105), desde cualquiera de los botones de aliados en esta web para elegir la región de tu interés y coordinar los detalles de participación.'
     }
   ]
 };

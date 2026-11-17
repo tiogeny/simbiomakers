@@ -305,9 +305,7 @@ function renderHeroNetworkMap() {
     });
 
     if (badge) {
-      badge.innerHTML = ally
-        ? `<span class="w-2 h-2 rounded-full bg-[#e60066] animate-pulse"></span><span><strong>${region.name}</strong> ↔ <strong>${ally.name}</strong> · Codiseño 3D</span>`
-        : `<span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span><span><strong>${region.name}</strong> · Fab Lab IEST</span>`;
+      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-[#e60066] animate-pulse"></span><span><strong>${region.name}</strong> · Red nacional de fabricación distribuida</span>`;
     }
   }
 
@@ -320,7 +318,7 @@ function renderHeroNetworkMap() {
       group.style.opacity = '1';
     });
     if (badge) {
-      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span><span>Red Nacional · 24 Regiones Conectadas</span>`;
+      badge.innerHTML = `<span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span><span>Red nacional · 24 regiones conectadas</span>`;
     }
   }
 
@@ -622,13 +620,13 @@ function renderRegionsGrid() {
         </div>
 
         <p class="text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/50 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800 line-clamp-2 mb-3">
-          <strong class="text-teal-600 dark:text-teal-400">Reto:</strong> ${region.localChallenge}
+          <strong class="text-teal-600 dark:text-teal-400">Vocación territorial:</strong> ${region.localChallenge}
         </p>
 
         <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-700/50">
           <div>
-            <span class="block text-[10px] text-slate-400">Región Aliada:</span>
-            <span class="font-semibold text-slate-700 dark:text-slate-200">🤝 ${region.regionAliada}</span>
+            <span class="block text-[10px] text-slate-400">Conexión nacional:</span>
+            <span class="font-semibold text-slate-700 dark:text-slate-200">🔄 Codiseño en red</span>
           </div>
           <div>
             <span class="block text-[10px] text-slate-400">Postulantes:</span>
@@ -675,25 +673,30 @@ function selectRegion(regionId) {
   document.getElementById('drawer-iest-name').textContent = region.iestName;
   document.getElementById('drawer-iest-city').textContent = region.iestCity;
   document.getElementById('drawer-challenge').textContent = region.localChallenge;
-  document.getElementById('drawer-mirror-region').textContent = region.regionAliada;
+  document.getElementById('drawer-mirror-region').textContent = 'Por afinidad de desafío';
   document.getElementById('drawer-applicants').textContent = `${region.applicantsCount} estudiantes`;
-  document.getElementById('drawer-female-ratio').textContent = `${region.femaleRatio}% de mujeres postulantes`;
+  document.getElementById('drawer-female-ratio').textContent = `${region.femaleRatio}% mujeres`;
   
   const sponsorBadge = document.getElementById('drawer-sponsor-status');
   if (isSponsored) {
     sponsorBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300 border border-teal-200';
-    sponsorBadge.textContent = `Patrocinada por: ${region.sponsorName || 'Aliado Regional'}`;
+    sponsorBadge.textContent = `Patrocinada por: ${region.sponsorName || 'Aliado regional'}`;
   } else {
     sponsorBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300 border border-slate-200';
-    sponsorBadge.textContent = 'Disponible para Adopción Regional';
+    sponsorBadge.textContent = 'Disponible para adopción regional';
   }
 
   // Pre-fill form dropdowns
   const studentRegionSelect = document.getElementById('student-form-region');
   if (studentRegionSelect) studentRegionSelect.value = region.name;
 
-  const sponsorRegionSelect = document.getElementById('sponsor-form-region');
-  if (sponsorRegionSelect) sponsorRegionSelect.value = region.name;
+  const drawerSponsorBtn = document.getElementById('drawer-sponsor-btn');
+  if (drawerSponsorBtn) {
+    drawerSponsorBtn.onclick = () => {
+      closeRegionDrawer();
+      openDeliaWhatsApp(`Adopción de la sede regional ${region.name}`);
+    };
+  }
 
   // Open drawer
   drawer.classList.remove('hidden');
@@ -803,7 +806,83 @@ function renderSelectionCriteria() {
   `).join('');
 }
 
-// Render Sponsor Tiers
+// Render Animated SimbioCreación Convergence Tree (500 -> 250 -> 100 -> 24 -> 1)
+function renderSimbioConvergenceTree() {
+  const container = document.getElementById('simbio-convergence-tree');
+  if (!container) return;
+
+  const levels = [
+    { y: 310, count: 8, r: 9, color: '#06B6D4', label: '500 ideas individuales', sub: '20 jóvenes por sede (Virtual)' },
+    { y: 235, count: 4, r: 12, color: '#0D9488', label: '250 duplas intercolegios', sub: '10 parejas por región (Virtual)' },
+    { y: 155, count: 2, r: 16, color: '#e60066', label: '100 equipos de 4 a 5 jóvenes', sub: '★ Prototipado físico en Fab Lab IEST ★', highlight: true },
+    { y: 72,  count: 1, r: 22, color: '#7c3aed', label: '24 sistemas regionales → 1 Red Nacional', sub: '100% coautoría colectiva · 0% descarte' }
+  ];
+
+  const getXCoords = (count) => {
+    const span = 340;
+    const startX = 70;
+    if (count === 1) return [startX + span / 2];
+    const step = span / (count - 1);
+    return Array.from({ length: count }, (_, i) => startX + i * step);
+  };
+
+  let pathsHtml = '';
+  const palette = ['#06B6D4', '#0D9488', '#2563eb', '#059669', '#e60066', '#d97706', '#7c3aed', '#ec4899'];
+
+  for (let l = 0; l < levels.length - 1; l++) {
+    const currX = getXCoords(levels[l].count);
+    const nextX = getXCoords(levels[l + 1].count);
+    const y1 = levels[l].y;
+    const y2 = levels[l + 1].y;
+    const midY = (y1 + y2) / 2;
+
+    currX.forEach((x1, i) => {
+      const x2 = nextX[Math.floor(i / 2)];
+      const col = palette[i % palette.length];
+      const d = `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`;
+      const delay = (l * 0.4 + i * 0.15).toFixed(2);
+      pathsHtml += `
+        <path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-opacity="0.28" />
+        <path d="${d}" fill="none" stroke="${col}" stroke-width="2.8" stroke-linecap="round" class="hero-network-flow" style="animation-delay: ${delay}s;" />
+      `;
+    });
+  }
+
+  let nodesHtml = '';
+  levels.forEach((lvl, lIdx) => {
+    const xs = getXCoords(lvl.count);
+    xs.forEach((cx, i) => {
+      const col = lIdx === 0 ? palette[i % palette.length] : lvl.color;
+      nodesHtml += `
+        <g transform="translate(${cx}, ${lvl.y})">
+          ${lvl.highlight ? `<circle r="${lvl.r + 6}" fill="${col}" opacity="0.22" class="animate-ping" style="animation-duration: 2.6s;" />` : ''}
+          <circle r="${lvl.r}" fill="${col}" stroke="#ffffff" stroke-width="2.2" />
+        </g>
+      `;
+    });
+
+    // Right-side level annotation
+    const badgeBg = lvl.highlight ? 'fill="#fdf2f8" stroke="#f472b6"' : 'fill="#f8fafc" stroke="#cbd5e1"';
+    const textFill = lvl.highlight ? '#be185d' : '#0f172a';
+    nodesHtml += `
+      <g transform="translate(445, ${lvl.y})">
+        <line x1="-22" y1="0" x2="-6" y2="0" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3" />
+        <rect x="0" y="-22" width="295" height="44" rx="10" ${badgeBg} stroke-width="1.2" />
+        <text x="14" y="-3" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="800" fill="${textFill}">${lvl.label}</text>
+        <text x="14" y="13" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600" fill="#64748b">${lvl.sub}</text>
+      </g>
+    `;
+  });
+
+  container.innerHTML = `
+    <svg viewBox="0 0 760 360" class="w-full h-auto max-w-4xl mx-auto select-none" xmlns="http://www.w3.org/2000/svg">
+      ${pathsHtml}
+      ${nodesHtml}
+    </svg>
+  `;
+}
+
+// Render Sponsor Tiers (Direct WhatsApp to Delia Barriga)
 function renderSponsorTiers() {
   const container = document.getElementById('sponsor-tiers-container');
   if (!container) return;
@@ -811,7 +890,7 @@ function renderSponsorTiers() {
   const tiers = EDITION_CONFIG.sponsorTiers;
   container.innerHTML = tiers.map(tier => `
     <div class="relative bg-white dark:bg-slate-800/90 rounded-3xl p-7 border ${tier.featured ? 'border-teal-500 ring-2 ring-teal-500/20 shadow-xl' : 'border-slate-200 dark:border-slate-700 shadow-sm'} flex flex-col justify-between">
-      ${tier.featured ? '<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-teal-600 text-white shadow">Modalidad Principal</div>' : ''}
+      ${tier.featured ? '<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-teal-600 text-white shadow">Modalidad principal</div>' : ''}
       <div>
         <div class="flex items-center justify-between gap-2 mb-2">
           <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-2.5 py-1 rounded-md">${tier.badge}</span>
@@ -832,10 +911,11 @@ function renderSponsorTiers() {
 
       <div class="mt-7">
         <button 
-          onclick="window.selectSponsorTier('${tier.id}')"
-          class="w-full py-3 px-4 rounded-xl font-bold text-xs tracking-wide transition-all ${tier.featured ? 'bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white shadow-md' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white'}"
+          onclick="window.openDeliaWhatsApp('${tier.title}')"
+          class="w-full py-3 px-4 rounded-xl font-bold text-xs tracking-wide transition-all flex items-center justify-center gap-2 ${tier.featured ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-md' : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white'}"
         >
-          Elegir Esta Modalidad
+          <span>Conversar con Delia Barriga (WhatsApp)</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </button>
       </div>
     </div>
@@ -878,38 +958,6 @@ function renderFaq() {
       }
     });
   });
-}
-
-// Dynamic Impact Calculator
-function initBudgetCalculator() {
-  const slider = document.getElementById('calc-region-slider');
-  const regionCountVal = document.getElementById('calc-region-count');
-  const totalStudentsVal = document.getElementById('calc-total-students');
-  const totalTeamsVal = document.getElementById('calc-total-teams');
-  const prototypesVal = document.getElementById('calc-prototypes');
-  const schoolsCountVal = document.getElementById('calc-schools-count');
-
-  if (!slider) return;
-
-  function updateCalc() {
-    const regions = parseInt(slider.value, 10);
-    state.calcRegions = regions;
-    const studentsPerRegion = 20;
-    const teamsPerRegion = 4;
-    const schoolsPerRegion = 18;
-    const totalStudents = regions * studentsPerRegion;
-    const totalTeams = regions * teamsPerRegion;
-    const totalSchools = regions * schoolsPerRegion;
-
-    if (regionCountVal) regionCountVal.textContent = regions;
-    if (totalStudentsVal) totalStudentsVal.textContent = `+${totalStudents}`;
-    if (totalTeamsVal) totalTeamsVal.textContent = totalTeams;
-    if (prototypesVal) prototypesVal.textContent = totalTeams;
-    if (schoolsCountVal) schoolsCountVal.textContent = `+${totalSchools}`;
-  }
-
-  slider.addEventListener('input', updateCalc);
-  updateCalc();
 }
 
 // Student Form Handling with Auto-Draft
@@ -970,43 +1018,7 @@ function initStudentForm() {
   });
 }
 
-// Sponsor Form Handling
-function initSponsorForm() {
-  const form = document.getElementById('sponsor-application-form');
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-    payload.timestamp = new Date().toISOString();
-    payload.tipo = 'interes_sponsor';
-
-    try {
-      if (CONFIG.FORM_WEBHOOK_URL) {
-        await fetch(CONFIG.FORM_WEBHOOK_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      }
-      form.reset();
-      closeModal('modal-sponsor');
-      showToast('¡Gracias por sumarte como Aliado! Te enviaremos el dossier de impacto MIP.', 'success');
-    } catch (err) {
-      console.error(err);
-      showToast('Gracias. Nos pondremos en contacto contigo a la brevedad.', 'success');
-    } finally {
-      btn.disabled = false;
-    }
-  });
-}
-
-// IEST / School Form Handling
+// IEST Form Handling (with multiple-choice equipment checkboxes)
 function initIestForm() {
   const form = document.getElementById('iest-application-form');
   if (!form) return;
@@ -1018,8 +1030,10 @@ function initIestForm() {
 
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
+    const checkedEquip = Array.from(form.querySelectorAll('input[name="equipamiento"]:checked')).map(cb => cb.value);
+    payload.equipamiento = checkedEquip.join(', ');
     payload.timestamp = new Date().toISOString();
-    payload.tipo = 'registro_iest_colegio';
+    payload.tipo = 'registro_sede_iest';
 
     try {
       if (CONFIG.FORM_WEBHOOK_URL) {
@@ -1032,7 +1046,7 @@ function initIestForm() {
       }
       form.reset();
       closeModal('modal-iest');
-      showToast('¡Registro recibido! La coordinación de Fab Lab Perú se contactará con tu institución.', 'success');
+      showToast('¡Sede IEST registrada! La coordinación de Fab Lab Perú se contactará con tu laboratorio.', 'success');
     } catch (err) {
       console.error(err);
     } finally {
@@ -1204,33 +1218,26 @@ function setupEventListeners() {
     btn.addEventListener('click', () => closeModal(modalId));
   });
 
-  // Populate region dropdowns
+  // Populate region dropdowns (clean region names only, without IEST names)
   const studentSelect = document.getElementById('student-form-region');
-  const sponsorSelect = document.getElementById('sponsor-form-region');
   const iestSelect = document.getElementById('iest-form-region');
 
   const optionsHtml = PERU_MAP_DATA.regions
-    .map(r => `<option value="${r.name}">${r.name} (${r.macroregion}) - Sede ${r.iestName}</option>`)
+    .map(r => `<option value="${r.name}">${r.name}</option>`)
     .join('');
 
-  if (studentSelect) studentSelect.innerHTML = `<option value="">Selecciona tu Departamento / Región</option>` + optionsHtml;
-  if (sponsorSelect) sponsorSelect.innerHTML = `<option value="Cualquier Región con Mayor Necesidad">Cualquier Región con Mayor Necesidad</option>` + optionsHtml;
-  if (iestSelect) iestSelect.innerHTML = `<option value="">Selecciona la Región de tu Institución</option>` + optionsHtml;
+  if (studentSelect) studentSelect.innerHTML = `<option value="">Selecciona tu región</option>` + optionsHtml;
+  if (iestSelect) iestSelect.innerHTML = `<option value="">Selecciona la región de tu IEST</option>` + optionsHtml;
 }
 
-window.selectSponsorTier = function(tierId) {
-  if (tierId === 'mentoria_conectividad') {
-    openModal('modal-mentor');
-    return;
-  }
-  const tier = EDITION_CONFIG.sponsorTiers.find(t => t.id === tierId);
-  const selectEl = document.getElementById('sponsor-form-tier');
-  if (selectEl && tier) {
-    selectEl.value = tier.id;
-  }
-  openModal('modal-sponsor');
-};
+function openDeliaWhatsApp(contextText = '') {
+  const msg = contextText
+    ? `Hola Delia, me gustaría conversar sobre SimbioMakers PE (${contextText}).`
+    : 'Hola Delia, me gustaría conocer cómo sumar a mi organización como aliado en SimbioMakers PE.';
+  window.open(`https://wa.me/51946037105?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+}
 
+window.openDeliaWhatsApp = openDeliaWhatsApp;
 window.openModal = openModal;
 window.closeModal = closeModal;
 window.selectRegion = selectRegion;
@@ -1242,13 +1249,12 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeroNetworkMap();
   renderPeruMap();
   renderRegionsGrid();
+  renderSimbioConvergenceTree();
   renderPedagogy();
   renderSelectionCriteria();
   renderSponsorTiers();
   renderFaq();
-  initBudgetCalculator();
   initStudentForm();
-  initSponsorForm();
   initIestForm();
   initMentorForm();
   setupEventListeners();

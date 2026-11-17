@@ -191,7 +191,7 @@
         <a href="#programa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Programa</a>
         <a href="#mapa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-          Mapa 24 Regiones
+          Mapa 24 regiones
         </a>
         <a href="#participa" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Participa</a>
         <a href="#impacto" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Metodología</a>
@@ -209,8 +209,8 @@
           <span>Postular</span>
         </button>
 
-        <button onclick="window.openModal('modal-sponsor')" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
-          <span>Adopta una Región</span>
+        <button onclick="window.openDeliaWhatsApp()" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
+          <span>Adopta una región</span>
         </button>
 
         <!-- Mobile Menu Toggle -->
@@ -224,24 +224,24 @@
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-[#0B0F19] px-4 py-4 space-y-3 text-xs font-semibold">
       <div class="grid grid-cols-2 gap-2">
-        <a href="#programa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">El Programa</a>
+        <a href="#programa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">El programa</a>
         <a href="#mapa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-teal-500"></span>Mapa 24 Regiones
+          <span class="w-2 h-2 rounded-full bg-teal-500"></span>Mapa 24 regiones
         </a>
-        <a href="#participa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Cómo Participar</a>
+        <a href="#participa" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Cómo participar</a>
         <a href="#impacto" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Metodología</a>
         <a href="#aliados" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">Aliados</a>
         <a href="#faq" class="mobile-nav-link px-3 py-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800">FAQ</a>
       </div>
       <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-2">
-        <button onclick="window.openModal('modal-estudiante')" class="mobile-nav-link w-full py-2.5 px-4 rounded-xl font-bold bg-slate-900 text-white dark:bg-white dark:text-slate-900">🎓 Postular como Estudiante</button>
-        <button onclick="window.openModal('modal-sponsor')" class="mobile-nav-link w-full py-2.5 px-4 rounded-xl font-bold bg-teal-600 text-white">🤝 Adopta una Región</button>
+        <button onclick="window.openModal('modal-estudiante')" class="mobile-nav-link w-full py-2.5 px-4 rounded-xl font-bold bg-slate-900 text-white dark:bg-white dark:text-slate-900">🎓 Postular como estudiante</button>
+        <button onclick="window.openDeliaWhatsApp()" class="mobile-nav-link w-full py-2.5 px-4 rounded-xl font-bold bg-teal-600 text-white">🤝 Adopta una región</button>
       </div>
     </div>
   </header>
 
   <!-- Hero Section (Clean 2-Column Layout inspired by edu.fab.pe) -->
-  <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 border-b border-slate-100 dark:border-slate-800/80 overflow-hidden">
+  <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 bg-white dark:bg-[#0B0F19] border-b border-slate-200 dark:border-slate-800 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
@@ -260,16 +260,16 @@
           <!-- 3 Role-Based Entry Actions -->
           <div class="mt-9 flex flex-wrap items-center gap-3">
             <button onclick="window.openModal('modal-estudiante')" class="px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-teal-600 hover:bg-teal-700 text-white shadow-md shadow-teal-600/20 transition-all flex items-center gap-2">
-              <span>🎓 Soy Estudiante</span>
+              <span>🎓 Soy estudiante</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
 
             <button onclick="window.openModal('modal-iest')" class="px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 transition-all flex items-center gap-2">
-              <span>🏛️ Soy IEST / Colegio</span>
+              <span>🏛️ Soy sede IEST</span>
             </button>
 
-            <button onclick="window.openModal('modal-sponsor')" class="px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-white dark:bg-slate-900 hover:bg-teal-50 dark:hover:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 transition-all flex items-center gap-2">
-              <span>🤝 Soy Aliado / Sponsor</span>
+            <button onclick="window.openDeliaWhatsApp()" class="px-5 py-3.5 rounded-xl font-bold text-xs sm:text-sm bg-white dark:bg-slate-900 hover:bg-teal-50 dark:hover:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800 transition-all flex items-center gap-2">
+              <span>🤝 Soy aliado / sponsor</span>
             </button>
           </div>
         </div>
@@ -296,7 +296,7 @@
             <!-- Minimalist floating connection indicator -->
             <div id="hero-network-badge" class="absolute bottom-4 left-4 z-20 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-700/80 shadow-sm text-[11px] font-medium text-slate-700 dark:text-slate-200 pointer-events-none transition-all duration-200">
               <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-              <span>Red Nacional · 24 Regiones Conectadas</span>
+              <span>Red nacional · 24 regiones conectadas</span>
             </div>
           </div>
         </div>
@@ -306,13 +306,13 @@
   </section>
 
   <!-- Section 2: Program Narrative, What Every Maker Experiences & Real Regional Challenges -->
-  <section id="programa" class="py-20 md:py-24 bg-white dark:bg-[#0B0F19] border-b border-slate-100 dark:border-slate-800">
+  <section id="programa" class="py-20 md:py-24 bg-slate-50/80 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Program Purpose Header -->
       <div class="max-w-3xl mx-auto text-center mb-10">
         <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-          El Programa
+          El programa
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-4">
           El talento está en todo el Perú. <br class="hidden sm:inline">
@@ -324,91 +324,91 @@
       </div>
 
       <!-- Key Schedule & Modality Quick Bar -->
-      <div class="max-w-4xl mx-auto mb-14 grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 dark:bg-slate-900/70 p-4 rounded-2xl border border-slate-200 dark:border-slate-800">
+      <div class="max-w-4xl mx-auto mb-14 grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
         <div class="flex items-center gap-3 px-3 py-1">
           <span class="text-xl">📅</span>
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Cuándo</span>
-            <span class="text-xs font-bold text-slate-900 dark:text-white">Enero – Febrero 2027</span>
-            <span class="text-[11px] text-slate-500 block">Edición Vacacional · 6 semanas</span>
+            <span class="text-xs font-bold text-slate-900 dark:text-white">Enero – febrero 2027</span>
+            <span class="text-[11px] text-slate-500 block">Edición vacacional · 6 semanas</span>
           </div>
         </div>
-        <div class="flex items-center gap-3 px-3 py-1 sm:border-l border-slate-200 dark:border-slate-800">
+        <div class="flex items-center gap-3 px-3 py-1 sm:border-l border-slate-200 dark:border-slate-700">
           <span class="text-xl">🔄</span>
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Modalidad</span>
-            <span class="text-xs font-bold text-teal-700 dark:text-teal-300">Formato Híbrido</span>
-            <span class="text-[11px] text-slate-500 block">Virtual en vivo + Fab Lab IEST</span>
+            <span class="text-xs font-bold text-teal-700 dark:text-teal-300">Formato híbrido</span>
+            <span class="text-[11px] text-slate-500 block">Sesiones virtuales + fabricación en IEST</span>
           </div>
         </div>
-        <div class="flex items-center gap-3 px-3 py-1 sm:border-l border-slate-200 dark:border-slate-800">
+        <div class="flex items-center gap-3 px-3 py-1 sm:border-l border-slate-200 dark:border-slate-700">
           <span class="text-xl">🎓</span>
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Participantes</span>
-            <span class="text-xs font-bold text-slate-900 dark:text-white">4.° y 5.° de Secundaria</span>
+            <span class="text-xs font-bold text-slate-900 dark:text-white">4.° y 5.° de secundaria</span>
             <span class="text-[11px] text-slate-500 block">Verano 2027 · Todo el Perú</span>
           </div>
         </div>
       </div>
 
-      <!-- 4 Pillars: What a SimbioMaker Experiences (Clear value proposition for students, schools & sponsors) -->
+      <!-- 4 Pillars: What a SimbioMaker Experiences -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
-        <div class="rounded-2xl p-6 bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
+        <div class="rounded-2xl p-6 bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
           <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">Acceso a Fab Lab IEST</h3>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">Fabricación en tu Fab Lab IEST</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Jornadas presenciales en el laboratorio público de tu región con impresoras 3D, cortadoras láser y electrónica.
+            Acude al laboratorio público de tu región para imprimir en 3D, cortar con láser y ensamblar físicamente las creaciones de tu equipo.
           </p>
         </div>
 
-        <div class="rounded-2xl p-6 bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
+        <div class="rounded-2xl p-6 bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
           <div class="w-10 h-10 rounded-xl bg-cyan-600 text-white flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">Insumos de Prototipado</h3>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">Impresoras 3D, láser y kits</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Filamento, tableros de corte, placas programables y sensores para transformar tu idea en un prototipo físico real.
+            Usa máquinas de fabricación digital, placas programables (Arduino/ESP32) y sensores para construir prototipos funcionales.
           </p>
         </div>
 
-        <div class="rounded-2xl p-6 bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
+        <div class="rounded-2xl p-6 bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
           <div class="w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">Equipos & Mentoría</h3>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">De tu idea al equipo regional</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Equipos multicolegio con paridad de género, acompañados por instructores técnicos y mentores de todo el país.
+            Inicias con tu idea individual, formas dupla, prototipas en un equipo de 4 a 5 jóvenes y conectas tu solución con toda tu región.
           </p>
         </div>
 
-        <div class="rounded-2xl p-6 bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
+        <div class="rounded-2xl p-6 bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700 shadow-sm hover:border-teal-300 dark:hover:border-teal-700 transition-colors">
           <div class="w-10 h-10 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center mb-4 shadow-sm">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
           </div>
-          <h3 class="font-bold text-base text-slate-900 dark:text-white">Diploma & Demo Day</h3>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">Diploma oficial y Demo Day</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Presentación nacional en vivo de cada prototipo y Diploma Oficial de Innovación y Fabricación Digital.
+            Presentación nacional en vivo de cada prototipo y diploma oficial otorgado por Fab Lab Perú y SimbioCreación.
           </p>
         </div>
       </div>
 
-      <!-- Real Regional Spotlights (Storytelling like Nuestros Champs, tailored to Makers) -->
-      <div class="bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800">
+      <!-- Real Regional Spotlights -->
+      <div class="bg-white dark:bg-slate-800/60 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-700 shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <span class="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Desafíos Reales por Territorio</span>
-            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-0.5">¿Qué problemas resuelven nuestros Makers?</h3>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Desafíos reales por territorio</span>
+            <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-0.5">¿Qué problemáticas inspiran a nuestros jóvenes?</h3>
           </div>
           <a href="#mapa" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline flex items-center gap-1 whitespace-nowrap">
-            <span>Ver los 24 retos regionales</span>
+            <span>Explorar las 24 sedes regionales</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700/70">
+          <div class="bg-slate-50 dark:bg-slate-900/70 rounded-2xl p-5 border border-slate-200/70 dark:border-slate-700/70">
             <div class="flex items-center justify-between mb-2">
               <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">Amazonía · Loreto</span>
               <span class="text-xs text-slate-400">IESTP P. Del Águila</span>
@@ -419,10 +419,10 @@
             </p>
           </div>
 
-          <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700/70">
+          <div class="bg-slate-50 dark:bg-slate-900/70 rounded-2xl p-5 border border-slate-200/70 dark:border-slate-700/70">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 dark:bg-cyan-950/60 dark:text-cyan-300">Andes · Huancavelica & Puno</span>
-              <span class="text-xs text-slate-400">IESTP Locales</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 dark:bg-cyan-950/60 dark:text-cyan-300">Andes · Huancavelica y Puno</span>
+              <span class="text-xs text-slate-400">IESTP locales</span>
             </div>
             <h4 class="font-bold text-sm text-slate-900 dark:text-white">Escudo inteligente contra heladas</h4>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
@@ -430,9 +430,9 @@
             </p>
           </div>
 
-          <div class="bg-white dark:bg-slate-800/90 rounded-2xl p-5 border border-slate-200/80 dark:border-slate-700/70">
+          <div class="bg-slate-50 dark:bg-slate-900/70 rounded-2xl p-5 border border-slate-200/70 dark:border-slate-700/70">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-pink-700 dark:bg-pink-950/60 dark:text-pink-300">Costa · Piura & Callao</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-pink-50 text-pink-700 dark:bg-pink-950/60 dark:text-pink-300">Costa · Piura y Callao</span>
               <span class="text-xs text-slate-400">IESTP Grau / S. Bolívar</span>
             </div>
             <h4 class="font-bold text-sm text-slate-900 dark:text-white">Agro eficiente y monitoreo marino</h4>
@@ -447,36 +447,36 @@
   </section>
 
   <!-- Interactive Map & Sedes Section (24 Regions + Callao) -->
-  <section id="mapa" class="py-20 md:py-28 bg-slate-50/70 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+  <section id="mapa" class="py-20 md:py-28 bg-white dark:bg-[#0B0F19] border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-            Mapeo Nacional
+            Mapeo nacional
           </span>
           <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-3">
-            Sedes y Retos en las 24 Regiones del Perú
+            Sedes y vocaciones en las 24 regiones del Perú
           </h2>
           <p class="text-slate-600 dark:text-slate-300 text-sm mt-1 max-w-2xl">
-            Toca cualquier región del mapa para conocer su Fab Lab público sede, el reto local asignado y su región aliada para fabricación compartida.
+            Toca cualquier región del mapa para conocer su Fab Lab público sede, las temáticas de su territorio y su conexión con la red nacional.
           </p>
           <div class="mt-4 flex flex-wrap items-center gap-3 text-xs">
-            <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
+            <span class="px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
               <strong id="stat-total-applicants" class="text-teal-600 dark:text-teal-400">+500</strong> postulaciones
             </span>
-            <span class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
-              <strong id="stat-female-ratio" class="text-teal-600 dark:text-teal-400">52%</strong> mujeres STEAM
+            <span class="px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
+              <strong id="stat-female-ratio" class="text-teal-600 dark:text-teal-400">52%</strong> mujeres en STEAM
             </span>
-            <span id="stat-sponsored-regions" class="px-3 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
+            <span id="stat-sponsored-regions" class="px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-semibold text-slate-700 dark:text-slate-200">
               4 patrocinadas / 21 disponibles
             </span>
           </div>
         </div>
 
         <!-- View Switcher -->
-        <div class="flex items-center gap-2 bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
-          <button id="view-map-btn" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-700 text-teal-600 dark:text-teal-400 flex items-center gap-1.5">
+        <div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+          <button id="view-map-btn" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white dark:bg-slate-700 text-teal-600 dark:text-teal-400 flex items-center gap-1.5 shadow-sm">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
             <span>Mapa</span>
           </button>
@@ -488,7 +488,7 @@
       </div>
 
       <!-- Filters & Search Toolbar -->
-      <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm mb-8 flex flex-col lg:flex-row items-center justify-between gap-4">
+      <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm mb-8 flex flex-col lg:flex-row items-center justify-between gap-4">
         
         <!-- Macrorregión Pills -->
         <div class="flex items-center gap-1.5 flex-wrap w-full lg:w-auto">
@@ -501,7 +501,7 @@
 
         <!-- Status & Search -->
         <div class="flex items-center gap-3 w-full lg:w-auto justify-between lg:justify-end flex-wrap">
-          <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-700/60 p-1 rounded-lg">
+          <div class="flex items-center gap-1 bg-white dark:bg-slate-700/60 p-1 rounded-lg border border-slate-200 dark:border-slate-700">
             <button data-sponsor-filter="all" class="filter-sponsor-btn px-2.5 py-1 rounded-md text-[11px] font-bold bg-slate-900 dark:bg-white text-white dark:text-slate-900">Todos</button>
             <button data-sponsor-filter="available" class="filter-sponsor-btn px-2.5 py-1 rounded-md text-[11px] font-medium text-slate-600 dark:text-slate-300">Disponibles</button>
             <button data-sponsor-filter="sponsored" class="filter-sponsor-btn px-2.5 py-1 rounded-md text-[11px] font-medium text-slate-600 dark:text-slate-300">Patrocinadas</button>
@@ -512,7 +512,7 @@
               type="text" 
               id="region-search-input" 
               placeholder="Buscar región o IEST..." 
-              class="w-full pl-9 pr-4 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-200"
+              class="w-full pl-9 pr-4 py-2 text-xs rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-200"
             >
             <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           </div>
@@ -521,17 +521,17 @@
       </div>
 
       <!-- MAP VIEW -->
-      <div id="peru-map-view-section" class="relative bg-white dark:bg-slate-900/60 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div id="peru-map-view-section" class="relative bg-slate-50/60 dark:bg-slate-900/60 rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-sm">
         
         <div class="absolute top-6 left-6 z-10 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs space-y-1.5 hidden sm:block">
-          <div class="font-bold text-slate-900 dark:text-white">Estado de Sedes</div>
+          <div class="font-bold text-slate-900 dark:text-white">Estado de sedes</div>
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-teal-600"></span>
-            <span class="text-slate-600 dark:text-slate-300">Sede Patrocinada</span>
+            <span class="text-slate-600 dark:text-slate-300">Sede patrocinada</span>
           </div>
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700"></span>
-            <span class="text-slate-600 dark:text-slate-300">Disponible para Adopción</span>
+            <span class="text-slate-600 dark:text-slate-300">Disponible para adopción</span>
           </div>
         </div>
 
@@ -583,27 +583,30 @@
         <div class="p-6 sm:p-8 overflow-y-auto space-y-5 flex-1 text-xs">
           
           <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 block mb-1">Fab Lab Público Sede</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 block mb-1">Fab Lab público sede</span>
             <h4 id="drawer-iest-name" class="font-bold text-sm text-slate-900 dark:text-white">IESTP</h4>
             <p id="drawer-iest-city" class="text-slate-500 mt-0.5">Ciudad, Perú</p>
           </div>
 
           <div>
             <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px] mb-1.5">
-              🎯 Reto Comunitario Regional
+              🎯 Vocación y desafíos del territorio
             </h4>
             <div id="drawer-challenge" class="p-3.5 rounded-2xl bg-teal-50/40 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800 text-slate-700 dark:text-slate-200 leading-relaxed">
               Desafío local
             </div>
+            <p class="text-[11px] text-slate-400 mt-1.5">
+              Los retos concretos se definen junto a las ideas propuestas por los propios estudiantes de la región.
+            </p>
           </div>
 
           <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-slate-900 dark:text-white">🤝 Región Aliada:</span>
-              <span id="drawer-mirror-region" class="font-extrabold text-teal-600 dark:text-teal-400 text-sm">Región</span>
+              <span class="font-bold text-slate-900 dark:text-white">🔄 Conexión interregional:</span>
+              <span id="drawer-mirror-region" class="font-extrabold text-teal-600 dark:text-teal-400 text-xs">Por afinidad de desafío</span>
             </div>
             <p class="text-slate-500 mt-2 text-[11px] leading-relaxed">
-              Codiseño interregional: intercambio de planos digitales (STL, SVG) para fabricación local distribuida sin costos de transporte.
+              Durante el programa, los equipos de esta sede se conectan con regiones que aborden problemáticas afines para compartir planos digitales (STL, SVG) e imprimir localmente sin costos de transporte.
             </p>
           </div>
 
@@ -613,7 +616,7 @@
               <span id="drawer-applicants" class="font-bold text-sm text-slate-900 dark:text-white mt-0.5 block">0</span>
             </div>
             <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-              <span class="text-slate-400 block text-[10px]">Participación Femenina</span>
+              <span class="text-slate-400 block text-[10px]">Participación femenina</span>
               <span id="drawer-female-ratio" class="font-bold text-sm text-slate-900 dark:text-white mt-0.5 block">50%</span>
             </div>
           </div>
@@ -622,10 +625,10 @@
 
         <div class="p-6 sm:p-8 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 flex flex-col gap-2.5">
           <button onclick="window.closeRegionDrawer(); window.openModal('modal-estudiante')" class="w-full py-3 px-4 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 transition-all text-center">
-            Postular desde esta Región
+            Postular desde esta región
           </button>
-          <button onclick="window.closeRegionDrawer(); window.openModal('modal-sponsor')" class="w-full py-3 px-4 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all text-center">
-            Patrocinar esta Sede Regional
+          <button id="drawer-sponsor-btn" onclick="window.closeRegionDrawer(); window.openDeliaWhatsApp()" class="w-full py-3 px-4 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all text-center">
+            Conversar con Delia Barriga por esta sede (WhatsApp)
           </button>
         </div>
 
@@ -634,18 +637,18 @@
   </div>
 
   <!-- How to Participate (3 Portals) -->
-  <section id="participa" class="py-20 md:py-28 border-b border-slate-200 dark:border-slate-800">
+  <section id="participa" class="py-20 md:py-28 bg-slate-50/80 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-          Cómo Participar
+          Cómo participar
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-4">
           Tres puertas de acción transformadora
         </h2>
         <p class="text-slate-600 dark:text-slate-300 mt-2 text-base">
-          Estudiantes creadores, instituciones educativas y aliados de impacto en una sola red colaborativa.
+          Estudiantes creadores, Institutos Tecnológicos (IEST) y aliados de impacto en una sola red colaborativa.
         </p>
       </div>
 
@@ -657,7 +660,7 @@
             <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Para Escolares · Enero – Febrero 2027 (Híbrido)</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Para escolares · Enero – febrero 2027 (híbrido)</span>
             <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Estudiantes (4.° y 5.°)</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed font-medium">
               ¿Tienes una idea para cambiar la realidad de tu comunidad? Transforma tu visión en un prototipo físico tangible y conéctate con jóvenes líderes de todo el país.
@@ -674,83 +677,83 @@
               </div>
               <div class="flex items-start gap-2.5">
                 <span class="w-5 h-5 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0 mt-0.5">3</span>
-                <span><strong>Creación en equipo:</strong> Construye junto a jóvenes de otros colegios en el Fab Lab de tu región.</span>
+                <span><strong>Fabricación en equipo:</strong> Materializa tu creación junto a jóvenes de otros colegios en el Fab Lab de tu región.</span>
               </div>
             </div>
 
             <div class="mt-4 text-[11px] text-teal-700 dark:text-teal-300 font-semibold flex items-center gap-1.5">
-              <span>📜 Recibe Diploma Oficial de Innovación y Fabricación Digital.</span>
+              <span>📜 Recibe diploma oficial de innovación y fabricación digital.</span>
             </div>
           </div>
 
           <button onclick="window.openModal('modal-estudiante')" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-teal-500 dark:hover:bg-teal-600 dark:text-slate-900 transition-all shadow-sm">
-            Postular como Estudiante &rarr;
+            Postular como estudiante &rarr;
           </button>
         </div>
 
-        <!-- Portal 2: IEST & Schools -->
+        <!-- Portal 2: IEST Public Fab Labs -->
         <div class="bg-white dark:bg-slate-800/90 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-cyan-400 transition-all group">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Capacidad Instalada</span>
-            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">IEST & Colegios</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Capacidad instalada</span>
+            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Sedes IEST (Fab Labs)</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-              Para directores y docentes: valida la capacidad de tu Fab Lab público como sede oficial o registra a tu colegio para postular a tus estudiantes.
+              Para directores y coordinadores de laboratorio de los IEST públicos: registra y valida el equipamiento disponible en tu sede regional.
             </p>
 
             <div class="mt-6 space-y-2.5 text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Activación de laboratorios Minedu/PMESUT.</span>
+                <span>Activación de laboratorios Minedu / PMESUT.</span>
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Formación para instructores y técnicos locales.</span>
+                <span>Articulación con los 4 equipos escolares de tu región.</span>
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Certificación institucional de nodo activo.</span>
+                <span>Reconocimiento institucional en la red nacional.</span>
               </div>
             </div>
           </div>
 
           <button onclick="window.openModal('modal-iest')" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-white transition-all">
-            Registrar Laboratorio o Colegio &rarr;
+            Registrar laboratorio IEST &rarr;
           </button>
         </div>
 
-        <!-- Portal 3: Sponsors -->
+        <!-- Portal 3: Sponsors (Direct to Delia Barriga WhatsApp) -->
         <div class="bg-white dark:bg-slate-800/90 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-teal-500 transition-all group">
           <div>
             <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-6">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Inversión de Impacto</span>
-            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Sponsors & Aliados</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Alianzas de impacto</span>
+            <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white mt-1">Sponsors y aliados</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-              Inversión medible orientada al <strong>Máximo Impacto Posible (MIP)</strong>. Apadrina una región o financia kits maker para multiplicar oportunidades.
+              Apadrina una región completa o aporta kits electrónicos y materiales para impulsar un <strong>Máximo Impacto Posible (MIP)</strong> medible.
             </p>
 
             <div class="mt-6 space-y-2.5 text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Reporte de auditoría y métricas de impacto MIP.</span>
+                <span>Reporte de impacto y trazabilidad por sede regional.</span>
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Propuesta de retos temáticos territoriales.</span>
+                <span>Vinculación con problemáticas socioambientales reales.</span>
               </div>
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Presencia de marca en prototipos y Demo Day.</span>
+                <span>Presencia destacada en prototipos y Demo Day Nacional.</span>
               </div>
             </div>
           </div>
 
-          <button onclick="window.openModal('modal-sponsor')" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
-            Adoptar una Región &rarr;
+          <button onclick="window.openDeliaWhatsApp()" class="mt-8 w-full py-3.5 px-4 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-sm">
+            Conversar con Delia Barriga (WhatsApp) &rarr;
           </button>
         </div>
 
@@ -759,42 +762,53 @@
     </div>
   </section>
 
-  <!-- Impact MIP & Pedagogy Section -->
-  <section id="impacto" class="py-20 md:py-28 bg-slate-50/70 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+  <!-- Metodología SimbioCreación & Convergence Tree Section -->
+  <section id="impacto" class="py-20 md:py-28 bg-white dark:bg-[#0B0F19] border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-14">
         <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
           Metodología SimbioCreación
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-4">
-          Convergencia hacia el Máximo Impacto Posible (MIP)
+          De 500 ideas individuales a una red nacional sin descartar a nadie
         </h2>
-        <p class="text-slate-600 dark:text-slate-300 mt-2 text-base">
-          En los concursos tradicionales, el 87.5% de las ideas se descartan y solo gana una. En SimbioMakers nadie pierde: todas las propuestas convergen en una solución integrada de alto impacto colectivo.
+        <p class="text-slate-600 dark:text-slate-300 mt-3 text-base">
+          En los concursos tradicionales, <strong>más del 80% de las ideas se descartan</strong> y solo gana una. Con la metodología <strong>SimbioCreación</strong> todos los talentos convergen paso a paso para lograr el <strong>Máximo Impacto Posible (MIP)</strong> en cada región.
         </p>
       </div>
 
       <!-- Comparison Block -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-        <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border border-slate-200 dark:border-slate-700">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+        <div class="bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-7 border border-slate-200 dark:border-slate-700">
           <div class="flex items-center gap-2 text-rose-600 font-bold text-xs uppercase tracking-wider mb-2">
-            <span>❌ Modelo Tradicional por Descarte</span>
+            <span>❌ Competencia tradicional por descarte</span>
           </div>
-          <h3 class="font-bold text-xl text-slate-900 dark:text-white">Competencia por Eliminación</h3>
+          <h3 class="font-bold text-xl text-slate-900 dark:text-white">Más del 80% del talento queda fuera</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Se promueve que los grupos compitan de forma aislada. Al final solo se premia a uno y la gran mayoría del esfuerzo queda en el olvido, desaprovechando el talento de la juventud.
+            Los participantes compiten de forma aislada; al final solo se premia a un ganador y la gran mayoría de propuestas y aprendizajes se pierden en el camino.
           </p>
         </div>
 
-        <div class="bg-white dark:bg-slate-800 rounded-3xl p-7 border-2 border-teal-500 shadow-sm">
+        <div class="bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-7 border-2 border-teal-500 shadow-sm">
           <div class="flex items-center gap-2 text-teal-600 dark:text-teal-400 font-bold text-xs uppercase tracking-wider mb-2">
-            <span>✨ SimbioCreación & Fabricación Distribuida</span>
+            <span>✨ Metodología SimbioCreación</span>
           </div>
-          <h3 class="font-bold text-xl text-slate-900 dark:text-white">Máximo Impacto Posible (MIP)</h3>
+          <h3 class="font-bold text-xl text-slate-900 dark:text-white">100% de coautoría y convergencia</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Equipos multicolegio integran sus fortalezas en prototipos físicos reales. Intercambian diseños digitales con su región aliada para fabricar localmente sin gastos de flete.
+            Las 500 ideas iniciales se integran en 250 duplas y luego en 100 equipos de 4 a 5 jóvenes que fabrican físicamente sus prototipos en el Fab Lab de su IEST, articulándose en sistemas regionales.
           </p>
+        </div>
+      </div>
+
+      <!-- Visual Animated Convergence Tree (500 -> 250 -> 100 -> 24 -> 1) -->
+      <div class="mb-14 bg-slate-50/80 dark:bg-slate-900/60 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800">
+        <div class="text-center max-w-2xl mx-auto mb-4">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Ruta de convergencia y prototipado</span>
+          <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-1">¿Cómo evolucionan las ideas y en qué momento se fabrica en el Fab Lab?</h3>
+        </div>
+        <div id="simbio-convergence-tree" class="w-full overflow-x-auto">
+          <!-- Populated by JS: Animated SVG tree -->
         </div>
       </div>
 
@@ -819,90 +833,48 @@
   </section>
 
   <!-- Sponsors & Alliances Section -->
-  <section id="aliados" class="py-20 md:py-28 border-b border-slate-200 dark:border-slate-800">
+  <section id="aliados" class="py-20 md:py-28 bg-slate-50/80 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
         <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-          Alianzas de Inversión
+          Alianzas institucionales
         </span>
         <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-white mt-4">
-          Invierte en el talento de una región
+          Invierte en el talento creador de una región
         </h2>
         <p class="text-slate-600 dark:text-slate-300 mt-2 text-base">
-          Modelo de patrocinio transparente auditado con métricas de <strong>Máximo Impacto Posible (MIP)</strong>.
+          Súmate como organización aliada para habilitar el equipamiento y la operación de los equipos escolares hacia un <strong>Máximo Impacto Posible (MIP)</strong>.
         </p>
       </div>
 
-      <!-- Tiers Grid -->
-      <div id="sponsor-tiers-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"></div>
+      <!-- Tiers Grid (2 Clear Options) -->
+      <div id="sponsor-tiers-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12"></div>
 
-      <!-- Impact Calculator (Harmonized with Light Editorial Aesthetic) -->
-      <div class="bg-gradient-to-br from-slate-50 via-white to-teal-50/50 dark:from-slate-900 dark:via-slate-900 dark:to-teal-950/50 rounded-3xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800 shadow-lg relative overflow-hidden">
-        <div class="max-w-3xl">
-          <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-            Simulador de Impacto
-          </span>
-          <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white mt-4">
-            ¿Cuántas regiones deseas impulsar?
-          </h3>
-          <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
-            Ajusta la cantidad de regiones para proyectar los jóvenes formados, los equipos multicolegio, los prototipos tangibles y los colegios conectados.
+      <!-- Direct Executive Contact Banner (Delia Barriga) -->
+      <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800/90 rounded-3xl p-7 sm:p-8 border border-teal-200 dark:border-teal-800 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Trato directo institucional</span>
+          <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-1">Conversa directamente con nuestra dirección ejecutiva</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+            Coordina la adopción de una región o alianza corporativa directamente por WhatsApp con <strong>Delia Barriga</strong>, directora ejecutiva de Fab Lab Perú (<strong>+51 946 037 105</strong>).
           </p>
-
-          <div class="mt-8">
-            <div class="flex items-center justify-between text-xs font-bold mb-2">
-              <span class="text-slate-500 dark:text-slate-400">Regiones Seleccionadas:</span>
-              <span class="text-teal-600 dark:text-teal-400 font-extrabold text-lg"><span id="calc-region-count">3</span> / 24 Regiones</span>
-            </div>
-            <input 
-              id="calc-region-slider" 
-              type="range" 
-              min="1" 
-              max="24" 
-              value="3" 
-              class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600 dark:accent-teal-400"
-            >
-          </div>
-
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Jóvenes Beneficiados</span>
-              <span id="calc-total-students" class="font-extrabold text-xl text-teal-600 dark:text-teal-300 mt-1 block">+60</span>
-            </div>
-            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Equipos Multicolegio</span>
-              <span id="calc-total-teams" class="font-extrabold text-xl text-slate-900 dark:text-white mt-1 block">12</span>
-            </div>
-            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Prototipos Físicos</span>
-              <span id="calc-prototypes" class="font-extrabold text-xl text-slate-900 dark:text-white mt-1 block">12</span>
-            </div>
-            <div class="bg-white dark:bg-slate-800/80 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-              <span class="text-[10px] text-slate-500 dark:text-slate-400 block">Colegios Conectados</span>
-              <span id="calc-schools-count" class="font-extrabold text-xl text-cyan-600 dark:text-cyan-400 mt-1 block">+60</span>
-            </div>
-          </div>
-
-          <div class="mt-8 flex flex-wrap items-center gap-4">
-            <button onclick="window.openModal('modal-sponsor')" class="px-6 py-3 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-md">
-              Solicitar Dossier Institucional &rarr;
-            </button>
-            <span class="text-xs text-slate-500 dark:text-slate-400">Incluye auditoría y reporte MIP entregable.</span>
-          </div>
-
         </div>
+        <button onclick="window.openDeliaWhatsApp()" class="px-6 py-3.5 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white transition-all shadow-md whitespace-nowrap flex items-center gap-2 flex-shrink-0">
+          <span>Escribir a Delia Barriga</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
       </div>
 
-      <!-- Volunteer Mentors Callout -->
-      <div class="mt-8 bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <!-- Volunteer Mentors Callout (Separate from Sponsors) -->
+      <div class="max-w-4xl mx-auto mt-6 bg-white dark:bg-slate-900/60 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Talento Voluntario</span>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Red de mentores voluntarios</span>
           <h4 class="font-bold text-base text-slate-900 dark:text-white mt-0.5">¿Eres ingeniero, diseñador, maker o educador?</h4>
-          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Dona 2 horas a la semana en enero y febrero de 2027 para mentorear a un equipo regional de forma virtual.</p>
+          <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Acompaña con tu experiencia técnica a un equipo regional durante enero y febrero de 2027.</p>
         </div>
         <button onclick="window.openModal('modal-mentor')" class="px-5 py-3 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 transition-all whitespace-nowrap flex-shrink-0">
-          Sumarme como Mentor Voluntario &rarr;
+          Postular como mentor voluntario &rarr;
         </button>
       </div>
 
@@ -910,15 +882,15 @@
   </section>
 
   <!-- FAQ Accordion -->
-  <section id="faq" class="py-20 md:py-28 bg-slate-50/70 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+  <section id="faq" class="py-20 md:py-28 bg-white dark:bg-[#0B0F19] border-b border-slate-200 dark:border-slate-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-14">
         <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-800">
-          Preguntas Frecuentes
+          Preguntas frecuentes
         </span>
         <h2 class="font-display font-extrabold text-3xl text-slate-900 dark:text-white mt-4">
-          Claridad para Estudiantes, Docentes y Aliados
+          Claridad para estudiantes, sedes IEST y aliados
         </h2>
       </div>
 
@@ -928,53 +900,60 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white dark:bg-slate-950 py-16 text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800">
+  <footer class="bg-slate-50 dark:bg-slate-950 py-16 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
         <div class="md:col-span-2">
           <div class="flex items-center gap-4 flex-wrap mb-4">
+            <!-- Exact same SimbioMakers PE SVG logo as header -->
             <div class="flex items-center gap-2">
-              <span class="font-display font-bold text-xl text-slate-900 dark:text-white">Simbio<span class="text-teal-600 dark:text-teal-400">Makers</span></span>
-              <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 dark:bg-slate-800 dark:text-teal-300">PE</span>
+              <svg class="brand-logo-svg-full" viewBox="0 0 212 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="SimbioMakers">
+                <circle cx="92" cy="32" r="16.5" class="sc-iso-ring" />
+                <g>
+                  <circle cx="87.84" cy="15.31" r="10.4" class="sc-iso-ring" />
+                  <circle cx="87.84" cy="15.31" r="7.5" class="sc-iso-inner" />
+                  <circle cx="92.09" cy="16.45" r="1.5" class="sc-iso-dot" /><circle cx="88.98" cy="19.56" r="1.5" class="sc-iso-dot" /><circle cx="84.73" cy="18.42" r="1.5" class="sc-iso-dot" /><circle cx="83.59" cy="14.17" r="1.5" class="sc-iso-dot" /><circle cx="86.7" cy="11.06" r="1.5" class="sc-iso-dot" /><circle cx="90.95" cy="12.2" r="1.5" class="sc-iso-dot" />
+                  <circle cx="106.59" cy="22.89" r="10.4" class="sc-iso-ring" />
+                  <circle cx="106.59" cy="22.89" r="7.5" class="sc-iso-inner" />
+                  <circle cx="110.84" cy="24.03" r="1.5" class="sc-iso-dot" /><circle cx="107.73" cy="27.14" r="1.5" class="sc-iso-dot" /><circle cx="103.48" cy="26" r="1.5" class="sc-iso-dot" /><circle cx="102.34" cy="21.75" r="1.5" class="sc-iso-dot" /><circle cx="105.45" cy="18.64" r="1.5" class="sc-iso-dot" /><circle cx="109.7" cy="19.78" r="1.5" class="sc-iso-dot" />
+                  <circle cx="105.18" cy="43.06" r="10.4" class="sc-iso-ring" />
+                  <circle cx="105.18" cy="43.06" r="7.5" class="sc-iso-inner" />
+                  <circle cx="109.43" cy="44.2" r="1.5" class="sc-iso-dot" /><circle cx="106.32" cy="47.31" r="1.5" class="sc-iso-dot" /><circle cx="102.07" cy="46.17" r="1.5" class="sc-iso-dot" /><circle cx="100.93" cy="41.92" r="1.5" class="sc-iso-dot" /><circle cx="104.04" cy="38.81" r="1.5" class="sc-iso-dot" /><circle cx="108.29" cy="39.95" r="1.5" class="sc-iso-dot" />
+                  <circle cx="85.56" cy="47.95" r="10.4" class="sc-iso-ring" />
+                  <circle cx="85.56" cy="47.95" r="7.5" class="sc-iso-inner" />
+                  <circle cx="89.81" cy="49.09" r="1.5" class="sc-iso-dot" /><circle cx="86.7" cy="52.2" r="1.5" class="sc-iso-dot" /><circle cx="82.45" cy="51.06" r="1.5" class="sc-iso-dot" /><circle cx="81.31" cy="46.81" r="1.5" class="sc-iso-dot" /><circle cx="84.42" cy="43.7" r="1.5" class="sc-iso-dot" /><circle cx="88.67" cy="44.84" r="1.5" class="sc-iso-dot" />
+                  <circle cx="74.84" cy="30.8" r="10.4" class="sc-iso-ring" />
+                  <circle cx="74.84" cy="30.8" r="7.5" class="sc-iso-inner" />
+                  <circle cx="79.09" cy="31.94" r="1.5" class="sc-iso-dot" /><circle cx="75.98" cy="35.05" r="1.5" class="sc-iso-dot" /><circle cx="71.73" cy="33.91" r="1.5" class="sc-iso-dot" /><circle cx="70.59" cy="29.66" r="1.5" class="sc-iso-dot" /><circle cx="73.7" cy="26.55" r="1.5" class="sc-iso-dot" /><circle cx="77.95" cy="27.69" r="1.5" class="sc-iso-dot" />
+                </g>
+                <text x="80" y="39.5" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" class="sc-text-dark">SIMBI</text>
+                <circle cx="92" cy="32" r="8.2" stroke="#e60066" stroke-width="4.4" fill="none" />
+                <path d="M 94.6 24.2 A 8.2 8.2 0 0 1 94.6 39.8" class="sc-o-dark" stroke-width="4.4" fill="none" stroke-linecap="round" />
+                <text x="104" y="39.5" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="900" letter-spacing="0.4" fill="#e60066">MAKERS</text>
+              </svg>
+              <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 dark:bg-slate-800 dark:text-teal-300 border border-teal-200 dark:border-slate-700">PE</span>
             </div>
-            <span class="w-px h-5 bg-slate-200 dark:bg-slate-800"></span>
-            <!-- Refined airy Fab Lab Perú SVG -->
-            <svg class="brand-fablab-svg" viewBox="0 0 188 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Fab Lab Perú">
-              <circle cx="16" cy="16" r="14" fill="#ffffff" />
-              <g transform="translate(16,16)">
-                <!-- Azul (arriba, con separación limpia) -->
-                <path d="M -10.4 -8.1 A 13.2 13.2 0 0 1 10.4 -8.1 L 8.2 -5.8 L 0 -10.2 L -8.2 -5.8 Z" fill="#234fa2" />
-                <rect x="-1.2" y="-10.2" width="2.4" height="3.2" fill="#234fa2" />
-                <ellipse cx="0" cy="-5.6" rx="3.1" ry="2.3" fill="#234fa2" />
-                <!-- Verde (abajo derecha) -->
-                <g transform="rotate(120)">
-                  <path d="M -10.4 -8.1 A 13.2 13.2 0 0 1 10.4 -8.1 L 8.2 -5.8 L 0 -10.2 L -8.2 -5.8 Z" fill="#008c45" />
-                  <rect x="-1.2" y="-10.2" width="2.4" height="3.2" fill="#008c45" />
-                  <ellipse cx="0" cy="-5.6" rx="3.1" ry="2.3" fill="#008c45" />
-                </g>
-                <!-- Rojo (abajo izquierda) -->
-                <g transform="rotate(240)">
-                  <path d="M -10.4 -8.1 A 13.2 13.2 0 0 1 10.4 -8.1 L 8.2 -5.8 L 0 -10.2 L -8.2 -5.8 Z" fill="#e31b23" />
-                  <rect x="-1.2" y="-10.2" width="2.4" height="3.2" fill="#e31b23" />
-                  <ellipse cx="0" cy="-5.6" rx="3.1" ry="2.3" fill="#e31b23" />
-                </g>
-              </g>
-              <text x="35" y="22.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" letter-spacing="0.4" class="fl-text"><tspan font-weight="900">FABLAB</tspan><tspan font-weight="300">PERU</tspan></text>
-            </svg>
+
+            <span class="w-px h-6 bg-slate-200 dark:bg-slate-800"></span>
+
+            <!-- Official Fab Lab Perú PNG logo (exact original proportions) -->
+            <img src="logos/logo_fablab_negro.png" alt="Fab Lab Perú" class="h-7 w-auto object-contain dark:hidden">
+            <img src="logos/logo_fablab_blanco.png" alt="Fab Lab Perú" class="h-7 w-auto object-contain hidden dark:block">
           </div>
           <p class="max-w-md text-slate-500 dark:text-slate-400 leading-relaxed">
-            Red de Innovación y Fabricación Digital Escolar. Conectando las 24 regiones del Perú mediante la capacidad instalada de los Fab Labs públicos de los IEST bajo la metodología SimbioCreación.
+            Red de innovación y fabricación digital escolar. Conectando las 24 regiones del Perú mediante la capacidad instalada de los Fab Labs públicos de los IEST bajo la metodología SimbioCreación.
           </p>
         </div>
 
         <div>
           <h4 class="font-bold text-slate-900 dark:text-white uppercase tracking-wider text-[11px] mb-3">Enlaces</h4>
           <ul class="space-y-2">
-            <li><a href="#mapa" class="hover:text-teal-600">Sedes y Mapa Nacional</a></li>
-            <li><a href="#participa" class="hover:text-teal-600">Cómo Participar</a></li>
-            <li><a href="#impacto" class="hover:text-teal-600">Metodología & MIP</a></li>
-            <li><a href="#aliados" class="hover:text-teal-600">Adopta una Región</a></li>
+            <li><a href="#programa" class="hover:text-teal-600">El programa</a></li>
+            <li><a href="#mapa" class="hover:text-teal-600">Sedes y mapa nacional</a></li>
+            <li><a href="#participa" class="hover:text-teal-600">Cómo participar</a></li>
+            <li><a href="#impacto" class="hover:text-teal-600">Metodología SimbioCreación</a></li>
+            <li><a href="#aliados" class="hover:text-teal-600">Adopta una región</a></li>
           </ul>
         </div>
 
@@ -989,7 +968,7 @@
         </div>
       </div>
 
-      <div class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+      <div class="pt-8 border-t border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
         <p>© 2026 - 2027 SimbioMakers PE. Todos los derechos reservados.</p>
         <p class="text-teal-600 dark:text-teal-400 font-semibold">Convergencia antes que competencia.</p>
       </div>
@@ -1007,8 +986,8 @@
         
         <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Edición Vacacional · Enero – Febrero 2027 · Modalidad Híbrida</span>
-            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Postulación SimbioMakers</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Edición vacacional · Enero – febrero 2027 · Modalidad híbrida</span>
+            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Postulación de estudiante</h3>
           </div>
           <button data-modal-id="modal-estudiante" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1019,7 +998,7 @@
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombre y Apellidos *</label>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombres y apellidos *</label>
               <input type="text" name="nombre" required placeholder="Ej: Lucía Quispe Morales" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
             </div>
             <div>
@@ -1030,11 +1009,11 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Correo Electrónico *</label>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Correo electrónico *</label>
               <input type="email" name="email" required placeholder="lucia@ejemplo.pe" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
             </div>
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Departamento / Región *</label>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Región *</label>
               <select id="student-form-region" name="region" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none"></select>
             </div>
           </div>
@@ -1042,21 +1021,20 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Colegio *</label>
-              <input type="text" name="colegio" required placeholder="Nombre de tu I.E." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+              <input type="text" name="colegio" required placeholder="Nombre de tu colegio" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
             </div>
             <div>
               <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Grado *</label>
               <select name="grado" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-                <option value="4to">4.° de Secundaria</option>
-                <option value="5to">5.° de Secundaria</option>
+                <option value="4to">4.° de secundaria</option>
+                <option value="5to">5.° de secundaria</option>
               </select>
             </div>
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Identidad de Género</label>
-              <select name="genero" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-                <option value="Femenino">Femenino (Mujer en STEAM)</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Otro">Otro / Prefiero no decir</option>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Sexo *</label>
+              <select name="sexo" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+                <option value="Mujer">Mujer</option>
+                <option value="Hombre">Hombre</option>
               </select>
             </div>
           </div>
@@ -1088,7 +1066,7 @@
           <!-- Video Link -->
           <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
             <label class="block font-bold text-slate-800 dark:text-white mb-1">
-              📱 Video Vertical de 60 Segundos (TikTok / Reels / Drive / YouTube Shorts) *
+              📱 Video vertical de 60 segundos (TikTok / Reels / Drive / YouTube Shorts) *
             </label>
             <p class="text-[11px] text-slate-500 mb-2">
               Grábate con tu celular mostrando el lugar o desafío que quieres transformar. <strong>No evaluamos edición ni cámara, solo tu autenticidad e iniciativa.</strong>
@@ -1102,7 +1080,7 @@
           <div class="pt-4 flex items-center justify-between gap-4">
             <span class="text-[11px] text-slate-400">💾 Se guarda automáticamente en tu navegador.</span>
             <button type="submit" class="px-6 py-3 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white shadow-sm transition-all">
-              Enviar mi Postulación &rarr;
+              Enviar mi postulación &rarr;
             </button>
           </div>
 
@@ -1112,78 +1090,7 @@
     </div>
   </div>
 
-  <!-- MODAL 2: SPONSORS -->
-  <div id="modal-sponsor" class="hidden fixed inset-0 z-50 overflow-y-auto">
-    <div class="modal-backdrop fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity opacity-0" onclick="window.closeModal('modal-sponsor')"></div>
-    <div class="min-h-full flex items-center justify-center p-4">
-      <div class="modal-panel relative bg-white dark:bg-slate-900 rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 transform scale-95 opacity-0 transition-all duration-200 text-xs">
-        
-        <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
-          <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Alianzas Institucionales</span>
-            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Sumarse como Sponsor</h3>
-          </div>
-          <button data-modal-id="modal-sponsor" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-
-        <form id="sponsor-application-form" class="space-y-4">
-          <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombre de la Empresa o Entidad *</label>
-            <input type="text" name="empresa" required placeholder="Empresa / Fundación / Cooperante" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Persona de Contacto *</label>
-              <input type="text" name="contacto" required placeholder="Nombre y cargo" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-            </div>
-            <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Celular / Teléfono *</label>
-              <input type="tel" name="telefono" required placeholder="+51 999 999 999" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Correo Institucional *</label>
-              <input type="email" name="email" required placeholder="contacto@empresa.com" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-            </div>
-            <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Modalidad de Interés *</label>
-              <select id="sponsor-form-tier" name="modalidad" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-                <option value="adopta_region">Sponsor de Sede: Adopta una Región</option>
-                <option value="kit_maker">Aliado de Insumos: Kits Maker</option>
-                <option value="fondo_facilitadores">Fondo de Instructores Locales</option>
-                <option value="mentoria_conectividad">Mentoría & Conectividad</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Región de Preferencia</label>
-            <select id="sponsor-form-region" name="region_preferencia" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none"></select>
-          </div>
-
-          <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Mensaje o Reto que les gustaría proponer</label>
-            <textarea name="mensaje" rows="2" placeholder="Detalles de su interés territorial o temático..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none"></textarea>
-          </div>
-
-          <div class="pt-4 flex items-center justify-end gap-3">
-            <button type="button" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-sponsor">Cancelar</button>
-            <button type="submit" class="px-6 py-2.5 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white shadow-sm">
-              Solicitar Dossier Institucional
-            </button>
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL 3: IEST & COLEGIOS -->
+  <!-- MODAL 2: SEDES IEST / FAB LABS (Multiple-choice equipment checkboxes) -->
   <div id="modal-iest" class="hidden fixed inset-0 z-50 overflow-y-auto">
     <div class="modal-backdrop fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity opacity-0" onclick="window.closeModal('modal-iest')"></div>
     <div class="min-h-full flex items-center justify-center p-4">
@@ -1191,8 +1098,8 @@
         
         <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Instituciones</span>
-            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Sumar Laboratorio o Colegio</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Red nacional de laboratorios</span>
+            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Registrar sede IEST / Fab Lab</h3>
           </div>
           <button data-modal-id="modal-iest" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1200,20 +1107,10 @@
         </div>
 
         <form id="iest-application-form" class="space-y-4">
-          <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombre de la Institución *</label>
-            <input type="text" name="institucion" required placeholder="Ej: IESTP Pedro A. Del Águila Hidalgo / Colegio San Ramón" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-          </div>
-
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Tipo de Institución *</label>
-              <select name="tipo_institucion" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-                <option value="iest_publico">IEST Público (Fab Lab Sede)</option>
-                <option value="colegio_publico">Colegio Público de Secundaria</option>
-                <option value="colegio_privado">Colegio Privado de Secundaria</option>
-                <option value="fablab_independiente">Fab Lab Comunitario / Universitario</option>
-              </select>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombre del IEST / Fab Lab *</label>
+              <input type="text" name="institucion" required placeholder="Ej: IESTP Pedro A. Del Águila Hidalgo" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
             </div>
             <div>
               <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Región *</label>
@@ -1223,8 +1120,8 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Responsable / Docente *</label>
-              <input type="text" name="responsable" required placeholder="Nombre del director o docente" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Coordinador / responsable *</label>
+              <input type="text" name="responsable" required placeholder="Nombre y cargo" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
             </div>
             <div>
               <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Celular / WhatsApp *</label>
@@ -1233,14 +1130,40 @@
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Equipamiento o Capacidad Disponible</label>
-            <textarea name="equipamiento" rows="2" placeholder="Impresoras 3D, cortadoras láser, aula de cómputo, docentes facilitadores..." class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none"></textarea>
+            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Correo institucional *</label>
+            <input type="email" name="email" required placeholder="coordinador@iest.edu.pe" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-2">Equipamiento operativo en el laboratorio (marca todas las que apliquen) *</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 bg-slate-50 dark:bg-slate-800/70 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700">
+              <label class="flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="equipamiento" value="Impresoras 3D" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+                <span>Impresoras 3D operativas</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="equipamiento" value="Cortadora láser" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+                <span>Cortadora láser</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="equipamiento" value="Kits electrónicos (Arduino/ESP32)" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+                <span>Kits electrónicos (Arduino / ESP32)</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" name="equipamiento" value="Fresadora CNC / PCB" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+                <span>Fresadora CNC / ruteadora</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer sm:col-span-2">
+                <input type="checkbox" name="equipamiento" value="Internet en laboratorio" class="w-4 h-4 rounded text-teal-600 focus:ring-teal-500">
+                <span>Conexión a internet y computadoras de diseño en el laboratorio</span>
+              </label>
+            </div>
           </div>
 
           <div class="pt-4 flex items-center justify-end gap-3">
             <button type="button" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-iest">Cancelar</button>
             <button type="submit" class="px-6 py-2.5 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900">
-              Registrar Institución
+              Registrar sede IEST
             </button>
           </div>
         </form>
@@ -1249,7 +1172,7 @@
     </div>
   </div>
 
-  <!-- MODAL 4: VOLUNTEER MENTOR -->
+  <!-- MODAL 3: VOLUNTEER MENTOR -->
   <div id="modal-mentor" class="hidden fixed inset-0 z-50 overflow-y-auto">
     <div class="modal-backdrop fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity opacity-0" onclick="window.closeModal('modal-mentor')"></div>
     <div class="min-h-full flex items-center justify-center p-4">
@@ -1257,8 +1180,8 @@
         
         <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Voluntariado Técnico · Enero – Febrero 2027</span>
-            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Sumarse como Mentor</h3>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Voluntariado técnico · Enero – febrero 2027</span>
+            <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white mt-0.5">Sumarse como mentor</h3>
           </div>
           <button data-modal-id="modal-mentor" class="modal-close-btn p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1268,7 +1191,7 @@
         <form id="mentor-application-form" class="space-y-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombre y Apellidos *</label>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Nombres y apellidos *</label>
               <input type="text" name="nombre" required placeholder="Ej: Carlos Mendoza" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
             </div>
             <div>
@@ -1279,22 +1202,22 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Correo Electrónico *</label>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Correo electrónico *</label>
               <input type="email" name="email" required placeholder="carlos@ejemplo.pe" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
             </div>
             <div>
-              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Especialidad Principal *</label>
+              <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">Especialidad principal *</label>
               <select name="especialidad" required class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
-                <option value="diseno_3d">Diseño 3D / CAD / Corte Láser</option>
+                <option value="diseno_3d">Diseño 3D / CAD / Corte láser</option>
                 <option value="electronica_iot">Electrónica / Arduino / ESP32 / IoT</option>
-                <option value="diseno_producto">Diseño Industrial / Prototipado</option>
-                <option value="impacto_comunicacion">Metodología / Pitch / Impacto Social</option>
+                <option value="diseno_producto">Diseño industrial / Prototipado</option>
+                <option value="impacto_comunicacion">Metodología / Pitch / Impacto social</option>
               </select>
             </div>
           </div>
 
           <div>
-            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">LinkedIn o Portafolio (Opcional)</label>
+            <label class="block font-semibold text-slate-700 dark:text-slate-200 mb-1">LinkedIn o portafolio (opcional)</label>
             <input type="url" name="perfil_url" placeholder="https://linkedin.com/in/..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-teal-500 outline-none">
           </div>
 
@@ -1306,7 +1229,7 @@
           <div class="pt-4 flex items-center justify-end gap-3">
             <button type="button" class="modal-close-btn px-4 py-2.5 text-slate-500" data-modal-id="modal-mentor">Cancelar</button>
             <button type="submit" class="px-6 py-2.5 rounded-xl font-bold text-xs bg-teal-600 hover:bg-teal-700 text-white shadow-sm">
-              Registrarme como Mentor
+              Registrarme como mentor
             </button>
           </div>
         </form>
@@ -1323,9 +1246,9 @@
         <div class="w-16 h-16 rounded-full bg-teal-100 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 mx-auto flex items-center justify-center text-3xl mb-4">
           🎉
         </div>
-        <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white">¡Postulación Registrada!</h3>
+        <h3 class="font-display font-extrabold text-2xl text-slate-900 dark:text-white">¡Postulación registrada!</h3>
         <p class="text-xs text-slate-600 dark:text-slate-300 mt-2">
-          Gracias <strong id="celebration-name" class="text-teal-600 dark:text-teal-400">Maker</strong>. Tu postulación ya forma parte del proceso de selección del Capítulo Perú.
+          Gracias <strong id="celebration-name" class="text-teal-600 dark:text-teal-400">Maker</strong>. Tu postulación ya forma parte del proceso de selección de SimbioMakers PE.
         </p>
         <div class="mt-4 p-3.5 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed text-left">
           ✅ <strong>Próximos pasos:</strong> El comité de Fab Lab Perú revisará tu video y te contactará por WhatsApp con los resultados de la conformación de equipos regionales.
