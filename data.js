@@ -26,14 +26,14 @@ window.EDITION_CONFIG = {
       name: 'SimbioCreación',
       role: 'Metodología de convergencia exponencial de saberes',
       logo: 'logos/logo_simbiocreacion.png',
-      description: 'Metodología creada por Benito Juárez Vélez donde el 100% de los participantes convergen sin descartar talentos.'
+      description: 'Metodología creada por Benito Juárez Vélez donde el 100% de los saberes se potencian, integran y multiplican en red.'
     }
   ],
   framework: {
     totalSedes: 25,
     totalDepartments: 24,
     targetStudents: '500 escolares',
-    targetTeams: '100 equipos',
+    targetTeams: 'Equipos regionales de prototipado',
     femaleTarget: '50% mujeres en STEAM',
     diplomaTitle: 'Diploma oficial de innovación y fabricación digital (Fab Lab Perú y SimbioCreación)',
     kitDetails: {
@@ -63,10 +63,10 @@ window.EDITION_CONFIG = {
     },
     {
       step: '03',
-      title: '100 equipos en el Fab Lab (4 a 5 jóvenes)',
+      title: 'Prototipado en el Fab Lab del IEST',
       period: 'Semanas 3 y 4',
       modality: 'Fabricación en IEST',
-      summary: 'Dos duplas se unen (4 a 5 integrantes por equipo, 4 equipos por región) y acuden al Fab Lab del IEST de su región para fabricar su prototipo físico con impresoras 3D, corte láser y electrónica.'
+      summary: 'Las duplas se articulan y acuden al Fab Lab del IEST de su región para fabricar físicamente sus componentes y prototipos con impresoras 3D, corte láser y electrónica.'
     },
     {
       step: '04',
@@ -129,7 +129,7 @@ window.EDITION_CONFIG = {
     },
     {
       q: '¿Cómo funciona la metodología SimbioCreación y en qué etapa se fabrica el prototipo?',
-      a: 'En un concurso tradicional más del 80% de las ideas se descartan. Con SimbioCreación nadie pierde: empezamos con 500 ideas individuales (20 por sede), luego se unen en 250 duplas, y en la tercera etapa forman 100 equipos de 4 a 5 jóvenes (4 equipos por región). Es en esa etapa de 4 a 5 integrantes donde acuden al Fab Lab del IEST a fabricar físicamente su prototipo, para luego integrar los 4 módulos en un sistema regional.'
+      a: 'A diferencia de los modelos competitivos donde solo un proyecto avanza, con SimbioCreación todas las ideas evolucionan: empezamos con 500 ideas individuales (20 por sede), luego se unen en 250 duplas colaborativas, y en la siguiente etapa acuden al Fab Lab del IEST de su región a fabricar físicamente sus componentes y prototipos, para luego integrar las soluciones en su sistema regional.'
     },
     {
       q: '¿Los retos regionales están impuestos de antemano?',

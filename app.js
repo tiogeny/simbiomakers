@@ -806,80 +806,568 @@ function renderSelectionCriteria() {
   `).join('');
 }
 
-// Render Animated SimbioCreación Convergence Tree (500 -> 250 -> 100 -> 24 -> 1)
-function renderSimbioConvergenceTree() {
-  const container = document.getElementById('simbio-convergence-tree');
-  if (!container) return;
 
-  const levels = [
-    { y: 310, count: 8, r: 9, color: '#06B6D4', label: '500 ideas individuales', sub: '20 jóvenes por sede (Virtual)' },
-    { y: 235, count: 4, r: 12, color: '#0D9488', label: '250 duplas intercolegios', sub: '10 parejas por región (Virtual)' },
-    { y: 155, count: 2, r: 16, color: '#e60066', label: '100 equipos de 4 a 5 jóvenes', sub: '★ Prototipado físico en Fab Lab IEST ★', highlight: true },
-    { y: 72,  count: 1, r: 22, color: '#7c3aed', label: '24 sistemas regionales → 1 Red Nacional', sub: '100% coautoría colectiva · 0% descarte' }
+// ==========================================
+// Rotating Hero Words (Inspired by FabLab SCZ)
+// ==========================================
+function initHeroRotatingWords() {
+  const container = document.getElementById('hero-rot-words');
+  if (!container) return;
+  const span = container.querySelector('span');
+  if (!span) return;
+
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  const words = [
+    'soluciones reales',
+    'prototipos físicos',
+    'redes de talento',
+    'innovación local',
+    'co-creación viva'
+  ];
+  let currentIndex = 0;
+
+  setInterval(() => {
+    span.classList.add('out');
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % words.length;
+      span.textContent = words[currentIndex];
+      span.classList.remove('out');
+    }, 350);
+  }, 2700);
+}
+
+
+// ==========================================
+// SimbioCreación a Escala 500 (Grafo Radial Animado)
+// ==========================================
+const SCALE500_META = [
+  {
+    step: 0,
+    pill: 'Etapa 0 · Punto de partida',
+    title: '500 saberes individuales',
+    desc: '20 jóvenes por región inician identificando un desafío concreto de su comunidad y planteando su propuesta de solución tecnológica.',
+    status: '500 ideas activas en todo el país'
+  },
+  {
+    step: 1,
+    pill: 'Etapa 1 · Diálogo intercolegios',
+    title: '250 duplas colaborativas',
+    desc: 'Los participantes se unen en parejas de distintos colegios para dialogar y fusionar sus propuestas en 250 conceptos híbridos más potentes.',
+    status: '250 duplas co-diseñando en vivo'
+  },
+  {
+    step: 2,
+    pill: 'Etapa 2 · Prototipado físico en IEST',
+    title: 'Fabricación digital en los Fab Labs',
+    desc: 'Las duplas acuden al Fab Lab del IEST de su región para fabricar físicamente sus componentes y prototipos con impresoras 3D, corte láser y electrónica.',
+    status: '★ Prototipado y fabricación física en IEST ★'
+  },
+  {
+    step: 3,
+    pill: 'Etapa 3 · 25 Sedes Territoriales',
+    title: '24 regiones y Callao conectadas',
+    desc: 'Cada una de las 25 sedes consolida su sistema tecnológico regional en su Fab Lab público IEST (Amazonas, Cusco, Loreto, Piura, Callao, Ucayali, etc.), listo para la red nacional.',
+    status: '25 sedes articulando sus soluciones'
+  },
+  {
+    step: 4,
+    pill: 'Etapa 4 · Demo Day Nacional',
+    title: '1 sola Red Nacional interconectada',
+    desc: 'Convergencia total: las 24 regiones del Perú integradas en una sola red nacional de innovación y fabricación digital escolar para el Máximo Impacto Posible (MIP).',
+    status: 'Red Nacional en vivo · Máximo Impacto Posible'
+  }
+];
+
+let scale500Graph = null;
+let scale500Step = 0;
+let scale500LastStepChange = 0;
+let scale500Raf = null;
+let scale500AutoTimer = null;
+let scale500UserPaused = false;
+
+function buildScale500Graph() {
+  const nodes = [];
+  const edges = [];
+  
+  // Nombres de las 24 regiones del Perú
+  const REGIONES_24 = [
+    { name: 'Amazonas', code: 'AMZ', macro: 'Oriente' },
+    { name: 'Áncash', code: 'ANC', macro: 'Centro' },
+    { name: 'Apurímac', code: 'APU', macro: 'Sur' },
+    { name: 'Arequipa', code: 'AQP', macro: 'Sur' },
+    { name: 'Ayacucho', code: 'AYA', macro: 'Centro' },
+    { name: 'Cajamarca', code: 'CAJ', macro: 'Norte' },
+    { name: 'Callao', code: 'CAL', macro: 'Centro' },
+    { name: 'Cusco', code: 'CUS', macro: 'Sur' },
+    { name: 'Huancavelica', code: 'HUV', macro: 'Centro' },
+    { name: 'Huánuco', code: 'HCO', macro: 'Centro' },
+    { name: 'Ica', code: 'ICA', macro: 'Sur' },
+    { name: 'Junín', code: 'JUN', macro: 'Centro' },
+    { name: 'La Libertad', code: 'LAL', macro: 'Norte' },
+    { name: 'Lambayeque', code: 'LAM', macro: 'Norte' },
+    { name: 'Lima', code: 'LIM', macro: 'Centro' },
+    { name: 'Loreto', code: 'LOR', macro: 'Oriente' },
+    { name: 'Madre de Dios', code: 'MDD', macro: 'Oriente' },
+    { name: 'Moquegua', code: 'MOQ', macro: 'Sur' },
+    { name: 'Pasco', code: 'PAS', macro: 'Centro' },
+    { name: 'Piura', code: 'PIU', macro: 'Norte' },
+    { name: 'Puno', code: 'PUN', macro: 'Sur' },
+    { name: 'San Martín', code: 'SAM', macro: 'Oriente' },
+    { name: 'Tacna', code: 'TAC', macro: 'Sur' },
+    { name: 'Tumbes', code: 'TUM', macro: 'Norte' },
+    { name: 'Ucayali', code: 'UCY', macro: 'Oriente' }
   ];
 
-  const getXCoords = (count) => {
-    const span = 340;
-    const startX = 70;
-    if (count === 1) return [startX + span / 2];
-    const step = span / (count - 1);
-    return Array.from({ length: count }, (_, i) => startX + i * step);
+  const palette = ['#00F5D4', '#00BBF9', '#7928CA', '#FF007F', '#FFBE0B', '#10B981', '#3B82F6', '#F43F5E', '#8B5CF6', '#14B8A6'];
+
+  const buildSlicesFromMap = (map) => {
+    const arr = Object.entries(map).map(([color, weight]) => ({ color, weight }));
+    return arr.length ? arr : [{ color: '#00F5D4', weight: 1 }];
   };
 
-  let pathsHtml = '';
-  const palette = ['#06B6D4', '#0D9488', '#2563eb', '#059669', '#e60066', '#d97706', '#7c3aed', '#ec4899'];
+  // Nivel 4 (Centro): Red Nacional Única
+  const centerIdx = 0;
+  const centerWeights = {};
+  const centerNode = {
+    level: 4,
+    x: 0,
+    y: 0,
+    r: 34,
+    color: '#FF007F',
+    label: 'RED NACIONAL',
+    slices: []
+  };
+  nodes.push(centerNode);
 
-  for (let l = 0; l < levels.length - 1; l++) {
-    const currX = getXCoords(levels[l].count);
-    const nextX = getXCoords(levels[l + 1].count);
-    const y1 = levels[l].y;
-    const y2 = levels[l + 1].y;
-    const midY = (y1 + y2) / 2;
+  // Nivel 3 (Penúltimo Nivel): Exactamente las 25 BURBUJAS (24 Departamentos + Callao)
+  // Distribuidas de forma concéntrica a dist3 = 0.172
+  const dist3 = 0.172;
+  const dist2 = 0.280;
+  const dist1 = 0.380;
+  const dist0 = 0.466;
 
-    currX.forEach((x1, i) => {
-      const x2 = nextX[Math.floor(i / 2)];
-      const col = palette[i % palette.length];
-      const d = `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`;
-      const delay = (l * 0.4 + i * 0.15).toFixed(2);
-      pathsHtml += `
-        <path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-opacity="0.28" />
-        <path d="${d}" fill="none" stroke="${col}" stroke-width="2.8" stroke-linecap="round" class="hero-network-flow" style="animation-delay: ${delay}s;" />
-      `;
-    });
+  const numRegiones = REGIONES_24.length; // 25 sedes territoriales
+  const pairSplits = [[60, 40], [55, 45], [65, 35], [50, 50], [70, 30]];
+
+  for (let r = 0; r < numRegiones; r++) {
+    const regData = REGIONES_24[r];
+    const rAng = -Math.PI / 2 + (r * 2 * Math.PI) / numRegiones;
+    const rIdx = nodes.length;
+    const regionWeights = {};
+    const regColor = palette[r % palette.length];
+
+    const rNode = {
+      level: 3,
+      regionIdx: r,
+      name: regData.name,
+      code: regData.code,
+      macro: regData.macro,
+      x: Math.cos(rAng) * dist3,
+      y: Math.sin(rAng) * dist3,
+      r: 10.5,
+      color: regColor,
+      slices: []
+    };
+    nodes.push(rNode);
+
+    // Cada región tiene 2 núcleos/módulos de prototipado en Nivel 2
+    const sectorSpan = (2 * Math.PI / numRegiones) * 0.90;
+    for (let g = 0; g < 2; g++) {
+      const gOffset = (g - 0.5) * sectorSpan * 0.55;
+      const gAng = rAng + gOffset;
+      const gIdx = nodes.length;
+      const groupWeights = {};
+      const gNode = {
+        level: 2,
+        regionIdx: r,
+        x: Math.cos(gAng) * dist2,
+        y: Math.sin(gAng) * dist2,
+        r: 6.2,
+        color: palette[(r + g * 3) % palette.length],
+        slices: []
+      };
+      nodes.push(gNode);
+
+      // Cada núcleo tiene 5 duplas en Nivel 1 (10 duplas por región = ~240-250 duplas en total)
+      const groupSpan = sectorSpan * 0.5;
+      for (let p = 0; p < 5; p++) {
+        const pOffset = (p - 2) * (groupSpan / 4) * 0.82;
+        const pAng = gAng + pOffset;
+        const pIdx = nodes.length;
+
+        const c1 = palette[(r + p) % palette.length];
+        const c2 = palette[(r + g + p + 2) % palette.length];
+        const [w1, w2] = pairSplits[(g + p) % pairSplits.length];
+
+        const pairSlices = (c1 === c2)
+          ? [{ color: c1, weight: w1 + w2 }]
+          : [{ color: c1, weight: w1 }, { color: c2, weight: w2 }];
+
+        groupWeights[c1] = (groupWeights[c1] || 0) + w1;
+        groupWeights[c2] = (groupWeights[c2] || 0) + w2;
+        regionWeights[c1] = (regionWeights[c1] || 0) + w1;
+        regionWeights[c2] = (regionWeights[c2] || 0) + w2;
+        centerWeights[c1] = (centerWeights[c1] || 0) + w1;
+        centerWeights[c2] = (centerWeights[c2] || 0) + w2;
+
+        nodes.push({
+          level: 1,
+          regionIdx: r,
+          x: Math.cos(pAng) * dist1,
+          y: Math.sin(pAng) * dist1,
+          r: 4.2,
+          color: c1,
+          slices: pairSlices
+        });
+        edges.push({ from: pIdx, to: gIdx, level: 2, color: c1, travelColors: c1 === c2 ? [c1] : [c1, c2] });
+
+        // En Nivel 0: 2 saberes individuales por dupla (20 jóvenes por región * 24 regiones = 480-500 jóvenes)
+        // Agregamos pequeños offsets para distribuir exactamente los ~500 saberes
+        for (let i = 0; i < 2; i++) {
+          const iOffset = (i === 0 ? -0.42 : 0.42) * (groupSpan / 5) * 0.75;
+          const iAng = pAng + iOffset;
+          const iColor = i === 0 ? c1 : c2;
+          const iIdx = nodes.length;
+          nodes.push({
+            level: 0,
+            regionIdx: r,
+            orderIdx: r * 20 + g * 10 + p * 2 + i,
+            x: Math.cos(iAng) * dist0,
+            y: Math.sin(iAng) * dist0,
+            r: 2.8,
+            color: iColor
+          });
+          edges.push({ from: iIdx, to: pIdx, level: 1, color: iColor, travelColors: [iColor] });
+        }
+      }
+
+      gNode.slices = buildSlicesFromMap(groupWeights);
+      const gCols = gNode.slices.map(sl => sl.color);
+      edges.push({ from: gIdx, to: rIdx, level: 3, color: gCols[0], travelColors: gCols });
+    }
+
+    rNode.slices = buildSlicesFromMap(regionWeights);
+    const rCols = rNode.slices.map(sl => sl.color);
+    // Cada una de las 24 burbujas regionales se conecta al Centro Único en Nivel 4
+    edges.push({ from: rIdx, to: centerIdx, level: 4, color: rCols[0], travelColors: rCols });
   }
 
-  let nodesHtml = '';
-  levels.forEach((lvl, lIdx) => {
-    const xs = getXCoords(lvl.count);
-    xs.forEach((cx, i) => {
-      const col = lIdx === 0 ? palette[i % palette.length] : lvl.color;
-      nodesHtml += `
-        <g transform="translate(${cx}, ${lvl.y})">
-          ${lvl.highlight ? `<circle r="${lvl.r + 6}" fill="${col}" opacity="0.22" class="animate-ping" style="animation-duration: 2.6s;" />` : ''}
-          <circle r="${lvl.r}" fill="${col}" stroke="#ffffff" stroke-width="2.2" />
-        </g>
-      `;
-    });
+  centerNode.slices = buildSlicesFromMap(centerWeights);
+  return { nodes, edges };
+}
 
-    // Right-side level annotation
-    const badgeBg = lvl.highlight ? 'fill="#fdf2f8" stroke="#f472b6"' : 'fill="#f8fafc" stroke="#cbd5e1"';
-    const textFill = lvl.highlight ? '#be185d' : '#0f172a';
-    nodesHtml += `
-      <g transform="translate(445, ${lvl.y})">
-        <line x1="-22" y1="0" x2="-6" y2="0" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3" />
-        <rect x="0" y="-22" width="295" height="44" rx="10" ${badgeBg} stroke-width="1.2" />
-        <text x="14" y="-3" font-family="Plus Jakarta Sans, sans-serif" font-size="12.5" font-weight="800" fill="${textFill}">${lvl.label}</text>
-        <text x="14" y="13" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" font-weight="600" fill="#64748b">${lvl.sub}</text>
-      </g>
-    `;
+function drawMulticolorCircle(ctx, x, y, r, slices) {
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.clip();
+  if (!slices || slices.length <= 1) {
+    ctx.fillStyle = (slices && slices[0] && slices[0].color) || '#FF007F';
+    ctx.fillRect(x - r, y - r, r * 2, r * 2);
+  } else {
+    ctx.translate(x, y);
+    ctx.rotate(-Math.PI / 4);
+    const totalW = slices.reduce((acc, sl) => acc + sl.weight, 0);
+    let curY = -r;
+    slices.forEach((sl) => {
+      const span = (r * 2) * (sl.weight / totalW);
+      ctx.fillStyle = sl.color;
+      ctx.fillRect(-r - 1, curY, r * 2 + 2, span + 0.8);
+      curY += span;
+    });
+  }
+  ctx.restore();
+}
+
+function updateScale500UI() {
+  const meta = SCALE500_META[scale500Step];
+  const pill = document.getElementById('scale500Pill');
+  const title = document.getElementById('scale500Title');
+  const desc = document.getElementById('scale500Desc');
+  const liveStatus = document.getElementById('scale500LiveStatus');
+
+  if (pill) pill.textContent = meta.pill;
+  if (title) title.textContent = meta.title;
+  if (desc) desc.textContent = meta.desc;
+  if (liveStatus) liveStatus.textContent = meta.status;
+
+  document.querySelectorAll('.scale500-step-btn').forEach(btn => {
+    const s = parseInt(btn.dataset.step, 10);
+    const isActive = s === scale500Step;
+    if (isActive) {
+      btn.className = 'scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs flex items-center justify-between transition-all border bg-teal-50 dark:bg-teal-950/60 border-teal-300 dark:border-teal-700 text-teal-900 dark:text-teal-200 font-bold shadow-sm';
+    } else {
+      btn.className = 'scale500-step-btn w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all border border-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50';
+    }
+  });
+}
+
+function setScale500Step(step) {
+  scale500Step = Math.max(0, Math.min(4, step));
+  scale500LastStepChange = performance.now();
+  updateScale500UI();
+}
+
+function advanceScale500Step() {
+  if (scale500Step < 4) {
+    setScale500Step(scale500Step + 1);
+  } else {
+    setScale500Step(0);
+  }
+}
+
+function toggleScale500Play() {
+  const btn = document.getElementById('btnScale500Play');
+  if (scale500AutoTimer) {
+    clearInterval(scale500AutoTimer);
+    scale500AutoTimer = null;
+    scale500UserPaused = true;
+    if (btn) btn.innerHTML = '<span>▶ Reproducir</span>';
+    return;
+  }
+  scale500UserPaused = false;
+  if (scale500Step >= 4) setScale500Step(0);
+  if (btn) btn.innerHTML = '<span>⏸ Pausar</span>';
+  scale500AutoTimer = setInterval(() => {
+    if (scale500Step < 4) {
+      setScale500Step(scale500Step + 1);
+    } else {
+      clearInterval(scale500AutoTimer);
+      scale500AutoTimer = null;
+      if (btn) btn.innerHTML = '<span>▶ Reproducir</span>';
+    }
+  }, 2400);
+}
+
+function renderScale500Frame(now) {
+  const canvas = document.getElementById('scale500Canvas');
+  if (!canvas || !scale500Graph) {
+    scale500Raf = requestAnimationFrame(renderScale500Frame);
+    return;
+  }
+
+  const rect = canvas.parentElement.getBoundingClientRect();
+  if (rect.width < 10 || rect.height < 10) {
+    scale500Raf = requestAnimationFrame(renderScale500Frame);
+    return;
+  }
+
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const cssW = Math.round(rect.width);
+  const cssH = Math.round(rect.height);
+
+  if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
+    canvas.width = Math.round(cssW * dpr);
+    canvas.height = Math.round(cssH * dpr);
+    canvas.style.width = cssW + 'px';
+    canvas.style.height = cssH + 'px';
+  }
+
+  const ctx = canvas.getContext('2d');
+  ctx.save();
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, cssW, cssH);
+
+  const cx = cssW / 2;
+  const cy = cssH / 2;
+  const dim = Math.min(cssW, cssH);
+  const isDark = document.documentElement.classList.contains('dark');
+
+  const elapsed = now - scale500LastStepChange;
+  const animP = Math.min(1, Math.max(0, elapsed / 750));
+  const easeP = 1 - Math.pow(1 - animP, 3);
+
+  // Anillos concéntricos de referencia didáctica
+  [0.466, 0.380, 0.280, 0.172].forEach((rf) => {
+    ctx.beginPath();
+    ctx.arc(cx, cy, dim * rf, 0, Math.PI * 2);
+    ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(15,23,42,0.05)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 6]);
+    ctx.stroke();
+    ctx.setLineDash([]);
   });
 
-  container.innerHTML = `
-    <svg viewBox="0 0 760 360" class="w-full h-auto max-w-4xl mx-auto select-none" xmlns="http://www.w3.org/2000/svg">
-      ${pathsHtml}
-      ${nodesHtml}
-    </svg>
-  `;
+  const { nodes, edges } = scale500Graph;
+
+  // Renderizado de aristas y partículas vivas
+  edges.forEach((e, idx) => {
+    if (e.level > scale500Step) return;
+    const n1 = nodes[e.from];
+    const n2 = nodes[e.to];
+    const x1 = cx + n1.x * dim;
+    const y1 = cy + n1.y * dim;
+    const x2 = cx + n2.x * dim;
+    const y2 = cy + n2.y * dim;
+
+    const p = (e.level === scale500Step) ? easeP : 1;
+    const curX = x1 + (x2 - x1) * p;
+    const curY = y1 + (y2 - y1) * p;
+
+    let strokeStyle = e.color;
+    if (e.travelColors && e.travelColors.length > 1 && (Math.abs(curX - x1) > 0.5 || Math.abs(curY - y1) > 0.5)) {
+      const grad = ctx.createLinearGradient(x1, y1, curX, curY);
+      const len = e.travelColors.length;
+      e.travelColors.forEach((col, cIdx) => {
+        grad.addColorStop(cIdx / (len - 1), col);
+      });
+      strokeStyle = grad;
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(curX, curY);
+    ctx.strokeStyle = strokeStyle;
+    ctx.globalAlpha = e.level === 4 ? 0.75 : (e.level === 3 ? 0.55 : (e.level === 2 ? 0.42 : 0.32));
+    ctx.lineWidth = e.level === 4 ? 4.2 : (e.level === 3 ? 2.4 : (e.level === 2 ? 1.4 : 1.1));
+    ctx.stroke();
+
+    // Partículas luminosas vivas viajando continuamente
+    if (p > 0.92 && e.travelColors && e.travelColors.length > 0) {
+      const tcLen = e.travelColors.length;
+      const speed = e.level === 4 ? 0.00045 : (e.level === 3 ? 0.0005 : 0.00055);
+      const pr = e.level === 4 ? 3.4 : (e.level === 3 ? 2.4 : (e.level === 2 ? 1.8 : 1.4));
+      e.travelColors.forEach((tc, tIdx) => {
+        const t = ((now * speed + idx * 0.11 + tIdx / tcLen) % 1);
+        const px = x1 + (x2 - x1) * t;
+        const py = y1 + (y2 - y1) * t;
+        ctx.beginPath();
+        ctx.arc(px, py, pr, 0, Math.PI * 2);
+        ctx.fillStyle = tc;
+        ctx.globalAlpha = 0.95;
+        ctx.fill();
+      });
+    }
+  });
+
+  ctx.globalAlpha = 1;
+
+  // Renderizado de nodos
+  nodes.forEach(n => {
+    if (n.level > scale500Step) return;
+    const x = cx + n.x * dim;
+    const y = cy + n.y * dim;
+
+    let scaleFactor = 1;
+    if (n.level === 0 && scale500Step === 0) {
+      const delay = (n.orderIdx || 0) * 1.2;
+      const localP = Math.min(1, Math.max(0, (elapsed - delay) / 200));
+      scaleFactor = 0.1 + 0.9 * (1 - Math.pow(1 - localP, 2));
+    } else if (n.level === scale500Step && scale500Step > 0) {
+      scaleFactor = 0.3 + 0.7 * easeP;
+    }
+
+    const r = n.r * scaleFactor * (dim / 650);
+    const drawR = n.level === 0 ? Math.max(2.8, r) : Math.max(3.5, r);
+
+    // Halo palpitante para niveles superiores (centro y sedes)
+    if (n.level >= 3) {
+      const pulse = 1 + 0.09 * Math.sin(now * 0.004);
+      ctx.beginPath();
+      ctx.arc(x, y, drawR * 1.34 * pulse, 0, Math.PI * 2);
+      ctx.fillStyle = n.level === 4 ? 'rgba(255, 0, 127, 0.22)' : 'rgba(0, 245, 212, 0.12)';
+      ctx.fill();
+    }
+
+    if (n.slices && n.slices.length > 1) {
+      drawMulticolorCircle(ctx, x, y, drawR, n.slices);
+    } else {
+      ctx.beginPath();
+      ctx.arc(x, y, drawR, 0, Math.PI * 2);
+      ctx.fillStyle = n.color;
+      ctx.fill();
+    }
+
+    ctx.beginPath();
+    ctx.arc(x, y, drawR, 0, Math.PI * 2);
+    ctx.lineWidth = n.level === 4 ? 3 : (n.level >= 2 ? 1.6 : 0.6);
+    ctx.strokeStyle = isDark ? '#0B0F19' : '#ffffff';
+    ctx.stroke();
+
+    // Etiqueta legible para las 24 burbujas regionales en Nivel 3
+    if (n.level === 3 && scale500Step >= 3 && n.code) {
+      ctx.save();
+      ctx.font = 'bold 7.5px Plus Jakarta Sans, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = isDark ? '#ffffff' : '#0f172a';
+      // Posicionar la sigla ligeramente radial hacia afuera para máxima legibilidad
+      const distFromCenter = Math.sqrt(n.x * n.x + n.y * n.y);
+      const textOffsetX = distFromCenter > 0 ? (n.x / distFromCenter) * (drawR + 9) : 0;
+      const textOffsetY = distFromCenter > 0 ? (n.y / distFromCenter) * (drawR + 9) : 0;
+      ctx.fillText(n.code, x + textOffsetX, y + textOffsetY);
+      ctx.restore();
+    }
+  });
+
+  ctx.restore();
+  scale500Raf = requestAnimationFrame(renderScale500Frame);
+}
+
+function initScale500Canvas() {
+  const canvas = document.getElementById('scale500Canvas');
+  if (!canvas) return;
+
+  if (!scale500Graph) {
+    scale500Graph = buildScale500Graph();
+  }
+
+  scale500LastStepChange = performance.now();
+  updateScale500UI();
+
+  if (!scale500Raf) {
+    scale500Raf = requestAnimationFrame(renderScale500Frame);
+  }
+
+  // Event Listeners para controles
+  const btnPlay = document.getElementById('btnScale500Play');
+  if (btnPlay) {
+    btnPlay.onclick = toggleScale500Play;
+  }
+
+  const btnNext = document.getElementById('btnScale500Next');
+  if (btnNext) {
+    btnNext.onclick = () => {
+      if (scale500AutoTimer) toggleScale500Play();
+      advanceScale500Step();
+    };
+  }
+
+  const btnReset = document.getElementById('btnScale500Reset');
+  if (btnReset) {
+    btnReset.onclick = () => {
+      if (scale500AutoTimer) toggleScale500Play();
+      setScale500Step(0);
+    };
+  }
+
+  document.querySelectorAll('.scale500-step-btn').forEach(btn => {
+    btn.onclick = () => {
+      if (scale500AutoTimer) toggleScale500Play();
+      const step = parseInt(btn.dataset.step, 10);
+      setScale500Step(step);
+    };
+  });
+
+  // Autoplay activado por Scroll (IntersectionObserver)
+  initScale500ScrollObserver();
+}
+
+function initScale500ScrollObserver() {
+  const card = document.getElementById('scale500-card');
+  if (!card || !('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !scale500AutoTimer && !scale500UserPaused) {
+        toggleScale500Play();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(card);
 }
 
 // Render Sponsor Tiers (Direct WhatsApp to Delia Barriga)
@@ -1249,7 +1737,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeroNetworkMap();
   renderPeruMap();
   renderRegionsGrid();
-  renderSimbioConvergenceTree();
+  initHeroRotatingWords();
+  initScale500Canvas();
   renderPedagogy();
   renderSelectionCriteria();
   renderSponsorTiers();
