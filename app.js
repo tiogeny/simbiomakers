@@ -384,6 +384,13 @@ function renderHeroNetworkMap() {
   }
 
   if (card && stage) {
+    // Mouse wheel zoom inside map card
+    card.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 0.16 : -0.16;
+      setZoom(heroZoom + delta);
+    }, { passive: false });
+
     // Double click toggles zoom
     card.addEventListener('dblclick', (e) => {
       if (e.target.closest('button')) return;
