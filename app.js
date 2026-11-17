@@ -1104,7 +1104,6 @@ function updateScale500UI() {
 
 function setScale500Step(step) {
   scale500Step = Math.max(0, Math.min(4, step));
-  setupScale500Tooltip(canvas);
   scale500LastStepChange = performance.now();
   updateScale500UI();
 }
@@ -1380,6 +1379,7 @@ function initScale500Canvas() {
   }
 
   scale500LastStepChange = performance.now();
+  setupScale500Tooltip(canvas);
   updateScale500UI();
 
   if (!scale500Raf) {
@@ -1813,4 +1813,20 @@ document.addEventListener('DOMContentLoaded', () => {
   initMentorForm();
   setupEventListeners();
   syncLiveSheetData();
+
+  // Atajo de teclado interno: Tecla 'F' para alternar Fullscreen (sin bloquear Ctrl+F ni inputs)
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+    if (tag === 'input' || tag === 'textarea' || tag === 'select' || (e.target && e.target.isContentEditable)) return;
+
+    if (e.key === 'f' || e.key === 'F') {
+      e.preventDefault();
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  });
 });
